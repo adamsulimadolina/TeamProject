@@ -66,14 +66,14 @@ namespace TeamProject.DTOs.FieldDependency
                 return "Niezany błąd. Spróbuj jeszcze raz";
             }
             //nie można edytować zależności ilościowej
-            string test= FieldFieldDependencyType.FieldDuplication.ToString();
             var dependencyExist = _context.Dependencies
                 .AsNoTracking()
                 .FirstOrDefault(dep => (dep.DependencyType.ToString() == this.DependencyType)
-                    && (dep.ThisField.Name == this.CurrentFieldName));
+                    && (dep.ThisField.Name == this.CurrentFieldName)
+                    && (dep.DependencyType.ToString()== "FieldDuplication"));
             if (dependencyExist != null)
             {
-                return "Zależność ilościowa już została zdefiniowana na tym polu.";
+                return "Zależność ilościowa już została zdefiniowana na tym polu. Nie możesz jej zmienić!";
             }
 
             if (_context.Field.FirstOrDefault(f => f.Name == this.SuperiorFieldName).Type != "number"
