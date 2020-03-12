@@ -64,7 +64,7 @@ namespace TeamProject.Controllers
             var dependency = _mapper.Map<FieldFieldDependency>(createDependency);
             dependency.Build(createDependency,_context);
             _fieldDependenciesRepo.SaveDependency(dependency);
-            return View();
+            return RedirectToAction("Index", "Forms");
         }
     }
 }
