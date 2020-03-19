@@ -4,7 +4,39 @@
     ViewData["Title"] = "Index";
 }
 
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
 
+    th, td {
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr {
+        background-color: #8bbabb
+    }
+
+    th {
+        background-color: #464159;
+        color: white;
+    }
+
+    a {
+        color: #424242;
+        font-weight: 500;
+    }
+
+    .table tbody tr:hover {
+        background-color: #6C7B95;
+    }
+
+    td {
+        color: black;
+    }
+</style>
 <div>
     <button class="btn btn-danger" style="margin-bottom:10px;"><a id="stworzNowyFormularz" style="text-decoration:none;" asp-action="Create">Dodaj nową zależność do formularza początkowego</a></button>
 </div>
@@ -35,10 +67,10 @@
                     @Html.DisplayFor(modelItem => item.Type)
                 </td>
                 <td>
-                    <button type="button" class="btn btn-info"><a style="text-decoration:none;color:white;"asp-action="AddConnection" asp-route-id="@item.Id">Edycja</a></button>
+                    <button type="button" class="btn btn-info"><a style="text-decoration:none;color:white;" asp-action="AddConnection" asp-route-id="@item.Id">Edycja</a></button>
                     <button type="button" class="btn btn-info"><a style="text-decoration:none;color:white;" asp-action="Delete" asp-route-id="@item.Id">Usuń</a></button>
-                  
-                  
+
+
                 </td>
             </tr>
         }

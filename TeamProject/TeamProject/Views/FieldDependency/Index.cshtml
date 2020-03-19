@@ -45,7 +45,7 @@
     <input asp-for="@Model.CurrentFieldName" name="CurrentFieldName" />
     <br />
     <button id="AddDependedField" type="submit">Dodaj Pole</button><br />
-    <button type="submit" asp-action="CreateDependency">Stwórz zależność</button>
+    <button style="margin-top:30px;" type="submit" asp-action="CreateDependency">Stwórz zależność</button>
 
     @* Hidden fields *@
     <input asp-for="@Model.AllIndependentFieldsName" hidden />

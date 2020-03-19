@@ -145,7 +145,9 @@ namespace TeamProject.Controllers
                 return NotFound();
             }
 
-            return View(entranceFormFields);
+             return View(entranceFormFields);
+           // return RedirectToAction("Delete", new { id = entranceFormFields.Id });
+            
         }
 
         // POST: EntranceFormFields/Delete/5
