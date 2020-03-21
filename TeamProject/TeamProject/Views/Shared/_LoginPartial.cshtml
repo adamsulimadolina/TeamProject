@@ -2,12 +2,7 @@
 @inject SignInManager<MyUser> SignInManager
 @inject UserManager<MyUser> UserManager
 
-<head>
 
-
-
-
-</head>
 <body>
   
 
@@ -37,11 +32,11 @@
                 <a class="nav-link text-dark btnx dropdown-toggle"data-toggle="dropdown" role="button" asp-controller="Patient" asp-action="Index">Pacjent</a>
                 <div class="dropdown-menu">
 
-                    <a class="dropdown-item text-dark btnx " asp-controller="Patient" asp-action="Index" title="CompleteSurvey">Pacjent</a>
+                    <a class="dropdown-item text-dark btnxDrop " asp-controller="Patient" asp-action="Index" title="CompleteSurvey">Pacjent</a>
 
-                    <a class="dropdown-item text-dark btnx " asp-controller="Patient" asp-action="Create" title="AddPatient">Dodaj Pacjenta</a>
+                    <a class="dropdown-item text-dark btnxDrop " asp-controller="Patient" asp-action="Create" title="AddPatient">Dodaj Pacjenta</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item text-dark btnx dropdown-item" asp-controller="EntranceFormFields" asp-action="Index" title="CompleteSurvey">Formularz powitalny </a>
+                    <a class="dropdown-item text-dark btnxDrop dropdown-item" asp-controller="EntranceFormFields" asp-action="Index" title="CompleteSurvey">Formularz powitalny </a>
 
                 </div>
 
@@ -49,7 +44,7 @@
 
 
             <li class="nav-item">
-                <a style="margin:5px 5px 0px 50px" class="btn btn-info" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Mój profil</a>
+                <a style="margin:5px 5px 0px 50px" class="btn btn-info" asp-area="Identity" asp-page="/Account/Manage/Index" title="Profil użytkownika">Mój profil</a>
             </li>
             <li class="nav-item">
                 <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
