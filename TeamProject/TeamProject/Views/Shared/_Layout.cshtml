@@ -128,7 +128,10 @@
         <div id="page-content-wrapper">
 
 
-
+            @if (TempData["Error"] != null)
+            {
+                <p style="color:red">@TempData["Error"]</p>
+            }
             <div class="container-fluid">
                 <div>
                     <main role="main" class="pb-3 site">
