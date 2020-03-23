@@ -7,6 +7,9 @@ using FormGenerator.Models;
 using TeamProject.Models;
 using Microsoft.EntityFrameworkCore;
 using TeamProject.Data;
+using TeamProject.Models.FieldFieldDependencyModels;
+using TeamProject.Models.FieldDependencyModels;
+using TeamProject.Infrastructure.Enums;
 
 namespace TeamProject
 {
@@ -49,6 +52,16 @@ namespace TeamProject
                 }
             }
 
+        }
+
+        public static void SeedDependencies(IFieldDependenciesRepository repository, FormGeneratorContext context)
+        {
+            Field korzen = context.Field.FirstOrDefault(f => f.Id == 1);
+            var fields = context.Field.Where(f=>f.Id!=1).ToList();
+            FieldFieldDependency dep1 = new FieldFieldDependency(korzen, FieldFieldDependencyType.FieldDuplication, "22");
+            fields.ForEach(f => dep1.RelatedFields.Add(f));
+            var test = repository.GetAllDependFields();
+            repository.SaveDependency(dep1);
         }
     }
 }

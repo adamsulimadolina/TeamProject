@@ -33,7 +33,7 @@ namespace FormGenerator.Models
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            
+            //modelBuilder.Entity<PatientForms>().Property(b => b.agreement).HasDefaultValue(false);
         }
         public DbSet<Logs> Logs { get; set; }
         public DbSet<Patient> Patients { get; set; }
@@ -52,6 +52,6 @@ namespace FormGenerator.Models
         public DbSet<EntranceConnections> EntranceConnections { get; set; }
         public DbSet<FormGenerator.Models.EntranceFormFields> EntranceFormFields { get; set; }
         public DbSet<FieldFieldDependency> Dependencies { get; set; }
-        
+
     }
 }

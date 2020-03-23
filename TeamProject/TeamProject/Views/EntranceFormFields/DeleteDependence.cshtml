@@ -1,0 +1,26 @@
+﻿@model FormGenerator.Models.EntranceConnections
+
+@{
+    ViewData["Title"] = "DeleteDependence";
+}
+
+
+<h3>Czy na pewno usunąć zależność?</h3>
+<div>
+    <hr />
+    <dl class="row">
+       
+        <dt class = "col-sm-2">
+            Formularz zależny
+        </dt>
+        <dd class="col-sm-10">
+            @ViewBag.form
+        </dd>
+    </dl>
+    
+    <form asp-action="DeleteDependence">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Usuń zależność" class="btn btn-danger" /> |
+        <a asp-action="AddConnection" asp-route-id="@ViewBag.field">Powrót do listy</a>
+    </form>
+</div>

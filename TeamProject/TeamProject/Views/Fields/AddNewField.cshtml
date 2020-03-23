@@ -9,9 +9,7 @@
         box-sizing: border-box;
     }
 
-    body {
-        font: 16px Arial;
-    }
+   
 
     .autocomplete {
         /*the container must be positioned relative:*/
@@ -60,7 +58,7 @@
     }
 
     .cities {
-        background-color: #66BB6A;
+        background-color: #464159;
         color: white;
         margin: 20px;
         padding: 20px;
@@ -72,18 +70,19 @@
     <p style="color:red;">@ViewBag.Error</p>
 }
 
-<h5 style="color:#66BB6A;  font-weight:700">Przypisz pole do formularza</h5>
+<h5 class="text-center">Przypisz pole do formularza</h5>
 <div class="cities">
     <form asp-action="AddNewField" autocomplete="off" id="myForm">
         <button style=" background-color:white;
             color:#66BB6A;
             font-size:20px;
-            padding: 5px 35px;
+            padding: 5px 15px;
+            margin-bottom:3px;
             border-radius: 8px;
             position:center;" type="button" class="btn btn-info" data-toggle="modal" data-target=".bd-example-modal-lg">
             Stwórz nowe pole w formularzu
         </button>
-        <table class="table table-hover">
+        <table class="table">
             <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -102,12 +101,7 @@
                             <td>@Model.fields[i].Name</td>
                             <td>@Model.fields[i].Type</td>
                             <td>
-                                <button style=" background-color:white;
-            color:#66BB6A;
-            font-size:13px;
-            padding: 5px 5px;
-            border-radius: 8px;
-            position:center;" type="submit" asp-route-fieldId="@Model.fields[i].Id" asp-action="DeleteFromList" class="btn btn-danger" to-delete="true">
+                                <button type="submit" asp-route-fieldId="@Model.fields[i].Id" asp-action="DeleteFromList" class="btn btn-danger" to-delete="true">
                                     Usuń
                                 </button>
                             </td>
@@ -135,7 +129,7 @@
         <br />
         <label asp-for="@Model.currentName">Nazwa pola:</label>
         <div class="autocomplete px-3 py-1">
-            <input asp-for="@Model.currentName" class="form-control" id="autoFill" />
+            <input asp-for="@Model.currentName" class="form-control" id="autoFill"style="width:200px" />
         </div>
         <br />
         <div class="row px-3 py-1">
@@ -193,6 +187,7 @@
                                                                                                                     color:#66BB6A;
                                                                                                                     font-size:20px;
                                                                                                                     padding: 5px 15px;
+                                                                                                                    margin-bottom:5px;
                                                                                                                     border-radius: 8px;
                                                                                                                     position:center;"/>
                         <div id="firstDiv">
@@ -211,9 +206,8 @@
                 </div>
             </div>
         </div>
-        <br /><br />
-        <br />
-        <hr style="color:white" />
+        
+       
         <br />
         @if (Model.fields != null)
         {
@@ -245,7 +239,8 @@
         <input style=" background-color:white;
             color:#66BB6A;
             font-size:20px;
-            padding: 15px 35px;
+            margin-top:20px;
+            padding: 10px 15px;
             border-radius: 8px;
             position:center;" type="button" id="zapiszZmiany" class="btn btn-primary" value="Zapisz zmiany" />
 
@@ -533,7 +528,7 @@
     function AddTextBox(value) {
         let u = "u" + value;
 
-        return '<div ><input type="text" id="' + value + '"name="dyntxt" style=" border-radius: 5px; width:300px; height:30px; "/><input type="button" id="' +u + '"onclick="RemoveBtn(this)" value="Usuń" style=" background-color:white; color:#66BB6A;font-size:20px;padding: 5px 5px;border-radius: 8px;position:center;"/></div>'
+        return '<div ><input type="text" id="' + value + '"name="dyntxt" style=" border-radius: 5px; width:300px; height:30px; "/><input type="button" id="' +u + '"onclick="RemoveBtn(this)" value="Usuń" style=" background-color:white; color:#66BB6A;font-size:20px;padding: 5px 5px;border-radius: 8px;position:center;margin-left:5px"/></div>'
     }
 
     

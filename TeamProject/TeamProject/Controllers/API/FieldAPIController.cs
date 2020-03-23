@@ -10,18 +10,24 @@ using TeamProject.Models.FormGeneratorModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using TeamProject.Models;
+using TeamProject.Models.FieldFieldDependencyModels;
 
 namespace TeamProject.Controllers.API
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class FieldAPIController : Controller
     {
         private readonly FormGeneratorContext _context;
         private readonly UserManager<MyUser> _userManager;
+        private readonly IFieldDependenciesRepository _dependenciesRepository;
 
-        public FieldAPIController(FormGeneratorContext context, UserManager<MyUser> userManager)
+        public FieldAPIController(FormGeneratorContext context
+            , UserManager<MyUser> userManager
+            ,IFieldDependenciesRepository depRepo)
         {
+            _dependenciesRepository = depRepo;
             _context = context;
             _userManager = userManager;
         }
@@ -30,9 +36,11 @@ namespace TeamProject.Controllers.API
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Field>>> GetField()
         {
+            var allDependFields = _dependenciesRepository.GetAllDependFields();
             var fields = await _context.Field
                 .Where(f => f.Name != null)
                 .ToListAsync();
+            fields=fields.Where(f => !allDependFields.Contains(f)).ToList();// nie można jawnie przypisać do formularza zależnego pola
             return fields;
         }
         public async Task<MyUser> GetUser()

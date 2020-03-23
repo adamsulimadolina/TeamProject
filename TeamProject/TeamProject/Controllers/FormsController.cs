@@ -125,7 +125,7 @@ namespace FormGenerator.Controllers
 
         public async Task<IActionResult> Formularz(List<FieldWithValue> fields, int formId, int patientId)
         {
-            var user = await GetUser();
+            MyUser user = await GetUser();
             foreach (var field in fields)
             {
                 UserAnswers answer = new UserAnswers
@@ -152,6 +152,19 @@ namespace FormGenerator.Controllers
                         break;
                 }
                 _context.Add(answer);
+
+                for(int i = 0; i < field.Dependencies.RelatedFields.Count; i++)
+                {
+                    UserAnswers pomik = new UserAnswers
+                    {
+                        Answer = field.Dependencies.RelatedFields[i].Type == "checkbox" ? field.DepndenciesValue[i].boolVal.ToString() : field.DepndenciesValue[i].textVal,
+                        IdField = field.Dependencies.RelatedFields[i].Id,
+                        IdForm=formId,
+                        IdPatient = patientId,
+                        IdUser = user.CustomID
+                    };
+                    _context.Add(pomik);
+                }
             }
             _context.SaveChanges();
             return View("WyslanoFormularz", fields);
@@ -160,20 +173,32 @@ namespace FormGenerator.Controllers
         // stworzenie formularza
         public IActionResult Create(int ?id)
         {
+            if(id==null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             ViewBag.bag = id;
             return View();
         }
-
-        // POST: Forms/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+    
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,id_Category,Parent")] Forms forms)
         {
             if (ModelState.IsValid)
-            {
+            {               
                 _context.Add(forms);
+                await _context.SaveChangesAsync();
+                List<Patient> patients = await _context.Patients.ToListAsync();
+                foreach (var patient in patients)
+                {
+                    _context.PatientForms.Add(new PatientForms()
+                    {
+                        IdPatient = patient.IdPatient,
+                        IdForm = forms.Id,
+                        agreement = false
+                    });
+                }
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index", "Forms");
             }

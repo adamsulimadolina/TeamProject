@@ -7,18 +7,24 @@
     <title>@ViewData["Title"] - FormGenerator</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 </head>
 <body>
     <style>
         body {
             margin-left: 50px;
             overflow-x: hidden;
+            
         }
-
+        ul {
+            list-style-type: none;
+            margin-right:35px;
+            margin-top:10px;
+        }
         #grid-con {
             display: grid;
         }
-
+     
         #sidebar-wrapper {
             min-height: 100vh;
             margin-left: -15rem;
@@ -26,7 +32,8 @@
             -moz-transition: margin .25s ease-out;
             -o-transition: margin .25s ease-out;
             transition: margin .25s ease-out;
-            box-shadow:3px 3px 6px black;
+            box-shadow: 3px 3px 6px black;
+            background-color: #8bbabb;
         }
 
             #sidebar-wrapper .sidebar-heading {
@@ -59,12 +66,16 @@
         .btnz {
             background-color: #dcd2d2
         }
+
+        .navbar-nav li:hover > .dropdown-menu {
+            display: block;
+        }
     </style>
 
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <header >
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-#6c7b95 border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Forms" asp-action="Index">Generator Formularzy</a>
+
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -72,16 +83,38 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
-                    <ul class="navbar-nav flex-grow-1">
+                    <ul class="navbar-nav mr-auto">
 
                         <li class="nav-item">
-                            <a class="nev-link" style="color:#66BB6A;" asp-area="" asp-controller="Forms" asp-action="ListaFormularzy">Formularze</a>
+                            <a class="nav-link text-dark btnx" asp-area="" asp-controller="Forms" asp-action="Index">Generator Formularzy </a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nev-link" style="color:#66BB6A; padding-left:10px;" asp-area="" asp-controller="UserAnswerLists" asp-action="AnswerList">Wizualizator</a>
+                            <a class="nav-link text-dark btnx" asp-area="" asp-controller="Forms" asp-action="ListaFormularzy">Formularze</a>
+                        </li>
+
+
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark btnx" asp-area="" asp-controller="UserAnswerLists" asp-action="AnswerList">Wizualizator</a>
+                        </li>
+
+
+
+
+                        <li class="nav-item dropdown">
+
+                            <a class="nav-link text-dark btnx dropdown-toggle" data-toggle="dropdown" asp-controller="Patient" asp-action="Index" title="CompleteSurvey">Pola</a>
+                            <div class="dropdown-menu" aria-labelledby="submenu">
+                                <a class="nav-link text-dark  dropdown-item btnxDrop" asp-controller="FieldDependency" asp-action="Index">Kreator zależności</a>
+                            </div>
+
                         </li>
                     </ul>
+
+
+
+
                 </div>
             </div>
         </nav>
@@ -92,7 +125,7 @@
     <div class="d-flex" id="wrapper" style="margin-left: 190px">
 
         <!-- Sidebar -->
-        <div class="bg-light border-right" id="sidebar-wrapper">
+        <div class="bg-#8bbabb border-right" id="sidebar-wrapper">
             <div class="sidebar-heading">Formularze pacjenta </div>
             <div class="list-group list-group-flush container">
                 <div class="table">
@@ -117,6 +150,7 @@
             <div class="container-fluid">
                 <div>
                     <main role="main" class="pb-3 site">
+                     
                         @RenderBody()
                     </main>
                 </div>
@@ -128,13 +162,9 @@
 
 
 
-    @*<div>
-            <main role="main" class="pb-3 site">
-                @RenderBody()
-            </main>
-        </div>*@
 
-    </div>
+
+    
 
     <footer class="border-top footer text-muted">
         <div class="container">
@@ -144,21 +174,12 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
     </environment>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-ui/jquery-ui.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @*<script src="~/js/patient.js"></script>*@
@@ -223,7 +244,7 @@
             for (let i = 0; i < data.length; i++) {
                 let ul = document.createElement("ul");
                 let li = document.createElement('li');
-                var form = $(" <button>").attr("class", "btnz").text(data[i].nazwa_formularza).click(function () {
+                var form = $(" <button>").attr("class", "btnz").text(data[i].nazwa_formularza).css("width", "100%").click(function () {
                     window.location.href = '/Forms/Formularz/' + data[i].idForm;
                     return false;
                 });
@@ -235,6 +256,11 @@
 
 
         }
+
+      
+
+
+
 
 
 

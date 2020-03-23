@@ -4,42 +4,35 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Stwórz</h1>
+<div class="row" style="padding-top:40px">
+    <div class="col-md-4 offset-4">
+        <h4 class="text-center">Stwórz nowe pole</h4>
+    </div>
+    <div class="col">
+        <a asp-action="Index" asp-controller="Patient" class="btn btn-danger">Powrót do listy pytań</a>
+    </div>
+</div>
 
-<h4>Nowe pole</h4>
-<hr />
 
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4 offset-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
+                <label asp-for="Name" class="control-label">Nazwa</label>
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                
-                <select hidden ="Type">
-                    <option value="">Wybierz opcję</option>
-                    <option value="text">Pole tekstowe</option>
-                    <option value="checkbox" selected>Checkbox</option>
-                </select>
-                <span asp-validation-for="Type" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input asp-route-Type="checkbox" type="submit" value="Dodaj" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
-<div>
-    <a asp-action="Index" asp-controller="Fields">Powrót do listy pytań</a>
-</div>
 
 
 <script>
-        sessionStorage.removeItem('key');
+    sessionStorage.removeItem('key');
 </script>
 
 @section Scripts {

@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using FormGenerator.Models;
 using FormGenerator.Models.Modele_pomocnicze;
 using TeamProject.Models.Modele_pomocnicze;
+using Microsoft.AspNetCore.Authorization;
 
 namespace TeamProject.Controllers
 {
+    [Authorize]
     public class UserAnswerListsController : Controller
     {
         private readonly FormGeneratorContext _context;

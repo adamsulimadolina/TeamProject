@@ -1,12 +1,14 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Profile";
-    ViewData["ActivePage"] = ManageNavPages.Index;
+    ViewData["Title"] = "Profil";
+    
 }
 
 <h4>@ViewData["Title"]</h4>
-<partial name="_StatusMessage" for="StatusMessage" />
+
+
+
 <div class="row">
     <div class="col-md-6">
         @if (User.IsInRole("Admin"))
@@ -14,7 +16,7 @@
             <form id="profile-form" method="post">
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="form-group">
-                    <label asp-for="Username"></label>
+                    <label asp-for="Username">Nazwa użytkownika</label>
                     <input asp-for="Username" class="form-control" disabled />
                 </div>
                 <div class="form-group">
@@ -29,12 +31,12 @@
                     else
                     {
                         <input asp-for="Input.Email" class="form-control" />
-                        <button id="email-verification" type="submit" asp-page-handler="SendVerificationEmail" class="btn btn-link">Send verification email</button>
+                        <button id="email-verification" type="submit" asp-page-handler="SendVerificationEmail" class="btn btn-link">Wyślij email weryfikacyjny</button>
                     }
                     <span asp-validation-for="Input.Email" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Input.PhoneNumber"></label>
+                    <label asp-for="Input.PhoneNumber">Numer Telefonu</label>
                     <input asp-for="Input.PhoneNumber" class="form-control" />
                     <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
                 </div>
@@ -48,6 +50,7 @@
                     <input asp-for="Input.LastName" class="form-control" />
                     <span asp-validation-for="Input.LastName" class="text-danger"></span>
                 </div>
+                
                 <div class="form-group">
                     <label asp-for="Input.UserID"></label>
                     <input asp-for="Input.UserID" class="form-control" />
@@ -57,10 +60,10 @@
             </form>
         }
         else
-        {   <div class="">
+        {   <div class="mojProfil">
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="form-group">
-                    <label asp-for="Username"></label>
+                    <label asp-for="Username">Nazwa użytkownika</label>
                     <input asp-for="Username" class="form-control" disabled />
                 </div>
                 <div class="form-group">
@@ -75,22 +78,22 @@
                     else
                     {
                         <input asp-for="Input.Email" class="form-control" disabled/>
-                        <button id="email-verification" type="submit" asp-page-handler="SendVerificationEmail" class="btn btn-link">Send verification email</button>
+                        <button id="email-verification" type="submit" asp-page-handler="SendVerificationEmail" class="btn btn-link">Wyślij email weryfikacyjny</button>
                     }
                     <span asp-validation-for="Input.Email" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Input.PhoneNumber"></label>
+                    <label asp-for="Input.PhoneNumber">Numer telefonu</label>
                     <input asp-for="Input.PhoneNumber" class="form-control" disabled/>
                     <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Input.FirstName"></label>
+                    <label asp-for="Input.FirstName">Imie</label>
                     <input asp-for="Input.FirstName" class="form-control" disabled/>
                     <span asp-validation-for="Input.FirstName" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Input.LastName"></label>
+                    <label asp-for="Input.LastName">Nazwisko</label>
                     <input asp-for="Input.LastName" class="form-control" disabled/>
                     <span asp-validation-for="Input.LastName" class="text-danger"></span>
                 </div>

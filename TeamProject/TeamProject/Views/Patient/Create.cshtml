@@ -1,33 +1,36 @@
 ﻿@model FormGenerator.Models.Patient
-    <script>
-        sessionStorage.removeItem('key');
-    </script>
+<script>
+    sessionStorage.removeItem('key');
+</script>
 
-<h1>Stwórz</h1>
+<div class="row" style="padding-top:40px">
+    <div class="col-md-4 offset-4">
+        <h4 class="text-center">Dodaj nowego pacjenta</h4>
+    </div>
+    <div class="col">
+        <a asp-action="Index" asp-controller="Patient" class="btn btn-danger">Powrót do menu głównego</a>
+    </div>
+</div>
 
-<h4>Nowy Pacjent</h4>
-<hr />
+
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4 offset-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="IdPatient" class="control-label"></label>
+                <label asp-for="IdPatient" class="control-label">Podaj Id pacienta</label>
                 <input asp-for="IdPatient" class="form-control" value=0 />
                 <span asp-validation-for="IdPatient" class="text-danger"></span>
             </div>
 
 
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Stwórz" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index" asp-controller="Patient" class="btn btn-danger">Powrót do menu głównego</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

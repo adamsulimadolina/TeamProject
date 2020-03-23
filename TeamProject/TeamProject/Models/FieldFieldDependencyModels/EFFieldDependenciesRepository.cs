@@ -24,11 +24,20 @@ namespace TeamProject.Models.FieldFieldDependencyModels
             var fieldsToCreate = dependency.RelatedFields.Where(f => f.Id <= 0).ToList(); //jeśli jakieś pola zależne nie istnieją->tworzymy je
             fieldsToCreate.ForEach(currentField => _context.Field.Add(currentField));
             _context.SaveChanges();
-            var dependencyExist = dependency.IdDependency <= 0 ? false : true;
-
-            if (dependencyExist)
+            //bład-> pobranie na nowo wszystkich pól zależnych z contekstu(różne żądania, EF gubi tracking)
+            var idsAllRelatedFields = dependency.RelatedFields.Select(f => f.Id).ToList();
+            dependency.RelatedFields = _context.Field.Where(f => idsAllRelatedFields.Contains(f.Id)).ToList();
+            dependency.ThisField = _context.Field.FirstOrDefault(f => f.Id == dependency.Id);
+            //bład-> pobranie na nowo wszystkich pól zależnych z contekstu
+            //czy zależność już istnieje
+            FieldFieldDependency existingDependency = Dependencies
+                .FirstOrDefault(dep => (dep.Id == dependency.Id) 
+                && (dep.ActivationValue == dependency.ActivationValue)
+                && (dep.DependencyType==dependency.DependencyType));
+            if (existingDependency!=null) //czyli istnieje
             {
-                _context.Dependencies.Update(dependency);
+                existingDependency.RelatedFields.AddRange(dependency.RelatedFields);
+                _context.Dependencies.Update(existingDependency);
             }
             else
             {
@@ -40,7 +49,7 @@ namespace TeamProject.Models.FieldFieldDependencyModels
         public IEnumerable<Field> GetAllDependFields()
         {
             List<Field> result = new List<Field>();
-            _context.Dependencies.ToList().ForEach(dep =>
+            Dependencies.ToList().ForEach(dep =>
             {
                 dep.RelatedFields.ForEach(field => result.Add(field));
             });

@@ -86,8 +86,9 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    background-color: #c7f0db;
+    margin-bottom: 60px;
+    font-family: 'Lobster', sans-serif;
 }
 .footer {
   position: absolute;
@@ -114,4 +115,130 @@ table.dataTable thead .sorting_desc:before,
 table.dataTable thead .sorting_desc_disabled:after,
 table.dataTable thead .sorting_desc_disabled:before {
     bottom: .5em;
+}
+
+
+.cities {
+    background-color: #464159;
+    color: white;
+    margin: 20px;
+    padding: 20px;
+}
+
+
+
+.btnx {
+    background-color: #c7f0db;
+    border: 1px solid grey;
+    margin: 3px;
+    font-family: sans-serif;
+    font-weight: 470;
+    margin-right:2px;
+    border-radius: 4px
+}
+.btnxDrop {
+    background-color: #c7f0db;
+    border: 1px solid grey;
+   
+    font-family: sans-serif;
+    font-weight: 450;
+    
+    border-radius: 4px
+}
+
+
+
+
+.rodzic btn1 {
+    cursor: pointer;
+}
+
+.btnx:hover {
+    background-color: #8bbabb;
+}
+
+
+.rodzicX btn1 {
+    cursor: pointer;
+}
+
+
+#kategorie {
+    
+    float: left;
+}
+
+#formularzeKategorii {
+    
+    float: left;
+}
+
+#container{
+    margin-left:auto;
+    margin-right:auto;
+    font-size:18px;
+
+}
+
+#buton
+{
+    margin:20px 0px 0px 20px;
+    text-align:left;
+}
+
+header {
+    background-color:#6c7b95;
+}
+
+.mainPage {
+    background-color: #6c7b95;
+}
+
+.btn1{
+    margin-left:10px;
+}
+
+.btn{
+    color:white;
+    min-height:40px;
+    min-width:30px;
+}
+
+
+.table {
+    background-color: #6c7b95;
+}
+
+    .table tbody tr:hover {
+        background-color: #8bbabb;
+    }
+
+#wynik{
+    margin-right:auto;
+    margin-left:auto;
+
+}
+
+.mojprofil {
+    background-color: #6c7b95;
+}
+
+a:link{
+    text-decoration:none;
+}
+a:hover{
+    color:white;
+}
+
+#stworzNowyFormularz {
+    color: white;
+}
+
+.btnX  {
+    background-color: #c34f4f;
+    width: 100px;
+    color: white;
+    min-height: 40px;
+  margin-bottom:10px;
+  margin-top:1px;
 }

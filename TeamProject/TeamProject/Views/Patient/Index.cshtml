@@ -3,29 +3,20 @@
     ViewData["Title"] = "View";
 }
 
-<h1>View</h1>
-
-
-
-
 
 
 <form id="formA" action="Patient/Index" method="post">
     <input name="Id" id="searchPatientv2" />
-    <input type="submit" id="buttonSearch" name="Szukaj" />
+    <input type="submit" id="buttonSearch"  placeholder="Szukaj..." />
+    
 </form>
 
-@TempData["Message"]
-
-
-
-<div class="alert alert-warning alert-dismissible fade show" role="alert">
-    <strong>UWAGA!</strong> @TempData["Messagenie"]
+<div class="alert alert-warning alert-dismissible fade show " role="alert" id="pop-up">
+    <strong>UWAGA! @TempData["Messagenie"]</strong>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
-
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script>
     $('#formA').submit(function () {
@@ -33,6 +24,15 @@
 
 
     });
+    $(document).ready(function() {
+    var success = @((TempData["SuccessMessage"] != null).ToString().ToLower());
+
+        if (success == true) {
+        console.log("success")
+        $().alert()
+    }
+});
+   
 </script>
 
 

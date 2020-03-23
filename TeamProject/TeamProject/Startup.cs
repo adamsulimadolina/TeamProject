@@ -17,6 +17,7 @@ using Microsoft.Extensions.DependencyInjection;
 using FormGenerator.Models;
 using TeamProject.Models;
 using TeamProject.Models.FieldFieldDependencyModels;
+using AutoMapper;
 
 namespace TeamProject
 {
@@ -49,10 +50,11 @@ namespace TeamProject
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
             services.AddScoped<FormGeneratorContext>();
-            services.AddTransient<IFieldDependenciesRepository, EFFieldDependenciesRepository>();
+            services.AddScoped<IFieldDependenciesRepository, EFFieldDependenciesRepository>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddDistributedMemoryCache();
             services.AddSession();
+            services.AddAutoMapper(typeof(Startup));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -70,26 +72,31 @@ namespace TeamProject
                 app.UseHsts();
             }
 
+            app.UseHttpsRedirection();
+            app.UseStaticFiles();
+           
+            app.UseSession();
             app.UseAuthentication();
 
+         
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    name: "",
+                    template: "DependencyCreator",
+                    defaults: new { controller = "FieldDependency", action = "Index" });
                 routes.MapRoute(
-                       name: "AddLog",
-                       template: "addlog",
-                       defaults: new { controller = "Forms", action = "AddLog" });
+                    name: "default",
+                    template: "{controller=Forms}/{action=Index}");
+                routes.MapRoute(
+                    name: "",
+                    template: "{controller}/{action}/{id?}");
             });
-
-            app.UseHttpsRedirection();
-            app.UseStaticFiles();
             app.UseCookiePolicy();
-            app.UseSession();
+
             Seed.SeedRoles(roleManager);
             Seed.SeedUsers(userManager);
-
+            
         }
        
     }

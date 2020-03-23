@@ -1,59 +1,67 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @inject SignInManager<MyUser> SignInManager
 @inject UserManager<MyUser> UserManager
-<style> .btnx {
-    border: 1px solid black;
-    margin: 2px;
-    background-color: #efefef;
-}</style>
- 
 
 
-<ul class="navbar-nav">
-    @if (SignInManager.IsSignedIn(User) && (User.IsInRole("Admin")))
-    {
-        <li class="nav-item">
-            <a class="nav-link text-dark btnx" asp-controller="Patient" asp-action="Create" title="AddPatient">Dodaj Pacjenta</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
-        </li>
-        <li class="nav-item">
-            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-            </form>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
-        </li>
-    }
-    else if (SignInManager.IsSignedIn(User) && (User.IsInRole("Technik")))
-    {
-        <li class="nav-item">
-            <a class="nav-link text-dark btnx" asp-controller="Patient" asp-action="Create" title="AddPatient">Dodaj Pacjenta</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link text-dark btnx" asp-controller="Patient" asp-action="Index" title="CompleteSurvey">Pacjent</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link text-dark btnx" asp-controller="EntranceFormFields" asp-action="Index" title="CompleteSurvey">Formularz powitalny </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
-        </li>
-        <li class="nav-item">
-            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-            </form>
-        </li>
-    }
-    else
-    {
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
-        </li>
-    }
-</ul>
+<body>
+  
+
+
+    <ul class="navbar-nav mr-auto">
+        @if (SignInManager.IsSignedIn(User) && (User.IsInRole("Admin")))
+        {
+            <li class="nav-item">
+                <a class="nav-link text-dark btnx" asp-controller="Patient" asp-action="Create" title="AddPatient">Dodaj Pacjenta</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Mój profil</a>
+            </li>
+            <li class="nav-item">
+                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                    <button type="submit" class="nav-link btn btn-link text-dark">Wyloguj się</button>
+                </form>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Rejestracja</a>
+            </li>
+        }
+        else if (SignInManager.IsSignedIn(User) && (User.IsInRole("Technik")))
+        {
+            <li class="nav-item dropdown">
+
+                <a class="nav-link text-dark btnx dropdown-toggle"data-toggle="dropdown" role="button" asp-controller="Patient" asp-action="Index">Pacjent</a>
+                <div class="dropdown-menu">
+
+                    <a class="dropdown-item text-dark btnxDrop " asp-controller="Patient" asp-action="Index" title="CompleteSurvey">Pacjent</a>
+
+                    <a class="dropdown-item text-dark btnxDrop " asp-controller="Patient" asp-action="Create" title="AddPatient">Dodaj Pacjenta</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item text-dark btnxDrop dropdown-item" asp-controller="EntranceFormFields" asp-action="Index" title="CompleteSurvey">Formularz powitalny </a>
+
+                </div>
+
+            </li>
+
+
+            <li class="nav-item">
+                <a style="margin:5px 5px 0px 50px" class="btn btn-info" asp-area="Identity" asp-page="/Account/Manage/Index" title="Profil użytkownika">Mój profil</a>
+            </li>
+            <li class="nav-item">
+                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                    <button style="margin:5px;" type="submit" class="btn btn-info">Wyloguj się</button>
+                </form>
+            </li>
+        }
+        else
+        {
+            <li class="nav-item">
+                <a style="margin:0px 15px 0px 0px" class="btn btn-info" asp-area="Identity" asp-page="/Account/Register">Rejestracja</a>
+            </li>
+            <li class="nav-item">
+                <a class="btn btn-info" asp-area="Identity" asp-page="/Account/Login">Logowanie</a>
+            </li>
+        }
+    </ul>
+
+    </body>
+

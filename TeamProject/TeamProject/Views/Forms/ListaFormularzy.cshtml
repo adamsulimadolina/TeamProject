@@ -14,12 +14,12 @@
             padding: 8px;
         }
 
-        tr:nth-child(even) {
-            background-color: #A5D6A7
+        tr {
+            background-color: #8bbabb
         }
 
         th {
-            background-color: #81C784;
+            background-color: #464159;
             color: white;
         }
 
@@ -27,12 +27,20 @@
             color: #424242;
             font-weight: 500;
         }
+     
+        .table tbody tr:hover {
+            background-color: #6C7B95;
+        }
+        td{
+            color:black;
+        }
+
     </style>
 
 
-<p>
-    <a style="color:#81C784;  font-weight:700" asp-action="Create">Stwórz nowy pusty formularz</a>
-</p>
+    <div>
+        <button class="btn btn-danger" style="margin-bottom:10px;"><a id="stworzNowyFormularz"style=" text-decoration:none;" asp-action="Create">Stwórz nowy pusty formularz</a></button>
+    </div>
 <table class="table">
     <thead>
         <tr >
@@ -70,8 +78,9 @@
                 </td>
             </tr>
         }
-        <script>
-        sessionStorage.removeItem('key');
-        </script>
+        
     </tbody>
 </table>
+<script>
+    sessionStorage.removeItem('key');
+</script>

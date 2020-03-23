@@ -4,37 +4,75 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+    th, td {
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr {
+        background-color: #8bbabb
+    }
+
+    th {
+        background-color: #464159;
+        color: white;
+    }
+
+    a {
+        color: #424242;
+        font-weight: 500;
+    }
+
+    .table tbody tr:hover {
+        background-color: #6C7B95;
+    }
+
+    td {
+        color: black;
+    }
+</style>
+<div>
+    <button class="btn btn-danger" style="margin-bottom:10px;"><a id="stworzNowyFormularz" style="text-decoration:none;" asp-action="Create">Dodaj nową zależność do formularza początkowego</a></button>
+</div>
+
+
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                Pytanie
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Type)
+                Typ Pytania
+            </th>
+            <th>
+                ...
             </th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Type)
-            </td>
-            <td>
-                <a asp-action="AddConnection" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-info"><a style="text-decoration:none;color:white;" asp-action="AddConnection" asp-route-id="@item.Id">Edycja</a></button>
+                    <button type="button" class="btn btn-info"><a style="text-decoration:none;color:white;" asp-action="Delete" asp-route-id="@item.Id">Usuń</a></button>
+
+
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

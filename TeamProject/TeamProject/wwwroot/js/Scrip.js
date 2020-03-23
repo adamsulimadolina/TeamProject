@@ -4,7 +4,7 @@ var ostatni;
 $(document).ready(function () {
 
     let parentButton = document.getElementById("buton");
-    var addCategory = $(" <button>").attr("class", "btn").text("dodaj nową kategorię główną").css("margin-bottom", "10px").css("backgroundColor", "#fafae7").click(function () {
+    var addCategory = $(" <button>").attr("class", "btn btn-light").text("Dodaj nową kategorię główną").css("margin-bottom", "10px").css("backgroundColor", "#c34f4f").click(function () {
        
         window.location.href = '/Category/CreateParentCategory';
         return false;
@@ -48,7 +48,7 @@ $(document).ready(function () {
 
                 if (List[i].parent == null) {
                     
-                    var li = $(" <li>").attr("id", List[i].id).attr("class", "rodzic").text(List[i].name).css("margin-bottom", "10px");//.css("backgroundColor", "#fcfcf2");
+                    var li = $(" <li>").attr("id", List[i].id).attr("class", "rodzic").text(List[i].name).css("margin-bottom", "10px");
                     
                 
                     li.appendTo(parent);
@@ -73,14 +73,14 @@ $(document).on('click', '.rodzic', function (e) {
     ostatni = parent;
     id = e.currentTarget.id;
     chowajFormularze();
-    var buttonAdd = $(" <button>").attr("class", "btn1").text("Dodaj formularz").css("margin-bottom", "10px").css("backgroundColor", "#fafae7").click(function () {
+    var buttonAdd = $(" <button>").attr("class", "btn1").text("Dodaj formularz").css("margin-bottom", "10px").css("margin-left","10px").css("backgroundColor", "#fafae7").click(function () {
         let listContents = $("#Drzewo").html();
         sessionStorage.setItem('todoList', JSON.stringify(listContents));
         window.location.href = '/Forms/Create/' + id;
         return false;
     });
     buttonAdd.appendTo(parent);
-    var buttonAddCat = $(" <button>").attr("class", "btn1").text("Dodaj kategorie").css("margin-bottom", "10px").css("backgroundColor", "#f1f1bb").click(function () {
+    var buttonAddCat = $(" <button>").attr("class", "btn1").text("Dodaj kategorie").css("margin-bottom", "10px").css("padding-left","10px").css("backgroundColor", "#f1f1bb").click(function () {
         let listContents = $("#Drzewo").html();
         sessionStorage.setItem('todoList', JSON.stringify(listContents));
         window.location.href = '/Category/Create/' + id;
@@ -208,20 +208,22 @@ function wyswietlFormularze(id) {
                 for (let i = 0; i < data.length; i++) {
                  
                     let element = document.createElement("div");
-                    var button = $("<button>").attr("class", "btn").text(data[i].name).css("margin-bottom", "10px").click(function () {
+                   
+                    var button = $("<button>").attr("class", "btnX").attr("title", data[i].name).text(data[i].name.split(' ')[0]).css("margin-right","5px").click(function () {
                         let listContents = $("#Drzewo").html();
+                       
                         sessionStorage.setItem('todoList', JSON.stringify(listContents));
                         window.location.href = '/Forms/Formularz/' + data[i].id;
                         return false;
                     });
-                    var buttonEdit = $("<button>").attr("class", "btn").text("edytuj").css("margin-bottom", "10px").css("backgroundColor", "grey").click(function () {
+                    var buttonEdit = $("<button>").attr("class", "btn").text("Edytuj").css("margin-top","10px").css("margin-bottom", "10px").css("backgroundColor", "#c34f4f").click(function () {
                         let listContents = $("#Drzewo").html();
                         sessionStorage.setItem('todoList', JSON.stringify(listContents));
                         window.location.href = '/Fields/AddNewField/' + data[i].id;
                         return false;
                     });
                     button.appendTo(parent);
-                    var buttonShow = $("<button>").attr("class", "btn").text("wyświetl wyniki formularza").css("margin-bottom", "10px").css("backgroundColor", "#d2d2d2").click(function () {
+                    var buttonShow = $("<button>").attr("class", "btn").text("Wyświetl wyniki formularza").css("margin-top", "10px").css("margin-bottom", "10px").css("margin-right", "5px").css("backgroundColor", "#008CBA").click(function () {
                         let listContents = $("#Drzewo").html();
                         sessionStorage.setItem('todoList', JSON.stringify(listContents));
                         window.location.href = '/UserAnswerLists/AnswerListPost/' + data[i].id;
@@ -244,5 +246,6 @@ function wyswietlFormularze(id) {
 
 }
 
-
-
+$(document).ready(function () {
+    $(".btnX").tooltip();
+});

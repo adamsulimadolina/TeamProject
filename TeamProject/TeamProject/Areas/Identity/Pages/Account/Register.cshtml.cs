@@ -11,11 +11,9 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using TeamProject.Models;
 
-
 namespace TeamProject.Areas.Identity.Pages.Account
 {   
-    //[Authorize(Roles = "Admin")]
-    [AllowAnonymous]
+    [Authorize(Roles = "Admin")]   
     public class RegisterModel : PageModel
     {
         private readonly SignInManager<MyUser> _signInManager;

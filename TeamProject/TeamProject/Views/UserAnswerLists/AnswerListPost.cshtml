@@ -9,6 +9,13 @@
         #dtHorizontalVerticalExample th, td {
             white-space: nowrap;
         }
+        th {
+          
+            color: white;
+        }
+        td {
+            background-color: white;
+        }
     </style>
 </head>
 
@@ -25,8 +32,8 @@
 
 <body>
     <input type="hidden" id="urlGetValueSelected" value="@Url.Action("AnswerListPost", "UserAnswerLists")" />
-    @Html.DropDownList("mylist", tmp, "--select here--")
-    <input id="Button1" type="button" value="button" />
+    @Html.DropDownList("mylist", tmp)
+    <input id="Button1" type="button" value="Potwierdź" />
 
     <table id="dtHorizontalVerticalExample" class="table table-striped table-bordered table-sm " cellspacing="0" width="100%">
         <thead>

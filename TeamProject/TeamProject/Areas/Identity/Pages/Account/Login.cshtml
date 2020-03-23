@@ -2,27 +2,19 @@
 @model LoginModel
 
 @{
-    ViewData["Title"] = "Log in";
+    ViewData["Title"] = "Logowanie";
 }
 
-<style>
 
-    .cities {
-        background-color: #66BB6A;
-        color: white;
-        margin: 20px;
-        padding: 20px;
-    }
-</style>
 <div class="cities">
-    <div class="row">
-        <div class="col-md-4">
+    <div class="container">
+        <div class="col-md-6 offset-3">
             <section>
                 <form id="account" method="post">
-                    <h3>Logowanie</h3>
-                    <hr />
+                    <h5 id="login">Logowanie</h5>
+
                     <div asp-validation-summary="All" class="text-danger"></div>
-                    <div class="form-group">
+                    <div class="form-group ">
                         <label asp-for="Input.Email"></label>
                         <input asp-for="Input.Email" class="form-control" />
                         <span asp-validation-for="Input.Email" class="text-danger"></span>
@@ -41,31 +33,21 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <button style=" background-color:white;
-            color:#66BB6A;
-            font-size:20px;
-            padding: 15px 35px;
-            border-radius: 8px;
-            position:center;" type="submit" class="btn btn-primary">
-                            Zaloguj
-                        </button>
+                        <button id="button" type="submit" class="btn btn-primary">Zaloguj</button>
                     </div>
 
                 </form>
             </section>
+            <p>
+                <a style="color:white; text-decoration:none; font-weight:500" id="forgot-password" asp-page="./ForgotPassword">Zapomniałeś hasła?</a>
+            </p>
         </div>
 
     </div>
-</div>
-<div class="form-group">
-    <p>
-        <a style="color:#66BB6A;  font-weight:700" id="forgot-password" asp-page="./ForgotPassword">Zapomniałeś hasła?</a>
-    </p>
-    <p>
-        <a style="color:#66BB6A;  font-weight:700" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Załóż nowe konto</a>
-    </p>
 </div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
+
+

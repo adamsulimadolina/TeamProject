@@ -8,11 +8,13 @@ using Microsoft.EntityFrameworkCore;
 using FormGenerator.Models;
 using TeamProject.Models.NewTypeAndValidation;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Authorization;
 
 namespace TeamProject.Controllers.API
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ValidationsController : ControllerBase
     {
         private readonly FormGeneratorContext _context;
