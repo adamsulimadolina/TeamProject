@@ -52,6 +52,7 @@ namespace FormGenerator.Models
         public DbSet<EntranceConnections> EntranceConnections { get; set; }
         public DbSet<FormGenerator.Models.EntranceFormFields> EntranceFormFields { get; set; }
         public DbSet<FieldFieldDependency> Dependencies { get; set; }
+        public DbSet<Test> Tests { get; set; }
 
     }
 }

@@ -10,15 +10,15 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace TeamProject.Migrations
 {
     [DbContext(typeof(FormGeneratorContext))]
-    [Migration("20200310125616_10.03-autoID")]
-    partial class _1003autoID
+    [Migration("20200324121441_24.03")]
+    partial class _2403
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn)
-                .HasAnnotation("ProductVersion", "2.2.4-servicing-10062")
+                .HasAnnotation("ProductVersion", "2.2.2-servicing-10034")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             modelBuilder.Entity("FormGenerator.Models.Category", b =>
@@ -225,6 +225,20 @@ namespace TeamProject.Migrations
                     b.ToTable("Logs");
                 });
 
+            modelBuilder.Entity("TeamProject.Models.FormGeneratorModels.Test", b =>
+                {
+                    b.Property<int>("IdTest")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("DateOfTest");
+
+                    b.Property<int>("IdPatient");
+
+                    b.HasKey("IdTest");
+
+                    b.ToTable("Tests");
+                });
+
             modelBuilder.Entity("TeamProject.Models.FormGeneratorModels.UserAnswers", b =>
                 {
                     b.Property<int>("Id")
@@ -237,6 +251,8 @@ namespace TeamProject.Migrations
                     b.Property<int>("IdForm");
 
                     b.Property<int>("IdPatient");
+
+                    b.Property<int>("IdTest");
 
                     b.Property<int>("IdUser");
 
