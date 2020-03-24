@@ -327,6 +327,12 @@ namespace FormGenerator.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var forms = await _context.Forms.FindAsync(id);
+            var listFormsinEntenceForms = _context.EntranceConnections.Where(m => m.IdForm == id).ToList();
+            foreach (var elem in listFormsinEntenceForms)
+            {
+                _context.EntranceConnections.Remove(elem);
+            }
+
             _context.Forms.Remove(forms);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(ListaFormularzy));
