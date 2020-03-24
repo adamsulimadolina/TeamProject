@@ -11,7 +11,6 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using TeamProject.Models;
 
-
 namespace TeamProject.Areas.Identity.Pages.Account
 {   
     [Authorize(Roles = "Admin")]   

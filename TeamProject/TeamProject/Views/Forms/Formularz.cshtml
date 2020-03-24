@@ -7,7 +7,6 @@
 <h3>Wypełnij fromularz</h3>
 
 <style>
-
     .cities {
         background-color: #66BB6A;
         color: white;
@@ -191,11 +190,9 @@
 </div>
 
 <script type="text/javascript">
-
     function handleCheck(e) {
         console.log(e.target.parentNode.getAttribute("val"));
         console.log(e)
-
         if (e.target.parentNode.getAttribute("type") == "FieldDuplication" && parseInt(e.target.parentNode.getAttribute("val")) >= parseInt(e.target.value) && parseInt(e.target.value) > 0) {
             console.log(e.target.parentNode.getAttribute("val"))
             let divs = (document.querySelectorAll("div[idval]"));
@@ -207,7 +204,6 @@
                 }
             }
         }
-
         else if (e.target.parentNode.getAttribute("type") == "FieldVisibly" && e.target.parentNode.getAttribute("val") === e.target.value) {
             //  e.target.parentElement.lastElementChild.removeAttribute("hidden");
             let x = (e.target.parentNode.getAttribute("parentid"));
@@ -218,7 +214,6 @@
                 console.log(input)
                 input.removeAttribute("hidden")
             });
-
         }
         else {
             let x = (e.target.parentNode.getAttribute("parentid"));
@@ -231,23 +226,13 @@
                 input.parentElement.parentElement.setAttribute("hidden", "")
             });
         }
-
-
     }
-
     let dependentDuplication = document.querySelectorAll("th[val]");
     let inputs = document.querySelectorAll("th[val] > input.form-control , select.form-control");
-
     inputs.forEach(input => input.addEventListener('change', handleCheck));
-
-
-
-
     //        .filter(function (field) {
     //	return field.matches('.log');
     //});
-
-
 </script>
 
 
@@ -296,9 +281,7 @@
             case "select-one":
                 fieldvalue = this.value
                 break;
-
         }
-
         let formid = @ViewBag.formid;
         let fieldid = this.id
         let log = {
@@ -328,17 +311,12 @@
     }
   });
    });
-
-
     $("[numInput='true']").change(function () {
-
         $.ajax({
                     url: "/api/Validations/" + this.id + "/" + this.value,
                      dataType: "json"
         }).done(res => CheckValidations(res, this));
-
     });
-
     function CheckValidations(response, input) {
         let error = $("[ErrorId=" + input.id + "]")[0];
         console.log(error);
@@ -353,8 +331,6 @@
             SetSubmitButtonStatus();
         }
     }
-
-
     function SetSubmitButtonStatus() {
         let paragraphs = $("[errorParagraf='true']");
         let licznik = 0;

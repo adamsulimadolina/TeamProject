@@ -1,4 +1,4 @@
-﻿@model IEnumerable<FormGenerator.Models.EntranceConnections>
+﻿@model IEnumerable<EntranceConnectionShow>
 
 
 @{
@@ -6,75 +6,98 @@
 }
 
 
-<style>
 
+
+<style>
     table {
         border-collapse: collapse;
-        width: 100%;
+        width: 20%;
+       
     }
 
     th, td {
         text-align: left;
-        padding: 8px;
+        padding: 2px;
     }
 
-    tr:nth-child(even) {
-        background-color: #A5D6A7
+    tr {
+        background-color: #8bbabb
     }
 
     th {
-        background-color: #81C784;
+        background-color: #464159;
         color: white;
     }
 
     a {
         color: #424242;
-        font-weight: 500;
+       
+    }
+
+    .table tbody tr:hover {
+        background-color: #6C7B95;
+    }
+
+    td {
+        color: black;
+        padding:2px;
     }
 </style>
-<a asp-action="Index">Powrót do listy</a>
-<button style=" background-color:white;
-    color:#66BB6A;
-    font-size:20px;
-    padding: 5px 35px;
-    border-radius: 8px;
-    position:center;" type="button" class="btn btn-info" data-toggle="modal" data-target=".bd-example-modal-lg">Dodaj nowy formularz zależny od pola</button>
-<table class="table">
-    <thead>
-        <tr>
-            
-            <th>
-                @Html.DisplayNameFor(model => model.IdForm)
-            </th>
+
+<div class="row" style="padding-top:40px">
+    <div class="col-md-4">
+        <button class="btn btn-danger" type="button" data-toggle="modal" data-target=".bd-example-modal-lg" style="margin-bottom:10px;">Dodaj nowy formularz zależny od pola</button>
+    </div>
+    <div class="col offset-6">
+        <a asp-action="Index" class="btn btn-danger">Powrót do listy pytań</a>
+    </div>
+</div>
 
 
-        </tr>
-    </thead>
-    <tbody>
-       
+
+    <table style="width: 20%;" class="table table-bordered">
+        <thead>
+            <tr>
+
+                <th>
+                    Formularze zależne od:
+                </th>
+
+                <th>
+                    @Model.First().Field
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+
             @foreach (var item in Model)
             {
                 <tr>
 
                     <td>
-                        @Html.DisplayFor(modelItem => item.IdForm)
+                        @Html.DisplayFor(modelItem => item.Form)
                     </td>
                     <td>
-                        <a asp-action="DeleteDependence" asp-route-id="@item.IdForm">Usuń zależność</a>
+                        <button type="button" class="btn btn-info"><a style="text-decoration:none;color:white;" sp-action="DeleteDependence" asp-route-id="@item.IdForm">Usuń zależność</a></button>
+
                     </td>
                 </tr>
             }
-        
 
-    </tbody>
-</table>
+
+        </tbody>
+    </table>
+
+
+
+
 
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content" style="padding:30px">
             <form asp-action="AddConnection">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                
+
                 <div class="form-group">
                     <label class="control-label">Wybierz formularz</label>
                     @if (@ViewBag.listforms != null)
@@ -106,12 +129,12 @@
             font-size:20px;
             padding: 15px 35px;
             border-radius: 8px;
-            position:center;" type="submit"  value="Stwórz" class="btn btn-primary" />
+            position:center;" type="submit" value="Stwórz" class="btn btn-primary" />
                 </div>
             </form>
         </div>
     </div>
 </div>
 <script>
-        sessionStorage.removeItem('key');
+    sessionStorage.removeItem('key');
 </script>

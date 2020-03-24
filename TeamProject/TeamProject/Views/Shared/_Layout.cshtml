@@ -24,7 +24,7 @@
         #grid-con {
             display: grid;
         }
-
+     
         #sidebar-wrapper {
             min-height: 100vh;
             margin-left: -15rem;
@@ -66,6 +66,10 @@
         .btnz {
             background-color: #dcd2d2
         }
+
+        .navbar-nav li:hover > .dropdown-menu {
+            display: block;
+        }
     </style>
 
     <header >
@@ -86,17 +90,31 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link text-dark btnx"asp-area="" asp-controller="Forms" asp-action="ListaFormularzy">Formularze</a>
+                            <a class="nav-link text-dark btnx" asp-area="" asp-controller="Forms" asp-action="ListaFormularzy">Formularze</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link text-dark btnx" asp-controller="FieldDependency" asp-action="Index">Kreator zależności</a>
-                        </li>
+
 
                         <li class="nav-item">
                             <a class="nav-link text-dark btnx" asp-area="" asp-controller="UserAnswerLists" asp-action="AnswerList">Wizualizator</a>
                         </li>
+
+
+
+
+                        <li class="nav-item dropdown">
+
+                            <a class="nav-link text-dark btnx dropdown-toggle" data-toggle="dropdown" asp-controller="Patient" asp-action="Index" title="CompleteSurvey">Pola</a>
+                            <div class="dropdown-menu" aria-labelledby="submenu">
+                                <a class="nav-link text-dark  dropdown-item btnxDrop" asp-controller="FieldDependency" asp-action="Index">Kreator zależności</a>
+                            </div>
+
+                        </li>
                     </ul>
+
+
+
+
                 </div>
             </div>
         </nav>
@@ -229,7 +247,7 @@
             for (let i = 0; i < data.length; i++) {
                 let ul = document.createElement("ul");
                 let li = document.createElement('li');
-                var form = $(" <button>").attr("class", "btnz").text(data[i].nazwa_formularza).css("width","100%").click(function () {
+                var form = $(" <button>").attr("class", "btnz").text(data[i].nazwa_formularza).css("width", "100%").click(function () {
                     window.location.href = '/Forms/Formularz/' + data[i].idForm;
                     return false;
                 });
@@ -241,6 +259,11 @@
 
 
         }
+
+      
+
+
+
 
 
 

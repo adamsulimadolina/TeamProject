@@ -133,8 +133,21 @@ table.dataTable thead .sorting_desc_disabled:before {
     margin: 3px;
     font-family: sans-serif;
     font-weight: 470;
+    margin-right:2px;
     border-radius: 4px
 }
+.btnxDrop {
+    background-color: #c7f0db;
+    border: 1px solid grey;
+   
+    font-family: sans-serif;
+    font-weight: 450;
+    
+    border-radius: 4px
+}
+
+
+
 
 .rodzic btn1 {
     cursor: pointer;
@@ -215,4 +228,17 @@ a:link{
 }
 a:hover{
     color:white;
+}
+
+#stworzNowyFormularz {
+    color: white;
+}
+
+.btnX  {
+    background-color: #c34f4f;
+    width: 100px;
+    color: white;
+    min-height: 40px;
+  margin-bottom:10px;
+  margin-top:1px;
 }
