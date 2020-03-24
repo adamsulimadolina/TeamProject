@@ -85,6 +85,14 @@ namespace TeamProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IdPatient")] Patient patient)
         {
+            //jeśli już istnieje pacjent o podanym id->nie pozwalam!
+
+            if (_context.Patients.AsNoTracking().FirstOrDefault(p => p.IdPatient == patient.IdPatient) != null)
+            {
+                TempData["Error"] = "Pacjent o podanym id już istnieje. Musisz wpisać inne id.";
+                return View();
+            }
+
             var entranceConnections = await _context.EntranceConnections.ToListAsync();
             int y = patient.IdPatient; 
             if (ModelState.IsValid)
