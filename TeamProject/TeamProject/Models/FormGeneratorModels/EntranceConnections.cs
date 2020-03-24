@@ -15,4 +15,14 @@ namespace FormGenerator.Models
         public int IdField { get; set; }
         public int IdForm { get; set; }
     }
+
+    public class EntranceConnectionShow
+    {
+        public int Id { get; set; }
+        public int IdField { get; set; }
+        public int IdForm { get; set; }
+        public String Field { get; set; }
+        public String Form { get; set; }
+    }
+
 }

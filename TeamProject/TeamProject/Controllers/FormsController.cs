@@ -33,9 +33,25 @@ namespace FormGenerator.Controllers
         }
 
         //wyświetlenie listy formularzy
-        public async Task<IActionResult> ListaFormularzy()
+        public  IActionResult ListaFormularzy()
         {
-            return View(await _context.Forms.ToListAsync());
+            var forms =  _context.Forms.ToList();
+            var categories =  _context.Categories.ToList();
+
+            List<FormsList> formsList = new List<FormsList>();
+
+            foreach (Forms form in forms)
+            {
+                FormsList pom = new FormsList
+                {
+                    Id = form.Id,
+                    Name = form.Name,
+                    Category = categories.FirstOrDefault(c=> form.id_Category == c.Id).Name
+                };
+                formsList.Add(pom);
+            }
+
+            return View(formsList);
         }
 
         // GET: Forms/Details/5
