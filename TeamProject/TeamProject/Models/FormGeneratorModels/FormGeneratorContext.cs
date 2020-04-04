@@ -53,6 +53,7 @@ namespace FormGenerator.Models
         public DbSet<FormGenerator.Models.EntranceFormFields> EntranceFormFields { get; set; }
         public DbSet<FieldFieldDependency> Dependencies { get; set; }
         public DbSet<Test> Tests { get; set; }
+        public DbSet<TableNameTranslation> TableNameTranslations { get; set; }
 
     }
 }
