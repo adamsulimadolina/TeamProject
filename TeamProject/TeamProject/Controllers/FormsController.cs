@@ -14,6 +14,7 @@ using TeamProject.Models;
 using TeamProject.Models.NewTypeAndValidation;
 using TeamProject.Models.FieldFieldDependencyModels;
 using TeamProject.Models.FieldDependencyModels;
+using Microsoft.AspNetCore.Http;
 
 namespace FormGenerator.Controllers
 {
@@ -141,6 +142,7 @@ namespace FormGenerator.Controllers
 
         public async Task<IActionResult> Formularz(List<FieldWithValue> fields, int formId, int patientId)
         {
+            int? current_test = HttpContext.Session.GetInt32("current_test");
             MyUser user = await GetUser();
             foreach (var field in fields)
             {
@@ -149,7 +151,8 @@ namespace FormGenerator.Controllers
                     IdForm = formId,
                     IdField = field.Field.Id,
                     IdPatient = patientId,
-                    IdUser = user.CustomID
+                    IdUser = user.CustomID,
+                    IdTest = (int) current_test
                 };
 
                 switch (field.Field.Type)
@@ -176,6 +179,7 @@ namespace FormGenerator.Controllers
                         Answer = field.Dependencies.RelatedFields[i].Type == "checkbox" ? field.DepndenciesValue[i].boolVal.ToString() : field.DepndenciesValue[i].textVal,
                         IdField = field.Dependencies.RelatedFields[i].Id,
                         IdForm=formId,
+                        IdTest=(int)current_test,
                         IdPatient = patientId,
                         IdUser = user.CustomID
                     };

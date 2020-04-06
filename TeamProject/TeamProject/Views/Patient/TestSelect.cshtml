@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "View";
+}
+
+
+
+<form id="formA" action="TestSelect" method="post">
+    <select name="id_test" id="id_test">
+        @foreach (var elem in (List<int>)ViewData["select"])
+        {
+            <option value=@elem>@elem</option>
+        }
+    </select>
+    <input name="id_patient" id="searchPatientv2" value=@ViewBag.patient />
+    <input type="submit" id="buttonSearch" placeholder="Szukaj..." />
+</form>
+
+<div class="alert alert-warning alert-dismissible fade show " role="alert" id="pop-up">
+    <strong>UWAGA! @TempData["Messagenie"]</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+    $('#formA').submit(function () {
+        
+
+
+    });
+    $(document).ready(function() {
+    var success = @((TempData["SuccessMessage"] != null).ToString().ToLower());
+
+        if (success == true) {
+        console.log("success")
+        $().alert()
+    }
+});
+
+</script>
+
+
+
+

@@ -28,6 +28,7 @@
 $("#buttonSearch").click(function () {
     console.log(sessionStorage.getItem("key"))
     let area = document.getElementById("searchPatient");
+    console.log(area.value)
     sessionStorage.setItem('key', area.value);
   
     
