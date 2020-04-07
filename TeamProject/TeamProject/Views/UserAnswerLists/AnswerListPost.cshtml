@@ -47,7 +47,8 @@
                 @foreach (var elem in ViewBag.Fields)
                 {
                     <th class="translate">
-                        <p class="tableHeaders">@elem.Name</p>
+                        
+                       @elem.Name
                     </th>
 
                 }
@@ -151,12 +152,53 @@
             }
 
         }
-        //DANIEL 02.04 start - translacja tabel
-        $('#translate').on('click', function () {
-             let headers = $('.translate');
-            console.log(headers);
-            
-        })
+        //DANIEL 02.04 - translacja tabel
+        let btntranslate = document.getElementById("translate");
+        btntranslate.addEventListener("click", addInput);        
+        let startNames =[];
+        function addInput() {
+            let headers = $('.translate');
+            startNames = [];
+            let hLength = headers.length/2;
+            for (var i = 0; i < hLength; i++) {
+                var inp = document.createElement("input");
+                inp.setAttribute("value", headers[i].innerText);
+                startNames.push(headers[i].innerText);
+                inp.setAttribute("class", "headTranslation");
+                headers[i].innerText = "";
+                headers[i].appendChild(inp);                             
+            }
+            this.innerText = "zapisz";
+            this.id = "save";
+            btntranslate.removeEventListener("click", addInput);
+            btntranslate.addEventListener("click", save);         
+        }
+        async function save() { 
+            btntranslate.removeEventListener("click", save);
+            btntranslate.addEventListener("click", addInput);
+            let inputs = document.querySelectorAll('.headTranslation');
+            let headers = $('.translate');
+            let hLength = headers.length/2;
+            for (var i = 0; i < hLength; i++) {              
+                headers[i].innerText = inputs[i].value;
+                if (inputs[i].value != startNames[i]) {
+                    await saveTranslate(inputs[i].value, startNames[i]);   
+                }
+                                        
+            }
+            this.innerText = "tłumacz";
+            this.id = "translate";
+        };
+        async function saveTranslate(name1,name2){
+            let TableNameTranslation = {};
+            TableNameTranslation.DatabaseName = name2;
+            TableNameTranslation.DisplayedName = name1;
+            $.post("/save_translation", {
+                baseName: name2,
+                newName: name1
+            });           
+        }
+       
            
     </script>
 </body>

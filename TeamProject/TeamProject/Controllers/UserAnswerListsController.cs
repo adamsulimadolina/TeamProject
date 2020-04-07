@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -9,6 +10,9 @@ using FormGenerator.Models;
 using FormGenerator.Models.Modele_pomocnicze;
 using TeamProject.Models.Modele_pomocnicze;
 using Microsoft.AspNetCore.Authorization;
+using TeamProject.Models.FormGeneratorModels;
+
+
 
 namespace TeamProject.Controllers
 {
@@ -110,6 +114,7 @@ namespace TeamProject.Controllers
 
         public async Task<IActionResult> AnswerListPost(int id)
         {
+            var translations = _context.TableNameTranslations.OrderBy(x => x.DatabaseName).ToList();
             List<SelectListItem> formsList = new List<SelectListItem>();
             var forms = _context.Forms
                 .ToList();
@@ -128,7 +133,7 @@ namespace TeamProject.Controllers
             var usersAnswers = _context.UserAnswers
                 .Where(m => m.IdForm.Equals(id))
                 .ToList();
-            
+
             List<UserAnswerList> answersList = new List<UserAnswerList>();
             bool exist = false;
             bool doubled = false;
@@ -174,11 +179,11 @@ namespace TeamProject.Controllers
                     .Select(m => m.IdField)
                     .ToList();
 
-            
+
 
             List<int> tmp_list = new List<int>();
 
-            foreach(var elem in usersAnswers)
+            foreach (var elem in usersAnswers)
             {
                 tmp_list.Add(elem.IdField);
             }
@@ -186,13 +191,49 @@ namespace TeamProject.Controllers
             var _fields = _context.Field
                  .Where(m => tmp_list.Contains(m.Id))
                  .ToList();
-
+            //zrobić lepsze przuszukiwanie !!!
+            foreach(var field in _fields)
+            {
+                for(int i=0;i<translations.Count;i++)
+                {
+                    if(translations[i].DatabaseName==field.Name)
+                    {
+                        field.Name = translations[i].DisplayedName;
+                        break;
+                    }
+                }
+            }
             ViewBag.Fields = _fields;
             ViewBag.FormId = id;
 
-            
+
 
             return View(answersList);
+        }
+        //DANIEL 02.04 - translacja tabel
+        [HttpPost]
+        public async Task SaveTranslation()
+        {
+            string basename = Request.Form["baseName"];
+            string newname = Request.Form["newName"];
+            var trans = await _context.TableNameTranslations.FirstOrDefaultAsync(item => item.DisplayedName == basename);
+            if(trans!=null)
+            {
+                trans.DisplayedName = newname;
+                _context.TableNameTranslations.Update(trans);
+                await _context.SaveChangesAsync();
+
+            }
+            else
+            {
+                TableNameTranslation translation = new TableNameTranslation()
+                {
+                    DatabaseName = basename,
+                    DisplayedName = newname
+                };
+                _context.TableNameTranslations.Add(translation);
+                await _context.SaveChangesAsync();
+            }          
         }
     }
 }

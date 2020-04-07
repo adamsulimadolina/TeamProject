@@ -91,6 +91,14 @@ namespace TeamProject
                 routes.MapRoute(
                     name: "",
                     template: "{controller}/{action}/{id?}");
+                routes.MapRoute(
+                    name:"SaveTranslation",
+                    template:"save_translation",
+                    defaults:new {controller="UserAnswerLists",action="SaveTranslation"});
+                routes.MapRoute(
+                    name: "AddLog",
+                    template: "addlog",
+                    defaults:new {controller="Forms",action= "AddLog"});
             });
             app.UseCookiePolicy();
 
