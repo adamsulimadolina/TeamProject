@@ -258,7 +258,7 @@ a:hover{
 }
 
 .buttonad {
-    background-color: #78909c;
+    background-color: #54687D;
     border: none;
     color: white;
     padding: 1px 32px;
@@ -268,6 +268,31 @@ a:hover{
     font-size: 16px;
     margin: 4px, 2px;
     cursor: pointer;
+}
+
+.buttonad:hover{
+    background-color:black;
+}
+
+.buttonada:hover{
+    background-color:black;
+}
+
+.buttondark {
+    background-color: #2F4F4F;
+    border: none;
+    color: white;
+    padding: 1px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px, 2px;
+    cursor: pointer;
+}
+
+.buttondark:hover {
+    background-color: black;
 }
 
 input[type=submit] {
