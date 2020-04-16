@@ -96,10 +96,6 @@
 
                         </li>
                     </ul>
-
-
-
-
                 </div>
             </div>
         </nav>
@@ -108,14 +104,12 @@
 
 
     <div class="d-flex" id="wrapper" style="margin-left: 190px">
-
-        <!-- Sidebar -->
         <div class="bg-#8bbabb border-right" id="sidebar-wrapper">
             <div class="sidebar-heading">Formularze pacjenta </div>
             <div class="list-group list-group-flush container">
                 <div class="table">
                     @*<thead>*@
-                    <div id="searchPatient"></div>
+                    <div id="searchPatient"> </div>
 
 
                     @*</thead>*@
@@ -144,23 +138,13 @@
                 </div>
             </div>
         </div>
-        <!-- /#page-content-wrapper -->
-
     </div>
-
-
-
-
-
-    
 
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2019 - FormGenerator - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
-
-
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
@@ -170,7 +154,7 @@
     <script src="~/lib/jquery-ui/jquery-ui.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    @*<script src="~/js/patient.js"></script>*@
+  
     @RenderSection("Scripts", required: false)
 
 
@@ -197,17 +181,10 @@
             }
         });
 
-
-
-
-
-
         $("#buttonSearch").click(function () {
             console.log(sessionStorage.getItem("key"))
             let area = document.getElementById("searchPatient");
             sessionStorage.setItem('key', area.value);
-
-
 
             $.ajax({
                 url: '/Patient/PatientForms/' + area.value,
@@ -232,25 +209,23 @@
             for (let i = 0; i < data.length; i++) {
                 let ul = document.createElement("ul");
                 let li = document.createElement('li');
-                var form = $(" <button>").attr("class", "btnz").text(data[i].nazwa_formularza).css("width", "100%").click(function () {
+                var form = $(" <button>").attr("class", "btnz").attr("id", data[i].idForm).text(data[i].nazwa_formularza).css("width", "100%").css("background","red").click(function () {
+                   
                     window.location.href = '/Forms/Formularz/' + data[i].idForm;
+                    $(this).css("background", "yellow");
+                   
                     return false;
                 });
+              
                 form.appendTo(li);
                 ul.appendChild(li);
 
                 container.appendChild(ul);
+
             }
 
 
         }
-
-      
-
-
-
-
-
 
     </script>
 </body>
