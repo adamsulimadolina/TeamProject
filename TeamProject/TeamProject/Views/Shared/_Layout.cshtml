@@ -209,10 +209,12 @@
             for (let i = 0; i < data.length; i++) {
                 let ul = document.createElement("ul");
                 let li = document.createElement('li');
-                var form = $(" <button>").attr("class", "btnz").attr("id", data[i].idForm).text(data[i].nazwa_formularza).css("width", "100%").css("background","red").click(function () {
-                   
+                var form = $(" <button>").attr("class", "btnz").attr("id",data[i].idForm).text(data[i].nazwa_formularza).css("width", "100%").css("background","red").click(function () {
+                    //if (isSendBefore) {
+                    //   
+                    //}
                     window.location.href = '/Forms/Formularz/' + data[i].idForm;
-                    $(this).css("background", "yellow");
+                    $("#" + data[i].idForm).css("background", "yellow");
                    
                     return false;
                 });

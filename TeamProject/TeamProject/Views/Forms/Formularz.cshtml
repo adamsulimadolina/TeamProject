@@ -243,7 +243,7 @@
         let type = element.type;
         let fieldvalue = element.value;
         let formid = @ViewBag.formid;
-        document.getElementById(@ViewBag.formid).style.background = "yellow";
+        
         console.log(element)
         let fieldid = element.id;
         await $.post("/addlog", {
