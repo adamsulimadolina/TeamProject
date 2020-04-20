@@ -1,0 +1,119 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    color: black;
+}
+
+main {
+    margin-left: 5rem;
+    padding: 1rem;
+    -webkit-transition: 500ms ease;
+    transition: 500ms ease;
+}
+
+.main-active {
+    margin-left: 16rem !important;
+}
+
+:root {
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.navbar-custom {
+    width: 5rem;
+    background-color: #3a3a47;
+    height: 100vh;
+    position: fixed;
+    -webkit-transition: width 500ms ease;
+    transition: width 500ms ease;
+}
+
+.navbar-custom-active {
+    width: 16rem;
+}
+
+    .navbar-custom-active .link-text {
+        display: block;
+    }
+
+.navbar-custom .logo i {
+    -webkit-transition: -webkit-transform 500ms;
+    transition: -webkit-transform 500ms;
+    transition: transform 500ms;
+    transition: transform 500ms, -webkit-transform 500ms;
+}
+
+.navbar-custom-active .logo i {
+    -webkit-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+}
+
+i::before {
+    margin: auto;
+}
+
+.navbar-nav-custom {
+    list-style: none;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.navbar-item-custom {
+    width: 100%;
+}
+
+    .navbar-item-custom:last-child {
+        margin-top: auto;
+    }
+
+.custom-link {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 5rem;
+    color: #d9d9d9;
+    text-decoration: none;
+    -webkit-filter: grayscale(100%) opacity(0.7);
+    filter: grayscale(100%) opacity(0.7);
+    -webkit-transition: 200ms;
+    transition: 200ms;
+}
+
+    .custom-link:hover {
+        -webkit-filter: grayscale(0%) opacity(1);
+        filter: grayscale(0%) opacity(1);
+        background: #b75555;
+        color: #f2f2f2;
+    }
+
+.link-text {
+    display: none;
+    margin-left: 1rem;
+}
+
+.logo {
+    cursor: pointer;
+    width: 100%;
+    color: #d9d9d9;
+    margin-bottom: 1rem;
+}
+/*# sourceMappingURL=site.css.map */
