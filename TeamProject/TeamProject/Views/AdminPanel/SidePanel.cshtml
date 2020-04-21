@@ -12,12 +12,12 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
           rel="stylesheet" />
     <script src="https://kit.fontawesome.com/bb9f6e46c7.js"
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="~/css/page.css" />
-
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <title>Template</title>
 </head>
 <body>
@@ -29,17 +29,22 @@
                 </a>
             </li>
             <li class="navbar-item-custom">
-                <a class="custom-link">
+                <a class="custom-link" asp-action="Logi" asp-controller="AdminPanel">
                     <i class="fas fa-clipboard fa-2x"></i><span class="link-text">Logi</span>
                 </a>
             </li>
             <li class="navbar-item-custom">
-                <a class="custom-link">
+                <a class="custom-link" asp-action="Users" asp-controller="AdminPanel">
                     <i class="fas fa-users fa-2x"></i><span class="link-text">Użytkownicy</span>
                 </a>
             </li>
             <li class="navbar-item-custom">
-                <a class="custom-link">
+                <a class="custom-link" asp-area="Identity" asp-page="/Account/CreateUser">
+                    <i class="fas fa-user-plus fa-2x"></i><span class="link-text">Stwórz</span>
+                </a>
+            </li>
+            <li class="navbar-item-custom">
+                <a class="custom-link" asp-controller="Forms" asp-action="Index">
                     <i class="fas fa-home fa-2x"></i><span class="link-text">Home</span>
                 </a>
             </li>
