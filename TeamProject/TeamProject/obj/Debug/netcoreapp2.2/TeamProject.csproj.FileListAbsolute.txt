@@ -814,3 +814,7 @@ E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netc
 E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.pdb
 E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.csproj.CopyComplete
 E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Patient\TestSelect.cshtml.g.cs
+C:\Users\kamil\Desktop\GitRepos\FormGenerator\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\AdminPanel\Index.cshtml.g.cs
+C:\Users\kamil\Desktop\GitRepos\FormGenerator\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\AdminPanel\SidePanel.cshtml.g.cs
+C:\Users\kamil\Desktop\GitRepos\FormGenerator\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Forms\Delete.cshtml.g.cs
+C:\Users\kamil\Desktop\GitRepos\FormGenerator\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Patient\TestSelect.cshtml.g.cs
