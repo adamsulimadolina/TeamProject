@@ -18,6 +18,9 @@ using FormGenerator.Models;
 using TeamProject.Models;
 using TeamProject.Models.FieldFieldDependencyModels;
 using AutoMapper;
+using TeamProject.Helpers;
+using TeamProject.Models.FormGeneratorModels;
+using TeamProject.Generators;
 
 namespace TeamProject
 {
@@ -106,8 +109,6 @@ namespace TeamProject
             Seed.SeedUsers(userManager);
             
         }
-       
     }
-
 }
 

@@ -54,6 +54,7 @@ namespace FormGenerator.Models
         public DbSet<FieldFieldDependency> Dependencies { get; set; }
         public DbSet<Test> Tests { get; set; }
         public DbSet<TableNameTranslation> TableNameTranslations { get; set; }
+        public DbSet<GUIDFileNameMap> GUIDFileNameMap { get; set; }
 
     }
 }
