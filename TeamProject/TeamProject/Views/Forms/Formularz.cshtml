@@ -5,15 +5,6 @@
 }
 
 <h3>Wypełnij fromularz</h3>
-
-<style>
-    .cities {
-        background-color: #66BB6A;
-        color: white;
-        margin: 20px;
-        padding: 20px;
-    }
-</style>
 <div class="cities">
     <div class="row">
         <div class="col-md-10">
@@ -181,6 +172,7 @@
             padding: 15px 35px;
             border-radius: 8px;
             position:center;" type="submit" asp-route-formId="@ViewBag.formid" value="Wyślij formularz" class="btn btn-primary" />
+                    
                 </div>
 
             </form>
@@ -251,6 +243,7 @@
         let type = element.type;
         let fieldvalue = element.value;
         let formid = @ViewBag.formid;
+        
         console.log(element)
         let fieldid = element.id;
         await $.post("/addlog", {

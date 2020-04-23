@@ -42,7 +42,9 @@ namespace TeamProject.Controllers
                     IdPatient = x.IdPatient,
                     IdTest = (int)current_test,
                     nazwa_formularza = forms.FirstOrDefault(n => n.Id == x.IdForm).Name,
-                    agreement = x.agreement
+                    agreement = x.agreement,
+                    IsSendBefore=x.IsSendBefore
+
                 };
                 list.Add(pom);
             }

@@ -14,6 +14,11 @@ namespace FormGenerator.Models
         public int IdForm { get; set; }
         public Boolean? agreement { get; set; }
         public int IdTest { get; set; }
+        public bool IsSendBefore { get; set; }
+
+
+     
+
     }
 
     public class PatientFormsHelper
@@ -24,5 +29,6 @@ namespace FormGenerator.Models
         public string nazwa_formularza;
         public Boolean? agreement { get; set; }
         public int IdTest { get; set; }
+        public bool IsSendBefore { get; set; }
     }
 }
