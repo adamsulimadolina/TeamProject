@@ -206,23 +206,36 @@
         function createTable(data) {
             let container = $("#container")[0];
             console.log("kurwo najgorsza")
+           
             for (let i = 0; i < data.length; i++) {
-                let ul = document.createElement("ul");
-                let li = document.createElement('li');
-                var form = $(" <button>").attr("class", "btnz").attr("id",data[i].idForm).text(data[i].nazwa_formularza).css("width", "100%").css("background","red").click(function () {
-                    //if (isSendBefore) {
-                    //   
-                    //}
-                    window.location.href = '/Forms/Formularz/' + data[i].idForm;
-                    $("#" + data[i].idForm).css("background", "yellow");
-                   
-                    return false;
-                });
-              
-                form.appendTo(li);
-                ul.appendChild(li);
+               
+                    let ul = document.createElement("ul");
+                    let li = document.createElement('li');
 
-                container.appendChild(ul);
+                    var form = $(" <button>").attr("class", "btnz").attr("id", data[i].idForm).text(data[i].nazwa_formularza).css("width", "100%");
+                    if (data[i].isSendBefore) {
+
+                        $(form).css("background", "yellow");
+                    }
+
+
+                    form.click(function () {
+
+                        //if (data[i].isSendBefore) {
+                        //    $("#" + data[i].idForm).css("background", "yellow");
+                        //}
+                        window.location.href = '/Forms/Formularz/' + data[i].idForm;
+                        // $("#" + data[i].idForm).css("background", "yellow");
+
+                        return false;
+                    });
+
+                    form.appendTo(li);
+                    ul.appendChild(li);
+
+                    container.appendChild(ul);
+            
+           
 
             }
 

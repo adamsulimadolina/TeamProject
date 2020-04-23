@@ -144,8 +144,8 @@ namespace FormGenerator.Controllers
         {
             int? current_test = HttpContext.Session.GetInt32("current_test");
             MyUser user = await GetUser();
+            await UpdateSendStatusForPacjentForms(patientId, formId, current_test);
 
-            await UpdateSendStatusForPacjentForms(patientId,formId);
 
             foreach (var field in fields)
             {
@@ -190,16 +190,21 @@ namespace FormGenerator.Controllers
                 }
             }
             _context.SaveChanges();
+
+           
             return View("WyslanoFormularz", fields);
         }
 
-        public async Task  UpdateSendStatusForPacjentForms(int IdPacjenta, int IdFormularza)
+        public async Task  UpdateSendStatusForPacjentForms(int IdPacjenta, int IdFormularza,int? Idtest)
         {
 
-            var pacjentForm = _context.PatientForms.FirstOrDefault(f => f.IdPatient == IdPacjenta && f.IdForm == IdFormularza);
+            var pacjentForm = _context.PatientForms.FirstOrDefault(f => f.IdPatient == IdPacjenta && f.IdForm == IdFormularza&&f.IdTest==Idtest);
             pacjentForm.IsSendBefore = true;
-            _context.PatientForms.Add(pacjentForm);
+            _context.PatientForms.Update(pacjentForm);
             await _context.SaveChangesAsync();
+
+
+
 
 
         }
