@@ -6,6 +6,11 @@
     font-family: 'Montserrat', sans-serif !important;
 }
 
+button {
+    font-size: inherit;
+    font-family: inherit;
+}
+
 main {
     margin-left: 5rem;
     padding: 1rem;
@@ -18,7 +23,7 @@ main {
 }
 
 :root {
-    font-size: 16px;
+    font-size: 16px !important;
 }
 
 .navbar-custom {
@@ -136,6 +141,17 @@ i::before {
         color: #b75555;
     }
 
+    .form-center button {
+        margin: 1.5rem auto;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+    }
+
+    .form-center input {
+        width: 100% !important;
+    }
+
 .custom-header {
     margin: 0.5rem auto;
     text-transform: uppercase;
@@ -145,19 +161,17 @@ i::before {
 }
 
 .custom-button {
+    cursor: pointer;
     background-color: #b75555;
     color: #f2f2f2;
-    padding: 0.8rem;
+    padding: 0.5rem 0.8rem;
     text-transform: uppercase;
     border-radius: 2px;
     -webkit-box-shadow: 0 4px 5px -1px rgba(0, 0, 0, 0.25);
     box-shadow: 0 4px 5px -1px rgba(0, 0, 0, 0.25);
     outline: none;
     border: 0;
-    margin: 1.5rem auto;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    margin: 0 0.5rem;
     -webkit-box-align: baseline;
     -ms-flex-align: baseline;
     align-items: baseline;
@@ -176,7 +190,7 @@ i::before {
 .input-custom {
     border: 0;
     border-bottom: 2px solid gray;
-    width: 100%;
+    width: 40%;
     outline: 0;
     font-size: 1.2rem;
     color: black;
@@ -251,5 +265,173 @@ i::before {
 .form-design {
     -webkit-box-shadow: 0px 5px 10px 5px rgba(0, 0, 0, 0.1);
     box-shadow: 0px 5px 10px 5px rgba(0, 0, 0, 0.1);
+}
+
+.custom-card {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: flex-basis;
+    -ms-flex-align: flex-basis;
+    align-items: flex-basis;
+    margin: 1rem;
+    border-radius: 3px;
+    width: 30%;
+    height: auto;
+    background: linear-gradient(135deg, #020024 0%, #9494eb 0%, #00d4ff 100%);
+    -webkit-box-shadow: -7px 10px 5px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: -7px 10px 5px 0px rgba(0, 0, 0, 0.1);
+}
+
+    .custom-card p {
+        justify-self: baseline;
+        margin: 0.5rem;
+    }
+
+.card-icon {
+    width: 40%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+    .card-icon i {
+        color: #f2f2f2;
+    }
+
+.custom-card-info {
+    width: 60%;
+    display: block;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    color: #f2f2f2;
+}
+
+    .custom-card-info .card-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #f2f2f2;
+    }
+
+.custom-card-buttons {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+
+    .custom-card-buttons button {
+        background: none;
+        color: #f2f2f2;
+        padding: 0.5rem;
+        text-transform: uppercase;
+        border: 2px solid #f2f2f2;
+        border-radius: 2px;
+        margin: 0.4rem 0.4rem;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: baseline;
+        -ms-flex-align: baseline;
+        align-items: baseline;
+        -webkit-transition: 200ms;
+        transition: 200ms;
+    }
+
+        .custom-card-buttons button:hover {
+            opacity: 0.8;
+            border-color: #b75555;
+            color: #b75555;
+        }
+
+@media (max-width: 1260px) {
+    .custom-card {
+        width: 33%;
+    }
+
+    .custom-card-buttons button {
+        padding: 0.4rem;
+        border-radius: 2px;
+        margin: 0.4rem 0.4rem;
+    }
+}
+
+.custom-div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: auto;
+    padding: 1rem;
+}
+
+    .custom-div i {
+        color: #3a3a47;
+    }
+
+    .custom-div a {
+        color: #f2f2f2;
+    }
+
+        .custom-div a:hover {
+            text-decoration: none;
+            color: inherit;
+        }
+
+.custom-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    max-width: 100%;
+    height: 400px;
+    max-height: 100%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    z-index: 1010;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.custom-modal-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    overflow: auto;
+}
+
+.custom-overlay {
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.closed {
+    display: none;
 }
 /*# sourceMappingURL=site.css.map */

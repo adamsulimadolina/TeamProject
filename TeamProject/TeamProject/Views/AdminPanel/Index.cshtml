@@ -5,4 +5,35 @@
 }
 
 <h1>Index</h1>
+<div class="row col-md-8">
+    <div class="panel-custom cl-md-3">
+        <p id="latest_log">Ostatnia aktywność : </p>
+    </div>
+    <div class="panel-custom cl-md-3">
+        <p id="latest_test">Ostatni test: </p>
+    </div>
+</div>
+
+
+<script>
+    let latestlog = document.getElementById('latest_log');
+    let latesttest = document.getElementById('latest_test');
+
+    console.log(latestlog);
+    console.log(latesttest);
+    $.get('api/AdminAPI/user', function (data) {
+        console.log(data);
+        let aktywnosc = data.date.split('T');
+        latestlog.innerHTML += aktywnosc[0] + " ";
+        latestlog.innerHTML += aktywnosc[1].substring(0, 8);
+    });
+    $.get('api/AdminAPI/test', function (data) {
+        console.log(data);
+        let aktywnosc = data.dateOfTest.split('T');
+        latesttest.innerHTML += data.idTest + "</br> ";
+        latesttest.innerHTML += data.idPatient + "</br> ";
+        latesttest.innerHTML += aktywnosc[0] + " " + aktywnosc[1];
+    });
+
+</script>
 

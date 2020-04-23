@@ -1,8 +1,50 @@
-﻿
-@{
-    ViewData["Title"] = "Users";
-    Layout = "~/Views/AdminPanel/SidePanel.cshtml";
-}
+﻿@model Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable<TeamProject.Models.MyUser>
+    @{
+        ViewData["Title"] = "Users";
+        Layout = "~/Views/AdminPanel/SidePanel.cshtml";
+    }
 
-<h1>Users</h1>
+    @using (Html.BeginForm("Users", "AdminPanel", FormMethod.Get))
+    {
+        <p>
+            <input class="input-custom" name="SearchString" id="SearchString" value=@ViewBag.CurrentFilter placeholder="Szukaj po nazwisku/imieniu: " />
+            <label for="SearchString" class="form__label">Szukaj po nazwisku/imieniu: </label>
+            <button type="submit" class="custom-button">Search</button>
+        </p>
+    }
+<div class="custom-div">
+   
+    <p> <i class="fas fa-filter fa-2x">Filtruj po:</i> </p>
 
+    <button class="custom-button">
+        @Html.ActionLink("Nazwisko", "Users", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+    </button>
+    <button class="custom-button">
+        Data
+    </button>
+    <button class="custom-button">
+        @Html.ActionLink("ID", "Users", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter })
+    </button>
+
+</div>
+    
+    <div class="row justify-content-around flex-wrap">
+        @foreach (var item in Model)
+        {
+            <div class="custom-card">
+                <div class="custom-card-info">
+                    <div>
+                        <p class="card-title">@item.CustomID</p>
+                        <p>@item.FirstName @item.LastName</p>
+                    </div>
+                    <div class="custom-card-buttons">
+                        <button>Edytuj</button><button>Usuń</button>
+                    </div>
+                </div>
+                <div class="card-icon">
+                    <i class="far fa-user fa-3x"></i>
+                </div>
+            </div>
+
+        }
+    </div>
