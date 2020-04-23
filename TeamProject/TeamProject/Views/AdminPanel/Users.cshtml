@@ -1,19 +1,27 @@
 ﻿@model Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable<TeamProject.Models.MyUser>
-    @{
-        ViewData["Title"] = "Users";
-        Layout = "~/Views/AdminPanel/SidePanel.cshtml";
-    }
-
-    @using (Html.BeginForm("Users", "AdminPanel", FormMethod.Get))
-    {
-        <p>
-            <input class="input-custom" name="SearchString" id="SearchString" value=@ViewBag.CurrentFilter placeholder="Szukaj po nazwisku/imieniu: " />
-            <label for="SearchString" class="form__label">Szukaj po nazwisku/imieniu: </label>
-            <button type="submit" class="custom-button">Search</button>
-        </p>
-    }
+@{
+    ViewData["Title"] = "Users";
+    Layout = "~/Views/AdminPanel/SidePanel.cshtml";
+}
+<div class="custom-overlay closed" id="overlay"></div>
+<div id="modal" class="custom-modal closed">
+    <i class="fas fa-times" id="close-modal"></i>
+    <div class="custom-modal-info">
+        <p>Wybierz opcję</p>
+        <button class="custom-button">Hasło</button>
+        <button class="custom-button">Informacje</button>
+    </div>
+</div>
+@using (Html.BeginForm("Users", "AdminPanel", FormMethod.Get))
+{
+    <p>
+        <input class="input-custom" name="SearchString" id="SearchString" value=@ViewBag.CurrentFilter placeholder="Szukaj po nazwisku/imieniu: " />
+        <label for="SearchString" class="form__label">Szukaj po nazwisku/imieniu: </label>
+        <button type="submit" class="custom-button">Search</button>
+    </p>
+}
 <div class="custom-div">
-   
+
     <p> <i class="fas fa-filter fa-2x">Filtruj po:</i> </p>
 
     <button class="custom-button">
@@ -27,24 +35,39 @@
     </button>
 
 </div>
-    
-    <div class="row justify-content-around flex-wrap">
-        @foreach (var item in Model)
-        {
-            <div class="custom-card">
-                <div class="custom-card-info">
-                    <div>
-                        <p class="card-title">@item.CustomID</p>
-                        <p>@item.FirstName @item.LastName</p>
-                    </div>
-                    <div class="custom-card-buttons">
-                        <button>Edytuj</button><button>Usuń</button>
-                    </div>
+
+<div class="row justify-content-around flex-wrap">
+    @foreach (var item in Model)
+    {
+        <div class="custom-card">
+            <div class="custom-card-info">
+                <div>
+                    <p class="card-title">@item.CustomID</p>
+                    <p>@item.FirstName @item.LastName</p>
                 </div>
-                <div class="card-icon">
-                    <i class="far fa-user fa-3x"></i>
+                <div class="custom-card-buttons">
+                    <button id="@item.CustomID" onclick="openModal(@item.CustomID)">Edytuj</button><button>Usuń</button>
                 </div>
             </div>
+            <div class="card-icon">
+                <i class="far fa-user fa-3x"></i>
+            </div>
+        </div>
 
-        }
-    </div>
+    }
+</div>
+<script>
+    const modal = document.querySelector('modal');
+    const modalOverlay = document.querySelector('overlay');
+    const closeModal = document.querySelector('close-modal');
+    const openModal = (ID) => {
+        modal.classList.toggle('closed');
+        modalOverlay.classList.toggle('closed');
+        console.log(ID);
+    }
+    closeModal.addEventListener('click', () => {
+        modal.classList.toggle('closed');
+        modalOverlay.classList.toggle('closed');
+    })
+       
+</script>
