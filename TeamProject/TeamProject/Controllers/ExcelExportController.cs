@@ -5,6 +5,11 @@ using System.Threading.Tasks;
 using FormGenerator.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using OfficeOpenXml;
+using TeamProject.Generators;
+using TeamProject.Helpers;
+using TeamProject.Models.FormGeneratorModels;
 
 namespace TeamProject.Controllers
 {
@@ -12,6 +17,7 @@ namespace TeamProject.Controllers
     {
         private IHostingEnvironment _hostingEnvironment;
         private FormGeneratorContext _context;
+        private XlsxFileGenerator xlsxFileGenerator = new XlsxFileGenerator();
         private const string VIRTUAL_PATH = @"\excelExports\";
         private const string XLSX_MIME_TYPE = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
 
@@ -22,16 +28,25 @@ namespace TeamProject.Controllers
         }
         public IActionResult Index()
         {
-            ViewBag.Message = _hostingEnvironment.ContentRootPath + VIRTUAL_PATH;
             return View();
         }
 
-        public IActionResult DownloadXlsxFile(string fileGuid)
+        public IActionResult DownloadXlsxFile(int formId)
         {
-            string fileNameWithExtension = _context.GUIDFileNameMap.FirstOrDefault(f => f.Guid == fileGuid).FileName;
-            string pathToFile = _hostingEnvironment.ContentRootPath + VIRTUAL_PATH + fileNameWithExtension;
-            byte[] fileData = System.IO.File.ReadAllBytes(pathToFile);
-            return File(fileData, XLSX_MIME_TYPE);
+            Forms form = _context.Forms.AsNoTracking().FirstOrDefault(f => f.Id == formId);
+            if (form == null)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            List<UserAnswers> userAnswers = _context.UserAnswers.Where(w => w.IdForm == formId).ToList();
+            List<Dictionary<string, object>> result = xlsxFileGenerator.GenerateRequiredDataTypeForUserAnswers(userAnswers,_context);
+            ExcelPackage excelPackage = xlsxFileGenerator.CreateXlsxFile(result);
+            FileProcessor fileProcessor = new FileProcessor(_hostingEnvironment);
+            string filename = Guid.NewGuid().ToString();
+            fileProcessor.SaveExcelFileToAppFolder(VIRTUAL_PATH, filename, excelPackage);
+            byte[] fileData = System.IO.File.ReadAllBytes(_hostingEnvironment.ContentRootPath + VIRTUAL_PATH + filename + ".xlsx");
+            fileProcessor.DeleteFileFromAppFolder(VIRTUAL_PATH + filename + ".xlsx");
+            return File(fileData,XLSX_MIME_TYPE,$"{form.Name}.xlsx");
         }
     }
 }

@@ -198,7 +198,7 @@ namespace FormGenerator.Controllers
 
             var pacjentForm = _context.PatientForms.FirstOrDefault(f => f.IdPatient == IdPacjenta && f.IdForm == IdFormularza);
             pacjentForm.IsSendBefore = true;
-            _context.PatientForms.Add(pacjentForm);
+            _context.PatientForms.Update(pacjentForm);
             await _context.SaveChangesAsync();
 
 

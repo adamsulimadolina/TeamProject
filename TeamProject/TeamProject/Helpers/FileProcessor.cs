@@ -25,5 +25,11 @@ namespace TeamProject.Helpers
             excelPackage.SaveAs(fileInfo);
             return pathToFile;
         }
+
+        public void DeleteFileFromAppFolder(string virtualPathToFileWithExtension)
+        {
+            string pathToFile = _appRootFolder + virtualPathToFileWithExtension;
+            File.Delete(pathToFile);
+        }
     }
 }
