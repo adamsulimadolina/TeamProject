@@ -1,38 +1,57 @@
 ﻿@model Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable<TeamProject.Models.MyUser>
+@using Newtonsoft.Json
 @{
-    ViewData["Title"] = "Users";
+    ViewData["Title"] = "Użytkownicy";
     Layout = "~/Views/AdminPanel/SidePanel.cshtml";
 }
+@if (ViewBag.message != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>@ViewBag.message</strong> 
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
 <div class="custom-overlay closed" id="overlay"></div>
 <div id="modal" class="custom-modal closed">
-    <i class="fas fa-times" id="close-modal"></i>
+    <i class="fas fa-times fa-2x" id="close-modal"></i>
+
     <div class="custom-modal-info">
-        <p>Wybierz opcję</p>
-        <button class="custom-button">Hasło</button>
-        <button class="custom-button">Informacje</button>
+        <h4>Edycja użytkownika:</h4>
+        <h4 id="clickedUser"></h4>
+        <div class="custom-card-buttons">
+            <button id="password-button">Hasło</button>
+            <button id="info-button">Informacje</button>
+        </div>
     </div>
 </div>
-@using (Html.BeginForm("Users", "AdminPanel", FormMethod.Get))
-{
-    <p>
-        <input class="input-custom" name="SearchString" id="SearchString" value=@ViewBag.CurrentFilter placeholder="Szukaj po nazwisku/imieniu: " />
-        <label for="SearchString" class="form__label">Szukaj po nazwisku/imieniu: </label>
-        <button type="submit" class="custom-button">Search</button>
-    </p>
-}
 <div class="custom-div">
+    @using (Html.BeginForm("Users", "AdminPanel", FormMethod.Get))
+    {
+        <p>
+            <input class="input-custom" name="SearchString" id="SearchString" value=@ViewBag.CurrentFilter placeholder="Nazwisko lub imię" />
+            <label for="SearchString" class="form__label">Nazwisko lub imię</label>
+            <button type="submit" class="custom-button">Szukaj</button>
+        </p>
+    }
 
-    <p> <i class="fas fa-filter fa-2x">Filtruj po:</i> </p>
 
-    <button class="custom-button">
-        @Html.ActionLink("Nazwisko", "Users", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
-    </button>
-    <button class="custom-button">
-        Data
-    </button>
-    <button class="custom-button">
-        @Html.ActionLink("ID", "Users", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter })
-    </button>
+    <div class="">
+        <h4>Filtruj po: </h4>
+        <button class="custom-button">
+            @Html.ActionLink("Nazwisko", "Users", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+        </button>
+        <button class="custom-button">
+            Data
+        </button>
+        <button class="custom-button">
+            @Html.ActionLink("ID", "Users", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter })
+        </button>
+    </div>
+
+
 
 </div>
 
@@ -45,29 +64,48 @@
                     <p class="card-title">@item.CustomID</p>
                     <p>@item.FirstName @item.LastName</p>
                 </div>
-                <div class="custom-card-buttons">
-                    <button id="@item.CustomID" onclick="openModal(@item.CustomID)">Edytuj</button><button>Usuń</button>
+                <div class="card-icon">
+                    <i class="fas fa-user-md fa-3x"></i>
                 </div>
             </div>
-            <div class="card-icon">
-                <i class="far fa-user fa-3x"></i>
+
+            <div class="custom-card-buttons">
+                <button id="password-button"><a asp-area="Identity" asp-page="/Account/Manage/NewPassword" asp-route-id="@item.Id">Hasło</a> </button>
+                <button id="info-button"><a asp-area="Identity" asp-page="/Account/Manage/ManageUserData" asp-route-id="@item.Id">Informacje</a></button>
+                <button id="usun-button"><a asp-area="Identity" asp-page="/Account/Manage/DeleteUser" asp-route-id="@item.Id">Usuń</a></button>
+
             </div>
         </div>
 
     }
 </div>
+<script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
 <script>
-    const modal = document.querySelector('modal');
-    const modalOverlay = document.querySelector('overlay');
-    const closeModal = document.querySelector('close-modal');
-    const openModal = (ID) => {
-        modal.classList.toggle('closed');
-        modalOverlay.classList.toggle('closed');
-        console.log(ID);
-    }
-    closeModal.addEventListener('click', () => {
-        modal.classList.toggle('closed');
-        modalOverlay.classList.toggle('closed');
-    })
-       
+    //const modal = document.getElementById('modal');
+    //const modalOverlay = document.getElementById('overlay');
+    //const closeModal = document.getElementById('close-modal');
+    //const clickedUser = document.getElementById('clickedUser');
+    //const infoButton = document.getElementById('info-button');
+    //const passwordButton=document.getElementById('password-button');
+    //let userID;
+    //const openModal = (item) => {
+    //    clickedUser.innerText = item.LastName + " " + item.FirstName;
+    //    userID = item.CustomID;
+    //    modal.classList.toggle('closed');
+    //    modalOverlay.classList.toggle('closed');
+    //    console.log(item);
+    //}
+    // passwordButton.addEventListener('click', () => {
+    //    console.log(userID);
+    //    window.location.href = "newPassword/" + userID;
+    //})
+    //infoButton.addEventListener('click', () => {
+    //    console.log(userID);
+    //    window.location.href = "manageUser/" + userID;
+    //})
+    //closeModal.addEventListener('click', () => {
+    //    modal.classList.toggle('closed');
+    //    modalOverlay.classList.toggle('closed');
+    //});
+
 </script>

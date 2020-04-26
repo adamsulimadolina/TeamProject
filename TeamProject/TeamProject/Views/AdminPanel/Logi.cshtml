@@ -4,9 +4,8 @@
     Layout = "~/Views/AdminPanel/SidePanel.cshtml";
 }
 
-<h1>Logi</h1>
 <label for="log-select">Logi z ostatniego:</label>
-<select id="log-select">
+<select id="log-select" class="select-custom w-25">
     <option value="1">24 godziny</option>
     <option value="7">Tydzień</option>
     <option value="30">Miesiąc</option>
@@ -16,7 +15,7 @@
 <table id="logs-table"
        data-search="true"
        data-pagination="true"
-       data-height="700"
+       data-height="650"
        data-show-export="true"
        >
     <thead>
@@ -39,9 +38,28 @@
 <script type="text/javascript" src="~/js/tableExport.min.js"></script>
 <script src="~/js/bootstrap-table-export.js"></script>
 <script>
+    
     let $table = $('#logs-table');
+   $(window).ready(inputStyles);
     let logsGetButton = document.getElementById('logsGet');
     const selectLog = document.getElementById('log-select');
+    
+    async function inputStyles() {
+        await $table.bootstrapTable();
+        let input = document.getElementsByClassName('form-control')[0];
+        let label = document.createElement('LABEL');
+        let textNode = document.createTextNode('Szukaj');
+        console.log(input)
+        label.setAttribute('for', 'szukaj');
+        label.appendChild(textNode);
+        label.classList.toggle('form__label');
+        input.classList.remove('form-control')
+        input.classList.toggle('input-custom')
+        input.setAttribute('id', 'szukaj');
+        input.style.width = '100%';
+        input.placeholder = 'Szukaj';
+        input.after(label);
+    };
     logsGetButton.addEventListener('click', () => {
         let logs = [];
         console.log(selectLog.value)
@@ -50,15 +68,9 @@
     });
     function initTable(logs= []) {
         $table.bootstrapTable('destroy').bootstrapTable({ data: logs })
-        let input = document.querySelector('.form-control')
-        input.classList.remove('form-control')
-        input.classList.toggle('input-custom')
-        input.setAttribute('id', 'szukaj');
-        input.style.width = '100%';
-        input.placeholder = 'Szukaj'; 
-        
-        console.log(input);
+        inputStyles();
     }
+    
     const getLogs = async () => {
         await fetch('/api/AdminAPI/logs/' + selectLog.value)
         .then((response) => {
@@ -74,6 +86,7 @@
         let data = element.date.split('T');     
         element.date = data[0] + " "+ data[1].substring(0, 8);
     }
+     
 </script>
 
 

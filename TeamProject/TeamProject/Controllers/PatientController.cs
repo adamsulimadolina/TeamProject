@@ -84,6 +84,7 @@ namespace TeamProject.Controllers
                 Test new_test = new Test();
                 new_test.IdPatient = id_patient;
                 new_test.IdTest = id_test;
+                new_test.DateOfTest = DateTime.Now;
                 _context.Tests.Add(new_test);
                 flag = true;
 

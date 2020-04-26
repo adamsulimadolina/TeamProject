@@ -1,20 +1,20 @@
 ﻿@page
 @model TeamProject.Areas.Identity.Pages.Account.CreateUserModel
 @{
-    ViewData["Title"] = "CreateUser";
+    ViewData["Title"] = "Stwórz Użytkownika";
     Layout = "~/Views/AdminPanel/SidePanel.cshtml";
 }
 @if (ViewData["Message"] != null)
 {
     <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Sukces!</strong> Użytkownik stworzony poprawnie.
+        <strong>Sukces!</strong> @ViewData["Message"]
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
 }
 <div class="row form-center">
-    <div class="col-md-5 form-design">
+    <div class="col-md-8 col-lg-5 form-design">
         <i class="fas fa-user-plus fa-3x"></i>
         <h2 class="custom-header">Stwórz nowe konto</h2>
         <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
@@ -74,8 +74,8 @@
             </div>
             <button type="submit" class="custom-button">
                 Stwórz
-                <i class="fas fa-plus"></i>
             </button>
         </form>
     </div>
 </div>
+<script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>

@@ -30,8 +30,9 @@ namespace TeamProject.Controllers
         {
             return View();
         }
-        public ViewResult Users(string sortOrder, string currentFilter, string searchString, int? page)
+        public ViewResult Users(string sortOrder, string currentFilter, string searchString, int? page,string message)
         {
+            if (!String.IsNullOrEmpty(message)) ViewBag.message = message;
             ViewBag.CurrentSort = sortOrder;
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";           
@@ -59,11 +60,23 @@ namespace TeamProject.Controllers
                     users = users.OrderBy(s => s.LastName);
                     break;
             }
-
-            
+           
             return View(users);
         }
-        public async Task<IActionResult> manageUser(int id)
+        [HttpGet]
+        public IActionResult newPassword(int id)
+        {
+            ViewBag.ID = id;
+            return View();
+        }
+        [HttpGet]
+        public IActionResult manageUser(string id)
+        {
+            ViewBag.ID = id;
+            return View();
+        }
+        [HttpPost]
+        public IActionResult manageUser()
         {
             return View();
         }
