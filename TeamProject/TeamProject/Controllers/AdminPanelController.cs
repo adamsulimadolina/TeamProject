@@ -30,13 +30,13 @@ namespace TeamProject.Controllers
         {
             return View();
         }
-        public ViewResult Users(string sortOrder, string currentFilter, string searchString, int? page,string message)
+        public ViewResult Users(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            if (!String.IsNullOrEmpty(message)) ViewBag.message = message;
+            //if (!String.IsNullOrEmpty(message)) ViewBag.message = message;
             ViewBag.CurrentSort = sortOrder;
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";           
-            searchString = currentFilter;
+            ViewBag.IDSortParm = sortOrder == "ID" ? "id_desc" : "ID";
+            if (sortOrder == "Default") ViewBag.DateSortParm = "Default";
             ViewBag.CurrentFilter = searchString;
             var users = from u in _userManager.Users
                         select u;
@@ -47,13 +47,15 @@ namespace TeamProject.Controllers
             }
             switch (sortOrder)
             {
+                case "Default":
+                    break;
                 case "name_desc":
                     users = users.OrderByDescending(s => s.LastName);
                     break;
-                case "Date":
+                case "ID":
                     users = users.OrderBy(s => s.CustomID);
                     break;
-                case "date_desc":
+                case "id_desc":
                     users = users.OrderByDescending(s => s.CustomID);
                     break;
                 default:  // Name ascending 

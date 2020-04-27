@@ -357,18 +357,39 @@ i::before {
             color: #b75555;
         }
 
-        .custom-card-buttons button a {
-            color: #f2f2f2;
+    .custom-card-buttons a {
+        cursor: pointer;
+        background: none;
+        color: #f2f2f2;
+        padding: 0.5rem;
+        text-transform: uppercase;
+        border: 2px solid #f2f2f2;
+        border-radius: 2px;
+        margin: 0.4rem 0.4rem;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: baseline;
+        -ms-flex-align: baseline;
+        align-items: baseline;
+        -webkit-transition: 200ms;
+        transition: 200ms;
+    }
+
+        .custom-card-buttons a:hover {
+            opacity: 0.8;
+            border-color: #b75555;
+            color: #b75555;
         }
 
-            .custom-card-buttons button a:focus {
-                outline: none;
-            }
+        .custom-card-buttons a:focus {
+            outline: none;
+        }
 
-            .custom-card-buttons button a:hover {
-                text-decoration: none;
-                color: #b75555;
-            }
+        .custom-card-buttons a:hover {
+            text-decoration: none;
+            color: #b75555;
+        }
 
 @media (max-width: 1260px) {
     .custom-card {
@@ -428,7 +449,7 @@ i::before {
 
         .custom-div a:hover {
             text-decoration: none;
-            color: inherit;
+            color: #f2f2f2;
         }
 
     .custom-div form {

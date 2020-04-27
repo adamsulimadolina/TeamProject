@@ -39,16 +39,10 @@
 
 
     <div class="">
-        <h4>Filtruj po: </h4>
-        <button class="custom-button">
-            @Html.ActionLink("Nazwisko", "Users", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
-        </button>
-        <button class="custom-button">
-            Data
-        </button>
-        <button class="custom-button">
-            @Html.ActionLink("ID", "Users", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter })
-        </button>
+        <h4>Filtruj po: </h4>    
+            @Html.ActionLink("Nazwisko", "Users", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter },new {@class="custom-button" })      
+         @Html.ActionLink("Data", "Users", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter },new {@class="custom-button" })    
+            @Html.ActionLink("ID", "Users", new { sortOrder = ViewBag.IDSortParm, currentFilter = ViewBag.CurrentFilter },new {@class="custom-button" })
     </div>
 
 
@@ -70,9 +64,9 @@
             </div>
 
             <div class="custom-card-buttons">
-                <button id="password-button"><a asp-area="Identity" asp-page="/Account/Manage/NewPassword" asp-route-id="@item.Id">Hasło</a> </button>
-                <button id="info-button"><a asp-area="Identity" asp-page="/Account/Manage/ManageUserData" asp-route-id="@item.Id">Informacje</a></button>
-                <button id="usun-button"><a asp-area="Identity" asp-page="/Account/Manage/DeleteUser" asp-route-id="@item.Id">Usuń</a></button>
+                <a asp-area="Identity" asp-page="/Account/Manage/NewPassword" asp-route-id="@item.Id">Hasło</a>
+               <a asp-area="Identity" asp-page="/Account/Manage/ManageUserData" asp-route-id="@item.Id">Informacje</a>
+               <a asp-area="Identity" asp-page="/Account/Manage/DeleteUser" asp-route-id="@item.Id">Usuń</a>
 
             </div>
         </div>
