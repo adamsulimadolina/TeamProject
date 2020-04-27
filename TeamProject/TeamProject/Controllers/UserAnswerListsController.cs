@@ -149,12 +149,13 @@ namespace TeamProject.Controllers
                     {
                         if (answersList[i].user_answer_list[j].IdForm == elem.IdForm &&
                             answersList[i].user_answer_list[j].IdField == elem.IdField &&
-                            answersList[i].user_answer_list[j].IdPatient == elem.IdPatient)
+                            answersList[i].user_answer_list[j].IdPatient == elem.IdPatient &&
+                            answersList[i].user_answer_list[j].IdTest == elem.IdTest)
                         {
                             doubled = true;
                         }
                     }
-                    if (answersList[i].Id_User.Equals(elem.IdPatient))
+                    if (answersList[i].Id_User.Equals(elem.IdPatient) && answersList[i].Id_Test.Equals(elem.IdTest))
                     {
                         idx = i;
                         exist = true;
@@ -164,6 +165,7 @@ namespace TeamProject.Controllers
                 {
                     newUAL = new UserAnswerList();
                     newUAL.Id_User = elem.IdPatient;
+                    newUAL.Id_Test = elem.IdTest;
                     newUAL.user_answer_list.Add(elem);
                     answersList.Add(newUAL);
                 }

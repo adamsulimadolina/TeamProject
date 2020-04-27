@@ -3,15 +3,17 @@ using System;
 using FormGenerator.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace TeamProject.Migrations
 {
     [DbContext(typeof(FormGeneratorContext))]
-    partial class FormGeneratorContextModelSnapshot : ModelSnapshot
+    [Migration("20200427195414_27-0")]
+    partial class _270
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
