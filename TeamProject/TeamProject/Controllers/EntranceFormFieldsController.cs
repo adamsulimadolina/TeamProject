@@ -286,29 +286,7 @@ namespace TeamProject.Controllers
                 }
             }
             ViewBag.listforms = listEmptyForms;
-
-            List<EntranceConnectionShow> entranceConnections = new List<EntranceConnectionShow>();
-            var ConnectionList = _context.EntranceConnections.Where(m => m.IdField == id).ToList();
-            var Field = _context.Field.FirstOrDefault(m => m.Id.Equals(id));
-            var Forms = _context.Forms.ToList();
-
-            foreach(EntranceConnections connection in ConnectionList)
-            {
-                EntranceConnectionShow foo = new EntranceConnectionShow
-                {
-                    Field = Field.Name,
-                    Id = connection.Id,
-                    Form = Forms.FirstOrDefault(m => m.Id.Equals(connection.IdForm)).Name,
-                    IdForm = connection.IdForm,
-                    IdField = Field.Id
-                };
-                entranceConnections.Add(foo);
-            }
-           
-
-
-
-            return View(entranceConnections);
+            return View(_context.EntranceConnections.Where(m => m.IdField == id).ToList());
         }
 
         [HttpPost]
@@ -345,24 +323,8 @@ namespace TeamProject.Controllers
                     }
                 }
                 ViewBag.listforms = listEmptyForms;
-                List<EntranceConnectionShow> entranceConnectio = new List<EntranceConnectionShow>();
-                var ConnectionList = _context.EntranceConnections.Where(m => m.IdField == tmp.IdField).ToList();
-                var Field = _context.Field.FirstOrDefault(m => m.Id.Equals(tmp.IdField));
-                var Forms = _context.Forms.ToList();
-
-                foreach (EntranceConnections connection in ConnectionList)
-                {
-                    EntranceConnectionShow foo = new EntranceConnectionShow
-                    {
-                        Field = Field.Name,
-                        Id = connection.Id,
-                        Form = Forms.FirstOrDefault(m => m.Id.Equals(connection.IdForm)).Name,
-                        IdForm = connection.IdForm,
-                        IdField = Field.Id
-                    };
-                    entranceConnectio.Add(foo);
-                }
-                return View(entranceConnectio);
+                
+                return View(_context.EntranceConnections.Where(m => m.IdField == tmp.IdField).ToList());
             }
             return RedirectToAction(nameof(Index));
 

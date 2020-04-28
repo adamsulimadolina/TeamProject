@@ -11,5 +11,4 @@ namespace FormGenerator.Models
         public int Id { get; set; }
         public int IdField { get; set; }
     }
-
 }

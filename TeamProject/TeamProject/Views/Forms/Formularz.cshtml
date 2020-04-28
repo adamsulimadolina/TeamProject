@@ -4,15 +4,17 @@
     ViewData["Title"] = "Formularz";
 }
 
-<h3>Wypełnij fromularz</h3>
+<h3>Wypełnij formularz</h3>
 
 <style>
+
     .cities {
-        background-color: #66BB6A;
+       
         color: white;
         margin: 20px;
         padding: 20px;
     }
+    
 </style>
 <div class="cities">
     <div class="row">
@@ -91,76 +93,74 @@
 
                                 @if (Model[i].Dependencies.RelatedFields.Count > 0)
                                 {
-                                    @for (var j = 0; j < Model[i].Dependencies.RelatedFields.Count; j++)
+                        <div style="margin-left: 100px" class="dependent" hidden idval="@Model[i].Dependencies.ThisField.Id">
+                            <input asp-for="@Model[i].Dependencies.RelatedFields[j].Id" hidden />
+                            <input asp-for="@Model[i].Dependencies.RelatedFields[j].Name" hidden />
+                            <input asp-for="@Model[i].Dependencies.RelatedFields[j].Type" hidden />
+                            @if (Model[i].Dependencies.RelatedFields[j].Type == "text")
+                            {
+                                <div>
+                                    <label asp-for="@Model[i].Dependencies.RelatedFields[j].Name" class="control-label">@Model[i].Dependencies.RelatedFields[j].Name</label>
+                                </div>
+
+                                <div>
+                                    <input class="form-control log" idval="@Model[i].Field.Id" type="@Model[i].Dependencies.RelatedFields[j].Type" asp-for="@Model[i].DepndenciesValue[j].textVal" />
+                                </div>
+                                <div>
+                                    <span asp-validation-for="@Model[i].Dependencies.RelatedFields[j].Type" class="text-danger"></span>
+                                </div>
+
+                            }
+                            else if (Model[i].Dependencies.RelatedFields[j].Type == "checkbox")
+                            {
+
+                                <div>
+                                    <label asp-for="@Model[i].Dependencies.RelatedFields[j].Name" class="control-label">@Model[i].Dependencies.RelatedFields[j].Name</label>
+                                </div>
+                                <div>
+                                    <input class="form-control checkmark log " idval="@Model[i].Field.Id" type="@Model[i].Dependencies.RelatedFields[j].Type" asp-for="@Model[i].DepndenciesValue[j].boolVal" />
+                                </div>
+                                <div>
+                                    <span asp-validation-for="@Model[i].Dependencies.RelatedFields[j].Name" class="text-danger"></span>
+                                </div>
+                            }
+
+                            else if (Model[i].Dependencies.RelatedFields[j].Type == "number")
+                            {
+
+                                <div>
+                                    <label asp-for="@Model[i].Dependencies.RelatedFields[j].Name" class="control-label">@Model[i].Dependencies.RelatedFields[j].Name</label>
+                                </div>
+                                <div>
+                                    <input class="form-control log " id="@Model[i].Dependencies.RelatedFields[j].Id" numInput="true" idval="@Model[i].Field.Id" type="text" asp-for="@Model[i].DepndenciesValue[j].textVal" />
+                                    <p errorParagraf="true" ErrorId="@Model[i].Dependencies.RelatedFields[j].Id" hidden style="color: red"></p>
+                                </div>
+
+                            }
+                            else if (Model[i].Field.Type == "select")
+                            {
+
+                        <label asp-for="@Model[i].Dependencies.RelatedFields[j].Name" class="control-label">@Model[i].Dependencies.RelatedFields[j].Name</label>
+
+
+                                <select class="form-control log log-select" asp-for="@Model[i].DepndenciesValue[j].textVal" style="width:250px;" id="@Model[i].Dependencies.RelatedFields[j].Id">
+                                    @foreach (var option in Model[0].options)
                                     {
-                                        <div style="margin-left: 100px" class="dependent" hidden idval="@Model[i].Dependencies.ThisField.Id">
-                                            <input asp-for="@Model[i].Dependencies.RelatedFields[j].Id" hidden />
-                                            <input asp-for="@Model[i].Dependencies.RelatedFields[j].Name" hidden />
-                                            <input asp-for="@Model[i].Dependencies.RelatedFields[j].Type" hidden />
-                                            @if (Model[i].Dependencies.RelatedFields[j].Type == "text")
-                                            {
-                                                <div>
-                                                    <label asp-for="@Model[i].Dependencies.RelatedFields[j].Name" class="control-label">@Model[i].Dependencies.RelatedFields[j].Name</label>
-                                                </div>
-
-                                                <div>
-                                                    <input class="form-control log" idval="@Model[i].Field.Id" type="@Model[i].Dependencies.RelatedFields[j].Type" asp-for="@Model[i].DepndenciesValue[j].textVal" />
-                                                </div>
-                                                <div>
-                                                    <span asp-validation-for="@Model[i].Dependencies.RelatedFields[j].Type" class="text-danger"></span>
-                                                </div>
-
-                                            }
-                                            else if (Model[i].Dependencies.RelatedFields[j].Type == "checkbox")
-                                            {
-
-                                                <div>
-                                                    <label asp-for="@Model[i].Dependencies.RelatedFields[j].Name" class="control-label">@Model[i].Dependencies.RelatedFields[j].Name</label>
-                                                </div>
-                                                <div>
-                                                    <input class="form-control checkmark log " idval="@Model[i].Field.Id" type="@Model[i].Dependencies.RelatedFields[j].Type" asp-for="@Model[i].DepndenciesValue[j].boolVal" />
-                                                </div>
-                                                <div>
-                                                    <span asp-validation-for="@Model[i].Dependencies.RelatedFields[j].Name" class="text-danger"></span>
-                                                </div>
-                                            }
-
-                                            else if (Model[i].Dependencies.RelatedFields[j].Type == "number")
-                                            {
-
-                                                <div>
-                                                    <label asp-for="@Model[i].Dependencies.RelatedFields[j].Name" class="control-label">@Model[i].Dependencies.RelatedFields[j].Name</label>
-                                                </div>
-                                                <div>
-                                                    <input class="form-control log " id="@Model[i].Dependencies.RelatedFields[j].Id" numInput="true" idval="@Model[i].Field.Id" type="text" asp-for="@Model[i].DepndenciesValue[j].textVal" />
-                                                    <p errorParagraf="true" ErrorId="@Model[i].Dependencies.RelatedFields[j].Id" hidden style="color: red"></p>
-                                                </div>
-
-                                            }
-                                            else if (Model[i].Field.Type == "select")
-                                            {
-
-                                                <label asp-for="@Model[i].Dependencies.RelatedFields[j].Name" class="control-label">@Model[i].Dependencies.RelatedFields[j].Name</label>
-
-
-                                                <select class="form-control log log-select" asp-for="@Model[i].DepndenciesValue[j].textVal" style="width:250px;" id="@Model[i].Dependencies.RelatedFields[j].Id">
-                                                    @foreach (var option in Model[0].options)
-                                                    {
-                                                        @if (option.idField == Model[i].Dependencies.RelatedFields[j].Id)
-                                                        {
-                                                            <option value="@option.option">@option.option</option>
-                                                        }
-                                                    }
-                                                </select>
-
-
-
-
-                                            }
-
-                                        </div>
+                                        @if (option.idField == Model[i].Dependencies.RelatedFields[j].Id)
+                                        {
+                                            <option value="@option.option">@option.option</option>
+                                        }
                                     }
+                                </select>
 
+
+
+
+                            }
+
+                        </div>
+                                        }
+                                
 
                                 }
 
@@ -190,9 +190,11 @@
 </div>
 
 <script type="text/javascript">
+
     function handleCheck(e) {
         console.log(e.target.parentNode.getAttribute("val"));
         console.log(e)
+
         if (e.target.parentNode.getAttribute("type") == "FieldDuplication" && parseInt(e.target.parentNode.getAttribute("val")) >= parseInt(e.target.value) && parseInt(e.target.value) > 0) {
             console.log(e.target.parentNode.getAttribute("val"))
             let divs = (document.querySelectorAll("div[idval]"));
@@ -204,6 +206,7 @@
                 }
             }
         }
+
         else if (e.target.parentNode.getAttribute("type") == "FieldVisibly" && e.target.parentNode.getAttribute("val") === e.target.value) {
             //  e.target.parentElement.lastElementChild.removeAttribute("hidden");
             let x = (e.target.parentNode.getAttribute("parentid"));
@@ -214,6 +217,7 @@
                 console.log(input)
                 input.removeAttribute("hidden")
             });
+
         }
         else {
             let x = (e.target.parentNode.getAttribute("parentid"));
@@ -226,13 +230,23 @@
                 input.parentElement.parentElement.setAttribute("hidden", "")
             });
         }
+
+
     }
+
     let dependentDuplication = document.querySelectorAll("th[val]");
     let inputs = document.querySelectorAll("th[val] > input.form-control , select.form-control");
+
     inputs.forEach(input => input.addEventListener('change', handleCheck));
+
+
+
+
     //        .filter(function (field) {
     //	return field.matches('.log');
     //});
+
+
 </script>
 
 
@@ -281,7 +295,9 @@
             case "select-one":
                 fieldvalue = this.value
                 break;
+
         }
+
         let formid = @ViewBag.formid;
         let fieldid = this.id
         let log = {
@@ -311,12 +327,17 @@
     }
   });
    });
+
+
     $("[numInput='true']").change(function () {
+
         $.ajax({
                     url: "/api/Validations/" + this.id + "/" + this.value,
                      dataType: "json"
         }).done(res => CheckValidations(res, this));
+
     });
+
     function CheckValidations(response, input) {
         let error = $("[ErrorId=" + input.id + "]")[0];
         console.log(error);
@@ -331,6 +352,8 @@
             SetSubmitButtonStatus();
         }
     }
+
+
     function SetSubmitButtonStatus() {
         let paragraphs = $("[errorParagraf='true']");
         let licznik = 0;

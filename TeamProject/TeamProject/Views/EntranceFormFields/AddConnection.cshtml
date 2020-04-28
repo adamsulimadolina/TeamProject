@@ -1,4 +1,4 @@
-﻿@model IEnumerable<EntranceConnectionShow>
+﻿@model IEnumerable<FormGenerator.Models.EntranceConnections>
 
 
 @{
@@ -60,11 +60,11 @@
             <tr>
 
                 <th>
-                    Formularze zależne od:
+                    @Html.DisplayNameFor(model => model.IdForm)
                 </th>
 
                 <th>
-                    @Model.First().Field
+
                 </th>
             </tr>
         </thead>
@@ -75,7 +75,7 @@
                 <tr>
 
                     <td>
-                        @Html.DisplayFor(modelItem => item.Form)
+                        @Html.DisplayFor(modelItem => item.IdForm)
                     </td>
                     <td>
                         <button type="button" class="btn btn-info"><a style="text-decoration:none;color:white;" sp-action="DeleteDependence" asp-route-id="@item.IdForm">Usuń zależność</a></button>
