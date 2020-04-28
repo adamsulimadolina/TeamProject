@@ -16,11 +16,11 @@
 
         <div class="row">
             <div class="col-md-12">
-
+                
                 @Html.CheckBoxFor(m => Model.Fields[i].IsCheck)
-                <label class="control-label ">@Model.Fields[i].NameOfField </label>
+                <label class="control-label">@Model.Fields[i].NameOfField </label>
                 <input asp-for="@Model.Fields[i].NameOfField" hidden />
-                <label class="control-label ">@Model.Fields[i].IdField </label>
+          
                 <input asp-for="@Model.Fields[i].IdField" hidden />
 
                 <input asp-for="@Model.IdForm" hidden />
@@ -30,12 +30,13 @@
         </div>
 
     }
+    <hr/>
     @Html.CheckBoxFor(m => Model.IsAllRecords, new { id = "myCheck" }) Czy chcesz otrzymać wszystkie rekordy?
 
     <input style="display:none" id="numberOfRecords" asp-for=@Model.NumberOfRecords placeholder="Podaj ilosc rekordow"/>
 
     <br/>
-    <input asp-action="DownloadXlsxFile" type="submit" />
+    <input asp-action="DownloadXlsxFile" type="submit" value="Pobierz Excel">
 </form>
 
 
