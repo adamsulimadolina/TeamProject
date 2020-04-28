@@ -907,3 +907,4 @@ C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\ne
 C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.pdb
 C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.csproj.CopyComplete
 C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\ExcelExport\Details.g.cshtml.cs
+C:\Users\kamil\Desktop\GitRepos\FormGenerator\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\ExcelExport\Details.cshtml.g.cs

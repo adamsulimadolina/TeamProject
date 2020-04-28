@@ -30,6 +30,7 @@ namespace TeamProject.Controllers
         }
         public IActionResult Index()
         {
+            ViewBag.Message = TempData?["ExcelExportMessage"] ?? "";
             List<SelectListItem> formsList = new List<SelectListItem>();
             var formularze = _context.Forms.ToList();
 
@@ -97,8 +98,9 @@ namespace TeamProject.Controllers
         public IActionResult DownloadXlsxFile(ListOfFields listOfFields)
         {
             Forms form = _context.Forms.AsNoTracking().FirstOrDefault(f => f.Id == listOfFields.IdForm);
-            if (form == null)
+            if (form == null || (listOfFields.IsAllRecords==false && listOfFields.NumberOfRecords<1))
             {
+                TempData["ExcelExportMessage"] = "Ilość zwracanych rekordów musi być większa od 0";
                 return RedirectToAction(nameof(Index));
             }
             List<int> fields = listOfFields.Fields.Where(x => x.IsCheck == true).Select(x => x.IdField).ToList();

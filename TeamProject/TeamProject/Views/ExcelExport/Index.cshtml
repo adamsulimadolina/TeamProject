@@ -1,4 +1,10 @@
 ﻿
+
+@if (ViewBag.Message != null)
+{
+    <p style="color: red">@ViewBag.Message</p>
+}
+
 @{
 
     List<SelectListItem> tmp = ViewBag.List;
