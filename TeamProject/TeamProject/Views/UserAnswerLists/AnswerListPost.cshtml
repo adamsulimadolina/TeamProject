@@ -43,12 +43,14 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Id_User)
                 </th>
-
+                <th>
+                    @Html.DisplayNameFor(model => model.Id_Test)
+                </th>
                 @foreach (var elem in ViewBag.Fields)
                 {
                     <th class="translate">
-                        
-                       @elem.Name
+
+                        @elem.Name
                     </th>
 
                 }
@@ -57,30 +59,33 @@
         <tbody>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td style="column-width:100px">
-                        @Html.DisplayFor(modelItem => item.Id_User)
-                    </td>
-                    @foreach (var el in ViewBag.Fields)
+            <tr>
+                <td style="column-width:100px">
+                    @Html.DisplayFor(modelItem => item.Id_User)
+                </td>
+                <td style="column-width:100px">
+                    @Html.DisplayFor(modelItem => item.Id_Test)
+                </td>
+                @foreach (var el in ViewBag.Fields)
+                {
+                    flag = false;
+                    @for (int i = 0; i < item.user_answer_list.Count; i++)
                     {
-                        flag = false;
-                        @for (int i = 0; i < item.user_answer_list.Count; i++)
+                        if (el.Id == item.user_answer_list[i].IdField)
                         {
-                            if (el.Id == item.user_answer_list[i].IdField)
-                            {
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.user_answer_list[i].Answer)
-                                </td>
-                                flag = true;
-                                break;
-                            }
-                        }
-                        if (!flag)
-                        {
-                            <td></td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.user_answer_list[i].Answer)
+                            </td>
+                            flag = true;
+                            break;
                         }
                     }
-                </tr>
+                    if (!flag)
+                    {
+                        <td></td>
+                    }
+                }
+            </tr>
             }
         </tbody>
     </table>

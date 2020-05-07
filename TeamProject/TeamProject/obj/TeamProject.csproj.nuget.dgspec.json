@@ -89,6 +89,10 @@
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[2.2.0, )"
+            },
+            "PagedList": {
+              "target": "Package",
+              "version": "[1.17.0, )"
             }
           },
           "imports": [

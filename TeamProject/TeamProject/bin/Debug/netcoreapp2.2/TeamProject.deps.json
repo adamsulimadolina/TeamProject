@@ -4,12 +4,7 @@
     "signature": ""
   },
   "compilationOptions": {
-    "defines": [
-      "TRACE",
-      "DEBUG",
-      "NETCOREAPP",
-      "NETCOREAPP2_2"
-    ],
+    "defines": ["TRACE", "DEBUG", "NETCOREAPP", "NETCOREAPP2_2"],
     "languageVersion": "7.3",
     "platform": "",
     "allowUnsafe": false,
@@ -34,7 +29,8 @@
           "Microsoft.NETCore.App": "2.2.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.2.4",
           "Npgsql": "4.1.2",
-          "Npgsql.EntityFrameworkCore.PostgreSQL": "2.2.0"
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "2.2.0",
+          "PagedList": "1.17.0"
         },
         "runtime": {
           "TeamProject.dll": {}
