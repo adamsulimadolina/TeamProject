@@ -4,5 +4,58 @@
     Layout = "~/Views/AdminPanel/SidePanel.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Witamy w panelu administracyjnym</h1>
+<div class="row justify-content-around">
+    <div class="lds-ring" id="loader"><div></div><div></div><div></div><div></div></div>
+    <div class="panel-custom col-md-3 d-none ">
+        <p id="latest_log">Ostatnia aktywność : </p>
+
+    </div>
+    <div class="panel-custom col-md-3 d-none ">
+        <p id="latest_test">Ostatni test: </p>
+
+    </div>
+    <div class="panel-custom col-md-3 d-none">
+        <p id="number-tests">Ilość wykonanych testów w tym miesiącu: </p>
+
+    </div>
+</div>
+
+
+<script>
+    let latestlog = document.getElementById('latest_log');
+    let latesttest = document.getElementById('latest_test');
+    let numberOfTests = document.getElementById('number-tests');
+    let infoCards = document.getElementsByClassName('panel-custom');
+    let spinners = document.getElementById('loader');
+    const loadData = async () => {
+        let aktywnosc;
+        let lastTest;
+        let countTest;
+        await $.get('api/AdminAPI/user', function (data) {
+            aktywnosc = data.date.split('T');          
+        });
+        await $.get('api/AdminAPI/test', function (data) {
+            let testPatient;
+            lastTest = data.dateOfTest.split('T');
+            testPatient = data.idTest + "</br> ";
+            testPatient += data.idPatient + "</br> ";
+            testPatient += lastTest[0] + " " + lastTest[1];
+            lastTest = testPatient;     
+       });
+        await $.get('api/AdminAPI/tests/30', function (data) {
+           countTest = data;                      
+        });   
+        for (let item of infoCards) {
+            item.classList.toggle('d-none');
+        }
+        spinners.style.display = "none";
+        latesttest.innerHTML += lastTest;
+        latestlog.innerHTML += aktywnosc[0] + " ";
+        latestlog.innerHTML += aktywnosc[1].substring(0, 8);
+        numberOfTests.innerHTML += countTest;  
+        
+    }
+    loadData();  
+</script>
 

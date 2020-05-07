@@ -1,0 +1,34 @@
+﻿@page
+@model TeamProject.Areas.Identity.Pages.Account.Manage.DeleteUserModel
+@{
+    Layout = "~/Views/AdminPanel/SidePanel.cshtml";
+    ViewData["Title"] = "Usunięcie użytkownika";
+}
+<div class="alert alert-warning" role="alert">
+    <p>
+        <span class="glyphicon glyphicon-warning-sign"></span>
+        <strong>Proces usunięcia konta jest nie odwracalny.</strong>
+    </p>
+</div>
+<div class="row form-center">
+    <div class="col-md-8 col-lg-5 form-design">
+        <i class="fas fa-user-minus fa-3x"></i>
+        <h2 class="custom-header">Usuń użytkownika</h2>
+        <form id="delete-user" method="post" >
+            <div asp-validation-summary="All" class="text-danger"></div>
+            @if (Model.RequirePassword)
+            {
+        <div class="form__group">
+                <input asp-for="Input.Password" class="input-custom" id="haslo" placeholder="Podaj Hasło Administratora"/>
+                <label for="haslo" class="form__label">Podaj Hasło Administratora</label>
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+        </div>
+                <div class="form__group">
+                    <input asp-for="Input.ID" class="form-control" hidden value=@ViewData["userID"] />
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+            }
+            <button class="custom-button" type="submit">Usuń Konto</button>
+        </form>
+    </div>
+</div>

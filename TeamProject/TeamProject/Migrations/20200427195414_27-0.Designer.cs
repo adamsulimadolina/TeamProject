@@ -3,20 +3,22 @@ using System;
 using FormGenerator.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace TeamProject.Migrations
 {
     [DbContext(typeof(FormGeneratorContext))]
-    partial class FormGeneratorContextModelSnapshot : ModelSnapshot
+    [Migration("20200427195414_27-0")]
+    partial class _270
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn)
-                .HasAnnotation("ProductVersion", "2.2.2-servicing-10034")
+                .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             modelBuilder.Entity("FormGenerator.Models.Category", b =>
@@ -154,8 +156,6 @@ namespace TeamProject.Migrations
 
                     b.Property<int>("IdTest");
 
-                    b.Property<bool>("IsSendBefore");
-
                     b.Property<bool?>("agreement");
 
                     b.HasKey("Id");
@@ -207,18 +207,6 @@ namespace TeamProject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("FieldToForms");
-                });
-
-            modelBuilder.Entity("TeamProject.Models.FormGeneratorModels.GUIDFileNameMap", b =>
-                {
-                    b.Property<string>("Guid")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("FileName");
-
-                    b.HasKey("Guid");
-
-                    b.ToTable("GUIDFileNameMap");
                 });
 
             modelBuilder.Entity("TeamProject.Models.FormGeneratorModels.Logs", b =>
