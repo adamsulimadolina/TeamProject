@@ -9,4 +9,3 @@ logo.addEventListener('click', () => {
   main.classList.toggle('main-active');
 });
 console.log(main);
-

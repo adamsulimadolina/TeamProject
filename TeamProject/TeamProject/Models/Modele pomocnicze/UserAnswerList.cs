@@ -15,7 +15,7 @@ namespace FormGenerator.Models.Modele_pomocnicze
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public int Id_User { get; set; }
-        public int Id_Test { get; set; }
+
         public List<UserAnswers> user_answer_list { get; set; } = new List<UserAnswers>();
 
     }

@@ -124,8 +124,6 @@ namespace TeamProject.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("Id_Test");
-
                     b.Property<int>("Id_User");
 
                     b.HasKey("Id");
