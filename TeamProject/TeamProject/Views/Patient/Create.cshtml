@@ -2,6 +2,60 @@
 <script>
     sessionStorage.removeItem('key');
 </script>
+<style>
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+    /* Modal Content */
+    .modal-content {
+        position: relative;
+        background-color: #fefefe;
+        margin: auto;
+        padding: 0;
+        border: 1px solid #888;
+        width: 80%;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+        -webkit-animation-name: animatetop;
+        -webkit-animation-duration: 0.4s;
+        animation-name: animatetop;
+        animation-duration: 0.4s
+    }
+    /* Add Animation */
+    /* The Close Button */
+    .close {
+        color: white;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+    .modal-header {
+        padding: 2px 16px;
+        background-color: slateblue;
+        color: white;
+    }
+
+    .modal-body {
+        padding: 2px 16px;
+    }
+</style>
 
 <div class="row" style="padding-top:40px">
     <div class="col-md-4 offset-4">
@@ -25,9 +79,56 @@
 
 
             <div class="form-group">
-                <input type="submit" value="Stwórz" class="btn btn-primary" />
+                <input id="createbutton" type="submit" value="Stwórz" class="btn btn-primary" />
             </div>
         </form>
+
+        @if (ViewBag.Message == 1)
+        {
+            <div id="Modal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="close">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        <p>Pacjent o podanym id już istnieje.</p>
+                        <p>Proszę nadać inne id.</p>
+                    </div>
+                    <div class="modal-header"></div>
+                </div>
+            </div>
+            <script type="text/javascript">
+                var okmodal = document.getElementById("Modal");
+                var span = document.getElementsByClassName("close")[0];
+                okmodal.style.display = "block";
+                span.onclick = function () {
+                    okmodal.style.display = "none";
+                }
+            </script>
+        }
+        @if (ViewBag.Message == 0)
+        {
+            <div id="oModal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="close">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        <p>Pomyślnie dodano pacjęta do bazy.</p>
+                    </div>
+                    <div class="modal-header"></div>
+                </div>
+
+            </div>
+            <script type="text/javascript">
+                var okmodal = document.getElementById("oModal");
+                var span = document.getElementsByClassName("close")[0];
+                okmodal.style.display = "block";
+                span.onclick = function () {
+                    okmodal.style.display = "none";
+                }
+            </script>
+        }
     </div>
 </div>
 

@@ -156,11 +156,11 @@ namespace TeamProject.Controllers
             return RedirectToAction("EntranceForm", "EntranceFormFields", new { id = id });
         }
 
-
         [HttpGet]
         public IActionResult Create()
         {
             HttpContext.Session.SetString("lista", "ch");
+
             return View();
         }
 
@@ -169,46 +169,29 @@ namespace TeamProject.Controllers
         public async Task<IActionResult> Create([Bind("IdPatient")] Patient patient)
         {
             //jeśli już istnieje pacjent o podanym id->nie pozwalam!
-
+            ViewBag.Cerror = 2;
             if (_context.Patients.AsNoTracking().FirstOrDefault(p => p.IdPatient == patient.IdPatient) != null)
             {
-                TempData["Error"] = "Pacjent o podanym id już istnieje. Musisz wpisać inne id.";
+                ViewBag.Message = 1;
+                return View();
+            }
+            else
+            {
+
+                var entranceConnections = await _context.EntranceConnections.ToListAsync();
+                int y = patient.IdPatient;
+                if (ModelState.IsValid)
+                {
+                    _context.Patients.Add(patient);
+                    _context.SaveChanges();
+                    ViewBag.Message = 0;
+                }
                 return View();
             }
 
-            var entranceConnections = await _context.EntranceConnections.ToListAsync();
-            int y = patient.IdPatient; 
-            if (ModelState.IsValid)
-            {
-                _context.Patients.Add(patient);
 
-                //var formsId =  _context.Forms;
 
-                //foreach(var x in formsId)
-                //{
-                //    var response = entranceConnections.FirstOrDefault(m => m.IdForm == x.Id);
-                //    if (response != null)
-                //    {
-                //        PatientForms patientForms = new PatientForms();
-                //        patientForms.IdPatient = patient.IdPatient;
-                //        patientForms.IdForm = x.Id;
-                //        _context.PatientForms.Add(patientForms);
-                //    }
-                //    else
-                //    {
-                //        PatientForms patientForms = new PatientForms();
-                //        patientForms.IdPatient = patient.IdPatient;
-                //        patientForms.IdForm = x.Id;
-                //        patientForms.agreement = true;
-                //        _context.PatientForms.Add(patientForms);
-                //    }
-                //}
-                _context.SaveChanges();
-
-            }
-            return View();
         }
-
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)

@@ -4,32 +4,32 @@
 
 
 <body>
-  
+
 
 
     <ul class="navbar-nav mr-auto">
         @if (SignInManager.IsSignedIn(User) && (User.IsInRole("Admin")))
         {
             <li class="nav-item">
-                <a class="nav-link text-dark btnx" asp-controller="Patient" asp-action="Create" title="AddPatient">Dodaj Pacjenta</a>
+                <a class="btn btn-outline-success my-2 my-sm-0" asp-controller="Patient" asp-action="Create" title="AddPatient">Dodaj Pacjenta</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Mój profil</a>
+                <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Mój profil</a>
             </li>
             <li class="nav-item">
-                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                    <button type="submit" class="nav-link btn btn-link text-dark">Wyloguj się</button>
+                <form class="form-inline " asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                    <button type="submit" class="nav-link btn btn-link text-light">Wyloguj się</button>
                 </form>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark" asp-controller="AdminPanel" asp-action="Index">Panel</a>
+                <a class="nav-link text-light" asp-controller="AdminPanel" asp-action="Index">Panel</a>
             </li>
         }
         else if (SignInManager.IsSignedIn(User) && (User.IsInRole("Technik")))
         {
             <li class="nav-item dropdown">
 
-                <a class="nav-link text-dark btnx dropdown-toggle"data-toggle="dropdown" role="button" asp-controller="Patient" asp-action="Index">Pacjent</a>
+                <a class="nav-link text-dark btnx dropdown-toggle" data-toggle="dropdown" role="button" asp-controller="Patient" asp-action="Index">Pacjent</a>
                 <div class="dropdown-menu">
 
                     <a class="dropdown-item text-dark btnxDrop " asp-controller="Patient" asp-action="Index" title="CompleteSurvey">Pacjent</a>
@@ -63,5 +63,5 @@
         }
     </ul>
 
-    </body>
+</body>
 
