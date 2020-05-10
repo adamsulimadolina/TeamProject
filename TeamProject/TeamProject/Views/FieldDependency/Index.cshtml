@@ -61,6 +61,21 @@
     @* Hidden fields *@
 
 </form>
+<script>
+    let fieldName = sessionStorage.getItem("fieldName");
+    sessionStorage.removeItem("fieldName")
+    if (fieldName != null) {
+        let input = document.querySelector("#SuperiorFieldName")
+        input.value = fieldName
+        input.setAttribute("readonly", "readonly");
+    }
+    let input = document.querySelector("#SuperiorFieldName")
+    if (input.value != null) {
+        input.setAttribute("readonly", "readonly");
+    }
+    let dep = document.querySelector("#CurrentFieldName");
+    dep.value = "";
 
+</script>
 
 <script src="~/js/AutocompleteField.js"></script>

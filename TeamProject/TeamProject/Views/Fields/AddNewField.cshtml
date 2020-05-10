@@ -98,19 +98,40 @@
                     {
                         <tr>
                             <th scope="row">@i</th>
-                            <td>@Model.fields[i].Name</td>
+                            <td class="fieldName">@Model.fields[i].Name</td>
                             <td>@Model.fields[i].Type</td>
                             <td>
                                 <button type="submit" asp-route-fieldId="@Model.fields[i].Id" asp-action="DeleteFromList" class="btn btn-danger" to-delete="true">
                                     Usuń
                                 </button>
+                                <button type="button" class="zal btn btn-info">dodaj pola zależne</button>
                             </td>
                         </tr>
                     }
                 }
             </tbody>
         </table>
+        <script>
+            function fun(e) {
+                let event = e.target.parentNode.parentNode.children;
+                for (let i = 0; i < event.length; i++) {
+                    console.log(event[i])
+                    let field=(event[i])
+                    if (field.getAttribute("class") != null && field.getAttribute("class").includes("fieldName")) {
+                        console.log("xd")
+                       sessionStorage.setItem('fieldName', field.textContent);
+                       window.location.href = '/DependencyCreator'
+                    }
+                }
+            }
 
+            let buttons = document.querySelectorAll(".zal");
+            
+            buttons.forEach((button) => {
+                console.log("essa")
+                button.addEventListener('click', fun);
+            })
+        </script>
 
         @if (Model.fields.Count != 0)
         {
