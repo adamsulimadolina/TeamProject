@@ -94,7 +94,7 @@ namespace TeamProject.Controllers
             return View(listOfFields);
         }
 
-
+        
         public IActionResult DownloadXlsxFile(ListOfFields listOfFields)
         {
             Forms form = _context.Forms.AsNoTracking().FirstOrDefault(f => f.Id == listOfFields.IdForm);
@@ -106,6 +106,12 @@ namespace TeamProject.Controllers
             List<int> fields = listOfFields.Fields.Where(x => x.IsCheck == true).Select(x => x.IdField).ToList();
 
             List<UserAnswers> userAnswers = _context.UserAnswers.Where(w => w.IdForm == listOfFields.IdForm && fields.Contains(w.IdField)).ToList();
+
+            if (userAnswers == null || userAnswers.Count == 0)
+            {
+                TempData["ExcelExportMessage"] = "Nie można wygenerować pliku xls ponieważ nie ma rekordów spełniających warunek";
+                return RedirectToAction(nameof(Index));
+            }
 
             List<Dictionary<string, object>> result = xlsxFileGenerator.GenerateRequiredDataTypeForUserAnswers(userAnswers, _context);
             result = result.Take(listOfFields.IsAllRecords ? result.Count : listOfFields.NumberOfRecords).ToList();

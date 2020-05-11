@@ -9,16 +9,13 @@
 
     List<SelectListItem> tmp = ViewBag.List;
 }
-@Html.DropDownList("mylist", tmp)
-
-<input id="Button1" type="button" value="Potwierdź" />
-
+@Html.DropDownList("mylist", tmp, "Wybierz formularz")
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <script type="text/javascript">
     $(document).ready(function () {
-        $("#Button1").click(function (event) {
+        $("#mylist").change(function (event) {
 
             event.preventDefault();
 
@@ -26,4 +23,6 @@
             window.location.href = '/ExcelExport/Details/' + selCat;
         });
     });
+
+
 </script>
