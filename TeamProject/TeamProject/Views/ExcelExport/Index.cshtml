@@ -9,7 +9,12 @@
 
     List<SelectListItem> tmp = ViewBag.List;
 }
-@Html.DropDownList("mylist", tmp, "Wybierz formularz")
+
+@Html.DropDownList("mylist", tmp, new { @class = "custom-select" })
+
+<input id="Button1" type="button" class="button_search" value="Potwierdź" />
+<br />
+<br />
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 

@@ -4,10 +4,10 @@
     ViewData["Title"] = "Index";
     List<SelectListItem> tmp = ViewBag.List;
 }
-
+<br />
 <input type="hidden" id="urlGetValueSelected" value="@Url.Action("AnswerListPost", "UserAnswerLists")" />
-@Html.DropDownList("mylist", tmp)
-<input id="Button1" type="button" value="Potwierdź" />
+@Html.DropDownList("mylist", tmp, new { @class = "custom-select" })
+<button id="Button1" class="button_search">Potwierdź</button> 
 
 
 
