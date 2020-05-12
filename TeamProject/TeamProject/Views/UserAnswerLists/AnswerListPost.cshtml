@@ -9,10 +9,11 @@
         #dtHorizontalVerticalExample th, td {
             white-space: nowrap;
         }
+
         th {
-          
             color: white;
         }
+
         td {
             background-color: white;
         }
@@ -31,20 +32,23 @@
 
 
 <body>
+    <br />
     <input type="hidden" id="urlGetValueSelected" value="@Url.Action("AnswerListPost", "UserAnswerLists")" />
-    @Html.DropDownList("mylist", tmp)
-    <input id="Button1" type="button" value="Potwierdź" />
-    <button id="translate" class="btn btn-danger" >tłumacz</button>
-    <table id="dtHorizontalVerticalExample" class="table table-striped table-bordered table-sm " cellspacing="0" width="100%">
+    @Html.DropDownList("mylist", tmp, new { @class = "custom-select" })
+    <button id="Button1" class="button_search">Potwierdź</button>
+    <button id="translate" class="button_search">Tłumacz</button>
+    <br /><br />
+
+    <table id="dtHorizontalVerticalExample" class="custom-table" cellspacing="0" width="100%">
         <thead>
-            
+
             <tr>
 
                 <th>
-                    @Html.DisplayNameFor(model => model.Id_User)
+                    Pacjent
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Id_Test)
+                    Nr Badania
                 </th>
                 @foreach (var elem in ViewBag.Fields)
                 {
@@ -59,38 +63,39 @@
         <tbody>
             @foreach (var item in Model)
             {
-            <tr>
-                <td style="column-width:100px">
-                    @Html.DisplayFor(modelItem => item.Id_User)
-                </td>
-                <td style="column-width:100px">
-                    @Html.DisplayFor(modelItem => item.Id_Test)
-                </td>
-                @foreach (var el in ViewBag.Fields)
-                {
-                    flag = false;
-                    @for (int i = 0; i < item.user_answer_list.Count; i++)
+                <tr>
+                    <td style="column-width:100px">
+                        @Html.DisplayFor(modelItem => item.Id_User)
+                    </td>
+                    <td style="column-width:100px">
+                        @Html.DisplayFor(modelItem => item.Id_Test)
+                    </td>
+                    @foreach (var el in ViewBag.Fields)
                     {
-                        if (el.Id == item.user_answer_list[i].IdField)
+                        flag = false;
+                        @for (int i = 0; i < item.user_answer_list.Count; i++)
                         {
-                            <td>
-                                @Html.DisplayFor(modelItem => item.user_answer_list[i].Answer)
-                            </td>
-                            flag = true;
-                            break;
+                            if (el.Id == item.user_answer_list[i].IdField)
+                            {
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.user_answer_list[i].Answer)
+                                </td>
+                                flag = true;
+                                break;
+                            }
+                        }
+                        if (!flag)
+                        {
+                            <td></td>
                         }
                     }
-                    if (!flag)
-                    {
-                        <td></td>
-                    }
-                }
-            </tr>
+                </tr>
             }
         </tbody>
     </table>
-    <div class="p-5">
-        <a href="#" class="btn btn-danger" id="test" onClick="javascript:fnExcelReport();">Pobierz</a>
+
+    <div class="p-5 float-right">
+        <a href="#" class="button_search" id="test" onClick="javascript:fnExcelReport();">Pobierz</a>
     </div>
 
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -101,11 +106,14 @@
     <script type="text/javascript">
         $('#dtHorizontalVerticalExample').DataTable({
             "scrollX": true,
-            "scrollY": '90vh',
-            "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+            "scrollY": true,
+            "pageLength": 25,
+            "bLengthChange": false,
+            "bFilter": false
         });
         $('.dataTables_length').addClass('bs-select');
         $(document).ready(function () {
+            $('body').find('.dataTables_scrollBody').addClass("scrollbar")
             $("#Button1").click(function (event) {
 
                 event.preventDefault();
@@ -114,7 +122,7 @@
                 var FormName = $("#mylist option:selected").text();
                 sessionStorage.setItem('name', FormName);
 
-
+                
 
                 window.location.href = '/UserAnswerLists/AnswerListPost/' + selCat;
             });
@@ -159,51 +167,51 @@
         }
         //DANIEL 02.04 - translacja tabel
         let btntranslate = document.getElementById("translate");
-        btntranslate.addEventListener("click", addInput);        
-        let startNames =[];
+        btntranslate.addEventListener("click", addInput);
+        let startNames = [];
         function addInput() {
             let headers = $('.translate');
             startNames = [];
-            let hLength = headers.length/2;
+            let hLength = headers.length / 2;
             for (var i = 0; i < hLength; i++) {
                 var inp = document.createElement("input");
                 inp.setAttribute("value", headers[i].innerText);
                 startNames.push(headers[i].innerText);
-                inp.setAttribute("class", "headTranslation");
+                inp.setAttribute("class", "headTranslation custom_input");
                 headers[i].innerText = "";
-                headers[i].appendChild(inp);                             
+                headers[i].appendChild(inp);
             }
-            this.innerText = "zapisz";
+            this.innerText = "Zapisz";
             this.id = "save";
             btntranslate.removeEventListener("click", addInput);
-            btntranslate.addEventListener("click", save);         
+            btntranslate.addEventListener("click", save);
         }
-        async function save() { 
+        async function save() {
             btntranslate.removeEventListener("click", save);
             btntranslate.addEventListener("click", addInput);
             let inputs = document.querySelectorAll('.headTranslation');
             let headers = $('.translate');
-            let hLength = headers.length/2;
-            for (var i = 0; i < hLength; i++) {              
+            let hLength = headers.length / 2;
+            for (var i = 0; i < hLength; i++) {
                 headers[i].innerText = inputs[i].value;
                 if (inputs[i].value != startNames[i]) {
-                    await saveTranslate(inputs[i].value, startNames[i]);   
+                    await saveTranslate(inputs[i].value, startNames[i]);
                 }
-                                        
+
             }
-            this.innerText = "tłumacz";
+            this.innerText = "Tłumacz";
             this.id = "translate";
         };
-        async function saveTranslate(name1,name2){
+        async function saveTranslate(name1, name2) {
             let TableNameTranslation = {};
             TableNameTranslation.DatabaseName = name2;
             TableNameTranslation.DisplayedName = name1;
             $.post("/save_translation", {
                 baseName: name2,
                 newName: name1
-            });           
+            });
         }
-       
-           
+
+
     </script>
 </body>

@@ -1007,3 +1007,14 @@ C:\Users\izabe\OneDrive\Pulpit\Team X\Nowy\TeamProject\TeamProject\TeamProject\o
 C:\Users\izabe\OneDrive\Pulpit\Team X\Nowy\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.pdb
 C:\Users\izabe\OneDrive\Pulpit\Team X\Nowy\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.genruntimeconfig.cache
 C:\Users\izabe\OneDrive\Pulpit\Team X\Nowy\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.csproj.CopyComplete
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\bin\Debug\netcoreapp2.2\libman.json
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\CreateUser.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\DeleteUser.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\ManageUserData.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\NewPassword.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\AdminPanel\Index.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\AdminPanel\Logi.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\AdminPanel\SidePanel.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\AdminPanel\Users.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\ExcelExport\Details.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\ExcelExport\Index.cshtml.g.cs
