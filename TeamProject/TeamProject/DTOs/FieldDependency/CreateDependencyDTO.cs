@@ -16,9 +16,16 @@ namespace TeamProject.DTOs.FieldDependency
         public string DependencyType { get; set; }
         public string ActivationValue { get; set; }
         public List<Field> RelatedFields { get; set; } = new List<Field>();
+       
+        public string AllIndependentFieldsName { get; set; }
+
         public string CurrentFieldName { get; set; }
         public string CurrentFieldType { get; set; }
-        public string AllIndependentFieldsName { get; set; }
+        public List<String> CurrentFieldAnswers { get; set; }
+        public int CurrentFieldMin { get; set; }
+        public int CurrentFieldMax { get; set; }
+        public int CurrentFieldIsInteger { get; set; }
+
 
         public void UpdateIndependentFieldsList(IFieldDependenciesRepository repository, FormGeneratorContext context)
         {

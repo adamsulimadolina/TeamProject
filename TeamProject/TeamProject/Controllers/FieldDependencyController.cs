@@ -47,6 +47,26 @@ namespace TeamProject.Controllers
             return RedirectToAction(nameof(AddFieldToRelatedListGet));
         }
 
+        [HttpPost]
+        public IActionResult addTest(CreateDependencyDTO createDependency)
+        {
+            ViewBag.Error = createDependency.Valid(_context);
+            //if (ViewBag.Error != null)
+            //{
+            //    return View("Index", createDependency);
+            //}
+            Field field = new Field
+            {
+                Id = -1,
+                Name = createDependency.CurrentFieldName,
+                Type = createDependency.CurrentFieldType
+            };
+            createDependency.AddRelatedField(field);
+            createDependency.UpdateIndependentFieldsList(_fieldDependenciesRepo, _context);
+            TempData.Put<CreateDependencyDTO>("CreateDependencyFromPostToGet", createDependency);
+            return RedirectToAction(nameof(AddFieldToRelatedListGet));
+        }
+
         public IActionResult AddFieldToRelatedListGet()
         {
             var createDependency = TempData.Get<CreateDependencyDTO>("CreateDependencyFromPostToGet");

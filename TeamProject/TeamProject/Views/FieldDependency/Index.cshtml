@@ -123,13 +123,11 @@ body {font-family: Arial, Helvetica, sans-serif;}
                 <h3 style="color:black">Kreator nowego pola</h3> 
             </div>
             <div class="modal-body">
-                
-                <label style="color:black" for="currentNameToCreate">Nazwa pola:</label>
-                <div class="autocomplete">
-                    <input id="currentNameToCreate" class="form-control" />
-                </div>
+
+                <label for="CurrentFieldName">Wybierz pola zależne</label>
+                <input asp-for="@Model.CurrentFieldName" name="CurrentFieldName" />
                 <label style="color:black" for="currentTypeToCreate">Wybierz typ:</label>
-                <select  id="currentTypeToCreate" class="form-control" style="width:300px">
+                <select asp-for="@Model.CurrentFieldType" class="form-control" name="CurrentFieldType" style="width:300px">
                     <option value="">Wybierz opcję</option>
                     <option value="text">Pole tekstowe</option>
                     <option value="checkbox">Checkbox</option>
@@ -141,41 +139,42 @@ body {font-family: Arial, Helvetica, sans-serif;}
                 <div id="numberValidation" hidden>
                     <input type="checkbox" id="enableValidationMin" value="min" style=" background-color:white; color:#66BB6A;" />
                     <label style="color:black">Minimalna wartość</label>
-                    <input  class="form-control" id="inputMin" hidden />
+                    <input class="form-control" asp-for="@Model.CurrentFieldMin" id="inputMin" hidden />
                     <br />
                     <input type="checkbox" id="enableValidationMax" value="max" />
                     <label style="color:black">Maksymalna wartość</label>
-                    <input  class="form-control" id="inputMax" hidden />
+                    <input class="form-control" asp-for="@Model.CurrentFieldMax" id="inputMax" hidden />
                     <br />
-                    <input type="checkbox" id="enableValidationInteger" value="liczba całkowita"  />
-                    <input  hidden id="inputForInteger" />
+                    <input type="checkbox" id="enableValidationInteger" value="liczba całkowita" />
+                    <input hidden id="inputForInteger" asp-for="@Model.CurrentFieldIsInteger" />
                     <label style="color:black">Liczba całkowita</label>
 
                     <br />
                 </div>
 
                 <div id="selectOptions" hidden>
-                    <input type="button" id="addOptionsBtn"  value="Dodaj opcje" style=" background-color:white; color:#66BB6A;font-size:20px;padding: 5px 15px; margin-bottom:5px; border-radius: 8px;position:center;" />
-                        <div id="firstDiv">
-                        <input style=" border-radius: 5px; width:300px; height:30px; " type="text" id="opt0" class="definedAnswer"/>
+                    <input type="button" id="addOptionsBtn" value="Dodaj opcje" style=" background-color:white; color:#66BB6A;font-size:20px;padding: 5px 15px; margin-bottom:5px; border-radius: 8px;position:center;" />
+                    <div id="firstDiv">
+                        <input style=" border-radius: 5px; width:300px; height:30px; " type="text" id="opt0" class="definedAnswer" />
                         <input id="optionsJsonID" hidden />
                     </div>
                 </div>
 
 
-                <input style=" background-color:white;
+                <button style=" background-color:white;
             color:#66BB6A;
             font-size:20px;
             padding: 15px 35px;
             border-radius: 8px;
-            position:center;" type="button" id="createField" class="btn btn-success" value="Stwórz" />
+            position:center;" type="submit" asp-action="addTest" id="createField" class="btn btn-success">
+                    Stwórz
+                </button> />
             </div>
           
         </div>
 
     </div>
-    <label for="CurrentFieldName">Wybierz pola zależne</label>
-    <input asp-for="@Model.CurrentFieldName" name="CurrentFieldName" />
+   
     <br />
     <button id="AddDependedField" type="submit">Dodaj Pole</button><br />
     <button id="newField">Dodaj nowe pole</button><br />
@@ -213,82 +212,82 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </script>
 
 <script>
-    let indexOfOptions = 1;
-    let selectedAnswers = new Array();
+  //  let indexOfOptions = 1;
+  //  let selectedAnswers = new Array();
     
-    let newFieldName;
-    let fieldType;
+  //  let newFieldName;
+  //  let fieldType;
     
 
-    let numMin = document.querySelector("#inputMin")
-    let numMax = document.querySelector("#inputMax")
-    let isInteger = document.querySelector("#inputForInteger")
+  //  let numMin = document.querySelector("#inputMin")
+  //  let numMax = document.querySelector("#inputMax")
+  //  let isInteger = document.querySelector("#inputForInteger")
 
-    function clear() {
+  //  function clear() {
         
-    }
+  //  }
 
-    function updateFieldName(e) {
-        newFieldName = e.target.value;
-        console.log(e.target.value)
+  //  function updateFieldName(e) {
+  //      newFieldName = e.target.value;
+  //      console.log(e.target.value)
 
-        let selectDiv = document.createElement("div");
+  //      let selectDiv = document.createElement("div");
 
-       indexOfOptions++;
-    }
+  //     indexOfOptions++;
+  //  }
 
-    function handleDelete(e) {
-        console.log(e.target)
-    }
+  //  function handleDelete(e) {
+  //      console.log(e.target)
+  //  }
     
-    function handleNewOption(e) {
-     //   e.preventDefault(); 
-        console.log("newOptionHandling")
-        let parent = document.querySelector("#firstDiv")
-        let selectDiv = document.createElement("div");
-        let d = document.createElement("div")
-        let inp = document.createElement("INPUT");
-        inp.setAttribute("type", "text")
-        inp.setAttribute("class", "definedAnswer")
-        inp.setAttribute("id", "opt" + indexOfOptions);
-        inp.style.borderRadius = "5px";
-        inp.style.width = "300px"
+  //  function handleNewOption(e) {
+  //   //   e.preventDefault(); 
+  //      console.log("newOptionHandling")
+  //      let parent = document.querySelector("#firstDiv")
+  //      let selectDiv = document.createElement("div");
+  //      let d = document.createElement("div")
+  //      let inp = document.createElement("INPUT");
+  //      inp.setAttribute("type", "text")
+  //      inp.setAttribute("class", "definedAnswer")
+  //      inp.setAttribute("id", "opt" + indexOfOptions);
+  //      inp.style.borderRadius = "5px";
+  //      inp.style.width = "300px"
 
-        let inpBut = document.createElement("INPUT");
-        inpBut.setAttribute("type", "button")
-        inpBut.setAttribute("id", "uopt" + indexOfOptions);
-        inpBut.setAttribute("value", "usun")
-        inpBut.style.borderRadius = "8px";
-        inpBut.style.backgroundColor = "white";
-        //inpBut.style.width = "30px"
-        inpBut.style.color = "#66BB6A"
-        inpBut.style.fontSize = "20px"
-        inpBut.style.padding = "5px 5px"
-        inpBut.style.position = "center"
-        inpBut.style.marginLeft = "5px"
-        inpBut.textContent = "usuń"
-        inpBut.addEventListener("click", handleDelete);
-        // selectDiv.innerHTML = '<div ><input type="text" id="opt' + indexOfOptions + '"name="dyntxt" style=" border-radius: 5px; width:300px; height:30px; "/><input type="button" id=uopt"' + indexOfOptions + '"onclick="RemoveBtn(this)" value="Usuń" style=" background-color:white; color:#66BB6A;font-size:20px;padding: 5px 5px;border-radius: 8px;position:center;margin-left:5px"/></div>'
-        d.appendChild(inp);
-        d.appendChild(inpBut);
-        selectDiv.appendChild(d)
-        indexOfOptions++;
-        parent.appendChild(selectDiv)
+  //      let inpBut = document.createElement("INPUT");
+  //      inpBut.setAttribute("type", "button")
+  //      inpBut.setAttribute("id", "uopt" + indexOfOptions);
+  //      inpBut.setAttribute("value", "usun")
+  //      inpBut.style.borderRadius = "8px";
+  //      inpBut.style.backgroundColor = "white";
+  //      //inpBut.style.width = "30px"
+  //      inpBut.style.color = "#66BB6A"
+  //      inpBut.style.fontSize = "20px"
+  //      inpBut.style.padding = "5px 5px"
+  //      inpBut.style.position = "center"
+  //      inpBut.style.marginLeft = "5px"
+  //      inpBut.textContent = "usuń"
+  //      inpBut.addEventListener("click", handleDelete);
+  //      // selectDiv.innerHTML = '<div ><input type="text" id="opt' + indexOfOptions + '"name="dyntxt" style=" border-radius: 5px; width:300px; height:30px; "/><input type="button" id=uopt"' + indexOfOptions + '"onclick="RemoveBtn(this)" value="Usuń" style=" background-color:white; color:#66BB6A;font-size:20px;padding: 5px 5px;border-radius: 8px;position:center;margin-left:5px"/></div>'
+  //      d.appendChild(inp);
+  //      d.appendChild(inpBut);
+  //      selectDiv.appendChild(d)
+  //      indexOfOptions++;
+  //      parent.appendChild(selectDiv)
         
 
-    }
+  //  }
 
 
-    let nameInput = document.querySelector("#currentNameToCreate");
-    let fieldTypeInput = document.querySelector("#currentTypeToCreate")
-    let newSelectBtn = document.querySelector("#addOptionsBtn")
-    let createButton = document.querySelector("#createField");
+  //  //let nameInput = document.querySelector("#currentNameToCreate");
+    let fieldTypeInput = document.querySelector("#CurrentFieldType")
+  //  let newSelectBtn = document.querySelector("#addOptionsBtn")
+  //  let createButton = document.querySelector("#createField");
 
-    nameInput.addEventListener("change", updateFieldName)
+  //  //nameInput.addEventListener("change", updateFieldName)
 
-    fieldTypeInput.addEventListener("change", updateFieldType)
+  fieldTypeInput.addEventListener("change", updateFieldType)
 
-    newSelectBtn.addEventListener("click", handleNewOption)
+  //  newSelectBtn.addEventListener("click", handleNewOption)
 
     function updateFieldType(e) {
         fieldType = e.target.value;
@@ -324,16 +323,16 @@ body {font-family: Arial, Helvetica, sans-serif;}
     });
 
 
-    createButton.addEventListener("click", createField);
+  //  createButton.addEventListener("click", createField);
     
-    console.log(nameInput)
+  //  //console.log(nameInput)
 
 
-    function addNewField(e) {
-        e.preventDefault();
+  //  function addNewField(e) {
+  //      e.preventDefault();
         
 
-    }
+  //  }
 
         // Get the modal
     var modal = document.getElementById("myModal");
@@ -362,35 +361,55 @@ body {font-family: Arial, Helvetica, sans-serif;}
       }
     }
 
-    function createField(e) {
-        console.log(newFieldName)
-        console.log(fieldType)
-        let min
-        let max
-        if (fieldType == "select") {
-            let selectInps = document.querySelectorAll(".definedAnswer");
-            selectInps.forEach((inp) => {
-                console.log(inp.value)
-                selectedAnswers.push(inp.value)
-            })
-        }
-        if (fieldType == "number") {
-            console.log(numMin.value)
-            console.log(numMax.value)
-            console.log(isInteger.value)
-            if (!(/^\s*$/).test(numMin.value)) {
-                 min = numMin.value
-            }
-            if (!(/^\s*$/).test(numMax.value)) {
-                 max = numMin.value
-            }
-            if (!isInteger) {
-                console.log("ha ha")
-            }
-        }
+    //function createField(e) {
+      
+    //    console.log(newFieldName)
+    //    console.log(fieldType)
+    //    let jsonModel = {};
+    //    jsonModel.name = newFieldName;
+    //    jsonModel.type = fieldType;
+        
+        
+        
+    //    let min
+    //    let max
+    //    if (fieldType == "select") {
+    //        let selectInps = document.querySelectorAll(".definedAnswer");
+    //        jsonModel.selectAnswers = []
+    //        selectInps.forEach((inp) => {
+    //            console.log(inp.value)
+    //            //selectedAnswers.push(inp.value)
+    //            jsonModel.selectAnswers.push(inp.value);
+    //        })
+    //    }
+    //    if (fieldType == "number") {
+    //        console.log(numMin.value)
+    //        console.log(numMax.value)
+    //        console.log(isInteger.value)
+    //        jsonModel.isInteger = 0;
+    //        if (!(/^\s*$/).test(numMin.value)) {
+    //            min = numMin.value
+    //            jsonModel.min = parseInt(min);
+    //        }
+    //        if (!(/^\s*$/).test(numMax.value)) {
+    //            max = numMax.value
+    //            jsonModel.max = parseInt(max);
+    //        }
+    //        if (isInteger.value.includes("100")) {
+    //            console.log("ha ha")
+    //            jsonModel.isInteger = 1;
+    //        }
+    //    }
+    //    let son = JSON.stringify(jsonModel)
+    //    son = encodeURIComponent(son);
+    //    window.location.href = 'FieldDependency/addTest/'+son;
+
+
+
+
         
 
-    }
+    
 
 
     
