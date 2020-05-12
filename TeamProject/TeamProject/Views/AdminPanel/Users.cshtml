@@ -1,0 +1,105 @@
+﻿@model Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable<TeamProject.Models.MyUser>
+@using Newtonsoft.Json
+@{
+    ViewData["Title"] = "Użytkownicy";
+    Layout = "~/Views/AdminPanel/SidePanel.cshtml";
+}
+@if (ViewBag.message != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>@ViewBag.message</strong> 
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
+<div class="custom-overlay closed" id="overlay"></div>
+<div id="modal" class="custom-modal closed">
+    <i class="fas fa-times fa-2x" id="close-modal"></i>
+
+    <div class="custom-modal-info">
+        <h4>Edycja użytkownika:</h4>
+        <h4 id="clickedUser"></h4>
+        <div class="custom-card-buttons">
+            <button id="password-button">Hasło</button>
+            <button id="info-button">Informacje</button>
+        </div>
+    </div>
+</div>
+<div class="custom-div">
+    @using (Html.BeginForm("Users", "AdminPanel", FormMethod.Get))
+    {
+        <p>
+            <input class="input-custom" name="SearchString" id="SearchString" value=@ViewBag.CurrentFilter placeholder="Nazwisko lub imię" />
+            <label for="SearchString" class="form__label">Nazwisko lub imię</label>
+            <button type="submit" class="custom-button">Szukaj</button>
+        </p>
+    }
+
+
+    <div class="">
+        <h4>Filtruj po: </h4>    
+            @Html.ActionLink("Nazwisko", "Users", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter },new {@class="custom-button" })      
+         @Html.ActionLink("Data", "Users", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter },new {@class="custom-button" })    
+            @Html.ActionLink("ID", "Users", new { sortOrder = ViewBag.IDSortParm, currentFilter = ViewBag.CurrentFilter },new {@class="custom-button" })
+    </div>
+
+
+
+</div>
+
+<div class="row justify-content-around flex-wrap">
+    @foreach (var item in Model)
+    {
+        <div class="custom-card">
+            <div class="custom-card-info">
+                <div>
+                    <p class="card-title">@item.CustomID</p>
+                    <p>@item.FirstName @item.LastName</p>
+                </div>
+                <div class="card-icon">
+                    <i class="fas fa-user-md fa-3x"></i>
+                </div>
+            </div>
+
+            <div class="custom-card-buttons">
+                <a asp-area="Identity" asp-page="/Account/Manage/NewPassword" asp-route-id="@item.Id">Hasło</a>
+               <a asp-area="Identity" asp-page="/Account/Manage/ManageUserData" asp-route-id="@item.Id">Informacje</a>
+               <a asp-area="Identity" asp-page="/Account/Manage/DeleteUser" asp-route-id="@item.Id">Usuń</a>
+
+            </div>
+        </div>
+
+    }
+</div>
+<script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script>
+    //const modal = document.getElementById('modal');
+    //const modalOverlay = document.getElementById('overlay');
+    //const closeModal = document.getElementById('close-modal');
+    //const clickedUser = document.getElementById('clickedUser');
+    //const infoButton = document.getElementById('info-button');
+    //const passwordButton=document.getElementById('password-button');
+    //let userID;
+    //const openModal = (item) => {
+    //    clickedUser.innerText = item.LastName + " " + item.FirstName;
+    //    userID = item.CustomID;
+    //    modal.classList.toggle('closed');
+    //    modalOverlay.classList.toggle('closed');
+    //    console.log(item);
+    //}
+    // passwordButton.addEventListener('click', () => {
+    //    console.log(userID);
+    //    window.location.href = "newPassword/" + userID;
+    //})
+    //infoButton.addEventListener('click', () => {
+    //    console.log(userID);
+    //    window.location.href = "manageUser/" + userID;
+    //})
+    //closeModal.addEventListener('click', () => {
+    //    modal.classList.toggle('closed');
+    //    modalOverlay.classList.toggle('closed');
+    //});
+
+</script>

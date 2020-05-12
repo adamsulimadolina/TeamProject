@@ -71,8 +71,39 @@
                     <button type="button" class="btn btn-info"><a style="text-decoration:none;color:white;" asp-action="Delete" asp-route-id="@item.Id">Usuń</a></button>
 
 
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter"asp-action="Delete" asp-route-id="@item.Id">
+                        Usun
+                    </button>
+
+                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <p>Chcesz usunac jestes pewny???</p>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <div>
+                                        <form asp-action="Delete"asp-route-id="@item.Id">
+                                            <input type="hidden" />
+                                            <input type="submit" value="USUŃ" class="btn btn-danger" /> |
+                                            <a asp-action="Index">Powrót do listy</a>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </td>
             </tr>
         }
     </tbody>
 </table>
+
+
+<!-- Modal -->

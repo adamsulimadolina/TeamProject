@@ -4,19 +4,14 @@
 }
 
 
-
-<form id="formA" action="Patient/Index" method="post">
-    <input name="Id" id="searchPatientv2" />
-    <input type="submit" id="buttonSearch"  placeholder="Szukaj..." />
+<br/>
+<form id="formA" class="custom_patient_search" action="Patient/Index" method="post" >
+    <label class="custom-label">Numer pacjenta:</label>
+    <input name="Id" id="searchPatientv2" class="custom-input"/>
+    <input type="submit" id="buttonSearch" class="button_search" placeholder="Szukaj..." />
     
 </form>
 
-<div class="alert alert-warning alert-dismissible fade show " role="alert" id="pop-up">
-    <strong>UWAGA! @TempData["Messagenie"]</strong>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script>
     $('#formA').submit(function () {

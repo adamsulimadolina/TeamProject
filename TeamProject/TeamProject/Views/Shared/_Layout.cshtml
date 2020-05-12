@@ -72,65 +72,44 @@
         }
     </style>
 
-    <header >
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-#6c7b95 border-bottom box-shadow mb-3">
-            <div class="container">
+    <header>
+       
 
-
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <partial name="_LoginPartial" />
-                    <ul class="navbar-nav mr-auto">
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
 
-                        <li class="nav-item">
-                            <a class="nav-link text-dark btnx" asp-area="" asp-controller="Forms" asp-action="Index">Generator Formularzy </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link text-dark btnx" asp-area="" asp-controller="Forms" asp-action="ListaFormularzy">Formularze</a>
-                        </li>
-
-
-
-                        <li class="nav-item">
-                            <a class="nav-link text-dark btnx" asp-area="" asp-controller="UserAnswerLists" asp-action="AnswerList">Wizualizator</a>
-                        </li>
-
-
-
-
+                    <ul class="navbar-nav">
                         <li class="nav-item dropdown">
-
-                            <a class="nav-link text-dark btnx dropdown-toggle" data-toggle="dropdown" asp-controller="Patient" asp-action="Index" title="CompleteSurvey">Pola</a>
-                            <div class="dropdown-menu" aria-labelledby="submenu">
-                                <a class="nav-link text-dark  dropdown-item btnxDrop" asp-controller="FieldDependency" asp-action="Index">Kreator zależności</a>
+                            <a class="nav-link dropdown-toggle" asp-controller="Patient" asp-action="Index" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Menu
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" asp-controller="FieldDependency" asp-action="Index">Kreator Zależności</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="UserAnswerLists" asp-action="AnswerList">Wizualizator</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Forms" asp-action="ListaFormularzy">Formularze</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Forms" asp-action="Index">Generator Formularzy</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="ExcelExport" asp-action="Index">Eksporter Excel </a>
                             </div>
-
                         </li>
                     </ul>
 
-
-
-
                 </div>
-            </div>
-        </nav>
+                <partial name="_LoginPartial" />
+            </nav>
     </header>
 
 
 
     <div class="d-flex" id="wrapper" style="margin-left: 190px">
-
-        <!-- Sidebar -->
         <div class="bg-#8bbabb border-right" id="sidebar-wrapper">
             <div class="sidebar-heading">Formularze pacjenta </div>
             <div class="list-group list-group-flush container">
                 <div class="table">
                     @*<thead>*@
-                    <div id="searchPatient"></div>
+                    <div id="searchPatient"> </div>
 
 
                     @*</thead>*@
@@ -146,7 +125,10 @@
         <div id="page-content-wrapper">
 
 
-
+            @if (TempData["Error"] != null)
+            {
+                <p style="color:red">@TempData["Error"]</p>
+            }
             <div class="container-fluid">
                 <div>
                     <main role="main" class="pb-3 site">
@@ -156,23 +138,13 @@
                 </div>
             </div>
         </div>
-        <!-- /#page-content-wrapper -->
-
     </div>
-
-
-
-
-
-    
 
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2019 - FormGenerator - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
-
-
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
@@ -182,7 +154,7 @@
     <script src="~/lib/jquery-ui/jquery-ui.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    @*<script src="~/js/patient.js"></script>*@
+  
     @RenderSection("Scripts", required: false)
 
 
@@ -209,17 +181,10 @@
             }
         });
 
-
-
-
-
-
         $("#buttonSearch").click(function () {
             console.log(sessionStorage.getItem("key"))
             let area = document.getElementById("searchPatient");
             sessionStorage.setItem('key', area.value);
-
-
 
             $.ajax({
                 url: '/Patient/PatientForms/' + area.value,
@@ -241,28 +206,41 @@
         function createTable(data) {
             let container = $("#container")[0];
             console.log("kurwo najgorsza")
+           
             for (let i = 0; i < data.length; i++) {
-                let ul = document.createElement("ul");
-                let li = document.createElement('li');
-                var form = $(" <button>").attr("class", "btnz").text(data[i].nazwa_formularza).css("width", "100%").click(function () {
-                    window.location.href = '/Forms/Formularz/' + data[i].idForm;
-                    return false;
-                });
-                form.appendTo(li);
-                ul.appendChild(li);
+               
+                    let ul = document.createElement("ul");
+                    let li = document.createElement('li');
 
-                container.appendChild(ul);
+                    var form = $(" <button>").attr("class", "btnz").attr("id", data[i].idForm).text(data[i].nazwa_formularza).css("width", "100%");
+                    if (data[i].isSendBefore) {
+
+                        $(form).css("background", "yellow");
+                    }
+
+
+                    form.click(function () {
+
+                        //if (data[i].isSendBefore) {
+                        //    $("#" + data[i].idForm).css("background", "yellow");
+                        //}
+                        window.location.href = '/Forms/Formularz/' + data[i].idForm;
+                        // $("#" + data[i].idForm).css("background", "yellow");
+
+                        return false;
+                    });
+
+                    form.appendTo(li);
+                    ul.appendChild(li);
+
+                    container.appendChild(ul);
+            
+           
+
             }
 
 
         }
-
-      
-
-
-
-
-
 
     </script>
 </body>

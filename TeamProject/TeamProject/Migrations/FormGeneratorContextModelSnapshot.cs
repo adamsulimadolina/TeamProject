@@ -16,7 +16,7 @@ namespace TeamProject.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn)
-                .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
+                .HasAnnotation("ProductVersion", "2.2.2-servicing-10034")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             modelBuilder.Entity("FormGenerator.Models.Category", b =>
@@ -64,11 +64,15 @@ namespace TeamProject.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int?>("FieldFieldDependencyIdDependency");
+
                     b.Property<string>("Name");
 
                     b.Property<string>("Type");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("FieldFieldDependencyIdDependency");
 
                     b.ToTable("Field");
                 });
@@ -120,6 +124,8 @@ namespace TeamProject.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int>("Id_Test");
+
                     b.Property<int>("Id_User");
 
                     b.HasKey("Id");
@@ -146,11 +152,33 @@ namespace TeamProject.Migrations
 
                     b.Property<int>("IdPatient");
 
+                    b.Property<int>("IdTest");
+
+                    b.Property<bool>("IsSendBefore");
+
                     b.Property<bool?>("agreement");
 
                     b.HasKey("Id");
 
                     b.ToTable("PatientForms");
+                });
+
+            modelBuilder.Entity("TeamProject.Models.FieldDependencyModels.FieldFieldDependency", b =>
+                {
+                    b.Property<int>("IdDependency")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("ActivationValue");
+
+                    b.Property<int>("DependencyType");
+
+                    b.Property<int>("Id");
+
+                    b.HasKey("IdDependency");
+
+                    b.HasIndex("Id");
+
+                    b.ToTable("Dependencies");
                 });
 
             modelBuilder.Entity("TeamProject.Models.FormGeneratorModels.Answers", b =>
@@ -181,12 +209,24 @@ namespace TeamProject.Migrations
                     b.ToTable("FieldToForms");
                 });
 
+            modelBuilder.Entity("TeamProject.Models.FormGeneratorModels.GUIDFileNameMap", b =>
+                {
+                    b.Property<string>("Guid")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("FileName");
+
+                    b.HasKey("Guid");
+
+                    b.ToTable("GUIDFileNameMap");
+                });
+
             modelBuilder.Entity("TeamProject.Models.FormGeneratorModels.Logs", b =>
                 {
                     b.Property<int>("LogID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("AnswerID");
+                    b.Property<string>("AnswerValue");
 
                     b.Property<int>("FieldID");
 
@@ -201,6 +241,36 @@ namespace TeamProject.Migrations
                     b.ToTable("Logs");
                 });
 
+            modelBuilder.Entity("TeamProject.Models.FormGeneratorModels.TableNameTranslation", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("DatabaseName");
+
+                    b.Property<string>("DisplayedName");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TableNameTranslations");
+                });
+
+            modelBuilder.Entity("TeamProject.Models.FormGeneratorModels.Test", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("DateOfTest");
+
+                    b.Property<int>("IdPatient");
+
+                    b.Property<int>("IdTest");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Tests");
+                });
+
             modelBuilder.Entity("TeamProject.Models.FormGeneratorModels.UserAnswers", b =>
                 {
                     b.Property<int>("Id")
@@ -213,6 +283,8 @@ namespace TeamProject.Migrations
                     b.Property<int>("IdForm");
 
                     b.Property<int>("IdPatient");
+
+                    b.Property<int>("IdTest");
 
                     b.Property<int>("IdUser");
 
@@ -253,6 +325,21 @@ namespace TeamProject.Migrations
                     b.HasKey("idValidation");
 
                     b.ToTable("Validations");
+                });
+
+            modelBuilder.Entity("FormGenerator.Models.Field", b =>
+                {
+                    b.HasOne("TeamProject.Models.FieldDependencyModels.FieldFieldDependency")
+                        .WithMany("RelatedFields")
+                        .HasForeignKey("FieldFieldDependencyIdDependency");
+                });
+
+            modelBuilder.Entity("TeamProject.Models.FieldDependencyModels.FieldFieldDependency", b =>
+                {
+                    b.HasOne("FormGenerator.Models.Field", "ThisField")
+                        .WithMany()
+                        .HasForeignKey("Id")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("TeamProject.Models.FormGeneratorModels.UserAnswers", b =>

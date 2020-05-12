@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using FormGenerator.Models;
 using FormGenerator.Models.Modele_pomocnicze;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 
 namespace TeamProject.Controllers
 {
@@ -179,7 +180,9 @@ namespace TeamProject.Controllers
 
 
         public async Task<IActionResult> EntranceForm(int id)
-        { 
+        {
+            var current_test = HttpContext.Session.GetInt32("current_test");
+
             var entrance_form = _context.EntranceFormFields
                 .Select(t => t.IdField)
                 .ToList();
@@ -204,6 +207,7 @@ namespace TeamProject.Controllers
                         var patient_agreement = await _context.PatientForms
                             .Where(t => t.IdForm == el.IdForm)
                             .Where(t => t.IdPatient == id)
+                            .Where(t => t.IdTest == current_test)
                             .FirstOrDefaultAsync();
                         if (patient_agreement.agreement == true)
                         {
@@ -223,10 +227,11 @@ namespace TeamProject.Controllers
         [HttpPost]
         public async Task<ActionResult> EntranceForm(List<EntranceFormAnswers> tuple_list)
         {
+            int? current_test = HttpContext.Session.GetInt32("current_test");
             List<EntranceFormAnswers> tuple = tuple_list;
             var idFields = tuple.Select(t => t.IdField).ToList();
             var Connections = await _context.EntranceConnections.Where(m=>idFields.Contains(m.IdField)).ToListAsync();
-            var patientForms = await _context.PatientForms.Where(p => p.IdPatient == tuple[0].IdPatient).ToListAsync();
+            var patientForms = await _context.PatientForms.Where(p => p.IdPatient == tuple[0].IdPatient && p.IdTest == current_test).ToListAsync();
 
             //foreach(var form in patientForms)
             //{

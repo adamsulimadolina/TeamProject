@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kacpe\\Documents\\GitHub\\TeamProject\\TeamProject\\TeamProject\\TeamProject.csproj": {}
+    "E:\\Adas\\STUDIA\\SEMESTR 5\\ProjektZespolowy\\TeamProject\\TeamProject\\TeamProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kacpe\\Documents\\GitHub\\TeamProject\\TeamProject\\TeamProject\\TeamProject.csproj": {
+    "E:\\Adas\\STUDIA\\SEMESTR 5\\ProjektZespolowy\\TeamProject\\TeamProject\\TeamProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kacpe\\Documents\\GitHub\\TeamProject\\TeamProject\\TeamProject\\TeamProject.csproj",
+        "projectUniqueName": "E:\\Adas\\STUDIA\\SEMESTR 5\\ProjektZespolowy\\TeamProject\\TeamProject\\TeamProject.csproj",
         "projectName": "TeamProject",
-        "projectPath": "C:\\Users\\kacpe\\Documents\\GitHub\\TeamProject\\TeamProject\\TeamProject\\TeamProject.csproj",
-        "packagesPath": "C:\\Users\\kacpe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kacpe\\Documents\\GitHub\\TeamProject\\TeamProject\\TeamProject\\obj\\",
+        "projectPath": "E:\\Adas\\STUDIA\\SEMESTR 5\\ProjektZespolowy\\TeamProject\\TeamProject\\TeamProject.csproj",
+        "packagesPath": "C:\\Users\\adams\\.nuget\\packages\\",
+        "outputPath": "E:\\Adas\\STUDIA\\SEMESTR 5\\ProjektZespolowy\\TeamProject\\TeamProject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\kacpe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\adams\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -45,6 +45,10 @@
               "target": "Package",
               "version": "[7.0.0, )"
             },
+            "EPPlus": {
+              "target": "Package",
+              "version": "[4.5.1, )"
+            },
             "Microsoft.AspNetCore.App": {
               "target": "Package",
               "version": "[2.2.0, )"
@@ -59,6 +63,10 @@
               "version": "[2.2.0, )"
             },
             "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.Extensions.Configuration.FileExtensions": {
               "target": "Package",
               "version": "[2.2.0, )"
             },
@@ -79,6 +87,10 @@
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[2.2.0, )"
+            },
+            "PagedList": {
+              "target": "Package",
+              "version": "[1.17.0, )"
             }
           },
           "imports": [

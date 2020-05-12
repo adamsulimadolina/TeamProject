@@ -77,6 +77,11 @@ namespace FormGenerator.Controllers
        
         public IActionResult AddNewField(int? id)
         {
+            if ((TempData["Error"] = _context.Forms.AsNoTracking().FirstOrDefault(form => form.Id == id).Validate(_context)) != null)
+            {
+                return RedirectToAction("Index","Forms"); //gdy już formularz został wypełniony-> nie można go edytować
+            }
+
             ViewBag.formid = Convert.ToInt32(id);
             NewFieldList newFieldList = new NewFieldList();
             var idFieldsInForm = _context.FormField.Where(ff => ff.IdForm == id)
@@ -100,7 +105,12 @@ namespace FormGenerator.Controllers
         [HttpPost]
         public IActionResult AddToList(NewFieldList newFieldList)
         {
-
+            //jeśli pole które chcemy stworzyć znajduje się już w systemie->nie pozwalamy
+            if (_context.Field.AsNoTracking().FirstOrDefault(f => f.Name == newFieldList.currentNameToCreate) != null)
+            {
+                TempData["Error"] = "Pole o podanej nazwie już istnieje w systemie. Nie można dodać pola o tej samej nazwie!";
+                return View("AddNewField", newFieldList);
+            }
 
             FieldWithValidation field;
             if (newFieldList.currentName == "")

@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "View";
+    List<SelectListItem> tmp = ViewBag.tests;
+}
+
+
+<br />
+<form id="formA" action="TestSelect" method="post" class="custom_patient_search">
+    <label class="custom-label">Numer badania:</label>
+    <select name="id_test" id="id_test" class="custom-test-select">
+        @foreach (var elem in (List<int>)ViewData["select"])
+        {
+            <option value=@elem>@elem</option>
+        }
+    </select>
+    @*@Html.DropDownList("mylist", tmp, new { @class = "custom-select" })*@
+    <input hidden name="id_patient" id="searchPatientv2" value=@ViewBag.patient />
+    <input class="button_search" type="submit" id="buttonSearch" placeholder="Szukaj..." />
+</form>
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+    $('#formA').submit(function () {
+
+
+
+    });
+    $(document).ready(function() {
+    var success = @((TempData["SuccessMessage"] != null).ToString().ToLower());
+
+        if (success == true) {
+        console.log("success")
+        $().alert()
+    }
+});
+
+</script>
+
+
+
+

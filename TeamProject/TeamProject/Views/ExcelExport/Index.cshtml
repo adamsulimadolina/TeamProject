@@ -1,0 +1,33 @@
+﻿
+
+@if (ViewBag.Message != null)
+{
+    <p style="color: red">@ViewBag.Message</p>
+}
+
+@{
+
+    List<SelectListItem> tmp = ViewBag.List;
+}
+
+@Html.DropDownList("mylist", tmp, new { @class = "custom-select" })
+
+<input id="Button1" type="button" class="button_search" value="Potwierdź" />
+<br />
+<br />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#mylist").change(function (event) {
+
+            event.preventDefault();
+
+            var selCat = $("#mylist").val();
+            window.location.href = '/ExcelExport/Details/' + selCat;
+        });
+    });
+
+
+</script>

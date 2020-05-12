@@ -14,6 +14,7 @@ using TeamProject.Models;
 using TeamProject.Models.NewTypeAndValidation;
 using TeamProject.Models.FieldFieldDependencyModels;
 using TeamProject.Models.FieldDependencyModels;
+using Microsoft.AspNetCore.Http;
 
 namespace FormGenerator.Controllers
 {
@@ -125,7 +126,11 @@ namespace FormGenerator.Controllers
 
         public async Task<IActionResult> Formularz(List<FieldWithValue> fields, int formId, int patientId)
         {
+            int? current_test = HttpContext.Session.GetInt32("current_test");
             MyUser user = await GetUser();
+            await UpdateSendStatusForPacjentForms(patientId, formId, current_test);
+
+
             foreach (var field in fields)
             {
                 UserAnswers answer = new UserAnswers
@@ -133,7 +138,8 @@ namespace FormGenerator.Controllers
                     IdForm = formId,
                     IdField = field.Field.Id,
                     IdPatient = patientId,
-                    IdUser = user.CustomID
+                    IdUser = user.CustomID,
+                    IdTest = (int) current_test
                 };
 
                 switch (field.Field.Type)
@@ -160,6 +166,7 @@ namespace FormGenerator.Controllers
                         Answer = field.Dependencies.RelatedFields[i].Type == "checkbox" ? field.DepndenciesValue[i].boolVal.ToString() : field.DepndenciesValue[i].textVal,
                         IdField = field.Dependencies.RelatedFields[i].Id,
                         IdForm=formId,
+                        IdTest=(int)current_test,
                         IdPatient = patientId,
                         IdUser = user.CustomID
                     };
@@ -167,8 +174,28 @@ namespace FormGenerator.Controllers
                 }
             }
             _context.SaveChanges();
+
+           
             return View("WyslanoFormularz", fields);
         }
+
+        public async Task  UpdateSendStatusForPacjentForms(int IdPacjenta, int IdFormularza,int? Idtest)
+        {
+
+            var pacjentForm = _context.PatientForms.FirstOrDefault(f => f.IdPatient == IdPacjenta && f.IdForm == IdFormularza&&f.IdTest==Idtest);
+            pacjentForm.IsSendBefore = true;
+            _context.PatientForms.Update(pacjentForm);
+            await _context.SaveChangesAsync();
+
+
+
+
+
+        }
+
+
+
+
 
         // stworzenie formularza
         public IActionResult Create(int ?id)
@@ -311,6 +338,12 @@ namespace FormGenerator.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var forms = await _context.Forms.FindAsync(id);
+            var listFormsinEntenceForms = _context.EntranceConnections.Where(m => m.IdForm == id).ToList();
+            foreach (var elem in listFormsinEntenceForms)
+            {
+                _context.EntranceConnections.Remove(elem);
+            }
+
             _context.Forms.Remove(forms);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(ListaFormularzy));

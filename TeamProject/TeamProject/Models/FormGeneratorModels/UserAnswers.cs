@@ -15,5 +15,6 @@ namespace TeamProject.Models.FormGeneratorModels
         public int IdUser { get; set; }
         public int IdPatient { get; set; }
         public string Answer { get; set; }
+        public int IdTest { get; set; }
     }
 }

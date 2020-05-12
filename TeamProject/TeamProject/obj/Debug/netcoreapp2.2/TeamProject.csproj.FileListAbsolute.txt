@@ -542,7 +542,6 @@ C:\Users\user\Desktop\Projekt X\fdrfrf\TeamProject\TeamProject\TeamProject\obj\D
 C:\Users\user\Desktop\Projekt X\fdrfrf\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.dll
 C:\Users\user\Desktop\Projekt X\fdrfrf\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.pdb
 C:\Users\user\Desktop\Projekt X\fdrfrf\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.csproj.CopyComplete
-C:\Users\kacpe\Documents\GitHub\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.csprojAssemblyReference.cache
 C:\Users\kacpe\Documents\GitHub\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.RazorAssemblyInfo.cache
 C:\Users\kacpe\Documents\GitHub\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.RazorAssemblyInfo.cs
 C:\Users\kacpe\Documents\GitHub\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.AssemblyInfoInputs.cache
@@ -637,88 +636,6 @@ C:\Users\kamil\Desktop\GitRepos\FormGenerator\TeamProject\TeamProject\TeamProjec
 C:\Users\kamil\Desktop\GitRepos\FormGenerator\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\_Layout.cshtml.g.cs
 C:\Users\kamil\Desktop\GitRepos\FormGenerator\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\_StatusMessage.cshtml.g.cs
 C:\Users\kamil\Desktop\GitRepos\FormGenerator\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\EntranceFormFields\DeleteDependence.cshtml.g.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\bin\Debug\netcoreapp2.2\TeamProject.deps.json
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\bin\Debug\netcoreapp2.2\TeamProject.runtimeconfig.json
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\bin\Debug\netcoreapp2.2\TeamProject.runtimeconfig.dev.json
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\bin\Debug\netcoreapp2.2\TeamProject.dll
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\bin\Debug\netcoreapp2.2\TeamProject.pdb
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\bin\Debug\netcoreapp2.2\TeamProject.Views.dll
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\bin\Debug\netcoreapp2.2\TeamProject.Views.pdb
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.csprojAssemblyReference.cache
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.csproj.CoreCompileInputs.cache
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.RazorAssemblyInfo.cache
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.RazorAssemblyInfo.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.AssemblyInfoInputs.cache
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.AssemblyInfo.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.TagHelpers.input.cache
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.TagHelpers.output.cache
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.RazorCoreGenerate.cache
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Login.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\ChangePassword.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\DeletePersonalData.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\Index.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\PersonalData.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\_Layout.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\_ManageNav.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\_StatusMessage.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\_ViewImports.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Register.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\_ViewImports.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ViewImports.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ViewStart.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Category\Create.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Category\CreateParentCategory.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Category\ListaKategorii.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\EntranceFormFields\AddConnection.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\EntranceFormFields\Create.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\EntranceFormFields\Delete.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\EntranceFormFields\DeleteDependence.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\EntranceFormFields\Details.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\EntranceFormFields\Edit.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\EntranceFormFields\EntranceForm.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\EntranceFormFields\Index.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\FieldDependency\Index.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\AddNewField.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\Create.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\Delete.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\DeleteNewField.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\DetailsNewField.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\Edit.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\EditNewField.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\Index.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\NewFields.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Forms\Create.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Forms\EdycjaFormularza.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Forms\Formularz.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Forms\Index.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Forms\ListaFormularzy.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Forms\WyslanoFormularz.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Home\Privacy.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Patient\Create.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Patient\Index.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Patient\PatientForms.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Error.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_LoginPartial.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\UserAnswerLists\AnswerList.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\UserAnswerLists\AnswerListPost.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\UserAnswerLists\Create.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\UserAnswerLists\Delete.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\UserAnswerLists\Details.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\UserAnswerLists\Edit.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\UserAnswerLists\Index.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.g.cshtml.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.RazorTargetAssemblyInfo.cache
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.RazorTargetAssemblyInfo.cs
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.Views.pdb
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.dll
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.pdb
-C:\Users\PC\Desktop\2Sprint\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.csproj.CopyComplete
 C:\Users\kacpe\Documents\GitHub\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\ChangePassword.cshtml.g.cs
 C:\Users\kacpe\Documents\GitHub\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\DeletePersonalData.cshtml.g.cs
 C:\Users\kacpe\Documents\GitHub\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\PersonalData.cshtml.g.cs
@@ -726,3 +643,373 @@ C:\Users\kacpe\Documents\GitHub\TeamProject\TeamProject\TeamProject\obj\Debug\ne
 C:\Users\kacpe\Documents\GitHub\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\_StatusMessage.cshtml.g.cs
 C:\Users\kacpe\Documents\GitHub\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\EntranceFormFields\DeleteDependence.cshtml.g.cs
 C:\Users\kacpe\Documents\GitHub\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\FieldDependency\Index.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\bin\Debug\netcoreapp2.2\appsettings.Development.json
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\bin\Debug\netcoreapp2.2\appsettings.json
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\bin\Debug\netcoreapp2.2\Properties\launchSettings.json
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\bin\Debug\netcoreapp2.2\TeamProject.deps.json
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\bin\Debug\netcoreapp2.2\TeamProject.runtimeconfig.json
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\bin\Debug\netcoreapp2.2\TeamProject.runtimeconfig.dev.json
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\bin\Debug\netcoreapp2.2\TeamProject.dll
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\bin\Debug\netcoreapp2.2\TeamProject.pdb
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\bin\Debug\netcoreapp2.2\TeamProject.Views.dll
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\bin\Debug\netcoreapp2.2\TeamProject.Views.pdb
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.csprojAssemblyReference.cache
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.RazorAssemblyInfo.cache
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.RazorAssemblyInfo.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.AssemblyInfo.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.TagHelpers.input.cache
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.TagHelpers.output.cache
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.RazorCoreGenerate.cache
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Login.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\ChangePassword.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\DeletePersonalData.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\Index.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\PersonalData.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\_Layout.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\_ManageNav.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\_StatusMessage.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\_ViewImports.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Register.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\_ViewImports.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Category\Create.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Category\CreateParentCategory.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Category\ListaKategorii.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\EntranceFormFields\AddConnection.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\EntranceFormFields\Create.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\EntranceFormFields\Delete.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\EntranceFormFields\DeleteDependence.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\EntranceFormFields\Details.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\EntranceFormFields\Edit.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\EntranceFormFields\EntranceForm.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\EntranceFormFields\Index.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\FieldDependency\Index.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\AddNewField.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\Create.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\Delete.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\DeleteNewField.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\DetailsNewField.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\Edit.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\EditNewField.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\Index.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\NewFields.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Forms\Create.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Forms\Delete.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Forms\EdycjaFormularza.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Forms\Formularz.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Forms\Index.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Forms\ListaFormularzy.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Forms\WyslanoFormularz.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Home\Privacy.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Patient\Create.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Patient\Index.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Patient\PatientForms.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Error.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_CookieConsentPartial.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\UserAnswerLists\AnswerList.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\UserAnswerLists\AnswerListPost.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\UserAnswerLists\Create.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\UserAnswerLists\Delete.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\UserAnswerLists\Details.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\UserAnswerLists\Edit.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\UserAnswerLists\Index.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.cshtml.g.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.RazorTargetAssemblyInfo.cache
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.RazorTargetAssemblyInfo.cs
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.Views.pdb
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.dll
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.pdb
+C:\Users\user\Desktop\Projekt X\24.03\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.csproj.CopyComplete
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\bin\Debug\netcoreapp2.2\appsettings.Development.json
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\bin\Debug\netcoreapp2.2\appsettings.json
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\bin\Debug\netcoreapp2.2\Properties\launchSettings.json
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\bin\Debug\netcoreapp2.2\TeamProject.deps.json
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\bin\Debug\netcoreapp2.2\TeamProject.runtimeconfig.json
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\bin\Debug\netcoreapp2.2\TeamProject.runtimeconfig.dev.json
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\bin\Debug\netcoreapp2.2\TeamProject.dll
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\bin\Debug\netcoreapp2.2\TeamProject.pdb
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\bin\Debug\netcoreapp2.2\TeamProject.Views.dll
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\bin\Debug\netcoreapp2.2\TeamProject.Views.pdb
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.csprojAssemblyReference.cache
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.RazorAssemblyInfo.cache
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.RazorAssemblyInfo.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.AssemblyInfoInputs.cache
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.AssemblyInfo.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.TagHelpers.input.cache
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.TagHelpers.output.cache
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.RazorCoreGenerate.cache
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Login.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\ChangePassword.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\DeletePersonalData.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\Index.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\PersonalData.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\_Layout.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\_ManageNav.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\_StatusMessage.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\_ViewImports.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Register.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\_ViewImports.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Category\Create.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Category\CreateParentCategory.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Category\ListaKategorii.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\EntranceFormFields\AddConnection.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\EntranceFormFields\Create.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\EntranceFormFields\Delete.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\EntranceFormFields\DeleteDependence.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\EntranceFormFields\Details.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\EntranceFormFields\Edit.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\EntranceFormFields\EntranceForm.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\EntranceFormFields\Index.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\FieldDependency\Index.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\AddNewField.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\Create.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\Delete.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\DeleteNewField.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\DetailsNewField.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\Edit.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\EditNewField.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\Index.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\NewFields.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Forms\Create.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Forms\Delete.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Forms\EdycjaFormularza.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Forms\Formularz.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Forms\Index.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Forms\ListaFormularzy.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Forms\WyslanoFormularz.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Home\Privacy.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Patient\Create.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Patient\Index.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Patient\PatientForms.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Error.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_CookieConsentPartial.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\UserAnswerLists\AnswerList.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\UserAnswerLists\AnswerListPost.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\UserAnswerLists\Create.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\UserAnswerLists\Delete.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\UserAnswerLists\Details.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\UserAnswerLists\Edit.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\UserAnswerLists\Index.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.RazorTargetAssemblyInfo.cache
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.RazorTargetAssemblyInfo.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.Views.pdb
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.dll
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.pdb
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.csproj.CopyComplete
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Patient\TestSelect.cshtml.g.cs
+C:\Users\kamil\Desktop\GitRepos\FormGenerator\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\AdminPanel\Index.cshtml.g.cs
+C:\Users\kamil\Desktop\GitRepos\FormGenerator\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\AdminPanel\SidePanel.cshtml.g.cs
+C:\Users\kamil\Desktop\GitRepos\FormGenerator\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Forms\Delete.cshtml.g.cs
+C:\Users\kamil\Desktop\GitRepos\FormGenerator\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Patient\TestSelect.cshtml.g.cs
+C:\Users\kamil\Desktop\GitRepos\FormGenerator\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\ExcelExport\Index.cshtml.g.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\bin\Debug\netcoreapp2.2\TeamProject.deps.json
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\bin\Debug\netcoreapp2.2\TeamProject.runtimeconfig.json
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\bin\Debug\netcoreapp2.2\TeamProject.runtimeconfig.dev.json
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\bin\Debug\netcoreapp2.2\TeamProject.dll
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\bin\Debug\netcoreapp2.2\TeamProject.pdb
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\bin\Debug\netcoreapp2.2\TeamProject.Views.dll
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\bin\Debug\netcoreapp2.2\TeamProject.Views.pdb
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.csprojAssemblyReference.cache
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.csproj.CoreCompileInputs.cache
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.RazorAssemblyInfo.cache
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.RazorAssemblyInfo.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.AssemblyInfoInputs.cache
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.AssemblyInfo.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.TagHelpers.input.cache
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.TagHelpers.output.cache
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.RazorCoreGenerate.cache
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Login.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\ChangePassword.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\DeletePersonalData.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\Index.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\PersonalData.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\_Layout.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\_ManageNav.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\_StatusMessage.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\_ViewImports.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Register.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\_ViewImports.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ViewImports.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ViewStart.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\AdminPanel\Index.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\AdminPanel\SidePanel.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Category\Create.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Category\CreateParentCategory.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Category\ListaKategorii.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\EntranceFormFields\AddConnection.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\EntranceFormFields\Create.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\EntranceFormFields\Delete.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\EntranceFormFields\DeleteDependence.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\EntranceFormFields\Details.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\EntranceFormFields\Edit.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\EntranceFormFields\EntranceForm.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\EntranceFormFields\Index.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\ExcelExport\Index.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\FieldDependency\Index.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\AddNewField.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\Create.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\Delete.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\DeleteNewField.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\DetailsNewField.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\Edit.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\EditNewField.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\Index.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\NewFields.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Forms\Create.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Forms\Delete.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Forms\EdycjaFormularza.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Forms\Formularz.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Forms\Index.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Forms\ListaFormularzy.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Forms\WyslanoFormularz.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Home\Privacy.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Patient\Create.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Patient\Index.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Patient\PatientForms.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Patient\TestSelect.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Error.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_LoginPartial.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\UserAnswerLists\AnswerList.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\UserAnswerLists\AnswerListPost.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\UserAnswerLists\Create.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\UserAnswerLists\Delete.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\UserAnswerLists\Details.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\UserAnswerLists\Edit.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\UserAnswerLists\Index.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.g.cshtml.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.RazorTargetAssemblyInfo.cache
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.RazorTargetAssemblyInfo.cs
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.Views.pdb
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.dll
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.pdb
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.csproj.CopyComplete
+C:\Users\PC\Desktop\exel_koniec\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\ExcelExport\Details.g.cshtml.cs
+C:\Users\kamil\Desktop\GitRepos\FormGenerator\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\ExcelExport\Details.cshtml.g.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\bin\Debug\netcoreapp2.2\TeamProject.deps.json
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\bin\Debug\netcoreapp2.2\TeamProject.runtimeconfig.json
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\bin\Debug\netcoreapp2.2\TeamProject.runtimeconfig.dev.json
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\bin\Debug\netcoreapp2.2\TeamProject.dll
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\bin\Debug\netcoreapp2.2\TeamProject.pdb
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\bin\Debug\netcoreapp2.2\TeamProject.Views.dll
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\bin\Debug\netcoreapp2.2\TeamProject.Views.pdb
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.csprojAssemblyReference.cache
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.csproj.CoreCompileInputs.cache
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.RazorAssemblyInfo.cache
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.RazorAssemblyInfo.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.AssemblyInfoInputs.cache
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.AssemblyInfo.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.TagHelpers.input.cache
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.TagHelpers.output.cache
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.RazorCoreGenerate.cache
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\CreateUser.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Login.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\ChangePassword.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\DeletePersonalData.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\DeleteUser.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\Index.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\ManageUserData.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\NewPassword.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\PersonalData.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\_Layout.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\_ManageNav.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\_StatusMessage.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\_ViewImports.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Register.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\_ViewImports.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ViewImports.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ViewStart.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\AdminPanel\Index.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\AdminPanel\Logi.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\AdminPanel\SidePanel.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\AdminPanel\Users.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Category\Create.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Category\CreateParentCategory.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Category\ListaKategorii.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\EntranceFormFields\AddConnection.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\EntranceFormFields\Create.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\EntranceFormFields\Delete.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\EntranceFormFields\DeleteDependence.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\EntranceFormFields\Details.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\EntranceFormFields\Edit.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\EntranceFormFields\EntranceForm.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\EntranceFormFields\Index.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\ExcelExport\Details.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\ExcelExport\Index.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\FieldDependency\Index.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\AddNewField.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\Create.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\Delete.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\DeleteNewField.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\DetailsNewField.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\Edit.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\EditNewField.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\Index.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\NewFields.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Forms\Create.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Forms\Delete.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Forms\EdycjaFormularza.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Forms\Formularz.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Forms\Index.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Forms\ListaFormularzy.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Forms\WyslanoFormularz.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Home\Privacy.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Patient\Create.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Patient\Index.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Patient\PatientForms.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Patient\TestSelect.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Error.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_LoginPartial.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\UserAnswerLists\AnswerList.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\UserAnswerLists\AnswerListPost.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\UserAnswerLists\Create.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\UserAnswerLists\Delete.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\UserAnswerLists\Details.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\UserAnswerLists\Edit.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\UserAnswerLists\Index.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.g.cshtml.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.RazorTargetAssemblyInfo.cache
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.RazorTargetAssemblyInfo.cs
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.Views.pdb
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.dll
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.pdb
+C:\Users\PC\Desktop\11052020\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.csproj.CopyComplete
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\bin\Debug\netcoreapp2.2\libman.json
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\CreateUser.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\DeleteUser.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\ManageUserData.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\NewPassword.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\AdminPanel\Index.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\AdminPanel\Logi.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\AdminPanel\SidePanel.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\AdminPanel\Users.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\ExcelExport\Details.cshtml.g.cs
+E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\ExcelExport\Index.cshtml.g.cs

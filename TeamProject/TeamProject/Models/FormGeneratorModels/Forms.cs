@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -16,6 +17,15 @@ namespace FormGenerator.Models
        
         public string Name { get; set; }
         
+        public string Validate(FormGeneratorContext context)
+        {
+            if (context.UserAnswers.AsNoTracking().FirstOrDefault(ans => ans.IdForm == this.Id) != null)
+            {
+                return "Nie można edytować formularza, gdyż został już użyty w ankietowaniu!";
+            }
+
+            return null;
+        }
     }
 
     public class formsModel
