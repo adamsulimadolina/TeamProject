@@ -2,6 +2,75 @@
 @{
     ViewData["Title"] = "Index";
 }
+    
+
+    <style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #888;
+  color: white;
+
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+    </style>
+
+
 <link rel="stylesheet" href="~/lib/jquery-ui/jquery-ui.min.css" />
 
 <h1>Kreator zależności</h1>
@@ -20,7 +89,7 @@
         <option selected="selected" value="FieldVisibly">Wartościowa</option>
         <option value="FieldDuplication">Ilościowa</option>
     </select><br />
-             <label id="ActivationValueLabel" for="ActivationValue">Podaj wartość aktywującą zależność:</label>
+    <label id="ActivationValueLabel" for="ActivationValue">Podaj wartość aktywującą zależność:</label>
     <input asp-for="@Model.ActivationValue" />
     <br />
     <table class="table table-striped" id="RelatedFieldsTable">
@@ -41,10 +110,75 @@
         </tbody>
     </table>
     <br />
+    <!-- Trigger/Open The Modal -->
+    <button id="myBtn">nowe pole (modal)</button>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+               @* <span class="close">&times;</span>*@
+                <h3 style="color:black">Kreator nowego pola</h3> 
+            </div>
+            <div class="modal-body">
+                
+                <label style="color:black" for="currentNameToCreate">Nazwa pola:</label>
+                <div class="autocomplete">
+                    <input id="currentNameToCreate" class="form-control" />
+                </div>
+                <label style="color:black" for="currentTypeToCreate">Wybierz typ:</label>
+                <select  id="currentTypeToCreate" class="form-control" style="width:300px">
+                    <option value="">Wybierz opcję</option>
+                    <option value="text">Pole tekstowe</option>
+                    <option value="checkbox">Checkbox</option>
+                    <option value="select">Lista</option>
+                    <option value="number">Numer</option>
+                </select>
+                <br />
+                <div></div>
+                <div id="numberValidation" hidden>
+                    <input type="checkbox" id="enableValidationMin" value="min" style=" background-color:white; color:#66BB6A;" />
+                    <label style="color:black">Minimalna wartość</label>
+                    <input  class="form-control" id="inputMin" hidden />
+                    <br />
+                    <input type="checkbox" id="enableValidationMax" value="max" />
+                    <label style="color:black">Maksymalna wartość</label>
+                    <input  class="form-control" id="inputMax" hidden />
+                    <br />
+                    <input type="checkbox" id="enableValidationInteger" value="liczba całkowita"  />
+                    <input  hidden id="inputForInteger" />
+                    <label style="color:black">Liczba całkowita</label>
+
+                    <br />
+                </div>
+
+                <div id="selectOptions" hidden>
+                    <input type="button" id="addOptionsBtn"  value="Dodaj opcje" style=" background-color:white; color:#66BB6A;font-size:20px;padding: 5px 15px; margin-bottom:5px; border-radius: 8px;position:center;" />
+                        <div id="firstDiv">
+                        <input style=" border-radius: 5px; width:300px; height:30px; " type="text" id="opt0" class="definedAnswer"/>
+                        <input id="optionsJsonID" hidden />
+                    </div>
+                </div>
+
+
+                <input style=" background-color:white;
+            color:#66BB6A;
+            font-size:20px;
+            padding: 15px 35px;
+            border-radius: 8px;
+            position:center;" type="button" id="createField" class="btn btn-success" value="Stwórz" />
+            </div>
+          
+        </div>
+
+    </div>
     <label for="CurrentFieldName">Wybierz pola zależne</label>
     <input asp-for="@Model.CurrentFieldName" name="CurrentFieldName" />
     <br />
     <button id="AddDependedField" type="submit">Dodaj Pole</button><br />
+    <button id="newField">Dodaj nowe pole</button><br />
     <button style="margin-top:30px;" type="submit" asp-action="CreateDependency">Stwórz zależność</button>
 
     @* Hidden fields *@
@@ -53,9 +187,9 @@
     {
         if (Model.RelatedFields[i] != null)
         {
-        <input hidden asp-for="@Model.RelatedFields[i].Id" />
-        <input hidden asp-for="@Model.RelatedFields[i].Name" />
-        <input hidden asp-for="@Model.RelatedFields[i].Type" />
+            <input hidden asp-for="@Model.RelatedFields[i].Id" />
+            <input hidden asp-for="@Model.RelatedFields[i].Name" />
+            <input hidden asp-for="@Model.RelatedFields[i].Type" />
         }
     }
     @* Hidden fields *@
@@ -77,5 +211,190 @@
     dep.value = "";
 
 </script>
+
+<script>
+    let indexOfOptions = 1;
+    let selectedAnswers = new Array();
+    
+    let newFieldName;
+    let fieldType;
+    
+
+    let numMin = document.querySelector("#inputMin")
+    let numMax = document.querySelector("#inputMax")
+    let isInteger = document.querySelector("#inputForInteger")
+
+    function clear() {
+        
+    }
+
+    function updateFieldName(e) {
+        newFieldName = e.target.value;
+        console.log(e.target.value)
+
+        let selectDiv = document.createElement("div");
+
+       indexOfOptions++;
+    }
+
+    function handleDelete(e) {
+        console.log(e.target)
+    }
+    
+    function handleNewOption(e) {
+     //   e.preventDefault(); 
+        console.log("newOptionHandling")
+        let parent = document.querySelector("#firstDiv")
+        let selectDiv = document.createElement("div");
+        let d = document.createElement("div")
+        let inp = document.createElement("INPUT");
+        inp.setAttribute("type", "text")
+        inp.setAttribute("class", "definedAnswer")
+        inp.setAttribute("id", "opt" + indexOfOptions);
+        inp.style.borderRadius = "5px";
+        inp.style.width = "300px"
+
+        let inpBut = document.createElement("INPUT");
+        inpBut.setAttribute("type", "button")
+        inpBut.setAttribute("id", "uopt" + indexOfOptions);
+        inpBut.setAttribute("value", "usun")
+        inpBut.style.borderRadius = "8px";
+        inpBut.style.backgroundColor = "white";
+        //inpBut.style.width = "30px"
+        inpBut.style.color = "#66BB6A"
+        inpBut.style.fontSize = "20px"
+        inpBut.style.padding = "5px 5px"
+        inpBut.style.position = "center"
+        inpBut.style.marginLeft = "5px"
+        inpBut.textContent = "usuń"
+        inpBut.addEventListener("click", handleDelete);
+        // selectDiv.innerHTML = '<div ><input type="text" id="opt' + indexOfOptions + '"name="dyntxt" style=" border-radius: 5px; width:300px; height:30px; "/><input type="button" id=uopt"' + indexOfOptions + '"onclick="RemoveBtn(this)" value="Usuń" style=" background-color:white; color:#66BB6A;font-size:20px;padding: 5px 5px;border-radius: 8px;position:center;margin-left:5px"/></div>'
+        d.appendChild(inp);
+        d.appendChild(inpBut);
+        selectDiv.appendChild(d)
+        indexOfOptions++;
+        parent.appendChild(selectDiv)
+        
+
+    }
+
+
+    let nameInput = document.querySelector("#currentNameToCreate");
+    let fieldTypeInput = document.querySelector("#currentTypeToCreate")
+    let newSelectBtn = document.querySelector("#addOptionsBtn")
+    let createButton = document.querySelector("#createField");
+
+    nameInput.addEventListener("change", updateFieldName)
+
+    fieldTypeInput.addEventListener("change", updateFieldType)
+
+    newSelectBtn.addEventListener("click", handleNewOption)
+
+    function updateFieldType(e) {
+        fieldType = e.target.value;
+        
+          if (fieldType == "number") {
+                document.getElementById("numberValidation").hidden = false;
+              
+            } else {
+                 document.getElementById("numberValidation").hidden = true;
+            }
+           if (fieldType == "select") {
+           
+                document.getElementById("selectOptions").hidden = false;
+            }
+            else {
+                 document.getElementById("selectOptions").hidden = true;
+            }
+    }
+
+     document.getElementById("enableValidationMin").addEventListener("change", function(){
+        if (this.checked == true) document.getElementById("inputMin").hidden = false;
+        else document.getElementById("inputMin").hidden = true;
+    });
+
+    document.getElementById("enableValidationMax").addEventListener("change", function(){
+        if (this.checked == true) document.getElementById("inputMax").hidden = false;
+        else document.getElementById("inputMax").hidden = true;
+    });
+
+    document.getElementById("enableValidationInteger").addEventListener("change", function () {
+        if (this.checked == true) document.getElementById("inputForInteger").value = 100;
+        else document.getElementById("inputForInteger").value = 0;
+    });
+
+
+    createButton.addEventListener("click", createField);
+    
+    console.log(nameInput)
+
+
+    function addNewField(e) {
+        e.preventDefault();
+        
+
+    }
+
+        // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+   // var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal 
+    btn.onclick = function (e) {
+    e.preventDefault();
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    //span.onclick = function() {
+    //    modal.style.display = "none";
+    //}
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+
+    function createField(e) {
+        console.log(newFieldName)
+        console.log(fieldType)
+        let min
+        let max
+        if (fieldType == "select") {
+            let selectInps = document.querySelectorAll(".definedAnswer");
+            selectInps.forEach((inp) => {
+                console.log(inp.value)
+                selectedAnswers.push(inp.value)
+            })
+        }
+        if (fieldType == "number") {
+            console.log(numMin.value)
+            console.log(numMax.value)
+            console.log(isInteger.value)
+            if (!(/^\s*$/).test(numMin.value)) {
+                 min = numMin.value
+            }
+            if (!(/^\s*$/).test(numMax.value)) {
+                 max = numMin.value
+            }
+            if (!isInteger) {
+                console.log("ha ha")
+            }
+        }
+        
+
+    }
+
+
+    
+
+   </script>
 
 <script src="~/js/AutocompleteField.js"></script>
