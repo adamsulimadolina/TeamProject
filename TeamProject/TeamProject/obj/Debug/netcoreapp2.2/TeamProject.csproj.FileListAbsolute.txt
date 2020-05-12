@@ -1013,3 +1013,17 @@ E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netc
 E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\AdminPanel\Users.cshtml.g.cs
 E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\ExcelExport\Details.cshtml.g.cs
 E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\ExcelExport\Index.cshtml.g.cs
+C:\Users\kacpe\Documents\GitHub\TeamProject\TeamProject\TeamProject\bin\Debug\netcoreapp2.2\libman.json
+C:\Users\kacpe\Documents\GitHub\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.csprojAssemblyReference.cache
+C:\Users\kacpe\Documents\GitHub\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\CreateUser.cshtml.g.cs
+C:\Users\kacpe\Documents\GitHub\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\DeleteUser.cshtml.g.cs
+C:\Users\kacpe\Documents\GitHub\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\ManageUserData.cshtml.g.cs
+C:\Users\kacpe\Documents\GitHub\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\NewPassword.cshtml.g.cs
+C:\Users\kacpe\Documents\GitHub\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\AdminPanel\Index.cshtml.g.cs
+C:\Users\kacpe\Documents\GitHub\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\AdminPanel\Logi.cshtml.g.cs
+C:\Users\kacpe\Documents\GitHub\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\AdminPanel\SidePanel.cshtml.g.cs
+C:\Users\kacpe\Documents\GitHub\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\AdminPanel\Users.cshtml.g.cs
+C:\Users\kacpe\Documents\GitHub\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\ExcelExport\Details.cshtml.g.cs
+C:\Users\kacpe\Documents\GitHub\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\ExcelExport\Index.cshtml.g.cs
+C:\Users\kacpe\Documents\GitHub\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Forms\Delete.cshtml.g.cs
+C:\Users\kacpe\Documents\GitHub\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Patient\TestSelect.cshtml.g.cs
