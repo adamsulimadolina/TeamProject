@@ -3,15 +3,24 @@
 @{
     ViewData["Title"] = "Delete";
 }
-
-<h3>Czy jesteś pewien że chcesz usunąć to pytanie z formularza</h3>
-<div style=" margin:0 auto;">
-    <form asp-action="Delete">
+<style>
+    a {
+        color: forestgreen;
+        font-weight: 500;
+    }
+</style>
+<div><br /></div>
+<form asp-action="Delete" class="shadow p-3 mb-5 bg-white rounded" style="height:50px;">
+    <div class="form-group">
+        <label>Czy na pewno usunąć tą zależność z formularza powitalnego?</label>
+    </div>
+    <div>
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="USUŃ" class="btn btn-danger" /> |
-        <a asp-action="Index">Powrót do listy</a>
-    </form>
-</div>
+        <input class="btn-outline-dark" type="submit" value="Usuń" />
+    </div>
+</form>
+
 <script>
     sessionStorage.removeItem('key');
 </script>
+
