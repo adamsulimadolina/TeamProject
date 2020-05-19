@@ -131,7 +131,7 @@
                                                 </div>
 
                                             }
-                                            else if (Model[i].Field.Type == "select")
+                                            else if (Model[i].Dependencies.RelatedFields[j].Type == "select")
                                             {
 
                                                 <label asp-for="@Model[i].Dependencies.RelatedFields[j].Name" class="control-label">@Model[i].Dependencies.RelatedFields[j].Name</label>
@@ -142,7 +142,7 @@
                                                     {
                                                         @if (option.idField == Model[i].Dependencies.RelatedFields[j].Id)
                                                         {
-                                                            <option value="@option.option">@option.option</option>
+                                                            <option  value="@option.option">@option.option</option>
                                                         }
                                                     }
                                                 </select>
