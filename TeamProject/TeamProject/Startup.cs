@@ -47,7 +47,7 @@ namespace TeamProject
 
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseNpgsql(
-                    "Host=projekt1920.cakejnzadj5u.us-east-1.rds.amazonaws.com;Database=postgres;Username=postgres;Password=projekt.pb19_20"));
+                    "Host=database-1.cryqhlbutjmy.us-east-1.rds.amazonaws.com;Database=postgres;Username=postgres;Password=projektzespolowy"));
             services.AddIdentity<MyUser,IdentityRole>()
                 .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<ApplicationDbContext>()
