@@ -10,7 +10,6 @@
 <span>
     <h3>Usuwanie</h3>
 </span>
-<br />
 
 @if (ViewBag.message == true)
 {
@@ -23,7 +22,14 @@
 else
 {
 
-    <div><br /></div>
+<div>
+    <br />
+    <a style="color:black" asp-area="" asp-controller="Forms" asp-action="EdycjaFormularza" asp-route-id="@ViewBag.IDFORM">
+        <img src="~/arrow2.png" class="rounded-circle" alt="Add" width="30" height="30">
+    </a>
+    <br />
+</div>
+
     <form asp-action="Delete" class="shadow p-3 mb-5 bg-white rounded" style="height:50px;">
         <div class="form-group">
             <label>Czy na pewno usunąć wybrane pole?</label>
@@ -36,10 +42,7 @@ else
 
 
 }
-<div>
-    <a style="color:black;  " asp-action="EdycjaFormularza" asp-controller="Forms" asp-route-id="@ViewBag.IDFORM">Powrót do formualarza</a>
 
-</div>
 
 
 

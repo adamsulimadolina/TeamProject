@@ -4,12 +4,16 @@
     ViewData["Title"] = "Delete";
 }
 <style>
+
     a {
         color: forestgreen;
         font-weight: 500;
     }
-</style>
-<div><br /></div>
+</style><br />
+<div><br />
+    <a style="color:black" asp-area="" asp-controller="Forms" asp-action="ListaFormularzy" asp-route-id="@Model.Id">
+    <img src="~/arrow2.png" class="rounded-circle" alt="Add" width="30" height="30">
+</a><br /></div>
 <form asp-action="Delete" class="shadow p-3 mb-5 bg-white rounded" style="height:50px;">
     <div class="form-group">
         <label>Czy na pewno usunąć wybrany formularz?</label>

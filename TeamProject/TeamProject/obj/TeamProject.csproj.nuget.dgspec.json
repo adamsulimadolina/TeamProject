@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kacpe\\Documents\\GitHub\\TeamProject\\TeamProject\\TeamProject\\TeamProject.csproj": {}
+    "C:\\Users\\izabe\\OneDrive\\Pulpit\\Team X\\bardzo nowy\\TeamProject\\TeamProject\\TeamProject\\TeamProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kacpe\\Documents\\GitHub\\TeamProject\\TeamProject\\TeamProject\\TeamProject.csproj": {
+    "C:\\Users\\izabe\\OneDrive\\Pulpit\\Team X\\bardzo nowy\\TeamProject\\TeamProject\\TeamProject\\TeamProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kacpe\\Documents\\GitHub\\TeamProject\\TeamProject\\TeamProject\\TeamProject.csproj",
+        "projectUniqueName": "C:\\Users\\izabe\\OneDrive\\Pulpit\\Team X\\bardzo nowy\\TeamProject\\TeamProject\\TeamProject\\TeamProject.csproj",
         "projectName": "TeamProject",
-        "projectPath": "C:\\Users\\kacpe\\Documents\\GitHub\\TeamProject\\TeamProject\\TeamProject\\TeamProject.csproj",
-        "packagesPath": "C:\\Users\\kacpe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kacpe\\Documents\\GitHub\\TeamProject\\TeamProject\\TeamProject\\obj\\",
+        "projectPath": "C:\\Users\\izabe\\OneDrive\\Pulpit\\Team X\\bardzo nowy\\TeamProject\\TeamProject\\TeamProject\\TeamProject.csproj",
+        "packagesPath": "C:\\Users\\izabe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\izabe\\OneDrive\\Pulpit\\Team X\\bardzo nowy\\TeamProject\\TeamProject\\TeamProject\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\kacpe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\izabe\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -62,14 +59,6 @@
               "target": "Package",
               "version": "[2.2.0, )"
             },
-            "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[2.2.0, )"
-            },
-            "Microsoft.EntityFrameworkCore.Relational": {
-              "target": "Package",
-              "version": "[2.2.0, )"
-            },
             "Microsoft.Extensions.Configuration": {
               "target": "Package",
               "version": "[2.2.0, )"
@@ -111,7 +100,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

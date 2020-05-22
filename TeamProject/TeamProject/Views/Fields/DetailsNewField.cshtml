@@ -8,6 +8,7 @@
 </script>
 <style>
 
+
     .tabl {
         border-radius: 5px;
         background-color: white;
@@ -16,10 +17,14 @@
 </style>
 <div><br /></div>
 <span>
-
     <h3>Szczegóły pola</h3>
 </span>
-<div><br /></div>
+<div>
+    <a style="color:black" asp-area="" asp-controller="Forms" asp-action="EdycjaFormularza" asp-route-id="@ViewBag.IDFORM">
+        <img src="~/arrow2.png" class="rounded-circle" alt="Add" width="30" height="30">
+    </a>
+    <br />
+</div>
 <div class="tabl" style="box-shadow:black" ">
 
     <dl class="row">
@@ -37,6 +42,4 @@
         </dd>
     </dl>
 </div>
-<div>
-    <a style="color:black;" asp-action="EdycjaFormularza" asp-controller="Forms" asp-route-id="@ViewBag.IDFORM">Powrót do formualarza</a>
-</div>
+

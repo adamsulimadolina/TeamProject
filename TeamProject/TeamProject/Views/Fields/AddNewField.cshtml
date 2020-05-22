@@ -5,6 +5,7 @@
 
 <style>
 
+
     * {
         box-sizing: border-box;
     }
@@ -123,6 +124,9 @@
 
     <div><br /></div>
 }
+<a style="color:black" asp-area="" asp-controller="Forms" asp-action="EdycjaFormularza" asp-route-id="@Model.FormId">
+    <img src="~/arrow2.png" class="rounded-circle" alt="Add" width="30" height="30">
+</a>
 <div class="cities">
     <form asp-action="AddNewField" autocomplete="off" id="myForm">
 

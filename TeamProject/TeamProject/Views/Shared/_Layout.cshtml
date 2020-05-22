@@ -70,35 +70,44 @@
         .navbar-nav li:hover > .dropdown-menu {
             display: block;
         }
+      .dropdown:hover>.dropdown-menu{
+          display:block;
+      }
+
     </style>
 
     <header>
-       
+           
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a style="color:black" asp-area="" asp-controller="Forms" asp-action="Index">
+                <img src="~/logo.png" alt="Add" width="150" height="40">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
 
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" style="position: relative; display:inline-block" asp-controller="Patient" asp-action="Index" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Menu
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="position: absolute">
+                            <a class="dropdown-item" asp-controller="FieldDependency" asp-action="Index">Kreator Zależności</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="UserAnswerLists" asp-action="AnswerList">Wizualizator</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="Forms" asp-action="ListaFormularzy">Formularze</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="Forms" asp-action="Index">Generator Formularzy</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="ExcelExport" asp-action="Index">Eksporter Excel </a>
+                        </div>
+                    </li>
+                </ul>
 
-                    <ul class="navbar-nav">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" asp-controller="Patient" asp-action="Index" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Menu
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" asp-controller="FieldDependency" asp-action="Index">Kreator Zależności</a>
-                                <a class="dropdown-item" asp-area="" asp-controller="UserAnswerLists" asp-action="AnswerList">Wizualizator</a>
-                                <a class="dropdown-item" asp-area="" asp-controller="Forms" asp-action="ListaFormularzy">Formularze</a>
-                                <a class="dropdown-item" asp-area="" asp-controller="Forms" asp-action="Index">Generator Formularzy</a>
-                                <a class="dropdown-item" asp-area="" asp-controller="ExcelExport" asp-action="Index">Eksporter Excel </a>
-                            </div>
-                        </li>
-                    </ul>
-
-                </div>
+            </div>
+            <div>
                 <partial name="_LoginPartial" />
-            </nav>
+            </div>
+
+        </nav>
     </header>
 
 
