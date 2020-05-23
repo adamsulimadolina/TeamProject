@@ -1,0 +1,26 @@
+﻿@model IEnumerable<FieldFieldDependency>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    
+    @foreach(FieldFieldDependency fieldDep in Model)
+    {
+        <tr>
+            <td>@fieldDep.ActivationValue</td>
+            <td>@fieldDep.DependencyType</td>
+          
+            <td>
+                <form><a  asp-controller="FieldDependency" asp-action="Index" asp-route-id="@fieldDep.Id" asp-route-idDep="@fieldDep.IdDependency" > Przejdz do zaleznosci </a></form>
+            </td>
+        </tr>
+    }
+
+</head>
+<body>
+</body>
+</html>

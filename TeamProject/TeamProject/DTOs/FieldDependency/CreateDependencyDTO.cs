@@ -11,12 +11,15 @@ using TeamProject.Models.FieldFieldDependencyModels;
 namespace TeamProject.DTOs.FieldDependency
 {
     public class CreateDependencyDTO
-    {
+    {   
         public string SuperiorFieldName { get; set; }
+        public int? SuperiorFieldId { get; set; }
         public string DependencyType { get; set; }
         public string ActivationValue { get; set; }
         public List<Field> RelatedFields { get; set; } = new List<Field>();
-       
+
+        public int IdDependency { get; set; }
+
         public string AllIndependentFieldsName { get; set; }
 
         public string CurrentFieldName { get; set; }
@@ -32,8 +35,9 @@ namespace TeamProject.DTOs.FieldDependency
             var allDependFields = repository.GetAllDependFields();
             var allIndependedFields = context.Field.AsNoTracking()
                 .ToList()
-                .Where(f=> {
-                    return (!allDependFields.Contains(f)) && (f.Name!=SuperiorFieldName) 
+                .Where(f =>
+                {
+                    return (!allDependFields.Contains(f)) && (f.Name != SuperiorFieldName)
                         && (!RelatedFields.Contains(f));
                 });
 
@@ -42,7 +46,7 @@ namespace TeamProject.DTOs.FieldDependency
 
         public void AddRelatedField(Field field)
         {
-            if (!RelatedFields.Contains(field))
+             //if (!RelatedFields.Contains(field))
             {
                 RelatedFields.Add(field);
             }

@@ -79,18 +79,25 @@ body {font-family: Arial, Helvetica, sans-serif;}
     <p style="color: red">@ViewBag.Error</p>
 }
 <form method="post" asp-action="AddFieldToRelatedListPOST">
-    <label for="SuperiorFieldName">Wybierz pole, którego będzie dotyczyła zależność:</label>
-    <input asp-for="@Model.SuperiorFieldName" />
+    @*<label for="SuperiorFieldName">Wybierz pole, którego będzie dotyczyła zależność:</label>*@
+    <input hidden asp-for="@Model.SuperiorFieldId" />
+  
 
     <br />
 
-    <label for="dependencyType">Wybierz typ zależności</label>
-    <select name="DependencyType" asp-for="@Model.DependencyType">
+    <p>
+        Wybrany typ zależności: @Model.DependencyType <br/>
+        Wartość aktywująca: @Model.ActivationValue 
+    </p>
+
+   
+    <select hidden name="DependencyType" asp-for="@Model.DependencyType">
         <option selected="selected" value="FieldVisibly">Wartościowa</option>
         <option value="FieldDuplication">Ilościowa</option>
     </select><br />
-    <label id="ActivationValueLabel" for="ActivationValue">Podaj wartość aktywującą zależność:</label>
-    <input asp-for="@Model.ActivationValue" />
+
+   
+    <input hidden asp-for="@Model.ActivationValue" />
     <br />
     <table class="table table-striped" id="RelatedFieldsTable">
         <thead>
@@ -100,12 +107,17 @@ body {font-family: Arial, Helvetica, sans-serif;}
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model.RelatedFields)
+            @if (Model.RelatedFields != null)
             {
-                <tr>
-                    <td>@item?.Name</td>
-                    <td>@item?.Type</td>
-                </tr>
+                @foreach (var item in Model.RelatedFields)
+                {
+            <tr>
+                <td>@item?.Name</td>
+                <td>@item?.Type</td>
+                <td><a  class="btn-danger" asp-action="DeleteFromDependency" asp-route-idField="@item.Id" asp-route-idDep="@Model.IdDependency" > usuń</a></td>
+            </tr>
+            
+                }
             }
         </tbody>
     </table>
@@ -119,8 +131,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
         <!-- Modal content -->
         <div class="modal-content">
             <div class="modal-header">
-               @* <span class="close">&times;</span>*@
-                <h3 style="color:black">Kreator nowego pola</h3> 
+                @* <span class="close">&times;</span>*@
+                <h3 style="color:black">Kreator nowego pola</h3>
             </div>
             <div class="modal-body">
 
@@ -170,11 +182,11 @@ body {font-family: Arial, Helvetica, sans-serif;}
                     Stwórz
                 </button> />
             </div>
-          
+
         </div>
 
     </div>
-   
+
     <br />
     <button id="AddDependedField" type="submit">Dodaj Pole</button><br />
     <button id="newField">Dodaj nowe pole</button><br />
@@ -189,9 +201,12 @@ body {font-family: Arial, Helvetica, sans-serif;}
             <input hidden asp-for="@Model.RelatedFields[i].Id" />
             <input hidden asp-for="@Model.RelatedFields[i].Name" />
             <input hidden asp-for="@Model.RelatedFields[i].Type" />
+
+            
         }
     }
     @* Hidden fields *@
+    <input hidden asp-for="@Model.IdDependency" />
 
 </form>
 <script>
@@ -212,7 +227,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </script>
 
 <script>
-  //  let indexOfOptions = 1;
+    let indexOfOptions = 1;
   //  let selectedAnswers = new Array();
     
   //  let newFieldName;
@@ -236,58 +251,58 @@ body {font-family: Arial, Helvetica, sans-serif;}
   //     indexOfOptions++;
   //  }
 
-  //  function handleDelete(e) {
-  //      console.log(e.target)
-  //  }
+    function handleDelete(e) {
+        console.log(e.target)
+    }
     
-  //  function handleNewOption(e) {
-  //   //   e.preventDefault(); 
-  //      console.log("newOptionHandling")
-  //      let parent = document.querySelector("#firstDiv")
-  //      let selectDiv = document.createElement("div");
-  //      let d = document.createElement("div")
-  //      let inp = document.createElement("INPUT");
-  //      inp.setAttribute("type", "text")
-  //      inp.setAttribute("class", "definedAnswer")
-  //      inp.setAttribute("id", "opt" + indexOfOptions);
-  //      inp.style.borderRadius = "5px";
-  //      inp.style.width = "300px"
+    function handleNewOption(e) {
+        e.preventDefault(); 
+        console.log("newOptionHandling")
+        let parent = document.querySelector("#firstDiv")
+        let selectDiv = document.createElement("div");
+        let d = document.createElement("div")
+        let inp = document.createElement("INPUT");
+        inp.setAttribute("type", "text")
+        inp.setAttribute("class", "definedAnswer")
+        inp.setAttribute("id", "opt" + indexOfOptions);
+        inp.style.borderRadius = "5px";
+        inp.style.width = "300px"
 
-  //      let inpBut = document.createElement("INPUT");
-  //      inpBut.setAttribute("type", "button")
-  //      inpBut.setAttribute("id", "uopt" + indexOfOptions);
-  //      inpBut.setAttribute("value", "usun")
-  //      inpBut.style.borderRadius = "8px";
-  //      inpBut.style.backgroundColor = "white";
-  //      //inpBut.style.width = "30px"
-  //      inpBut.style.color = "#66BB6A"
-  //      inpBut.style.fontSize = "20px"
-  //      inpBut.style.padding = "5px 5px"
-  //      inpBut.style.position = "center"
-  //      inpBut.style.marginLeft = "5px"
-  //      inpBut.textContent = "usuń"
-  //      inpBut.addEventListener("click", handleDelete);
-  //      // selectDiv.innerHTML = '<div ><input type="text" id="opt' + indexOfOptions + '"name="dyntxt" style=" border-radius: 5px; width:300px; height:30px; "/><input type="button" id=uopt"' + indexOfOptions + '"onclick="RemoveBtn(this)" value="Usuń" style=" background-color:white; color:#66BB6A;font-size:20px;padding: 5px 5px;border-radius: 8px;position:center;margin-left:5px"/></div>'
-  //      d.appendChild(inp);
-  //      d.appendChild(inpBut);
-  //      selectDiv.appendChild(d)
-  //      indexOfOptions++;
-  //      parent.appendChild(selectDiv)
+        let inpBut = document.createElement("INPUT");
+        inpBut.setAttribute("type", "button")
+        inpBut.setAttribute("id", "uopt" + indexOfOptions);
+        inpBut.setAttribute("value", "usun")
+        inpBut.style.borderRadius = "8px";
+        inpBut.style.backgroundColor = "white";
+        //inpBut.style.width = "30px"
+        inpBut.style.color = "#66BB6A"
+        inpBut.style.fontSize = "20px"
+        inpBut.style.padding = "5px 5px"
+        inpBut.style.position = "center"
+        inpBut.style.marginLeft = "5px"
+        inpBut.textContent = "usuń"
+        inpBut.addEventListener("click", handleDelete);
+        // selectDiv.innerHTML = '<div ><input type="text" id="opt' + indexOfOptions + '"name="dyntxt" style=" border-radius: 5px; width:300px; height:30px; "/><input type="button" id=uopt"' + indexOfOptions + '"onclick="RemoveBtn(this)" value="Usuń" style=" background-color:white; color:#66BB6A;font-size:20px;padding: 5px 5px;border-radius: 8px;position:center;margin-left:5px"/></div>'
+        d.appendChild(inp);
+        d.appendChild(inpBut);
+        selectDiv.appendChild(d)
+        indexOfOptions++;
+        parent.appendChild(selectDiv)
         
 
-  //  }
+    }
 
 
   //  //let nameInput = document.querySelector("#currentNameToCreate");
     let fieldTypeInput = document.querySelector("#CurrentFieldType")
-  //  let newSelectBtn = document.querySelector("#addOptionsBtn")
+    let newSelectBtn = document.querySelector("#addOptionsBtn")
   //  let createButton = document.querySelector("#createField");
 
   //  //nameInput.addEventListener("change", updateFieldName)
 
   fieldTypeInput.addEventListener("change", updateFieldType)
 
-  //  newSelectBtn.addEventListener("click", handleNewOption)
+    newSelectBtn.addEventListener("click", handleNewOption)
 
     function updateFieldType(e) {
         fieldType = e.target.value;

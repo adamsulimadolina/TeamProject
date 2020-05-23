@@ -26,12 +26,61 @@ namespace TeamProject.Controllers
             _mapper = mapper;
         }
 
-        public IActionResult Index()
+        public IActionResult ListOfDependenciesForField (int? id)
+        {
+            var dependenciesForField = _fieldDependenciesRepo.Dependencies.Where(x => x.Id == id)?.ToList();
+
+            if (dependenciesForField.Count==0)
+                return RedirectToAction(nameof(Index), id);
+
+            else
+            {
+                return View(dependenciesForField);
+            }
+
+
+        }
+
+
+        //public IActionResult Index()
+        //{
+        //    CreateDependencyDTO createDependency = new CreateDependencyDTO();
+        //    createDependency.UpdateIndependentFieldsList(_fieldDependenciesRepo,_context);
+        //    return View(createDependency);
+        //}
+        public IActionResult Index(int? id, int? idDep)
         {
             CreateDependencyDTO createDependency = new CreateDependencyDTO();
-            createDependency.UpdateIndependentFieldsList(_fieldDependenciesRepo,_context);
+            if (idDep != null)
+            {
+                var dep = _fieldDependenciesRepo.Dependencies.FirstOrDefault(y => y.IdDependency == idDep);
+                createDependency.SuperiorFieldId = dep.Id;
+                //createDependency.SuperiorFieldName
+                createDependency.RelatedFields = dep.RelatedFields;
+                createDependency.ActivationValue = dep.ActivationValue;
+                createDependency.DependencyType = dep.DependencyType.ToString();
+                createDependency.IdDependency = dep.IdDependency;
+            }
+            //createDependency.UpdateIndependentFieldsList(_fieldDependenciesRepo, _context);
             return View(createDependency);
         }
+
+
+        public IActionResult DeleteFromDependency (int? idField, int? idDep)
+        {
+            var pom = _fieldDependenciesRepo.Dependencies.FirstOrDefault(x => x.IdDependency == idDep);
+            pom.RelatedFields = pom.RelatedFields.Where(p => p.Id != idField).ToList();
+            _fieldDependenciesRepo.SaveDependency(pom);
+
+
+
+            return RedirectToAction(nameof(Index), new {id=pom.Id, idDep=pom.IdDependency });
+
+        }
+
+
+
+
 
         [HttpPost]
         public IActionResult AddFieldToRelatedListPOST(CreateDependencyDTO createDependency)
@@ -42,7 +91,7 @@ namespace TeamProject.Controllers
                 return View("Index",createDependency);
             }
             createDependency.AddRelatedField(_context.Field.AsNoTracking().FirstOrDefault<Field>(f => f.Name == createDependency.CurrentFieldName));
-            createDependency.UpdateIndependentFieldsList(_fieldDependenciesRepo, _context);
+            //createDependency.UpdateIndependentFieldsList(_fieldDependenciesRepo, _context);
             TempData.Put<CreateDependencyDTO>("CreateDependencyFromPostToGet", createDependency);
             return RedirectToAction(nameof(AddFieldToRelatedListGet));
         }
@@ -57,12 +106,11 @@ namespace TeamProject.Controllers
             //}
             Field field = new Field
             {
-                Id = -1,
                 Name = createDependency.CurrentFieldName,
                 Type = createDependency.CurrentFieldType
             };
             createDependency.AddRelatedField(field);
-            createDependency.UpdateIndependentFieldsList(_fieldDependenciesRepo, _context);
+            //createDependency.UpdateIndependentFieldsList(_fieldDependenciesRepo, _context);
             TempData.Put<CreateDependencyDTO>("CreateDependencyFromPostToGet", createDependency);
             return RedirectToAction(nameof(AddFieldToRelatedListGet));
         }
@@ -76,13 +124,21 @@ namespace TeamProject.Controllers
         [HttpPost]
         public IActionResult CreateDependency(CreateDependencyDTO createDependency)
         {
-            ViewBag.Error = createDependency.Valid(_context);
-            if (ViewBag.Error != null)
-            {
-                return View("Index", createDependency);
-            }
+            //ViewBag.Error = createDependency.Valid(_context);
+            //if (ViewBag.Error != null)
+            //{
+            //    return View("Index", createDependency);
+            //}
             var dependency = _mapper.Map<FieldFieldDependency>(createDependency);
             dependency.Build(createDependency,_context);
+            //foreach(Field f in dependency.RelatedFields)
+            //{
+            //    if(f.Id == -1)
+            //    {
+            //        _context.Add(f);
+            //        _context.SaveChangesAsync();
+            //    }
+            //}
             _fieldDependenciesRepo.SaveDependency(dependency);
             return RedirectToAction("Index", "Forms");
         }

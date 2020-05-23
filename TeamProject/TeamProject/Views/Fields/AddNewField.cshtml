@@ -104,7 +104,7 @@
                                 <button type="submit" asp-route-fieldId="@Model.fields[i].Id" asp-action="DeleteFromList" class="btn btn-danger" to-delete="true">
                                     Usuń
                                 </button>
-                                <button type="button" class="zal btn btn-info">dodaj pola zależne</button>
+                                <a asp-controller="FieldDependency" asp-action="ListOfDependenciesForField"  asp-route-id="@Model.fields[i].Id" class="zal btn btn-info">dodaj pola zależne</a>
                             </td>
                         </tr>
                     }
@@ -125,12 +125,12 @@
                 }
             }
 
-            let buttons = document.querySelectorAll(".zal");
+            //let buttons = document.querySelectorAll(".zal");
             
-            buttons.forEach((button) => {
+            //buttons.forEach((button) => {
                
-                button.addEventListener('click', fun);
-            })
+            //    button.addEventListener('click', fun);
+            //})
         </script>
 
         @if (Model.fields.Count != 0)

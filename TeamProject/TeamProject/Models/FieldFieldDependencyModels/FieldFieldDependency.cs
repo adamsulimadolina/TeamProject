@@ -34,7 +34,7 @@ namespace TeamProject.Models.FieldDependencyModels
 
         public void Build(CreateDependencyDTO createDependency, FormGeneratorContext _context)
         {
-            this.ThisField = _context.Field.AsNoTracking().FirstOrDefault(f => f.Name == this.ThisField.Name);
+            this.ThisField = _context.Field.AsNoTracking().FirstOrDefault(f => f.Id == createDependency.SuperiorFieldId);
             this.Id = this.ThisField.Id;
 
             if (createDependency.DependencyType== "FieldDuplication")

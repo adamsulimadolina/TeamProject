@@ -48,8 +48,13 @@ using TeamProject.DTOs.FieldDependency;
 
 #line default
 #line hidden
+#line 8 "C:\Users\kacpe\Documents\GitHub\TeamProject\TeamProject\TeamProject\Views\_ViewImports.cshtml"
+using TeamProject.Models.FieldDependencyModels;
+
+#line default
+#line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"2a4a76f2220c04fee52e672cbbf2919f03b7d139", @"/Views/Forms/Formularz.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8717c71a69157e4a5de12aa566aa6c416f06c6e3", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"dbeb5f8d2bb9d7476cc27ca1c800080c57207cb0", @"/Views/_ViewImports.cshtml")]
     public class Views_Forms_Formularz : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<List<FieldWithValue>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("text-danger"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -112,12 +117,12 @@ using TeamProject.DTOs.FieldDependency;
             WriteLiteral("\r\n<h3>Wypełnij fromularz</h3>\r\n<div class=\"cities\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-10\">\r\n            ");
             EndContext();
             BeginContext(197, 9352, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a4a76f2220c04fee52e672cbbf2919f03b7d13911571", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a4a76f2220c04fee52e672cbbf2919f03b7d13911756", async() => {
                 BeginContext(226, 18, true);
                 WriteLiteral("\r\n                ");
                 EndContext();
                 BeginContext(244, 66, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("div", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a4a76f2220c04fee52e672cbbf2919f03b7d13911970", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("div", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a4a76f2220c04fee52e672cbbf2919f03b7d13912155", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationSummaryTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.ValidationSummaryTagHelper>();
@@ -174,7 +179,7 @@ WriteAttributeValue("", 612, Model[i].Field.Id, 612, 18, false);
                 WriteLiteral(">\r\n                                ");
                 EndContext();
                 BeginContext(666, 45, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2a4a76f2220c04fee52e672cbbf2919f03b7d13915388", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2a4a76f2220c04fee52e672cbbf2919f03b7d13915573", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -200,7 +205,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                 WriteLiteral("\r\n                                ");
                 EndContext();
                 BeginContext(745, 47, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2a4a76f2220c04fee52e672cbbf2919f03b7d13917364", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2a4a76f2220c04fee52e672cbbf2919f03b7d13917549", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -226,7 +231,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                 WriteLiteral("\r\n                                ");
                 EndContext();
                 BeginContext(826, 47, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2a4a76f2220c04fee52e672cbbf2919f03b7d13919342", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2a4a76f2220c04fee52e672cbbf2919f03b7d13919527", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -262,7 +267,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                 WriteLiteral("                                    ");
                 EndContext();
                 BeginContext(1017, 88, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a4a76f2220c04fee52e672cbbf2919f03b7d13921682", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a4a76f2220c04fee52e672cbbf2919f03b7d13921867", async() => {
                     BeginContext(1078, 19, false);
 #line 25 "C:\Users\kacpe\Documents\GitHub\TeamProject\TeamProject\TeamProject\Views\Forms\Formularz.cshtml"
                                                                                            Write(Model[i].Field.Name);
@@ -296,7 +301,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
                 WriteLiteral("                                    ");
                 EndContext();
                 BeginContext(1149, 93, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2a4a76f2220c04fee52e672cbbf2919f03b7d13923897", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2a4a76f2220c04fee52e672cbbf2919f03b7d13924082", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -332,7 +337,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                 WriteLiteral("                                    ");
                 EndContext();
                 BeginContext(1284, 75, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a4a76f2220c04fee52e672cbbf2919f03b7d13926468", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a4a76f2220c04fee52e672cbbf2919f03b7d13926653", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationMessageTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.ValidationMessageTagHelper>();
@@ -370,7 +375,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationMessageTagHelper.For = ModelExpr
                 WriteLiteral("                                    ");
                 EndContext();
                 BeginContext(1552, 88, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a4a76f2220c04fee52e672cbbf2919f03b7d13928701", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a4a76f2220c04fee52e672cbbf2919f03b7d13928886", async() => {
                     BeginContext(1613, 19, false);
 #line 40 "C:\Users\kacpe\Documents\GitHub\TeamProject\TeamProject\TeamProject\Views\Forms\Formularz.cshtml"
                                                                                            Write(Model[i].Field.Name);
@@ -404,7 +409,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
                 WriteLiteral("                                    ");
                 EndContext();
                 BeginContext(1682, 103, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2a4a76f2220c04fee52e672cbbf2919f03b7d13930917", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2a4a76f2220c04fee52e672cbbf2919f03b7d13931102", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -440,7 +445,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                 WriteLiteral("                                    ");
                 EndContext();
                 BeginContext(1827, 75, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a4a76f2220c04fee52e672cbbf2919f03b7d13933498", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a4a76f2220c04fee52e672cbbf2919f03b7d13933683", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationMessageTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.ValidationMessageTagHelper>();
@@ -478,7 +483,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationMessageTagHelper.For = ModelExpr
                 WriteLiteral("                                    ");
                 EndContext();
                 BeginContext(2093, 88, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a4a76f2220c04fee52e672cbbf2919f03b7d13935729", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a4a76f2220c04fee52e672cbbf2919f03b7d13935914", async() => {
                     BeginContext(2154, 19, false);
 #line 54 "C:\Users\kacpe\Documents\GitHub\TeamProject\TeamProject\TeamProject\Views\Forms\Formularz.cshtml"
                                                                                            Write(Model[i].Field.Name);
@@ -512,7 +517,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
                 WriteLiteral("                                    ");
                 EndContext();
                 BeginContext(2223, 117, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2a4a76f2220c04fee52e672cbbf2919f03b7d13937945", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2a4a76f2220c04fee52e672cbbf2919f03b7d13938130", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -569,7 +574,7 @@ WriteAttributeValue("", 2411, Model[i].Field.Id, 2411, 18, false);
                 WriteLiteral("                                    ");
                 EndContext();
                 BeginContext(2650, 88, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a4a76f2220c04fee52e672cbbf2919f03b7d13941394", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a4a76f2220c04fee52e672cbbf2919f03b7d13941579", async() => {
                     BeginContext(2711, 19, false);
 #line 65 "C:\Users\kacpe\Documents\GitHub\TeamProject\TeamProject\TeamProject\Views\Forms\Formularz.cshtml"
                                                                                            Write(Model[i].Field.Name);
@@ -603,7 +608,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
                 WriteLiteral("                                    ");
                 EndContext();
                 BeginContext(2780, 620, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("select", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a4a76f2220c04fee52e672cbbf2919f03b7d13943610", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("select", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a4a76f2220c04fee52e672cbbf2919f03b7d13943795", async() => {
                     BeginContext(2899, 2, true);
                     WriteLiteral("\r\n");
                     EndContext();
@@ -624,7 +629,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
                     WriteLiteral("                                                ");
                     EndContext();
                     BeginContext(3209, 54, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a4a76f2220c04fee52e672cbbf2919f03b7d13944775", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a4a76f2220c04fee52e672cbbf2919f03b7d13944960", async() => {
                         BeginContext(3241, 13, false);
 #line 73 "C:\Users\kacpe\Documents\GitHub\TeamProject\TeamProject\TeamProject\Views\Forms\Formularz.cshtml"
                                                                           Write(option.option);
@@ -739,7 +744,7 @@ WriteAttributeValue("", 3816, Model[i].Dependencies.ThisField.Id, 3816, 35, fals
                 WriteLiteral(">\r\n                                            ");
                 EndContext();
                 BeginContext(3899, 69, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2a4a76f2220c04fee52e672cbbf2919f03b7d13951159", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2a4a76f2220c04fee52e672cbbf2919f03b7d13951344", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -765,7 +770,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                 WriteLiteral("\r\n                                            ");
                 EndContext();
                 BeginContext(4014, 71, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2a4a76f2220c04fee52e672cbbf2919f03b7d13953173", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2a4a76f2220c04fee52e672cbbf2919f03b7d13953358", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -791,7 +796,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                 WriteLiteral("\r\n                                            ");
                 EndContext();
                 BeginContext(4131, 71, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2a4a76f2220c04fee52e672cbbf2919f03b7d13955189", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2a4a76f2220c04fee52e672cbbf2919f03b7d13955374", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -826,7 +831,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                 WriteLiteral("                                                <div>\r\n                                                    ");
                 EndContext();
                 BeginContext(4463, 136, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a4a76f2220c04fee52e672cbbf2919f03b7d13957676", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a4a76f2220c04fee52e672cbbf2919f03b7d13957861", async() => {
                     BeginContext(4548, 43, false);
 #line 94 "C:\Users\kacpe\Documents\GitHub\TeamProject\TeamProject\TeamProject\Views\Forms\Formularz.cshtml"
                                                                                                                                    Write(Model[i].Dependencies.RelatedFields[j].Name);
@@ -860,7 +865,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
                 WriteLiteral("                                                <div>\r\n                                                    ");
                 EndContext();
                 BeginContext(4766, 161, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2a4a76f2220c04fee52e672cbbf2919f03b7d13960113", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2a4a76f2220c04fee52e672cbbf2919f03b7d13960298", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -900,7 +905,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                 WriteLiteral("\r\n                                                </div>\r\n                                                <div>\r\n                                                    ");
                 EndContext();
                 BeginContext(5092, 99, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a4a76f2220c04fee52e672cbbf2919f03b7d13963242", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a4a76f2220c04fee52e672cbbf2919f03b7d13963427", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationMessageTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.ValidationMessageTagHelper>();
@@ -936,7 +941,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationMessageTagHelper.For = ModelExpr
                 WriteLiteral("                                                <div>\r\n                                                    ");
                 EndContext();
                 BeginContext(5567, 136, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a4a76f2220c04fee52e672cbbf2919f03b7d13965691", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a4a76f2220c04fee52e672cbbf2919f03b7d13965876", async() => {
                     BeginContext(5652, 43, false);
 #line 109 "C:\Users\kacpe\Documents\GitHub\TeamProject\TeamProject\TeamProject\Views\Forms\Formularz.cshtml"
                                                                                                                                    Write(Model[i].Dependencies.RelatedFields[j].Name);
@@ -967,7 +972,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
                 WriteLiteral("\r\n                                                </div>\r\n                                                <div>\r\n                                                    ");
                 EndContext();
                 BeginContext(5868, 172, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2a4a76f2220c04fee52e672cbbf2919f03b7d13968017", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2a4a76f2220c04fee52e672cbbf2919f03b7d13968202", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -1007,7 +1012,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                 WriteLiteral("\r\n                                                </div>\r\n                                                <div>\r\n                                                    ");
                 EndContext();
                 BeginContext(6205, 99, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a4a76f2220c04fee52e672cbbf2919f03b7d13971160", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a4a76f2220c04fee52e672cbbf2919f03b7d13971345", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationMessageTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.ValidationMessageTagHelper>();
@@ -1043,7 +1048,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationMessageTagHelper.For = ModelExpr
                 WriteLiteral("                                                <div>\r\n                                                    ");
                 EndContext();
                 BeginContext(6678, 136, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a4a76f2220c04fee52e672cbbf2919f03b7d13973607", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a4a76f2220c04fee52e672cbbf2919f03b7d13973792", async() => {
                     BeginContext(6763, 43, false);
 #line 123 "C:\Users\kacpe\Documents\GitHub\TeamProject\TeamProject\TeamProject\Views\Forms\Formularz.cshtml"
                                                                                                                                    Write(Model[i].Dependencies.RelatedFields[j].Name);
@@ -1074,7 +1079,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
                 WriteLiteral("\r\n                                                </div>\r\n                                                <div>\r\n                                                    ");
                 EndContext();
                 BeginContext(6979, 186, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2a4a76f2220c04fee52e672cbbf2919f03b7d13975933", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2a4a76f2220c04fee52e672cbbf2919f03b7d13976118", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -1137,7 +1142,7 @@ WriteAttributeValue("", 7252, Model[i].Dependencies.RelatedFields[j].Id, 7252, 4
                 WriteLiteral("                                                ");
                 EndContext();
                 BeginContext(7641, 136, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a4a76f2220c04fee52e672cbbf2919f03b7d13980052", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a4a76f2220c04fee52e672cbbf2919f03b7d13980237", async() => {
                     BeginContext(7726, 43, false);
 #line 134 "C:\Users\kacpe\Documents\GitHub\TeamProject\TeamProject\TeamProject\Views\Forms\Formularz.cshtml"
                                                                                                                                Write(Model[i].Dependencies.RelatedFields[j].Name);
@@ -1171,7 +1176,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
                 WriteLiteral("                                                ");
                 EndContext();
                 BeginContext(7831, 782, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("select", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a4a76f2220c04fee52e672cbbf2919f03b7d13982366", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("select", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a4a76f2220c04fee52e672cbbf2919f03b7d13982551", async() => {
                     BeginContext(7992, 2, true);
                     WriteLiteral("\r\n");
                     EndContext();
@@ -1192,7 +1197,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
                     WriteLiteral("                                                            ");
                     EndContext();
                     BeginContext(8386, 54, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a4a76f2220c04fee52e672cbbf2919f03b7d13983629", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a4a76f2220c04fee52e672cbbf2919f03b7d13983814", async() => {
                         BeginContext(8418, 13, false);
 #line 142 "C:\Users\kacpe\Documents\GitHub\TeamProject\TeamProject\TeamProject\Views\Forms\Formularz.cshtml"
                                                                                       Write(option.option);
@@ -1312,7 +1317,7 @@ AddHtmlAttributeValue("", 7948, Model[i].Dependencies.RelatedFields[j].Id, 7948,
                     ");
                 EndContext();
                 BeginContext(9171, 309, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2a4a76f2220c04fee52e672cbbf2919f03b7d13990055", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2a4a76f2220c04fee52e672cbbf2919f03b7d13990240", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_FormActionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.FormActionTagHelper>();
@@ -1413,7 +1418,7 @@ AddHtmlAttributeValue("", 7948, Model[i].Dependencies.RelatedFields[j].Id, 7948,
             WriteLiteral("select.form-control\");\r\n    inputs.forEach(input => input.addEventListener(\'change\', handleCheck));\r\n    //        .filter(function (field) {\r\n    //\treturn field.matches(\'.log\');\r\n    //});\r\n</script>\r\n\r\n\r\n\r\n");
             EndContext();
             BeginContext(11806, 51, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a4a76f2220c04fee52e672cbbf2919f03b7d13996405", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a4a76f2220c04fee52e672cbbf2919f03b7d13996590", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
