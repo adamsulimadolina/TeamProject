@@ -3,21 +3,13 @@
 @{
     ViewData["Title"] = "Delete";
 }
-<style>
-    a {
-        color: forestgreen;
-        font-weight: 500;
-    }
-</style>
-<div><br /></div>
-<form asp-action="Delete" class="shadow p-3 mb-5 bg-white rounded" style="height:50px;">
-    <div class="form-group">
-        <label>Czy na pewno usunąć wybrany formularz?</label>
-    </div>
-    <div>
+
+
+<h3>Czy jesteś pewien że chcesz usunąć ten formularz?</h3>
+<div style=" margin:0 auto;">
+    <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
-        <input class="btn-outline-dark" type="submit" value="Usuń" />
-    </div>
-</form>
-
-
+        <input type="submit" value="USUŃ" class="btn btn-danger" /> |
+        <a asp-action="Index">Powrót do listy</a>
+    </form>
+</div>

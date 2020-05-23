@@ -28,7 +28,7 @@ namespace FormGenerator.Models
             if (!optionsBuilder.IsConfigured)
             {
 
-                optionsBuilder.UseNpgsql("Host=database-1.cryqhlbutjmy.us-east-1.rds.amazonaws.com;Database=postgres;Username=postgres;Password=projektzespolowy");
+                optionsBuilder.UseNpgsql("Host=projekt1920.cakejnzadj5u.us-east-1.rds.amazonaws.com;Database=postgres;Username=postgres;Password=projekt.pb19_20");
             }
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)

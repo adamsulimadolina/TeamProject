@@ -3,53 +3,11 @@
 @{
     ViewData["Title"] = "Index";
 }
-<style>
-    table {
-        border-collapse: collapse;
-        width: 100%;
-        box-shadow: black;
-    }
-
-    th {
-        text-align: left;
-        color: lightgray;
-        padding: 8px;
-        border-bottom: 2px solid grey;
-        color: black;
-    }
-
-    td {
-        text-align: left;
-        padding: 8px;
-        border-bottom: 2px solid grey;
-    }
-
-    tr {
-        background-color: whitesmoke;
-    }
 
 
 
-    a {
-        color: forestgreen;
-        font-weight: 500;
-    }
-
-    .table tbody tr:hover {
-        background-color: darkgray;
-    }
-
-    td {
-        color: black;
-    }
-</style>
-<div><br /></div>
-<span>
-    <h3>Formularz powitalny</h3>
-</span>
-<div><br /></div>
 <form asp-action="EntranceForm">
-    <table class="table table-hover">
+    <table class="table">
         <thead>
             <tr>
                 <th>
@@ -59,9 +17,6 @@
                 <th>
                     @*@Html.DisplayNameFor(model => model[0].Answer)*@
                     Odpowiedź
-                </th>
-                <th>
-
                 </th>
             </tr>
         </thead>
@@ -85,7 +40,7 @@
         </tbody>
     </table>
     <div class="form-group">
-        <input type="submit" value="Zapisz" class="class=" btn-outline-dark"" />
+        <input type="submit" value="Save" class="btn btn-primary" />
     </div>
 </form>
 

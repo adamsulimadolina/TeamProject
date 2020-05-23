@@ -1,0 +1,65 @@
+﻿@model IEnumerable<FormGenerator.Models.Field>
+
+@{
+    ViewData["Title"] = "Index";
+}
+    <script>
+        sessionStorage.removeItem('key');
+    </script>
+
+<style>
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #A5D6A7
+    }
+
+    th {
+        background-color: #81C784;
+        color: white;
+    }
+
+    a {
+        color: #424242;
+        font-weight: 500;
+    }
+</style>
+<p>
+    <a style="color:#81C784;  font-weight:700" asp-action="Create">Stwórz nowe pole</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               Nazwa
+            </th>
+            <th>
+                Typ
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>
+              
+            </tr>
+        }
+    </tbody>
+</table>

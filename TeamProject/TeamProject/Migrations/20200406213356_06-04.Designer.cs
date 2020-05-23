@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace TeamProject.Migrations
 {
     [DbContext(typeof(FormGeneratorContext))]
-    [Migration("20200522145048_init")]
-    partial class init
+    [Migration("20200406213356_06-04")]
+    partial class _0604
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -126,8 +126,6 @@ namespace TeamProject.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("Id_Test");
-
                     b.Property<int>("Id_User");
 
                     b.HasKey("Id");
@@ -155,8 +153,6 @@ namespace TeamProject.Migrations
                     b.Property<int>("IdPatient");
 
                     b.Property<int>("IdTest");
-
-                    b.Property<bool>("IsSendBefore");
 
                     b.Property<bool?>("agreement");
 
@@ -209,18 +205,6 @@ namespace TeamProject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("FieldToForms");
-                });
-
-            modelBuilder.Entity("TeamProject.Models.FormGeneratorModels.GUIDFileNameMap", b =>
-                {
-                    b.Property<string>("Guid")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("FileName");
-
-                    b.HasKey("Guid");
-
-                    b.ToTable("GUIDFileNameMap");
                 });
 
             modelBuilder.Entity("TeamProject.Models.FormGeneratorModels.Logs", b =>

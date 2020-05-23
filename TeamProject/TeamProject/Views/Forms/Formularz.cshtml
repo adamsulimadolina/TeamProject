@@ -3,17 +3,14 @@
 @{
     ViewData["Title"] = "Formularz";
 }
-<br />
-<span>
-    <h3>Wypełnij fromularz</h3>
-</span>
 
-<div>
+<h3>Wypełnij fromularz</h3>
+<div class="cities">
     <div class="row">
         <div class="col-md-10">
             <form asp-action="Formularz">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <table class="table">
+                <table class="table table-striped">
 
                     @for (var i = 0; i < Model.Count; i++)
                     {
@@ -142,7 +139,7 @@
                                                     {
                                                         @if (option.idField == Model[i].Dependencies.RelatedFields[j].Id)
                                                         {
-                                                            <option  value="@option.option">@option.option</option>
+                                                            <option value="@option.option">@option.option</option>
                                                         }
                                                     }
                                                 </select>
@@ -175,7 +172,7 @@
             padding: 15px 35px;
             border-radius: 8px;
             position:center;" type="submit" asp-route-formId="@ViewBag.formid" value="Wyślij formularz" class="btn btn-primary" />
-
+                    
                 </div>
 
             </form>
@@ -246,7 +243,7 @@
         let type = element.type;
         let fieldvalue = element.value;
         let formid = @ViewBag.formid;
-
+        
         console.log(element)
         let fieldid = element.id;
         await $.post("/addlog", {

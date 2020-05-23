@@ -3,54 +3,52 @@
 @{
     ViewData["Title"] = "Index";
 }
-<style>
-    table {
-        border-collapse: collapse;
-        width: 100%;
-        box-shadow: black;
-    }
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            box-shadow:black;
+        }
 
-    th {
-        text-align: left;
-        color: lightgray;
-        padding: 8px;
-        border-bottom: 2px solid grey;
-        color: black;
-    }
+        th {
+            text-align: left;
+            color: lightgray;
+            padding: 8px;
+            border-bottom: 2px solid grey;
+            color: black;
+        }
 
-    td {
-        text-align: left;
-        padding: 8px;
-        border-bottom: 2px solid grey;
-    }
+        td {
+            text-align: left;
+            padding: 8px;
+            border-bottom: 2px solid grey;
+        }
 
-    tr {
-        background-color: whitesmoke;
-    }
-
-
-
-    a {
-        color: forestgreen;
-        font-weight: 500;
-    }
-
-    .table tbody tr:hover {
-        background-color: darkgray;
-    }
-
-    td {
-        color: black;
-    }
-</style>
+        tr {
+            background-color: whitesmoke;
+        }
 
 
-<!-- <div>
-    <button class=" btn btn-secondary btn-lg" style="margin-bottom:10px;" asp-controller="FormsController" asp-action="Index">Stwórz nowy pusty formularz</button>
-</div> -->
-<div>
-    <br />
-</div>
+
+        a {
+            color: forestgreen;
+            font-weight: 500;
+        }
+
+        .table tbody tr:hover {
+            background-color: darkgray;
+        }
+
+        td {
+            color: black;
+        }
+
+    </style>
+
+
+    <div>
+        <button class=" btn btn-secondary btn-lg" style="margin-bottom:10px;"><a id="stworzNowyFormularz"style=" text-decoration:none;" asp-action="Create">Stwórz nowy pusty formularz</a></button>
+    </div>
 <table class="table table-hover">
     <thead>
         <tr >
@@ -58,7 +56,7 @@
                 @Html.DisplayNameFor(model => model.Id)
             </th>
             <th>
-                Nazwa
+               Nazwa
             </th>
             <th>
                 Kategoria
@@ -71,6 +69,9 @@
         @foreach (var item in Model)
         {
             <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
@@ -85,7 +86,7 @@
                 </td>
             </tr>
         }
-
+        
     </tbody>
 </table>
 <script>

@@ -3,20 +3,20 @@
 @{
     ViewData["Title"] = "NewFields";
 }
-<script>
-    sessionStorage.removeItem('key');
-</script>
-<style>
+    <script>
+        sessionStorage.removeItem('key');
+    </script>
+    <style>
 
-    .cities {
-        background-color: #66BB6A;
-        color: white;
-        margin: 20px;
-        padding: 20px;
-    }
-</style>
+        .cities {
+            background-color: #66BB6A;
+            color: white;
+            margin: 20px;
+            padding: 20px;
+        }
+    </style>
 <hr />
-<button class="btn btn-primary repeater-add-btn" id="addnew">Dodaj </button>
+<button class="btn btn-primary repeater-add-btn" id="addnew" >Dodaj </button>
 <form asp-action="NewFields" class="form-group">
     <div class="cities" id="repeater">
         <div class="repeater-heading">
@@ -40,7 +40,7 @@
                         <span asp-validation-for="fields[0].Type" class="text-danger"></span>
                     </div>
                     <div>
-                        <button style=" background-color:white;
+                        <button  style=" background-color:white;
             color:#66BB6A;
             font-size:20px;
             padding: 15px 35px;
@@ -56,17 +56,17 @@
         </div>
     </div>
     <div class="form-group">
-        <input style=" background-color:white;
+        <input  style=" background-color:white;
             color:#66BB6A;
             font-size:20px;
             padding: 15px 35px;
             border-radius: 8px;
-            position:center;" type="submit" value="Create" class="btn btn-primary" asp-route-id="@Model.FormId" />
+            position:center;" type="submit" value="Create" class="btn btn-primary" asp-route-id="@Model.FormId"/>
     </div>
 </form>
 
 <div>
-    <a style="color:#66BB6A;  font-weight:700" asp-action="Index">Powrót</a>
+    <a  style="color:#66BB6A;  font-weight:700" asp-action="Index">Powrót</a>
 </div>
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
@@ -75,7 +75,7 @@
     var i = 1;
     var maindiv = $(".maindiv");
     var addButton = $("#addnew");
-    /* handle click and add items */
+    /* handle click and add items */ 
     addButton.on("click", function () {
         var val = "";
         var div1 = $("<div class=form-group/ >");
@@ -98,7 +98,7 @@
         div2.append(select);
         div2.append(span2);
 
-        var div3 = $("<div />");
+        var div3 = $("<div />");        
         var button1 = $("<button />").attr("id", "remove-btn").attr("class", "btn").attr("class", "btn-danger").attr("onclick", "$(this).parents('.items').remove()").attr("name", "remove");
         button1.html('Remove');
         div3.append(button1);
