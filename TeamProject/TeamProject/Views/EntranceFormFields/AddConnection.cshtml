@@ -5,58 +5,70 @@
     ViewData["Title"] = "Index";
 }
 
-
-
-
 <style>
     table {
         border-collapse: collapse;
-        width: 20%;
-       
-    }
-
-    th, td {
-        text-align: left;
-        padding: 2px;
-    }
-
-    tr {
-        background-color: #8bbabb
+        width: 100%;
+        box-shadow: black;
     }
 
     th {
-        background-color: #464159;
-        color: white;
+        text-align: left;
+        color: lightgray;
+        padding: 8px;
+        border-bottom: 2px solid grey;
+        color: black;
     }
 
+    td {
+        text-align: left;
+        padding: 8px;
+        border-bottom: 2px solid grey;
+    }
+
+    tr {
+        background-color: whitesmoke;
+    }
+
+
+
     a {
-        color: #424242;
-       
+        color: forestgreen;
+        font-weight: 500;
     }
 
     .table tbody tr:hover {
-        background-color: #6C7B95;
+        background-color: darkgray;
     }
 
     td {
         color: black;
-        padding:2px;
     }
 </style>
-
-<div class="row" style="padding-top:40px">
-    <div class="col-md-4">
-        <button class="btn btn-danger" type="button" data-toggle="modal" data-target=".bd-example-modal-lg" style="margin-bottom:10px;">Dodaj nowy formularz zależny od pola</button>
-    </div>
-    <div class="col offset-6">
-        <a asp-action="Index" class="btn btn-danger">Powrót do listy pytań</a>
-    </div>
+<div><br /></div>
+<a style="color:black; " data-toggle="modal" data-target=".bd-example-modal-lg">
+    <img src="~/add.png" class="rounded-circle" alt="Add" width="30" height="30">
+</a>
+<th>Dodaj formularz do zależności</th>
+<div>
+    <br />
 </div>
 
 
+<table class="table table-hover box-shadow">
+    <thead>
+        <tr>
 
-    <table style="width: 20%;" class="table table-bordered">
-        <thead>
+            <th>
+                Zależne formularze
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
             <tr>
 
                 <th>
@@ -85,9 +97,9 @@
             }
 
 
-        </tbody>
-    </table>
 
+    </tbody>
+</table>
 
 
 
@@ -125,11 +137,11 @@
 
                 <div class="form-group">
                     <input style=" background-color:white;
-            color:#66BB6A;
-            font-size:20px;
-            padding: 15px 35px;
-            border-radius: 8px;
-            position:center;" type="submit" value="Stwórz" class="btn btn-primary" />
+                color:#66BB6A;
+                font-size:20px;
+                padding: 15px 35px;
+                border-radius: 8px;
+                position:center;" type="submit" value="Dodaj" class="btn btn-primary" />
                 </div>
             </form>
         </div>

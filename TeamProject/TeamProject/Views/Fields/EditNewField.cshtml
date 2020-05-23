@@ -4,60 +4,57 @@
     ViewData["Title"] = "EditNewField";
 }
 <style>
-    <script >
-    sessionStorage.removeItem('key');
-    </script >
-    .cities {
-        background-color: #66BB6A;
-        color: white;
-        margin: 20px;
+    .tabl {
+        border-radius: 5px;
+        background-color: white;
         padding: 20px;
     }
 </style>
-<h1 style="color:#66BB6A;  font-weight:700">Edycja pola</h1>
-<hr />
-<div class="cities">
-    <div class="row">
-        <div class="col-md-4">
-            <form asp-action="EditNewField">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <input type="hidden" asp-for="Id" />
-                <div class="form-group">
-                    <label asp-for="Name" class="control-label"></label>
-                    <input asp-for="Name" class="form-control" />
-                    <span asp-validation-for="Name" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Type" class="control-label"></label>
-                    <select asp-for="Type">
-                        <option value="">Wybierz opcję</option>
-                        <option value="text">Pole tekstowe</option>
-                        <option value="checkbox">Checkbox</option>
-                    </select>
-                    <span asp-validation-for="Type" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <input style=" background-color:white;
+<br />
+<span>
+    <h3>Edycja</h3>
+</span>
+
+<div class="tabl" style="box-shadow:black">
+    <div class="col-md-4">
+        <form asp-action="EditNewField">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Nazwa</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Type" class="control-label"></label>
+                <select asp-for="Type">
+                    <option value="">Wybierz opcję</option>
+                    <option value="text">Pole tekstowe</option>
+                    <option value="checkbox">Checkbox</option>
+                </select>
+                <span asp-validation-for="Type" class="text-danger"></span>
+            </div>
+            <div>
+                <input style=" background-color:white;
             color:#66BB6A;
             font-size:20px;
             padding: 15px 35px;
             border-radius: 8px;
-            position:center;"  type="submit" value="Zapisz" class="btn btn-primary" />
+            position:center;" type="submit" value="Zapisz" class="btn btn-primary" />
+            </div>
+            @if (@ViewBag.message == true)
+            {
+                <div>
+                    <p>Edytowanie zostało pomyślnie zapisane</p>
                 </div>
-                @if (@ViewBag.message == true)
-                {
-                    <div>
-                        <p>Edytowanie zostało pomyślnie zapisane</p>
-                    </div>
 
-                }
-            </form>
+            }
+        </form>
+        <div>
+            <a style="color:black;" asp-action="EdycjaFormularza" asp-controller="Forms" asp-route-id="@ViewBag.IDFORM">Powrót do formualarza</a>
         </div>
     </div>
-
 </div>
-
-<div>
-    <a style="color:#66BB6A;  font-weight:700" asp-action="EdycjaFormularza" asp-controller="Forms" asp-route-id="@ViewBag.IDFORM">Powrót do formualarza</a>
-</div>
-
+<script>
+    sessionStorage.removeItem('key');
+</script>

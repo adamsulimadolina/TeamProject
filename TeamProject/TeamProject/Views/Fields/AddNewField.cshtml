@@ -9,8 +9,6 @@
         box-sizing: border-box;
     }
 
-   
-
     .autocomplete {
         /*the container must be positioned relative:*/
         position: relative;
@@ -58,31 +56,82 @@
     }
 
     .cities {
-        background-color: #464159;
+        background-color: #716e7a;
         color: white;
         margin: 20px;
         padding: 20px;
+        box-shadow: 5px 10px white;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        box-shadow: black;
+    }
+
+    th {
+        text-align: left;
+        color: lightgray;
+        padding: 8px;
+        border-bottom: 2px solid grey;
+        color: black;
+    }
+
+    td {
+        text-align: left;
+        padding: 8px;
+        border-bottom: 2px solid grey;
+    }
+
+    tr {
+        background-color: whitesmoke;
+    }
+
+
+
+    a {
+        color: forestgreen;
+        font-weight: 500;
+    }
+
+    .table tbody tr:hover {
+        background-color: darkgray;
+    }
+
+    td {
+        color: black;
+    }
+
+    .bord {
+        border: 1px solid;
+        padding: 10px;
     }
 </style>
 
+<div><br /></div>
+<span>
+    <h3 class="text-center">Przypisz pole do formularza</h3>
+</span>
+<div><br /></div>
+
 @if (ViewBag.Error != null)
 {
-    <p style="color:red;">@ViewBag.Error</p>
-}
 
-<h5 class="text-center">Przypisz pole do formularza</h5>
+    <div class="bord">
+        <p style="color:red;">@ViewBag.Error</p>
+    </div>
+
+    <div><br /></div>
+}
 <div class="cities">
     <form asp-action="AddNewField" autocomplete="off" id="myForm">
-        <button style=" background-color:white;
-            color:#66BB6A;
-            font-size:20px;
-            padding: 5px 15px;
-            margin-bottom:3px;
-            border-radius: 8px;
-            position:center;" type="button" class="btn btn-info" data-toggle="modal" data-target=".bd-example-modal-lg">
-            Stwórz nowe pole w formularzu
-        </button>
-        <table class="table">
+
+        <a style="color:black" data-toggle="modal" data-target=".bd-example-modal-lg">
+            <img src="~/add.png" class="rounded-circle" alt="Add" width="30" height="30">
+        </a>
+        <th style="color:black">  Nowe pole</th>
+        <div><br /></div>
+        <table class="table ">
             <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -150,7 +199,7 @@
         <br />
         <label asp-for="@Model.currentName">Nazwa pola:</label>
         <div class="autocomplete px-3 py-1">
-            <input asp-for="@Model.currentName" class="form-control" id="autoFill"style="width:200px" />
+            <input asp-for="@Model.currentName" class="form-control" id="autoFill" style="width:200px" />
         </div>
         <br />
         <div class="row px-3 py-1">
@@ -189,11 +238,11 @@
                     <div id="numberValidation" hidden>
                         <input type="checkbox" id="enableValidationMin" value="min" style=" background-color:white; color:#66BB6A;" />
                         <label style="color:black">Minimalna wartość</label>
-                        <input asp-for="@Model.minString" class="form-control" id="inputMin"  hidden />
+                        <input asp-for="@Model.minString" class="form-control" id="inputMin" hidden />
                         <br />
                         <input type="checkbox" id="enableValidationMax" value="max" />
                         <label style="color:black">Maksymalna wartość</label>
-                        <input asp-for="@Model.maxString" class="form-control" id="inputMax"  hidden />
+                        <input asp-for="@Model.maxString" class="form-control" id="inputMax" hidden />
                         <br />
                         <input type="checkbox" id="enableValidationInteger" value="liczba całkowita" />
                         <input asp-for="@Model.integerVal.value" hidden id="inputForInteger" />
@@ -209,7 +258,7 @@
                                                                                                                     padding: 5px 15px;
                                                                                                                     margin-bottom:5px;
                                                                                                                     border-radius: 8px;
-                                                                                                                    position:center;"/>
+                                                                                                                    position:center;" />
                         <div id="firstDiv">
                             <input style=" border-radius: 5px; width:300px; height:30px; " type="text" id="opt0" />
                             <input asp-for="@Model.optionsJson" id="optionsJsonID" hidden />
@@ -226,8 +275,8 @@
                 </div>
             </div>
         </div>
-        
-       
+
+
         <br />
         @if (Model.fields != null)
         {
@@ -270,7 +319,7 @@
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script>
 
-    class ValueinJSON{
+    class ValueinJSON {
         constructor(value) {
             this.wartosc = value;
         }
@@ -455,29 +504,29 @@
         });
     }
 
-        document.getElementById("selectField").addEventListener("change", function () {
+    document.getElementById("selectField").addEventListener("change", function () {
 
-            if (this.value == "number") {
-                document.getElementById("numberValidation").hidden = false;
-              
-            } else {
-                 document.getElementById("numberValidation").hidden = true;
-            }
-              if (this.value == "select") {
-                document.getElementById("selectOptions").hidden = false;
-            }
-            else {
-                 document.getElementById("selectOptions").hidden = true;
-            }
+        if (this.value == "number") {
+            document.getElementById("numberValidation").hidden = false;
 
-        });
+        } else {
+            document.getElementById("numberValidation").hidden = true;
+        }
+        if (this.value == "select") {
+            document.getElementById("selectOptions").hidden = false;
+        }
+        else {
+            document.getElementById("selectOptions").hidden = true;
+        }
 
-    document.getElementById("enableValidationMin").addEventListener("change", function(){
+    });
+
+    document.getElementById("enableValidationMin").addEventListener("change", function () {
         if (this.checked == true) document.getElementById("inputMin").hidden = false;
         else document.getElementById("inputMin").hidden = true;
     });
 
-    document.getElementById("enableValidationMax").addEventListener("change", function(){
+    document.getElementById("enableValidationMax").addEventListener("change", function () {
         if (this.checked == true) document.getElementById("inputMax").hidden = false;
         else document.getElementById("inputMax").hidden = true;
     });
@@ -487,41 +536,41 @@
         else document.getElementById("inputForInteger").value = 0;
     });
 
-   $(function(){
-       $('#inputMin').keypress(function (e) {
-           console.log(e.which)
-           if (e.which == 49 || e.which == 50 || e.which == 51 || e.which == 52 || e.which == 53 || e.which == 54 || e.which == 55 || e.which == 56 || e.which == 57 || e.which == 48 || e.which == 44 || e.which==45) {
-    } else {
-      return false;
-    }
-  });
-   });
+    $(function () {
+        $('#inputMin').keypress(function (e) {
+            console.log(e.which)
+            if (e.which == 49 || e.which == 50 || e.which == 51 || e.which == 52 || e.which == 53 || e.which == 54 || e.which == 55 || e.which == 56 || e.which == 57 || e.which == 48 || e.which == 44 || e.which == 45) {
+            } else {
+                return false;
+            }
+        });
+    });
 
-    $(function(){
-       $('#inputMax').keypress(function (e) {
-           console.log(e.which)
-           if (e.which == 49 || e.which == 50 || e.which == 51 || e.which == 52 || e.which == 53 || e.which == 54 || e.which == 55 || e.which == 56 || e.which == 57 || e.which == 48 || e.which == 44 || e.which==45) {
-    } else {
-      return false;
-    }
-  });
+    $(function () {
+        $('#inputMax').keypress(function (e) {
+            console.log(e.which)
+            if (e.which == 49 || e.which == 50 || e.which == 51 || e.which == 52 || e.which == 53 || e.which == 54 || e.which == 55 || e.which == 56 || e.which == 57 || e.which == 48 || e.which == 44 || e.which == 45) {
+            } else {
+                return false;
+            }
+        });
     });
     var i = 1;
     var array = new Array();
     var ValuetoSend = new Array();
-    ValuetoSend[0]=new ValueinJSON("fcedfce");
+    ValuetoSend[0] = new ValueinJSON("fcedfce");
     function AddOption() {
         var division = document.createElement('DIV');
-        division.innerHTML = AddTextBox("opt"+i);
+        division.innerHTML = AddTextBox("opt" + i);
         document.getElementById("selectOptions").appendChild(division);
-        ValuetoSend[i]=new ValueinJSON("fcedfce");
+        ValuetoSend[i] = new ValueinJSON("fcedfce");
         document.getElementById("opt" + i).addEventListener("change", function () {
 
             console.log(this.value);
-            let index = StringToInt(this.id,3);
+            let index = StringToInt(this.id, 3);
             console.log(index);
             ValuetoSend[index].wartosc = this.value;
-            
+
 
         });
         array.push(document.getElementById("opt" + i));
@@ -529,8 +578,8 @@
 
     }
 
-    function StringToInt(value,range) {
-        var pom="";
+    function StringToInt(value, range) {
+        var pom = "";
         for (let i = range; i < value.length; i++) {
             pom += value[i];
         }
@@ -538,20 +587,20 @@
         return parseInt(pom);
     }
 
-     document.getElementById("opt0").addEventListener("change", function () {
+    document.getElementById("opt0").addEventListener("change", function () {
 
-         console.log(this.value);
-         ValuetoSend[0].wartosc = this.value;
+        console.log(this.value);
+        ValuetoSend[0].wartosc = this.value;
 
-        });
-   
+    });
+
     function AddTextBox(value) {
         let u = "u" + value;
 
-        return '<div ><input type="text" id="' + value + '"name="dyntxt" style=" border-radius: 5px; width:300px; height:30px; "/><input type="button" id="' +u + '"onclick="RemoveBtn(this)" value="Usuń" style=" background-color:white; color:#66BB6A;font-size:20px;padding: 5px 5px;border-radius: 8px;position:center;margin-left:5px"/></div>'
+        return '<div ><input type="text" id="' + value + '"name="dyntxt" style=" border-radius: 5px; width:300px; height:30px; "/><input type="button" id="' + u + '"onclick="RemoveBtn(this)" value="Usuń" style=" background-color:white; color:#66BB6A;font-size:20px;padding: 5px 5px;border-radius: 8px;position:center;margin-left:5px"/></div>'
     }
 
-    
+
 
     function RemoveBtn(div) {
         let index = StringToInt(div.id, 4);

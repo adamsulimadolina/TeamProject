@@ -123,7 +123,6 @@ namespace FormGenerator.Controllers
 
         // w tej metodzie w przyszłości nastąpi wysłanie wpisanych formularzy do bazy danych
         [HttpPost]
-
         public async Task<IActionResult> Formularz(List<FieldWithValue> fields, int formId, int patientId)
         {
             int? current_test = HttpContext.Session.GetInt32("current_test");

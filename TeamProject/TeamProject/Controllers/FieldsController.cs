@@ -19,12 +19,12 @@ namespace FormGenerator.Controllers
     public class FieldsController : Controller
     {
         private readonly FormGeneratorContext _context;
-        
+
 
         public FieldsController(FormGeneratorContext context)
         {
             _context = context;
-            
+
         }
 
         // GET: Fields
@@ -53,7 +53,7 @@ namespace FormGenerator.Controllers
 
         // GET: Fields/Create
         public IActionResult Create()
-        {            
+        {
             return View();
         }
 
@@ -73,13 +73,13 @@ namespace FormGenerator.Controllers
             return View(@field);
         }
         //przeładowane metody w celu dodaniapytania od razu do formularza
-        
-       
+
+
         public IActionResult AddNewField(int? id)
         {
             if ((TempData["Error"] = _context.Forms.AsNoTracking().FirstOrDefault(form => form.Id == id).Validate(_context)) != null)
             {
-                return RedirectToAction("Index","Forms"); //gdy już formularz został wypełniony-> nie można go edytować
+                return RedirectToAction("Index", "Forms"); //gdy już formularz został wypełniony-> nie można go edytować
             }
 
             ViewBag.formid = Convert.ToInt32(id);
@@ -88,7 +88,7 @@ namespace FormGenerator.Controllers
                 .Select(ff => ff.IdField).ToList();
             var fieldsInForm = _context.Field.Where(f => idFieldsInForm.Contains(f.Id)).ToList();
             List<FieldWithValidation> fieldWithValidations = new List<FieldWithValidation>();
-            foreach(var item in fieldsInForm)
+            foreach (var item in fieldsInForm)
             {
                 FieldWithValidation pom = new FieldWithValidation
                 {
@@ -99,7 +99,7 @@ namespace FormGenerator.Controllers
                 fieldWithValidations.Add(pom);
             }
             newFieldList.fields = fieldWithValidations;
-            newFieldList.FormId =Convert.ToInt32(id);
+            newFieldList.FormId = Convert.ToInt32(id);
             return View(newFieldList);
         }
         [HttpPost]
@@ -118,7 +118,7 @@ namespace FormGenerator.Controllers
 
             var containsCurrentName = newFieldList.fields.Where(f => f.Name == newFieldList.currentName);
             var condatinsCreateName = newFieldList.fields.Where(f => f.Name == newFieldList.currentNameToCreate);
-            if(condatinsCreateName.Count()!=0 || containsCurrentName.Count() != 0)
+            if (condatinsCreateName.Count() != 0 || containsCurrentName.Count() != 0)
             {
                 ViewBag.Error = "Pole o tej nazwie znajduje się już w formularzu!";
                 return View("AddNewField", newFieldList);
@@ -128,7 +128,7 @@ namespace FormGenerator.Controllers
             {
                 field = new FieldWithValidation
                 {
-                    Id=newFieldList.currentId,
+                    Id = newFieldList.currentId,
                     Name = newFieldList.currentName,
                     Type = newFieldList.currentType
                 };
@@ -151,7 +151,7 @@ namespace FormGenerator.Controllers
             {
                 List<SelectFieldOptionsJsonData> jsonDatas = JsonConvert.DeserializeObject<List<SelectFieldOptionsJsonData>>(newFieldList.optionsJson);
                 jsonDatas = jsonDatas.Where(w => w.Wartosc != null).ToList();
-                foreach(var option in jsonDatas)
+                foreach (var option in jsonDatas)
                 {
                     var selectOption = new SelectFieldOptions();
                     selectOption.option = option.Wartosc;
@@ -171,14 +171,14 @@ namespace FormGenerator.Controllers
             }
 
 
-            if (newFieldList.currentTypeToCreate=="number" && field.Id==0)
+            if (newFieldList.currentTypeToCreate == "number" && field.Id == 0)
             {
                 if (newFieldList.min.value != null)
                 {
                     newFieldList.min.type = "min";
                     concreteField.validations.Add(newFieldList.min);
                 }
-                if (newFieldList.max.value!=null)
+                if (newFieldList.max.value != null)
                 {
                     newFieldList.max.type = "max";
                     concreteField.validations.Add(newFieldList.max);
@@ -233,7 +233,7 @@ namespace FormGenerator.Controllers
                 _context.FormField.Remove(toremove);
             await _context.SaveChangesAsync();
 
-            foreach(var item in newFieldList.fields)
+            foreach (var item in newFieldList.fields)
             {
                 if (item.Id != 0)
                 {
@@ -263,13 +263,13 @@ namespace FormGenerator.Controllers
                     };
                     //dodanie dla selectów ich odpowiedzi
 
-                    foreach(var selectOption in item.options)
+                    foreach (var selectOption in item.options)
                     {
                         selectOption.idField = ff.IdField;
                         _context.SelectFieldOptions.Add(selectOption);
                     }
                     //dodanie ich walidacji:
-                    foreach(var validationItem in item.validations)
+                    foreach (var validationItem in item.validations)
                     {
                         validationItem.idField = ff.IdField;
                         _context.Validations.Add(validationItem);
@@ -279,84 +279,17 @@ namespace FormGenerator.Controllers
                 }
             }
             _context.SaveChanges();
-            return RedirectToAction("Formularz", "Forms", new { id = newFieldList.FormId });
-        }
-        // GET: Fields/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var @field = await _context.Field.FindAsync(id);
-            if (@field == null)
-            {
-                return NotFound();
-            }
-            return View(@field);
+            return RedirectToAction("EdycjaFormularza", "Forms", new { id = newFieldList.FormId });
         }
 
-        // POST: Fields/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Type")] Field @field)
-        {
-            if (id != @field.Id)
-            {
-                return NotFound();
-            }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(@field);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!FieldExists(@field.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(@field);
-        }
 
-        // GET: Fields/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var @field = await _context.Field
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (@field == null)
-            {
-                return NotFound();
-            }
-
-            return View(@field);
-        }
-
-        
 
         // GET: Fields1/Edit/5
-        public async Task<IActionResult> EditNewField(int? id,int form)
+        public async Task<IActionResult> EditNewField(int? id, int form)
         {
             ViewBag.IDFORM = form;
-            
+
             if (id == null)
             {
                 return NotFound();
@@ -375,7 +308,7 @@ namespace FormGenerator.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditNewField(int id, [Bind("Id,Name,Type")] Field @field,int form)
+        public async Task<IActionResult> EditNewField(int id, [Bind("Id,Name,Type")] Field @field, int form)
         {
             ViewBag.IDFORM = form;
             if (id != @field.Id)
@@ -410,7 +343,7 @@ namespace FormGenerator.Controllers
 
 
         // GET: Fields1/Delete/5
-        public async Task<IActionResult> DeleteNewField(int? id,int form)
+        public async Task<IActionResult> DeleteNewField(int? id, int form)
         {
             ViewBag.IDFORM = form;
             if (id == null)
@@ -431,7 +364,7 @@ namespace FormGenerator.Controllers
         // POST: Fields1/Delete/5
         [HttpPost, ActionName("DeleteNewField")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteNewFieldConfirmed(int id,int form)
+        public async Task<IActionResult> DeleteNewFieldConfirmed(int id, int form)
         {
             ViewBag.IDFORM = form;
             var @field = await _context.Field.FindAsync(id);
@@ -468,9 +401,9 @@ namespace FormGenerator.Controllers
             var @field = await _context.Field.FindAsync(id);
             _context.Field.Remove(@field);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("ListaFormularzy", "Forms");
         }
-      
+
         private bool FieldExists(int id)
         {
             return _context.Field.Any(e => e.Id == id);
