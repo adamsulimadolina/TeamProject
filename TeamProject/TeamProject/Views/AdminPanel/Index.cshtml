@@ -5,69 +5,57 @@
 }
 
 <h1>Witamy w panelu administracyjnym</h1>
-<div class="lds-ring" id="loader"><div></div><div></div><div></div><div></div></div>
-<div class="custom-grid" >
-    
-    <div class="custom-card d-none" style="background-color:#3DBF50">
-        <div class="custom-card-info ">
-            <p id="latest_test">Ostatni test: </p>
-        </div>
+<div class="row justify-content-around">
+    <div class="lds-ring" id="loader"><div></div><div></div><div></div><div></div></div>
+    <div class="panel-custom col-md-3 d-none ">
+        <p id="latest_log">Ostatnia aktywność : </p>
+
     </div>
-        <div class="custom-card d-none" style="background-color:#3DBF50">
-            <div class="custom-card-info">
-                <p id="latest_patient">Ostatni przebadany pacjent: </p>
-            </div>
-        </div>
-        <div class="custom-card d-none" style="background-color:#3DBF50">
-            <div class="custom-card-info">
-                <p id="number-tests">Ilość wykonanych testów w tym miesiącu: </p>
-            </div>
-        </div>
+    <div class="panel-custom col-md-3 d-none ">
+        <p id="latest_test">Ostatni test: </p>
+ 
+    </div>
+    <div class="panel-custom col-md-3 d-none">
+        <p id="number-tests">Ilość wykonanych testów w tym miesiącu: </p>
+
+    </div>
 </div>
 
 
-        <script>
-            let latestpatient = document.getElementById('latest_patient');
-            let latesttest = document.getElementById('latest_test');
-            let numberOfTests = document.getElementById('number-tests');
-            let infoCards = document.getElementsByClassName('custom-card');
-            let spinners = document.getElementById('loader');
-            const loadData = async () => {
-                let testPatient;
-                let lastTest;
-                let countTest;
-                //await $.get('api/AdminAPI/user', function (data) {
-                //    aktywnosc = data.date.split('T');
-                //});
-                await $.get('api/AdminAPI/test', function (data) {
-                    testPatient = data.idPatient;
-                    lastTest = data.dateOfTest.split('T');
-                    console.log(testPatient)
-                    console.log(lastTest)
-                    console.log(data)
-
-                });
-                await $.get('api/AdminAPI/tests/30', function (data) {
-                    countTest = data;
-                });
-                for (let item of infoCards) {
-                    item.classList.toggle('d-none');
-                }
-                spinners.style.display = "none";
-                //latesttest.innerHTML += lastTest;
-                let p1 = document.createElement("P");
-                let p2 = document.createElement("P");
-                let p3 = document.createElement("P");
-                p1.classList.toggle('card-title');
-                p2.classList.toggle('card-title');
-                p3.classList.toggle('card-title');
-                p1.innerHTML = countTest;
-                numberOfTests.after(p1);
-                p2.innerHTML = testPatient;
-                latestpatient.after(p2);
-                p3.innerHTML = lastTest[0];
-                latesttest.after(p3);
-            }
-            loadData();
-        </script>
+<script>
+    let latestlog = document.getElementById('latest_log');
+    let latesttest = document.getElementById('latest_test');
+    let numberOfTests = document.getElementById('number-tests');
+    let infoCards = document.getElementsByClassName('panel-custom');
+    let spinners = document.getElementById('loader');
+    const loadData = async () => {
+        let aktywnosc;
+        let lastTest;
+        let countTest;
+        await $.get('api/AdminAPI/user', function (data) {
+            aktywnosc = data.date.split('T');          
+        });
+        await $.get('api/AdminAPI/test', function (data) {
+            let testPatient;
+            lastTest = data.dateOfTest.split('T');
+            testPatient = data.idTest + "</br> ";
+            testPatient += data.idPatient + "</br> ";
+            testPatient += lastTest[0] + " " + lastTest[1];
+            lastTest = testPatient;     
+       });
+        await $.get('api/AdminAPI/tests/30', function (data) {
+           countTest = data;                      
+        });   
+        for (let item of infoCards) {
+            item.classList.toggle('d-none');
+        }
+        spinners.style.display = "none";
+        latesttest.innerHTML += lastTest;
+        latestlog.innerHTML += aktywnosc[0] + " ";
+        latestlog.innerHTML += aktywnosc[1].substring(0, 8);
+        numberOfTests.innerHTML += countTest;  
+        
+    }
+    loadData();  
+</script>
 
