@@ -3,7 +3,7 @@
     ViewData["Title"] = "Index";
 }
     
-
+    
     <style>
 body {font-family: Arial, Helvetica, sans-serif;}
 
@@ -79,25 +79,31 @@ body {font-family: Arial, Helvetica, sans-serif;}
     <p style="color: red">@ViewBag.Error</p>
 }
 <form method="post" asp-action="AddFieldToRelatedListPOST">
-    @*<label for="SuperiorFieldName">Wybierz pole, którego będzie dotyczyła zależność:</label>*@
+
     <input hidden asp-for="@Model.SuperiorFieldId" />
-  
 
     <br />
 
-    <p>
-        Wybrany typ zależności: @Model.DependencyType <br/>
-        Wartość aktywująca: @Model.ActivationValue 
+    <p id="info">
+        Wybrany typ zależności: @Model.DependencyType <br />
+        Wartość aktywująca: @Model.ActivationValue
     </p>
 
-   
-    <select hidden name="DependencyType" asp-for="@Model.DependencyType">
-        <option selected="selected" value="FieldVisibly">Wartościowa</option>
-        <option value="FieldDuplication">Ilościowa</option>
-    </select><br />
+    <div hidden id="new">
+         <p>
+            <label for="@Model.DependencyType">Typ zależności</label>
+            <select name="DependencyType" asp-for="@Model.DependencyType">
+                <option selected="selected" value="FieldVisibly">Wartościowa</option>
+                <option value="FieldDuplication">Ilościowa</option>
+            </select><br />
+        </p>
 
-   
-    <input hidden asp-for="@Model.ActivationValue" />
+        <p>
+            <label for="@Model.ActivationValue">Wartość aktywująca zależność </label>
+            <input asp-for="@Model.ActivationValue" />
+        </p>
+
+    </div>
     <br />
     <table class="table table-striped" id="RelatedFieldsTable">
         <thead>
@@ -111,12 +117,12 @@ body {font-family: Arial, Helvetica, sans-serif;}
             {
                 @foreach (var item in Model.RelatedFields)
                 {
-            <tr>
-                <td>@item?.Name</td>
-                <td>@item?.Type</td>
-                <td><a  class="btn-danger" asp-action="DeleteFromDependency" asp-route-idField="@item.Id" asp-route-idDep="@Model.IdDependency" > usuń</a></td>
-            </tr>
-            
+                    <tr>
+                        <td>@item?.Name</td>
+                        <td>@item?.Type</td>
+                        <td><a class="btn-danger" asp-action="DeleteFromDependency" asp-route-idField="@item.Id" asp-route-idDep="@Model.IdDependency"> usuń</a></td>
+                    </tr>
+
                 }
             }
         </tbody>
@@ -187,6 +193,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
     </div>
 
+
+
+
     <br />
     <button id="AddDependedField" type="submit">Dodaj Pole</button><br />
     <button id="newField">Dodaj nowe pole</button><br />
@@ -202,13 +211,41 @@ body {font-family: Arial, Helvetica, sans-serif;}
             <input hidden asp-for="@Model.RelatedFields[i].Name" />
             <input hidden asp-for="@Model.RelatedFields[i].Type" />
 
-            
+
         }
     }
+
+    <input hidden value="@TempData["isDependency"]" id="myHiddenVar" />
+    <input hidden value="@TempData["Field"]" id="myFieldName" />
     @* Hidden fields *@
     <input hidden asp-for="@Model.IdDependency" />
 
 </form>
+
+<script>
+    let val = document.getElementById('myHiddenVar').value
+
+    if (val == 0) {
+        let niu = document.getElementById('new')
+        let info = document.getElementById('info')
+
+        info.setAttribute("hidden", "")
+        niu.removeAttribute("hidden")
+    }
+
+    let field = document.getElementById('myFieldName').value
+
+    if (field != null) {
+        let input = document.querySelector("#SuperiorFieldName")
+        input.value = field
+    }
+
+</script>
+
+
+
+
+
 <script>
     let fieldName = sessionStorage.getItem("fieldName");
     sessionStorage.removeItem("fieldName")
@@ -337,6 +374,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
         else document.getElementById("inputForInteger").value = 0;
     });
 
+    
 
   //  createButton.addEventListener("click", createField);
     
@@ -431,4 +469,4 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
    </script>
 
-<script src="~/js/AutocompleteField.js"></script>
+@*<script src="~/js/AutocompleteField.js"></script>*@

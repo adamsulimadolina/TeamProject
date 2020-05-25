@@ -14,7 +14,7 @@ namespace FormGenerator.Models.Modele_pomocnicze
         public string TextValue { get; set; }
         public bool BoolValue { get; set; }
         public FieldFieldDep fieldFieldDep { get; set; } = new FieldFieldDep();
-        public FieldFieldDependency Dependencies { get; set; } = new FieldFieldDependency();
+        public List<FieldFieldDependency> Dependencies { get; set; } = new List<FieldFieldDependency>();
         public List<StringBoolType> DepndenciesValue { get; set; } = new List<StringBoolType>();
         public List<SelectFieldOptions> options { get; set; } = new List<SelectFieldOptions>();
 

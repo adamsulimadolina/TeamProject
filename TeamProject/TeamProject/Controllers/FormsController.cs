@@ -94,11 +94,11 @@ namespace FormGenerator.Controllers
                 pom.Field.Id = key.Id;
                 pom.Field.Name = key.Name;
                 pom.Field.Type = key.Type;
-                var dependencie = lista.FirstOrDefault(l => l.ThisField.Equals(key));
-                if (dependencie != null) {
+                var dependencie = lista.Where(l => l.ThisField.Equals(key)).ToList();
+                if (dependencie.Count > 0 ) {
                     pom.Dependencies = dependencie;
-                    for (int x = 0; x < dependencie.RelatedFields.Count; x++)
-                        pom.DepndenciesValue.Add(new StringBoolType());
+                    //for (int x = 0; x < dependencie.RelatedFields.Count; x++)
+                    //    pom.DepndenciesValue.Add(new StringBoolType());
 
                 }
 
@@ -159,19 +159,19 @@ namespace FormGenerator.Controllers
                 }
                 _context.Add(answer);
 
-                for(int i = 0; i < field.Dependencies.RelatedFields.Count; i++)
-                {
-                    UserAnswers pomik = new UserAnswers
-                    {
-                        Answer = field.Dependencies.RelatedFields[i].Type == "checkbox" ? field.DepndenciesValue[i].boolVal.ToString() : field.DepndenciesValue[i].textVal,
-                        IdField = field.Dependencies.RelatedFields[i].Id,
-                        IdForm=formId,
-                        IdTest=(int)current_test,
-                        IdPatient = patientId,
-                        IdUser = user.CustomID
-                    };
-                    _context.Add(pomik);
-                }
+                //for(int i = 0; i < field.Dependencies.RelatedFields.Count; i++)
+                //{
+                //    UserAnswers pomik = new UserAnswers
+                //    {
+                //        Answer = field.Dependencies.RelatedFields[i].Type == "checkbox" ? field.DepndenciesValue[i].boolVal.ToString() : field.DepndenciesValue[i].textVal,
+                //        IdField = field.Dependencies.RelatedFields[i].Id,
+                //        IdForm=formId,
+                //        IdTest=(int)current_test,
+                //        IdPatient = patientId,
+                //        IdUser = user.CustomID
+                //    };
+                //    _context.Add(pomik);
+                //}
             }
             _context.SaveChanges();
 
