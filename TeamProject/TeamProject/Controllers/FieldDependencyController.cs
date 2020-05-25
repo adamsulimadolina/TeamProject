@@ -76,17 +76,6 @@ namespace TeamProject.Controllers
         }
 
 
-        public IActionResult DeleteFromDependency (int? idField, int? idDep)
-        {
-            var pom = _fieldDependenciesRepo.Dependencies.FirstOrDefault(x => x.IdDependency == idDep);
-            pom.RelatedFields = pom.RelatedFields.Where(p => p.Id != idField).ToList();
-            _fieldDependenciesRepo.SaveDependency(pom);
-
-
-
-            return RedirectToAction(nameof(Index), new {id=pom.Id, idDep=pom.IdDependency });
-
-        }
 
 
 
@@ -119,8 +108,21 @@ namespace TeamProject.Controllers
                 Name = createDependency.CurrentFieldName,
                 Type = createDependency.CurrentFieldType
             };
+
             createDependency.AddRelatedField(field);
             //createDependency.UpdateIndependentFieldsList(_fieldDependenciesRepo, _context);
+            var KamilMistrz = TempData.Get<Dictionary<String, String[]>>("ListOfAnswers");
+            if(KamilMistrz == null && createDependency.CurrentFieldType =="select")
+            {
+                TempData.Put<Dictionary<String, String[]>>("ListOfAnswers", new Dictionary<String, String[]> { [field.Name] = createDependency.CurrentFieldAnswers.Split(';') });
+
+            }
+            else if (createDependency.CurrentFieldType == "select")
+            {
+                KamilMistrz[field.Name] = createDependency.CurrentFieldAnswers.Split(';');
+                TempData.Put<Dictionary<String, String[]>>("ListOfAnswers", KamilMistrz);
+            }
+
             TempData.Put<CreateDependencyDTO>("CreateDependencyFromPostToGet", createDependency);
             return RedirectToAction(nameof(AddFieldToRelatedListGet));
         }
@@ -149,7 +151,8 @@ namespace TeamProject.Controllers
             //        _context.SaveChangesAsync();
             //    }
             //}
-            _fieldDependenciesRepo.SaveDependency(dependency);
+            var ListOfAnswers = TempData.Get<Dictionary<String, String[]>>("ListOfAnswers");
+            _fieldDependenciesRepo.SaveDependency(dependency,  ListOfAnswers);
             return RedirectToAction("Index", "Forms");
         }
     }

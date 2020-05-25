@@ -10,7 +10,7 @@ namespace TeamProject.Models.FieldFieldDependencyModels
     public interface IFieldDependenciesRepository
     {
         IQueryable<FieldFieldDependency> Dependencies { get; }
-        void SaveDependency(FieldFieldDependency dependency);
+        void SaveDependency(FieldFieldDependency dependency, Dictionary<string, string[]> listOfAnswers);
         IEnumerable<Field> GetAllDependFields();
     }
 }

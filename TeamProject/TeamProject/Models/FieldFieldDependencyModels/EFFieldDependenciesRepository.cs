@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TeamProject.Models.FieldDependencyModels;
+using TeamProject.Models.NewTypeAndValidation;
 
 namespace TeamProject.Models.FieldFieldDependencyModels
 {
@@ -19,11 +20,32 @@ namespace TeamProject.Models.FieldFieldDependencyModels
 
         public IQueryable<FieldFieldDependency> Dependencies => _context.Dependencies.Include(dep => dep.RelatedFields).Include(dep => dep.ThisField);
 
-        public void SaveDependency(FieldFieldDependency dependency)
+        public void SaveDependency(FieldFieldDependency dependency, Dictionary<String, String[]> listOfAnswers)
         {
             var fieldsToCreate = dependency.RelatedFields.Where(f => f.Id <= 0).ToList(); //jeśli jakieś pola zależne nie istnieją->tworzymy je
             fieldsToCreate.ForEach(currentField => _context.Field.Add(currentField));
             _context.SaveChanges();
+
+            foreach(Field field in fieldsToCreate)
+            {
+               bool containsFieldAnswers = listOfAnswers.TryGetValue(field.Name, out string[] selectOptions);
+
+                if (containsFieldAnswers)
+                {
+                    foreach(string opt in selectOptions.Where(o => !string.IsNullOrEmpty(o)))
+                    {
+                        
+                        SelectFieldOptions selectFieldOptions = new SelectFieldOptions()
+                        {
+                            idField = field.Id,
+                            option = opt
+                        };
+                        _context.SelectFieldOptions.Add(selectFieldOptions);
+                    }
+                }
+            }
+            _context.SaveChanges();
+
             //bład-> pobranie na nowo wszystkich pól zależnych z contekstu(różne żądania, EF gubi tracking)
             var idsAllRelatedFields = dependency.RelatedFields.Select(f => f.Id).ToList();
             dependency.RelatedFields = _context.Field.Where(f => idsAllRelatedFields.Contains(f.Id)).ToList();

@@ -118,6 +118,21 @@ namespace FormGenerator.Controllers
             catch (Exception e) { }
             //List<Validation> validationToFields = _context.Validations
             //    .Where(v => fieldsInForm.Contains(v.idField)).ToList();
+
+            foreach(var x in fieldWithValues)
+            {
+                foreach(var y in x.Dependencies)
+                {
+                    x.podrzedneFieldAnswers.Add(y.IdDependency, new List<StringBoolType>());
+                    foreach (var z in y.RelatedFields)
+                    {
+                        x.podrzedneFieldAnswers[y.IdDependency].Add(new StringBoolType());
+                    }
+                }
+            }
+
+
+
             return View(fieldWithValues);
         }
 
@@ -159,14 +174,34 @@ namespace FormGenerator.Controllers
                 }
                 _context.Add(answer);
 
-                //for(int i = 0; i < field.Dependencies.RelatedFields.Count; i++)
+                var Dependencies = pomik.Dependencies;
+                foreach (var x in field.podrzedneFieldAnswers)
+                {
+                    var relatedFields = Dependencies.FirstOrDefault(el => el.IdDependency == x.Key).RelatedFields;
+                    for(int i =0; i<x.Value.Count; i++)
+                    {
+                        UserAnswers userAnswers = new UserAnswers
+                        {
+                            Answer = relatedFields[i].Type == "checkbox" ? x.Value[i].boolVal.ToString() : x.Value[i].textVal,
+                            IdField = relatedFields[i].Id,
+                            IdForm = formId,
+                            IdTest = (int)current_test,
+                            IdPatient = patientId,
+                            IdUser = user.CustomID
+                        };
+                        _context.Add(userAnswers);
+                    }
+                }
+
+
+                //for (int i = 0; i < field.Dependencies.RelatedFields.Count; i++)
                 //{
                 //    UserAnswers pomik = new UserAnswers
                 //    {
                 //        Answer = field.Dependencies.RelatedFields[i].Type == "checkbox" ? field.DepndenciesValue[i].boolVal.ToString() : field.DepndenciesValue[i].textVal,
                 //        IdField = field.Dependencies.RelatedFields[i].Id,
-                //        IdForm=formId,
-                //        IdTest=(int)current_test,
+                //        IdForm = formId,
+                //        IdTest = (int)current_test,
                 //        IdPatient = patientId,
                 //        IdUser = user.CustomID
                 //    };

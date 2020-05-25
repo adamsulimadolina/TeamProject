@@ -18,6 +18,8 @@ namespace FormGenerator.Models.Modele_pomocnicze
         public List<StringBoolType> DepndenciesValue { get; set; } = new List<StringBoolType>();
         public List<SelectFieldOptions> options { get; set; } = new List<SelectFieldOptions>();
 
+        public Dictionary<int, List<StringBoolType>> podrzedneFieldAnswers { get; set; } = new Dictionary<int, List<StringBoolType>>();
+
     }
 
     public class StringBoolType

@@ -24,7 +24,7 @@ namespace TeamProject.DTOs.FieldDependency
 
         public string CurrentFieldName { get; set; }
         public string CurrentFieldType { get; set; }
-        public List<String> CurrentFieldAnswers { get; set; }
+        public String CurrentFieldAnswers { get; set; }
         public int CurrentFieldMin { get; set; }
         public int CurrentFieldMax { get; set; }
         public int CurrentFieldIsInteger { get; set; }

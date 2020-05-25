@@ -106,7 +106,7 @@
 
                                                     <div>
                                                         @*asp-for="@Model[i].DepndenciesValue[j].textVal"*@
-                                                        <input class="form-control log" idval="@Model[i].Field.Id" type="@dependency.RelatedFields[j].Type" />
+                                                        <input class="form-control log" idval="@Model[i].Field.Id" type="@dependency.RelatedFields[j].Type" asp-for="@Model[i].podrzedneFieldAnswers[dependency.IdDependency][j].textVal" />
                                                     </div>
                                                     <div>
                                                         <span asp-validation-for="@dependency.RelatedFields[j].Type" class="text-danger"></span>
@@ -121,7 +121,7 @@
                                                     </div>
                                                     <div>
                                                         @*asp-for="@Model[i].DepndenciesValue[j].boolVal"*@
-                                                        <input class="form-control checkmark log " idval="@Model[i].Field.Id" type="@dependency.RelatedFields[j].Type" />
+                                                        <input class="form-control checkmark log " idval="@Model[i].Field.Id" type="@dependency.RelatedFields[j].Type" asp-for="@Model[i].podrzedneFieldAnswers[dependency.IdDependency][j].boolVal" />
                                                     </div>
                                                     <div>
                                                         <span asp-validation-for="@dependency.RelatedFields[j].Name" class="text-danger"></span>
@@ -136,7 +136,7 @@
                                                     </div>
                                                     <div>
                                                         @*asp-for="@Model[i].DepndenciesValue[j].textVal"*@
-                                                        <input class="form-control log " id="@dependency.RelatedFields[j].Id" numInput="true" idval="@Model[i].Field.Id" type="text" />
+                                                        <input class="form-control log " id="@dependency.RelatedFields[j].Id" numInput="true" idval="@Model[i].Field.Id" type="text" asp-for="@Model[i].podrzedneFieldAnswers[dependency.IdDependency][j].textVal" />
                                                         <p errorParagraf="true" ErrorId="@dependency.RelatedFields[j].Id" hidden style="color: red"></p>
                                                     </div>
 
@@ -147,7 +147,7 @@
                                                     <label asp-for="@dependency.RelatedFields[j].Name" class="control-label">@dependency.RelatedFields[j].Name</label>
 
                                                     //asp-for="@Model[i].DepndenciesValue[j].textVal"
-                                            <select class="form-control log log-select" style="width:250px;" id="@dependency.RelatedFields[j].Id">
+                                            <select class="form-control log log-select" style="width:250px;" id="@dependency.RelatedFields[j].Id" asp-for="@Model[i].podrzedneFieldAnswers[dependency.IdDependency][j].textVal">
                                                 <option disabled selected value="">-- select an option --  </option>
                                                 @foreach (var option in Model[0].options)
                                                 {
