@@ -51,8 +51,10 @@
 </head>
 <body>
     <form asp-action="EdycjaFormularza" method="post">
-
         <div><br /></div>
+        <a style="color:black" asp-area="" asp-controller="Forms" asp-action="ListaFormularzy">
+            <img src="~/arrow2.png" class="rounded-circle" alt="Add" width="30" height="30">
+        </a>
         <a style="color:black" asp-area="" asp-controller="Fields" asp-action="AddNewField" asp-route-id="@Model.IdForm">
             <img src="~/add.png" class="rounded-circle" alt="Add" width="30" height="30">
         </a>

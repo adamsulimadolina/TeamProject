@@ -62,6 +62,7 @@ namespace FormGenerator.Controllers
             {
                 return NotFound();
             }
+            ViewBag.FORMID = id;
             //wyszukanie oraz przekonwertowanie do listy Id pól które są dołączone do formularza
             //bierzemy pod uwagę tylko id pól należących do formularza
             var fieldsInForm = _context.FormField.Where(ff=>ff.IdForm==id).Select(ff=>ff.IdField).ToList();
