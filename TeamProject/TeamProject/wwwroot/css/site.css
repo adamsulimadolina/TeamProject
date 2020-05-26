@@ -176,6 +176,7 @@ table.dataTable thead .sorting_desc_disabled:before {
 #container{
     margin-left:auto;
     margin-right:auto;
+    margin-top: 0;
     font-size:18px;
 
 }
@@ -212,6 +213,10 @@ header {
     .table tbody tr:hover {
         background-color: #8bbabb;
     }
+
+.side-table {
+    background-color: #dfdfdf;
+}
 
 #wynik{
     margin-right:auto;
@@ -266,7 +271,6 @@ a:hover{
     height: 45px;
     box-shadow: 5px 4px 8px #888888;
 }
-
 
 .custom-table th {
     border: solid;
@@ -332,4 +336,7 @@ a:hover{
     margin-right: 10px;
     margin-top: auto;
     margin-bottom: auto;
+}
+.headTranslation{
+    width:100%;
 }

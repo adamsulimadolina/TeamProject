@@ -93,5 +93,28 @@ namespace TeamProject.Controllers.API
 
             return Json(tests);
         }
+        [HttpGet("periodTests/{number}")]
+        public async Task<ActionResult> getPeriodTests(int number)
+        {
+            DateTime dateNow = DateTime.Now;
+            List<Test> tests = new List<Test>();
+            switch(number)
+            {
+                case 1:
+                    dateNow = dateNow.AddMonths(-1);
+                    tests = await _context.Tests.Where(l => l.DateOfTest >= dateNow).ToListAsync();
+                    break;
+                case 6:
+                    dateNow = dateNow.AddMonths(-6);
+                    tests = await _context.Tests.Where(l => l.DateOfTest >= dateNow).ToListAsync();
+                    break;
+                case 12:
+                    dateNow = dateNow.AddMonths(-12);
+                    tests = await _context.Tests.Where(l => l.DateOfTest >= dateNow).ToListAsync();
+                    break;
+            }
+            return Json(tests);
+        }
+       
     }
 }

@@ -44,9 +44,16 @@
 </head>
 <body>
     <form asp-action="EdycjaFormularza" method="post">
-        <p >
-            <a style="color:#81C784;  font-weight:700" asp-area="" asp-controller="Fields" asp-action="AddNewField" asp-route-id="@Model.IdForm">Dodaj nowe pola</a>
-        </p>
+        <div><br /></div>
+        <a style="color:black" asp-area="" asp-controller="Forms" asp-action="ListaFormularzy">
+            <img src="~/arrow2.png" class="rounded-circle" alt="Add" width="30" height="30">
+        </a>
+        <a style="color:black" asp-area="" asp-controller="Fields" asp-action="AddNewField" asp-route-id="@Model.IdForm">
+            <img src="~/add.png" class="rounded-circle" alt="Add" width="30" height="30">
+        </a>
+        <th>Nowe pytanie</th>
+
+
         <p>
             <input asp-for="IdForm" style="visibility:hidden" />
         </p>

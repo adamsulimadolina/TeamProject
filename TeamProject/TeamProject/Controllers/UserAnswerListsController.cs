@@ -118,9 +118,10 @@ namespace TeamProject.Controllers
             List<SelectListItem> formsList = new List<SelectListItem>();
             var forms = _context.Forms
                 .ToList();
-
             foreach (var elem in forms)
             {
+                if (elem.Id == id)
+                    ViewBag.Name = elem.Name;
                 SelectListItem tmp = new SelectListItem();
                 tmp.Text = elem.Name;
                 tmp.Value = elem.Id.ToString();

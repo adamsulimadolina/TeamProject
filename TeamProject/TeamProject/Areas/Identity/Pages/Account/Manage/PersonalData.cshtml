@@ -5,15 +5,15 @@
     ViewData["ActivePage"] = ManageNavPages.PersonalData;
 }
 
-<h4>@ViewData["Title"]</h4>
 
-<div class="row">
+<div class="row shadow bg-white rounded" style="width:500px">
     <div class="col-md-6">
+        <br />
         <p>
-            <strong>Usunięcie danych spowoduje usunięcie konta</strong>
+            Czy na pewno usunąć konto?
         </p>     
         <p>
-            <a id="delete" asp-page="DeletePersonalData" class="btn btn-danger">Usuń Konto</a>
+            <a id="delete" style="background-color:#2c3136" asp-page="DeletePersonalData" class="btn btn-danger">Usuń Konto</a>
         </p>
     </div>
 </div>

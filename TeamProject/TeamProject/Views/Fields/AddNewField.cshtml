@@ -5,6 +5,7 @@
 
 <style>
 
+
     * {
         box-sizing: border-box;
     }
@@ -69,8 +70,9 @@
 {
     <p style="color:red;">@ViewBag.Error</p>
 }
-
-<h5 class="text-center">Przypisz pole do formularza</h5>
+<a style="color:black" asp-area="" asp-controller="Forms" asp-action="EdycjaFormularza" asp-route-id="@Model.FormId">
+    <img src="~/arrow2.png" class="rounded-circle" alt="Add" width="30" height="30">
+</a>
 <div class="cities">
     <form asp-action="AddNewField" autocomplete="off" id="myForm">
         <button style=" background-color:white;

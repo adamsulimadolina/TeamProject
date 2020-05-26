@@ -8,13 +8,24 @@
     </script>
     <style>
 
-        .cities {
-            background-color: #66BB6A;
-            color: white;
-            margin: 20px;
-            padding: 20px;
-        }
-    </style>
+
+    .tabl {
+        border-radius: 5px;
+        background-color: white;
+        padding: 20px;
+    }
+</style>
+<div><br /></div>
+<span>
+    <h3>Szczegóły pola</h3>
+</span>
+<div>
+    <a style="color:black" asp-area="" asp-controller="Forms" asp-action="EdycjaFormularza" asp-route-id="@ViewBag.IDFORM">
+        <img src="~/arrow2.png" class="rounded-circle" alt="Add" width="30" height="30">
+    </a>
+    <br />
+</div>
+<div class="tabl" style="box-shadow:black" ">
 
 <div class="cities">
     <h1 style="color:#66BB6A;  font-weight:700">Szczegóły pola</h1>
@@ -33,7 +44,4 @@
             @Html.DisplayFor(model => model.Type)
         </dd>
     </dl>
-</div>
-<div>
-    <a style="color:#66BB6A;  font-weight:700" asp-action="EdycjaFormularza" asp-controller="Forms" asp-route-id="@ViewBag.IDFORM">Powrót do formualarza</a>
 </div>

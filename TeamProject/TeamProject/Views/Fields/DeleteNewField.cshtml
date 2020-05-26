@@ -3,11 +3,21 @@
 @{
     ViewData["Title"] = "DeleteNewField";
 }
-    <script>
-        sessionStorage.removeItem('key');
-    </script>
-<style>
+<script>
+    sessionStorage.removeItem('key');
+</script>
+<br />
+<span>
+    <h3>Usuwanie</h3>
+</span>
 
+@if (ViewBag.message == true)
+{
+    <h3>
+        Pomyślnie usunięto
+    </h3>
+    <hr />
+<style>
     .cities {
         background-color: #66BB6A;
         color: white;
@@ -23,11 +33,18 @@
             Pomyślnie usunięto
         </h3>
 
-       
-    }
-    else
-    {
-        <h3>Na pewno chcesz usunąć te pole?</h3>
+<div>
+    <br />
+    <a style="color:black" asp-area="" asp-controller="Forms" asp-action="EdycjaFormularza" asp-route-id="@ViewBag.IDFORM">
+        <img src="~/arrow2.png" class="rounded-circle" alt="Add" width="30" height="30">
+    </a>
+    <br />
+</div>
+
+    <form asp-action="Delete" class="shadow p-3 mb-5 bg-white rounded" style="height:50px;">
+        <div class="form-group">
+            <label>Czy na pewno usunąć wybrane pole?</label>
+        </div>
         <div>
             <h4>Field</h4>
             <hr />
@@ -47,11 +64,10 @@
             </dl>
 
 
-            <form asp-action="DeleteNewField">
-                <input type="hidden" asp-for="Id" />
+}
 
 
-                <input style=" background-color:white;
+                <input style=" background-color:white"
             color:#66BB6A;
             font-size:20px;
             padding: 15px 35px;

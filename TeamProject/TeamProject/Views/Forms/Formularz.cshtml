@@ -1,8 +1,24 @@
 ﻿    @model List<FieldWithValue>
 
-    @{
-        ViewData["Title"] = "Formularz";
-    }
+@{
+    ViewData["Title"] = "Formularz";
+}
+<br />
+<span>
+    <h3>Wypełnij fromularz</h3>
+</span>
+
+<div>
+    <div class="row">
+        <div class="col-md-10">
+            <form asp-action="Formularz">
+                
+                <a style="color:black" asp-area="" asp-controller="Forms" asp-action="ListaFormularzy" asp-route-id="@ViewBag.FORMID">
+                    <img src="~/arrow2.png" class="rounded-circle" alt="Add" width="30" height="30">
+                </a>
+                <br />
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <table class="table">
 
     <h3>Wypełnij fromularz</h3>
     <div class="cities">
@@ -153,7 +169,10 @@
                                                 {
                                                     @if (option.idField == dependency.RelatedFields[j].Id)
                                                     {
-                                                        <option value="@option.option">@option.option</option>
+                                                        @if (option.idField == Model[i].Dependencies.RelatedFields[j].Id)
+                                                        {
+                                                            <option value="@option.option">@option.option</option>
+                                                        }
                                                     }
                                                 }
                                             </select>
