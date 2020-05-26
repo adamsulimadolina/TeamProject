@@ -232,14 +232,22 @@ namespace FormGenerator.Controllers
                 _context.Add(forms);
                 await _context.SaveChangesAsync();
                 List<Patient> patients = await _context.Patients.ToListAsync();
+                List<Test> tests = await _context.Tests.ToListAsync(); 
                 foreach (var patient in patients)
                 {
-                    _context.PatientForms.Add(new PatientForms()
+                    foreach (var test in tests)
                     {
-                        IdPatient = patient.IdPatient,
-                        IdForm = forms.Id,
-                        agreement = false
-                    });
+                        if (test.IdPatient == patient.IdPatient)
+                        {
+                            _context.PatientForms.Add(new PatientForms()
+                            {
+                                IdPatient = patient.IdPatient,
+                                IdTest = test.IdTest,
+                                IdForm = forms.Id,
+                                agreement = true
+                            });
+                        }
+                    }
                 }
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index", "Forms");

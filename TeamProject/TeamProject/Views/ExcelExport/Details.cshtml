@@ -11,41 +11,46 @@
 <input id="Button1" type="button" class="button_search" value="Potwierdź" />
 <br /><br />
        <label><strong>Wybierz kolumny do pliku</strong></label>
-      <form action='@Url.Action("DownloadXlsxFile")' method="post">
+       <form action='@Url.Action("DownloadXlsxFile")' method="post">
 
-          @for (int i = 0; i < Model.Fields.Count(); i++)
-          {
-              <div class="row">
-                  <div class="col-md-12">
-                      @Html.CheckBoxFor(m => Model.Fields[i].IsCheck, new { @class = "custom_checkbox" })
-                      <label class="custom-label-exporter">@Model.Fields[i].NameOfField </label>
-                      <input asp-for="@Model.Fields[i].NameOfField" hidden />
+           @for (int i = 0; i < Model.Fields.Count(); i++)
+           {
+               <div class="row">
+                   <div class="col-md-12">
+                       @Html.CheckBoxFor(m => Model.Fields[i].IsCheck, new { @class = "custom_checkbox" })
+                       <label class="custom-label-exporter">@Model.Fields[i].NameOfField </label>
+                       <input asp-for="@Model.Fields[i].NameOfField" hidden />
 
-                      <input asp-for="@Model.Fields[i].IdField" hidden />
+                       <input asp-for="@Model.Fields[i].IdField" hidden />
 
-                      <input asp-for="@Model.IdForm" hidden />
+                       <input asp-for="@Model.IdForm" hidden />
 
 
-                  </div>
-              </div>
-          }
-          <hr />
-          @Html.CheckBoxFor(m => Model.IsAllRecords, new { id = "myCheck", @class = "custom_checkbox" })
-          <label class="custom-label-exporter">
-              Czy chcesz otrzymać wszystkie rekordy?
-          </label>
-          <br />
-          <input style="display:none" class="custom-input" id="numberOfRecords" asp-for=@Model.NumberOfRecords placeholder="Podaj ilosc rekordow" />
-          <br />
-          <input class="button_search" asp-action="DownloadXlsxFile" type="submit" value="Pobierz Excel">
-      </form>
+                   </div>
+               </div>
+           }
+           <hr />
+           @Html.CheckBoxFor(m => Model.IsAllRecords, new { id = "myCheck", @class = "custom_checkbox" })
+           <label class="custom-label-exporter">
+               Czy chcesz otrzymać wszystkie rekordy?
+           </label>
+           <br /><br />
+           <label hidden id="numberOfRows">
+               Liczba wierszy do eksportu:
+           </label>
+               <input style="display:none" class="custom-input" id="numberOfRecords" asp-for=@Model.NumberOfRecords placeholder="Podaj ilosc rekordow" />
+           
+           <br />
+
+           <input class="button_search" asp-action="DownloadXlsxFile" type="submit" value="Pobierz Excel">
+       </form>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <script type="text/javascript">
     $(document).ready(function () {
-        $("#mylist").change(function (event) {
+        $("#Button1").click(function (event) {
 
             event.preventDefault();
 
@@ -62,8 +67,10 @@
         var numberOfRows = document.getElementById("numberOfRows");
         if (checkBox.checked == true) {
             text.style.display = "none";
+            numberOfRecords.hidden = true;
             numberOfRows.hidden = true;
         } else {
+            numberOfRecords.hidden = false;
             numberOfRows.hidden = false;
             text.style.display = "block";
         }

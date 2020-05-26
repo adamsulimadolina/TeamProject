@@ -769,13 +769,9 @@ E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netc
 E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\EntranceFormFields\Index.cshtml.g.cs
 E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\FieldDependency\Index.cshtml.g.cs
 E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\AddNewField.cshtml.g.cs
-E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\Create.cshtml.g.cs
-E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\Delete.cshtml.g.cs
 E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\DeleteNewField.cshtml.g.cs
 E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\DetailsNewField.cshtml.g.cs
-E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\Edit.cshtml.g.cs
 E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\EditNewField.cshtml.g.cs
-E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\Index.cshtml.g.cs
 E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Fields\NewFields.cshtml.g.cs
 E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Forms\Create.cshtml.g.cs
 E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Forms\Delete.cshtml.g.cs
