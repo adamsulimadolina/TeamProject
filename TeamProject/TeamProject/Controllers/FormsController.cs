@@ -258,7 +258,7 @@ namespace FormGenerator.Controllers
                     {
                         IdPatient = patient.IdPatient,
                         IdForm = forms.Id,
-                        agreement = false
+                        agreement = true
                     });
                 }
                 await _context.SaveChangesAsync();

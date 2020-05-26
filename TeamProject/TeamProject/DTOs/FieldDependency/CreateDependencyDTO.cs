@@ -18,6 +18,8 @@ namespace TeamProject.DTOs.FieldDependency
         public string ActivationValue { get; set; }
         public List<Field> RelatedFields { get; set; } = new List<Field>();
 
+        public List<String> ActivationValues { get; set; } = new List<String>();
+
         public int IdDependency { get; set; }
 
         public string AllIndependentFieldsName { get; set; }

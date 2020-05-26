@@ -25,7 +25,7 @@ namespace TeamProject.Models.FieldFieldDependencyModels
             var fieldsToCreate = dependency.RelatedFields.Where(f => f.Id <= 0).ToList(); //jeśli jakieś pola zależne nie istnieją->tworzymy je
             fieldsToCreate.ForEach(currentField => _context.Field.Add(currentField));
             _context.SaveChanges();
-
+            if(listOfAnswers !=null)
             foreach(Field field in fieldsToCreate)
             {
                bool containsFieldAnswers = listOfAnswers.TryGetValue(field.Name, out string[] selectOptions);

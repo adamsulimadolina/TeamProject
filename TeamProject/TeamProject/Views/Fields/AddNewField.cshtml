@@ -104,7 +104,10 @@
                                 <button type="submit" asp-route-fieldId="@Model.fields[i].Id" asp-action="DeleteFromList" class="btn btn-danger" to-delete="true">
                                     Usuń
                                 </button>
+                                @if (Model.fields[i].Type == "select")
+                                {
                                 <a asp-controller="FieldDependency" asp-action="ListOfDependenciesForField"  asp-route-ide="@Model.fields[i].Id" class="zal btn btn-info">dodaj pola zależne</a>
+                                }
                             </td>
                         </tr>
                     }

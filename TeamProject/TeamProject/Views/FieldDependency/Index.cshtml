@@ -1,4 +1,5 @@
-﻿@model CreateDependencyDTO
+﻿
+@model CreateDependencyDTO
 @{
     ViewData["Title"] = "Index";
 }
@@ -81,6 +82,19 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <form method="post" id="formik" asp-action="addTest">
 
     <input hidden asp-for="@Model.SuperiorFieldId" />
+    <input hidden value="@TempData["isDependency"]" id="myHiddenVar" />
+   
+    @for (var i = 0; i < Model.ActivationValues?.Count; i++)
+    {
+        if (Model.ActivationValues[i] != null)
+        {
+            <input hidden asp-for="@Model.ActivationValues[i]" />
+        }
+    }
+
+
+
+
 
     <br />
 
@@ -90,7 +104,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
     </p>
 
     <div hidden id="new">
-         <p>
+        <p>
             <label for="@Model.DependencyType">Typ zależności</label>
             <select name="DependencyType" asp-for="@Model.DependencyType">
                 <option selected="selected" value="FieldVisibly">Wartościowa</option>
@@ -100,7 +114,14 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
         <p>
             <label for="@Model.ActivationValue">Wartość aktywująca zależność </label>
-            <input asp-for="@Model.ActivationValue" />
+            <select asp-for="@Model.ActivationValue">
+                @foreach (var x in Model.ActivationValues)
+                {
+                    <option value="@x">@x</option>
+                }
+
+            </select>
+            <button id="createBtn" class="btn">Zatwierdz</button>
         </p>
 
     </div>
@@ -133,63 +154,63 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
     <!-- The Modal -->
     <div id="myModal" class="modal">
-            <!-- Modal content -->
-            <div class="modal-content">
-                <div class="modal-header">
-                    @* <span class="close">&times;</span>*@
-                    <h3 style="color:black">Kreator nowego pola</h3>
-                </div>
-                <div class="modal-body">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                @* <span class="close">&times;</span>*@
+                <h3 style="color:black">Kreator nowego pola</h3>
+            </div>
+            <div class="modal-body">
 
-                    <label for="CurrentFieldName">Wybierz pola zależne</label>
-                    <input asp-for="@Model.CurrentFieldName" name="CurrentFieldName" />
-                    <label style="color:black" for="currentTypeToCreate">Wybierz typ:</label>
-                    <select asp-for="@Model.CurrentFieldType" class="form-control" name="CurrentFieldType" style="width:300px">
-                        <option value="">Wybierz opcję</option>
-                        <option value="text">Pole tekstowe</option>
-                        <option value="checkbox">Checkbox</option>
-                        <option value="select">Lista</option>
-                        <option value="number">Numer</option>
-                    </select>
+                <label for="CurrentFieldName">Wybierz pola zależne</label>
+                <input asp-for="@Model.CurrentFieldName" name="CurrentFieldName" />
+                <label style="color:black" for="currentTypeToCreate">Wybierz typ:</label>
+                <select asp-for="@Model.CurrentFieldType" class="form-control" name="CurrentFieldType" style="width:300px">
+                    <option value="">Wybierz opcję</option>
+                    <option value="text">Pole tekstowe</option>
+                    <option value="checkbox">Checkbox</option>
+                    <option value="select">Lista</option>
+                    <option value="number">Numer</option>
+                </select>
+                <br />
+                <div></div>
+                <div id="numberValidation" hidden>
+                    <input type="checkbox" id="enableValidationMin" value="min" style=" background-color:white; color:#66BB6A;" />
+                    <label style="color:black">Minimalna wartość</label>
+                    <input class="form-control" asp-for="@Model.CurrentFieldMin" id="inputMin" hidden />
                     <br />
-                    <div></div>
-                    <div id="numberValidation" hidden>
-                        <input type="checkbox" id="enableValidationMin" value="min" style=" background-color:white; color:#66BB6A;" />
-                        <label style="color:black">Minimalna wartość</label>
-                        <input class="form-control" asp-for="@Model.CurrentFieldMin" id="inputMin" hidden />
-                        <br />
-                        <input type="checkbox" id="enableValidationMax" value="max" />
-                        <label style="color:black">Maksymalna wartość</label>
-                        <input class="form-control" asp-for="@Model.CurrentFieldMax" id="inputMax" hidden />
-                        <br />
-                        <input type="checkbox" id="enableValidationInteger" value="liczba całkowita" />
-                        <input hidden id="inputForInteger" asp-for="@Model.CurrentFieldIsInteger" />
-                        <label style="color:black">Liczba całkowita</label>
+                    <input type="checkbox" id="enableValidationMax" value="max" />
+                    <label style="color:black">Maksymalna wartość</label>
+                    <input class="form-control" asp-for="@Model.CurrentFieldMax" id="inputMax" hidden />
+                    <br />
+                    <input type="checkbox" id="enableValidationInteger" value="liczba całkowita" />
+                    <input hidden id="inputForInteger" asp-for="@Model.CurrentFieldIsInteger" />
+                    <label style="color:black">Liczba całkowita</label>
 
-                        <br />
+                    <br />
+                </div>
+
+                <div id="selectOptions" hidden>
+                    <input type="button" id="addOptionsBtn" value="Dodaj opcje" style=" background-color:white; color:#66BB6A;font-size:20px;padding: 5px 15px; margin-bottom:5px; border-radius: 8px;position:center;" />
+                    <div id="firstDiv">
+                        <input style=" border-radius: 5px; width:300px; height:30px; " type="text" id="opt0" class="definedAnswer" />
+                        <input id="optionsJsonID" hidden />
                     </div>
-
-                    <div id="selectOptions" hidden>
-                        <input type="button" id="addOptionsBtn" value="Dodaj opcje" style=" background-color:white; color:#66BB6A;font-size:20px;padding: 5px 15px; margin-bottom:5px; border-radius: 8px;position:center;" />
-                        <div id="firstDiv">
-                            <input style=" border-radius: 5px; width:300px; height:30px; " type="text" id="opt0" class="definedAnswer" />
-                            <input id="optionsJsonID" hidden />
-                        </div>
-                    </div>
+                </div>
 
 
-                    <button id="addNewField" style=" background-color:white;
+                <button id="addNewField" style=" background-color:white;
             color:#66BB6A;
             font-size:20px;
             padding: 15px 35px;
             border-radius: 8px;
-            position:center;" type="submit" asp-action="addTest"  class="btn btn-success">
-                        Stwórz
-                    </button> />
-                </div>
-
+            position:center;" type="submit" asp-action="addTest" class="btn btn-success">
+                    Stwórz
+                </button> />
             </div>
-      
+
+        </div>
+
     </div>
 
 
@@ -198,7 +219,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
     <br />
     <button id="AddDependedField" type="submit">Dodaj Pole</button><br />
     <button id="newField">Dodaj nowe pole</button><br />
-    <button style="margin-top:30px;"  asp-action="CreateDependency">Stwórz zależność</button>
+    <button style="margin-top:30px;" asp-action="CreateDependency">Stwórz zależność</button>
 
     @* Hidden fields *@
     <input asp-for="@Model.AllIndependentFieldsName" hidden />
@@ -214,13 +235,32 @@ body {font-family: Arial, Helvetica, sans-serif;}
         }
     }
 
-    <input hidden value="@TempData["isDependency"]" id="myHiddenVar" />
+
+
     <input hidden value="@TempData["Field"]" id="myFieldName" />
     <input hidden asp-for="@Model.CurrentFieldAnswers" />
     @* Hidden fields *@
     <input hidden asp-for="@Model.IdDependency" />
 
 </form>
+
+
+<script>
+    let btt = document.querySelector("#createBtn")
+    let fieldId = document.querySelector("#SuperiorFieldId").value;
+    let fieldName = document.querySelector("#ActivationValue").value;
+    
+
+    btt.addEventListener("click", functionHandleClick)
+
+    function functionHandleClick(e) {
+        e.preventDefault()
+        let select = document.querySelector("#ActivationValue");
+        let val = select.options[select.selectedIndex].value
+     
+        window.location = '/DependencyCreator?id=' + fieldId + '&idDep=0&activation=' + val;
+    }
+</script>
 
 
 <script>
@@ -271,7 +311,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 </script>
 
+<script>
 
+</script>
 
 
 

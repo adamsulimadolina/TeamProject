@@ -34,18 +34,28 @@ namespace TeamProject.Controllers
             {
                 TempData["isDependency"] = 0;
                 TempData["Field"] = _context.Field.FirstOrDefault(x => x.Id == ide).Name;
-               
                 
-
-                return RedirectToAction(nameof(Index), new { id = ide });
-            }
                 
-
-            else
-            {
-                return View(dependenciesForField);
             }
+            return RedirectToAction(nameof(Index), new { id = ide });
 
+            //else
+            //{
+            //    return View(dependenciesForField);
+            //}
+
+
+        }
+
+        public IActionResult DeleteFromDependency(int? idField, int? idDep)
+        {
+            var pom = _fieldDependenciesRepo.Dependencies.FirstOrDefault(x => x.IdDependency == idDep);
+            pom.RelatedFields = pom.RelatedFields.Where(p => p.Id != idField).ToList();
+            _fieldDependenciesRepo.SaveDependency(pom, null);
+
+
+
+            return RedirectToAction(nameof(Index), new { id = pom.Id, idDep = pom.IdDependency });
 
         }
 
@@ -56,10 +66,29 @@ namespace TeamProject.Controllers
         //    createDependency.UpdateIndependentFieldsList(_fieldDependenciesRepo,_context);
         //    return View(createDependency);
         //}
-        public IActionResult Index(int? id, int? idDep)
+        public IActionResult Index(int? id, int? idDep, string activation)
         {
-            CreateDependencyDTO createDependency = new CreateDependencyDTO();
-            if (idDep != null)
+             CreateDependencyDTO createDependency = new CreateDependencyDTO();
+            if (id != null) {
+                var fieldAnswers = _context.SelectFieldOptions.Where(x => x.idField == id).ToList();
+
+                if (fieldAnswers.Count > 0)
+                {
+                         createDependency.ActivationValues = fieldAnswers.Select(y => y.option).ToList();
+                }
+            }
+            int F=0;
+            
+            if (activation != null)
+            {
+                 var z = _fieldDependenciesRepo.Dependencies.FirstOrDefault(a => a.ActivationValue == activation)?.IdDependency;
+                if(z != null)
+                    idDep = z;
+            }
+          
+
+            
+            if (idDep != null && idDep > 0)
             {
                 var dep = _fieldDependenciesRepo.Dependencies.FirstOrDefault(y => y.IdDependency == idDep);
                 createDependency.SuperiorFieldId = id;
@@ -70,7 +99,11 @@ namespace TeamProject.Controllers
                 createDependency.IdDependency = dep.IdDependency;
             }
             else
+            {
                 createDependency.SuperiorFieldId = id;
+                createDependency.ActivationValue = activation;
+                
+            }
             //createDependency.UpdateIndependentFieldsList(_fieldDependenciesRepo, _context);
             return View(createDependency);
         }
