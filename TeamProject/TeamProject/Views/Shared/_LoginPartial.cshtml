@@ -30,19 +30,18 @@
         }
         else if (SignInManager.IsSignedIn(User) && (User.IsInRole("Technik")))
         {
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" asp-controller="Patient" asp-action="Index" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <li class="nav-item dropdown" >
+                <a class="nav-link dropdown-toggle" asp-controller="Patient"  asp-action="Index" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Menu Pacjenta
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <div class="dropdown-menu "  aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" asp-controller="Patient" asp-action="Index" title="CompleteSurvey">Pacjent</a>
                     <a class="dropdown-item" asp-controller="Patient" asp-action="Create" title="AddPatient">Dodaj Pacjenta</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" asp-controller="EntranceFormFields" asp-action="Index" title="CompleteSurvey">Formularz powitalny </a>
-
                 </div>
-            </li>
-
+          
+        </li>
             <li class="nav-item">
                 <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Manage/Index" title="Profil użytkownika">Mój profil</a>
             </li>
@@ -54,9 +53,6 @@
         }
         else
         {
-            <li class="nav-item">
-                <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Register">Rejestracja</a>
-            </li>
             <li class="nav-item">
                 <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Login">Logowanie</a>
             </li>
