@@ -14,19 +14,6 @@
     </div>
 }
 
-<div class="custom-overlay closed" id="overlay"></div>
-<div id="modal" class="custom-modal closed">
-    <i class="fas fa-times fa-2x" id="close-modal"></i>
-
-    <div class="custom-modal-info">
-        <h4>Edycja użytkownika:</h4>
-        <h4 id="clickedUser"></h4>
-        <div class="custom-card-buttons">
-            <button id="password-button">Hasło</button>
-            <button id="info-button">Informacje</button>
-        </div>
-    </div>
-</div>
 <div class="custom-div">
     @using (Html.BeginForm("Users", "AdminPanel", FormMethod.Get))
     {
@@ -49,14 +36,14 @@
 
 </div>
 
-<div class="row justify-content-around flex-wrap">
+<div class="custom-grid">
     @foreach (var item in Model)
     {
         <div class="custom-card">
             <div class="custom-card-info">
                 <div>
-                    <p class="card-title">@item.CustomID</p>
-                    <p>@item.FirstName @item.LastName</p>
+                    <p class="card-title">@item.FirstName</p>
+                    <p class="card-title"> @item.LastName</p>
                 </div>
                 <div class="card-icon">
                     <i class="fas fa-user-md fa-3x"></i>
@@ -67,7 +54,6 @@
                 <a asp-area="Identity" asp-page="/Account/Manage/NewPassword" asp-route-id="@item.Id">Hasło</a>
                <a asp-area="Identity" asp-page="/Account/Manage/ManageUserData" asp-route-id="@item.Id">Informacje</a>
                <a asp-area="Identity" asp-page="/Account/Manage/DeleteUser" asp-route-id="@item.Id">Usuń</a>
-
             </div>
         </div>
 

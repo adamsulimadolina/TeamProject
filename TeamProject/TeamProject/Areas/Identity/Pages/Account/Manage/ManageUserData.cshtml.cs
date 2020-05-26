@@ -133,6 +133,10 @@ namespace TeamProject.Areas.Identity.Pages.Account.Manage
             if (Input.FirstName != user.FirstName) user.FirstName = Input.FirstName;
             if (Input.LastName != user.LastName) user.LastName = Input.LastName;
             if (Input.UserID != user.CustomID) user.CustomID = Input.UserID;
+            var role = await _userManager.GetRolesAsync(user);
+
+            await _userManager.RemoveFromRoleAsync(user, role[0]);
+            await _userManager.AddToRoleAsync(user, Input.Role);
             await _userManager.UpdateAsync(user);
             StatusMessage = "Zaktualizowano profil";
             return RedirectToAction("Users", "AdminPanel", new { message = "U¿ytkownik zosta³ zaktualizowany" });

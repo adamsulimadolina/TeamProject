@@ -30,9 +30,9 @@ namespace TeamProject.Controllers
         {
             return View();
         }
-        public ViewResult Users(string sortOrder, string currentFilter, string searchString, int? page)
+        public ViewResult Users(string sortOrder, string currentFilter, string searchString, int? page,string message)
         {
-            //if (!String.IsNullOrEmpty(message)) ViewBag.message = message;
+            if (!String.IsNullOrEmpty(message)) ViewBag.message = message;
             ViewBag.CurrentSort = sortOrder;
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.IDSortParm = sortOrder == "ID" ? "id_desc" : "ID";
@@ -42,8 +42,8 @@ namespace TeamProject.Controllers
                         select u;
             if (!String.IsNullOrEmpty(searchString))
             {
-                users = users.Where(s => s.LastName.Contains(searchString)
-                                       || s.FirstName.Contains(searchString));
+                users = users.Where(s => s.LastName.ToLower().Contains(searchString.ToLower())
+                                       || s.FirstName.ToLower().Contains(searchString.ToLower()));
             }
             switch (sortOrder)
             {

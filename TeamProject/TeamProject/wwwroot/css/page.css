@@ -8,9 +8,13 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #020024 0%, #eefcff 0%, cornsilk 100%);
+    background: #fafafa;
     color: black;
     font-family: 'Montserrat', sans-serif !important;
+}
+
+.custom-container {
+    padding: 20px 40px;
 }
 
 button {
@@ -271,6 +275,8 @@ i::before {
 }
 
 .custom-card {
+    max-width: 500px;
+    padding: 0.5rem;
     display: block;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
@@ -278,9 +284,8 @@ i::before {
     margin: 1rem;
     border-radius: 3px;
     height: auto;
-    background: #567eea;
-    -webkit-box-shadow: 0px 0px 8px 3px rgba(0, 0, 0, 0.1);
-    box-shadow: 0px 0px 8px 3px rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+    border: 1px solid black;
 }
 
     .custom-card p {
@@ -302,7 +307,7 @@ i::before {
 }
 
     .card-icon i {
-        color: #f2f2f2;
+        color: #3a3a47;
     }
 
 .custom-card-info {
@@ -313,13 +318,12 @@ i::before {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    color: #f2f2f2;
+    color: #3a3a47;
 }
 
     .custom-card-info .card-title {
         font-size: 1.5rem;
-        font-weight: bold;
-        color: #f2f2f2;
+        color: #3a3a47;
     }
 
 .custom-card-buttons {
@@ -327,18 +331,18 @@ i::before {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: start;
-    -ms-flex-pack: start;
-    justify-content: flex-start;
+    -webkit-box-pack: space-evenly;
+    -ms-flex-pack: space-evenly;
+    justify-content: space-evenly;
 }
 
     .custom-card-buttons button {
         cursor: pointer;
         background: none;
-        color: #f2f2f2;
+        color: #3a3a47;
         padding: 0.5rem;
         text-transform: uppercase;
-        border: 2px solid #f2f2f2;
+        border: 1px solid #3a3a47;
         border-radius: 2px;
         margin: 0.4rem 0.4rem;
         display: -webkit-box;
@@ -360,10 +364,10 @@ i::before {
     .custom-card-buttons a {
         cursor: pointer;
         background: none;
-        color: #f2f2f2;
+        color: #3a3a47;
         padding: 0.4rem;
         text-transform: uppercase;
-        border: 2px solid #f2f2f2;
+        border: 1px solid #3a3a47;
         border-radius: 2px;
         margin: 0.4rem 0.4rem;
         display: -webkit-box;
@@ -397,20 +401,15 @@ i::before {
         border-radius: 2px;
         margin: 0.4rem 0.4rem;
     }
+
+    .chart-container {
+        width: 600px;
+    }
 }
 
 .custom-div {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    -webkit-box-align: start;
-    -ms-flex-align: start;
-    align-items: flex-start;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
     width: auto;
     padding: 1rem;
 }
@@ -663,11 +662,77 @@ i::before {
     display: -ms-grid;
     display: grid;
     gap: 1rem;
-    -ms-grid-columns: (minmax(300px, 1fr))[auto-fit];
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    -ms-grid-columns: (minmax(340px, 1fr))[auto-fit];
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
 }
 
 .fixed-table-container {
     background-color: #f8faff;
+}
+
+.panel-card {
+    background: #3a3a47;
+    color: #f2f2f2;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+}
+
+    .panel-card h4 {
+        margin-left: 0.4rem;
+    }
+
+.custom-card-index {
+    display: block;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin: 1rem;
+    border-radius: 3px;
+    height: auto;
+    background: #ffffff;
+    border: 1px solid black;
+}
+
+    .custom-card-index p {
+        justify-self: baseline;
+        margin: 0.5rem;
+    }
+
+.custom-card-info-index {
+    display: block;
+    text-align: center;
+    padding: 1rem;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    color: #3a3a47;
+}
+
+    .custom-card-info-index .card-title {
+        font-size: 1.5rem;
+        color: #3a3a47;
+    }
+
+.chart-container {
+    width: 800px;
+    height: 500px;
+    margin: 50px auto;
+}
+
+.loader-div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
 }
 /*# sourceMappingURL=site.css.map */
