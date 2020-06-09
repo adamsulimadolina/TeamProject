@@ -4,6 +4,8 @@
 }
 
 body {
+    line-height: 1.15rem;
+    min-height: 100vh;
     margin: 0;
     padding: 0;
     background: #fafafa;
@@ -173,8 +175,6 @@ i::before {
     padding: 0.5rem 0.8rem;
     text-transform: uppercase;
     border-radius: 2px;
-    -webkit-box-shadow: 0 3px 5px 1px rgba(0, 0, 0, 0.25) !important;
-    box-shadow: 0 3px 5px 1px rgba(0, 0, 0, 0.25) !important;
     outline: none !important;
     border: 0;
     margin: 0 0.5rem;
@@ -271,6 +271,7 @@ i::before {
 .form-design {
     -webkit-box-shadow: 0px 5px 10px 5px rgba(0, 0, 0, 0.1);
     box-shadow: 0px 5px 10px 5px rgba(0, 0, 0, 0.1);
+    background: #f8faff;
 }
 
 .custom-card {
@@ -282,9 +283,8 @@ i::before {
     justify-content: center;
     margin: 1rem;
     border-radius: 3px;
-    width: 30%;
     height: auto;
-    background: #ffffff;
+    background: #f8faff;
     border: 1px solid black;
 }
 
@@ -331,9 +331,9 @@ i::before {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: space-evenly;
-    -ms-flex-pack: space-evenly;
-    justify-content: space-evenly;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
 }
 
     .custom-card-buttons button {
@@ -396,10 +396,6 @@ i::before {
         }
 
 @media (max-width: 1260px) {
-    .custom-card {
-        width: 40%;
-    }
-
     .custom-card-buttons button {
         padding: 0.4rem;
         border-radius: 2px;
@@ -408,12 +404,6 @@ i::before {
 
     .chart-container {
         width: 600px;
-    }
-}
-
-@media (max-width: 768px) {
-    .custom-card {
-        width: 80%;
     }
 }
 
