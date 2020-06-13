@@ -1028,3 +1028,10 @@ C:\Users\kacpe\Documents\GitHub\TeamProject\TeamProject\TeamProject\obj\Debug\ne
 C:\Users\kacpe\Documents\GitHub\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Forms\Delete.cshtml.g.cs
 C:\Users\kacpe\Documents\GitHub\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Patient\TestSelect.cshtml.g.cs
 C:\Users\kacpe\Documents\GitHub\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\FieldDependency\ListOfDependenciesForField.cshtml.g.cs
+C:\Users\kamil\Desktop\GitRepos\FormGenerator\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\CreateUser.cshtml.g.cs
+C:\Users\kamil\Desktop\GitRepos\FormGenerator\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\DeleteUser.cshtml.g.cs
+C:\Users\kamil\Desktop\GitRepos\FormGenerator\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\ManageUserData.cshtml.g.cs
+C:\Users\kamil\Desktop\GitRepos\FormGenerator\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\NewPassword.cshtml.g.cs
+C:\Users\kamil\Desktop\GitRepos\FormGenerator\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\AdminPanel\Logi.cshtml.g.cs
+C:\Users\kamil\Desktop\GitRepos\FormGenerator\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\AdminPanel\Users.cshtml.g.cs
+C:\Users\kamil\Desktop\GitRepos\FormGenerator\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\FieldDependency\ListOfDependenciesForField.cshtml.g.cs
