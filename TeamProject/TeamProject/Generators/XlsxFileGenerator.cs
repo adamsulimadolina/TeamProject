@@ -88,7 +88,8 @@ namespace TeamProject.Generators
                 foreach (int patientId in allPatientIds)
                 {
                     Dictionary<string, object> currentRow = GenerateCurrentRow(userAnswers, headersTemplate, testId, patientId);
-                    result.Add(currentRow);
+                    if (currentRow != null)
+                        result.Add(currentRow);
                 }
             }
             ReplaceKeyIdToFieldName(result, context);
@@ -98,11 +99,18 @@ namespace TeamProject.Generators
         private static Dictionary<string, object> GenerateCurrentRow(List<UserAnswers> userAnswers, Dictionary<string, object> headersTemplate, int testId, int patientId)
         {
             Dictionary<string, object> currentRow = new Dictionary<string, object>(headersTemplate);
-            foreach (var key in headersTemplate.Keys)
+            bool answerExists = false;
+
+            foreach (string key in headersTemplate.Keys)
+            {
                 currentRow[key] = userAnswers.FirstOrDefault(f => f.IdPatient == patientId && f.IdTest == testId && f.IdField.ToString() == key)?.Answer;
+                if (currentRow[key] != null)
+                    answerExists = true;
+            }
+
             currentRow[nameof(UserAnswers.IdPatient)] = patientId;
             currentRow[nameof(UserAnswers.IdTest)] = testId;
-            return currentRow;
+            return answerExists ? currentRow : null;
         }
 
         private void AddKeysBasedOnFieldId(List<UserAnswers> userAnswers, Dictionary<string, object> headersTemplate)

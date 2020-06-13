@@ -22,6 +22,7 @@ namespace TeamProject.Helpers
         {
             string pathToFile = _appRootFolder + appVirtualFolderPath + filename+".xlsx";
             FileInfo fileInfo = new FileInfo(pathToFile);
+            Directory.CreateDirectory(appVirtualFolderPath);
             excelPackage.SaveAs(fileInfo);
             return pathToFile;
         }
