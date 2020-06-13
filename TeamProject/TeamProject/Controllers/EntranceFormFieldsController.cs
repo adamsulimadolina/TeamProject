@@ -224,6 +224,7 @@ namespace TeamProject.Controllers
                 list.Add(ans);
             }
             ViewBag.bag = id;
+            HttpContext.Session.SetInt32("current_id_pacjent", id);
             return View(list);
         }
 

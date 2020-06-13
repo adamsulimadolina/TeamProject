@@ -2,13 +2,19 @@
 @{
     ViewData["Title"] = "WyslanoFormularz";
 }
-
-<h1>Wyslano Formularz</h1>
-<h3>Gratulacje, dane z formularza zostały zapisane w bazie danych</h3>
+@if (ViewBag.EdycjaFormularza == null)
+{
+    <h1>Wyslano Formularz</h1>
+    <h3>Gratulacje, dane z formularza zostały zapisane w bazie danych</h3>
+}
+else
+{
+    <h1>Edytowano Formularz</h1>
+    <h3>Gratulacje, dane z formularza zostały zedytowane w bazie danych</h3>
+}
 <style>
 
     .cities {
-       
         color: white;
         margin: 20px;
         padding: 20px;
