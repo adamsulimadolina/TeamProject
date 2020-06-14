@@ -67,6 +67,9 @@ namespace TeamProject.Controllers
             var fields = _context.Field.ToList();
             var formField = _context.FormField.Where(x => x.IdForm.Equals(id)).ToList();
 
+            
+
+
             var field = new FieldForExcel();
 
             listOfFields.Fields = new List<FieldForExcel>();
@@ -90,10 +93,33 @@ namespace TeamProject.Controllers
 
                 }
             }
+            
+
             listOfFields.IdForm = id;
             listOfFields.NumberOfRecords = 0;
             listOfFields.IsAllRecords = true;
 
+            var listIdField = GetDependentFieldIds(listOfFields.Fields.Select(x => x.IdField).ToList()).ToList();
+
+            var fields_second_time = _context.Field.Where(x => listIdField.Contains(x.Id)).ToList();
+
+           
+                foreach (var f in fields_second_time)
+                {
+                   
+                        field = new FieldForExcel()
+                        {
+
+                            IdField = f.Id,
+                            NameOfField = f.Name,
+                            IsCheck = true
+                        };
+                        listOfFields.Fields.Add(field);
+
+                    
+
+                }
+            
 
             return View(listOfFields);
         }
@@ -108,7 +134,7 @@ namespace TeamProject.Controllers
                 return RedirectToAction(nameof(Index));
             }
             List<int> fields = listOfFields.Fields.Where(x => x.IsCheck == true).Select(x => x.IdField).ToList();
-            List<int> dependentFieldIds = GetDependentFieldIds(fields);
+            List<int> dependentFieldIds = GetDependentFieldIds(fields).Where(x=>fields.Contains(x)).ToList();
             fields.AddRange(dependentFieldIds);
 
             List<UserAnswers> userAnswers = _context.UserAnswers.Where(w => w.IdForm == listOfFields.IdForm && fields.Contains(w.IdField)).ToList();

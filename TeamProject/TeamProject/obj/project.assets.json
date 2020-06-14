@@ -13619,11 +13619,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\PC\\Desktop\\TeamProject\\TeamProject\\TeamProject\\TeamProject\\TeamProject.csproj",
+      "projectUniqueName": "C:\\Users\\PC\\Desktop\\Excel\\TeamProject\\TeamProject\\TeamProject\\TeamProject.csproj",
       "projectName": "TeamProject",
-      "projectPath": "C:\\Users\\PC\\Desktop\\TeamProject\\TeamProject\\TeamProject\\TeamProject\\TeamProject.csproj",
+      "projectPath": "C:\\Users\\PC\\Desktop\\Excel\\TeamProject\\TeamProject\\TeamProject\\TeamProject.csproj",
       "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\PC\\Desktop\\TeamProject\\TeamProject\\TeamProject\\TeamProject\\obj\\",
+      "outputPath": "C:\\Users\\PC\\Desktop\\Excel\\TeamProject\\TeamProject\\TeamProject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
