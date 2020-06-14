@@ -340,3 +340,12 @@ a:hover{
 .headTranslation{
     width:100%;
 }
+
+.custom-scroll {
+    height: 50vh;
+    width: 50%;
+    overflow: auto;
+    background-color: white;
+    display: block;
+    margin: 1rem 0;
+}
