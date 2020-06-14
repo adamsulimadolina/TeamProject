@@ -23,7 +23,7 @@ namespace FormGenerator.Controllers
     {
         private readonly FormGeneratorContext _context;
         private readonly UserManager<MyUser> _userManager;
-        private readonly IFieldDependenciesRepository pomik;
+        private readonly IFieldDependenciesRepository pomik;//mikroserwis z ktorego korzysta kontroler
 
         public FormsController(FormGeneratorContext context, UserManager<MyUser> userManager, IFieldDependenciesRepository repository)
         {
@@ -139,7 +139,6 @@ namespace FormGenerator.Controllers
 
         // w tej metodzie w przyszłości nastąpi wysłanie wpisanych formularzy do bazy danych
         [HttpPost]
-
         public async Task<IActionResult> Formularz(List<FieldWithValue> fields, int formId, int patientId)
         {
             int? current_test = HttpContext.Session.GetInt32("current_test");
@@ -222,11 +221,6 @@ namespace FormGenerator.Controllers
             pacjentForm.IsSendBefore = true;
             _context.PatientForms.Update(pacjentForm);
             await _context.SaveChangesAsync();
-
-
-
-
-
         }
 
 
@@ -275,6 +269,213 @@ namespace FormGenerator.Controllers
             }
             return View(forms);
         }
+
+
+      
+
+        public async Task<IActionResult> EdycjaWypelnionegoFormularza(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            ViewBag.FORMID = id;
+
+            MyUser user = await GetUser();
+            int? current_id_pacjent = HttpContext.Session.GetInt32("current_id_pacjent");
+            int? current_test = HttpContext.Session.GetInt32("current_test");
+
+
+
+            List<UserAnswers> answerList = _context.UserAnswers.Where(x => x.IdTest == current_test && x.IdPatient == current_id_pacjent && x.IdForm == id).ToList();
+
+            List<FieldWithValue> fieldWithValues = new List<FieldWithValue>();
+        
+
+           
+            //wyszukanie oraz przekonwertowanie do listy Id pól które są dołączone do formularza
+            //bierzemy pod uwagę tylko id pól należących do formularza
+            var fieldsIdsInForm = _context.FormField.Where(ff => ff.IdForm == id).Select(ff => ff.IdField).ToList();
+            //pobieramy dane pól których id pobrano powyżej
+            var fieldsInForm = _context.Field.Where(f => fieldsIdsInForm.Contains(f.Id)).ToList();
+            if (fieldsInForm == null)
+            {
+                return NotFound();
+            }
+
+
+            List<Field> nadrzedne = new List<Field>();
+            var allDependencyFromFormularz = pomik.Dependencies.Where(d => fieldsIdsInForm.Contains(d.Id)).ToList();
+
+            foreach (Field f in fieldsInForm)//wszystkie pola w formularzu
+            {
+                bool znaleziono = false;
+                foreach (FieldFieldDependency dep in allDependencyFromFormularz)
+                {
+                    foreach (Field depField in dep.RelatedFields)
+                    {
+                        if (f.Equals(depField))
+                        {
+                            znaleziono = true;
+                            break;
+                        }
+                    }
+                    if (znaleziono == true)
+                        break;
+                }
+
+                if (znaleziono == false)
+                    nadrzedne.Add(f);
+            }
+
+            //przepisywanie danych do odpowiedniego modelu. ma ktoś pomysł jak bardziej optymalnie przenosić???
+            foreach (var key in nadrzedne)
+            {
+                FieldWithValue pom = new FieldWithValue();
+                pom.TextValue = answerList.Where(x => x.IdField == key.Id).First().Answer;
+                pom.Field.Id = key.Id;
+                pom.Field.Name = key.Name;
+                pom.Field.Type = key.Type;
+
+                var dependencie = allDependencyFromFormularz.Where(l => l.ThisField.Equals(key)).ToList();
+
+                if (dependencie.Count > 0)
+                {
+                    pom.Dependencies = dependencie;
+                    for (int x = 0; x < dependencie.Count; x++)
+                        pom.podrzedneFieldAnswers.Where(z => z.Key == pom.Field.Id);
+
+                }
+
+
+                fieldWithValues.Add(pom);
+            }
+
+
+
+            var Dependencies = pomik.Dependencies;
+
+            ViewBag.modelcount = fieldWithValues.Count;
+         
+            ViewBag.formid = Convert.ToInt32(id);
+            try
+            {
+                fieldWithValues[0].options = _context.SelectFieldOptions.ToList();
+            }
+            catch (Exception e) { }
+
+            foreach (var x in fieldWithValues)
+            {
+                foreach (var y in x.Dependencies)
+                {
+                    x.podrzedneFieldAnswers.Add(y.IdDependency, new List<StringBoolType>());
+                    foreach (var z in y.RelatedFields)
+                    {
+                        x.podrzedneFieldAnswers[y.IdDependency].Add(new StringBoolType());
+                    }
+                }
+            }
+
+
+            foreach (var item in fieldWithValues)
+            {
+
+
+                foreach (var fieldPodrzedne in item.podrzedneFieldAnswers)
+                {
+                    var relatedFields = Dependencies.FirstOrDefault(el => el.IdDependency == fieldPodrzedne.Key).RelatedFields;
+                    // item.podrzedneFieldAnswers[fieldPodrzedne.Key] = answerList.Where(x => x.IdField == fieldPodrzedne.Key).
+                    for (int i = 0; i < relatedFields.Count; i++)
+                    {
+                        if (relatedFields[i].Type == "checkbox")
+                        {
+                            fieldPodrzedne.Value[i].boolVal = bool.Parse(answerList.Where(x=>x.IdField== relatedFields[i].Id).FirstOrDefault().Answer);
+                        }
+                        else
+                        {
+                            fieldPodrzedne.Value[i].textVal = answerList.Where(x => x.IdField == relatedFields[i].Id).FirstOrDefault().Answer;
+                            
+                        }
+
+                    }
+                }
+
+
+            }
+
+
+
+            return View(fieldWithValues);
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> EdycjaWypelnionegoFormularza(List<FieldWithValue> fields, int formId)
+        {
+            int? current_id_pacjent = HttpContext.Session.GetInt32("current_id_pacjent");
+            int? current_test = HttpContext.Session.GetInt32("current_test");
+            MyUser user = await GetUser();
+     
+
+            List<UserAnswers> answerList = _context.UserAnswers.Where(x => x.IdTest == current_test && x.IdPatient == current_id_pacjent  && x.IdForm == formId).ToList();
+
+
+            foreach (var field in fields)
+            {
+                UserAnswers answer = answerList.FirstOrDefault(x=>x.IdField==field.Field.Id);
+                answer.IdField = field.Field.Id;
+                answer.IdForm = formId;
+                answer.IdPatient = (int)current_id_pacjent;
+                answer.IdUser = user.CustomID;
+                answer.IdTest = (int)current_test;
+           
+
+                switch (field.Field.Type)
+                {
+                    case "checkbox":
+                        answer.Answer = field.BoolValue.ToString();
+                        break;
+                    case "text":
+                        answer.Answer = field.TextValue;
+                        break;
+                    case "number":
+                        answer.Answer = field.TextValue;
+                        break;
+                    case "select":
+                        answer.Answer = field.TextValue;
+                        break;
+                }
+                
+                _context.UserAnswers.Update(answer);
+              
+                var Dependencies = pomik.Dependencies;
+                foreach (var x in field.podrzedneFieldAnswers)
+                {
+                    var relatedFields = Dependencies.FirstOrDefault(el => el.IdDependency == x.Key).RelatedFields;
+                    for (int i = 0; i < x.Value.Count; i++)
+                    {
+
+                        UserAnswers userAnswers = answerList.FirstOrDefault(z=> z.IdField == relatedFields[i].Id);
+                        userAnswers.IdField = relatedFields[i].Id;
+                        userAnswers.IdForm = formId;
+                        userAnswers.IdPatient = (int)current_id_pacjent;
+                        userAnswers.IdUser = user.CustomID;
+                        userAnswers.IdTest = (int)current_test;
+                        userAnswers.Answer = relatedFields[i].Type == "checkbox" ? x.Value[i].boolVal.ToString() : x.Value[i].textVal;
+
+                       _context.UserAnswers.Update(userAnswers);
+                    }
+                }
+            }
+            await _context.SaveChangesAsync();
+            ViewBag.EdycjaFormularza = "Formularz został zedytowany";
+
+            return View("WyslanoFormularz", fields);
+        }
+
+
+
+
 
         // GET: Forms/Edit/5
         public IActionResult EdycjaFormularza(int? id)
