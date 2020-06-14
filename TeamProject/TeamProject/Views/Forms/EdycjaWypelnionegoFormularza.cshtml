@@ -3,8 +3,14 @@
 @{
     ViewData["Title"] = "Formularz";
 }
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-<h3>Wypełnij fromularz</h3>
+
+
+
+
+</style>
+<h3>Edytuj formularz</h3>
 <div class="cities">
     <div class="row">
         <div class="col-md-10">
@@ -74,7 +80,7 @@
 
 
                                     <select class="form-control log log-select" asp-for="@Model[i].TextValue" style="width:250px;" id="@Model[i].Field.Id">
-                                        <option  selected value="">-- select an option --  </option>
+
                                         @foreach (var option in Model[0].options)
                                         {
                                             @if (option.idField == Model[i].Field.Id)
@@ -148,7 +154,7 @@
 
                                                 //asp-for="@Model[i].DepndenciesValue[j].textVal"
                                                 <select class="form-control log log-select" style="width:250px;" id="@dependency.RelatedFields[j].Id" asp-for="@Model[i].podrzedneFieldAnswers[dependency.IdDependency][j].textVal">
-                                                    <option  selected value="">-- select an option --  </option>
+
                                                     @foreach (var option in Model[0].options)
                                                     {
                                                         @if (option.idField == dependency.RelatedFields[j].Id)
@@ -173,8 +179,7 @@
                             </th>
                         </tr>
                     }
-                    <tr id="response">
-                    </tr>
+                    <tr id="response"></tr>
                 </table>
                 <div class="form-group">
                 </div>
@@ -185,7 +190,7 @@
                 font-size:20px;
                 padding: 15px 35px;
                 border-radius: 8px;
-                position:center;" type="submit" asp-route-formId="@ViewBag.formid" value="Wyślij formularz" class="btn btn-primary" />
+                position:center;" type="submit" asp-route-formId="@ViewBag.formid" value="Edytuj formularz" class="btn btn-primary" />
 
                 </div>
 
@@ -196,6 +201,67 @@
 </div>
 
 <script type="text/javascript">
+
+
+    $(document).ready(function () {
+        console.log("hallo");
+        //inputs.forEach(input => handleShow(input));
+        inputs.forEach(input => console.log(input.value));
+        inputs.forEach(input => input.addEventListener('load ', handleShow));
+
+
+
+
+    });
+
+    function handleShow(e) {
+        console.log("halo");
+
+        console.log(e.value);
+
+
+        if (e.parentNode.getAttribute("type") == "FieldDuplication" && parseInt(e.parentNode.getAttribute("val")) >= parseInt(e.value) && parseInt(e.value) > 0) {
+
+            let divs = (document.querySelectorAll("div[idval]"));
+            console.log(divs)
+            for (let i = 0, j = 0; i < e.value, j < e.value; i++) {
+                if (divs[i].getAttribute("idval") === e.parentNode.getAttribute("parentId")) {
+                    divs[i].removeAttribute("hidden");
+                    j++;
+                }
+            }
+        }
+        else if (e.parentNode.getAttribute("type") == "FieldVisibly" && e.parentNode.getAttribute("val") === e.value) {
+            //  e.target.parentElement.lastElementChild.removeAttribute("hidden");
+            let x = (e.parentNode.getAttribute("parentid"));
+            console.log(x)
+            let inputs = (document.querySelectorAll(`div[idval="${x}"]`));
+            inputs.forEach((input) => {
+                input.value = null;
+                //jak nullowac selecty
+                console.log("removeHidden")
+                input.removeAttribute("hidden")
+            });
+        }
+        else {
+            let x = (e.parentNode.getAttribute("parentid"));
+            console.log(x)
+            let inputs = (document.querySelectorAll(`input[idval="${x}"]`));
+            console.log(inputs)
+            inputs.forEach((input) => {
+                input.value = null;
+                console.log("setHidden")
+                input.parentElement.parentElement.setAttribute("hidden", "")
+                input.addEventListener("load", handler)
+            });
+        }
+
+    }
+
+
+
+
+
     function handleCheck(e) {
         console.log(e.target.parentNode.getAttribute("val"));
         console.log(e)
@@ -216,7 +282,7 @@
             console.log(x)
             let inputs = (document.querySelectorAll(`div[idval="${x}"]`));
             inputs.forEach((input) => {
-                input.value = null;
+              //  input.value = null;
                 console.log(input)
                 input.removeAttribute("hidden")
             });
@@ -227,7 +293,7 @@
             let inputs = (document.querySelectorAll(`input[idval="${x}"]`));
             console.log(inputs)
             inputs.forEach((input) => {
-                input.value = null;
+               // input.value = null;
                 console.log(input)
                 input.parentElement.parentElement.setAttribute("hidden", "")
             });
@@ -282,117 +348,3 @@
     //});
 </script>
 
-
-
-<script src="~/lib/jquery/dist/jquery.js"></script>
-<script>
-    let area = document.getElementById("patient");
-    area.value = sessionStorage.getItem("key")
-</script>
-<script type="text/javascript">
-        $(document).ready(function () {
-            let input = document.querySelectorAll('.log-select')
-            input.forEach(logSelectOnStart);
-        })
-        async function logSelectOnStart(element,index,array) {
-            let type = element.type;
-            let fieldvalue = element.value;
-            let formid = @ViewBag.formid;
-
-            console.log(element)
-            let fieldid = element.id;
-            await $.post("/addlog", {
-                value: fieldvalue,
-                type: type,
-                formid: formid,
-                fieldid: fieldid,
-            }).done(res=>console.log(res)).fail(err => console.log(err));
-        }
-        //Daniel - logi
-        let input = $('.log');
-        input.change(function () {
-            let type = this.type
-            let fieldvalue;
-            switch (type) {
-                case "checkbox":
-                    if ($(this).prop("checked") == true) {
-                        fieldvalue = true;
-                    }
-                    else fieldvalue = false;
-                    break;
-                case "text":
-                    fieldvalue = this.value
-                    break;
-                case "number":
-                    fieldvalue = this.value
-                    break;
-                case "select-one":
-                    fieldvalue = this.value
-                    break;
-            }
-            let formid = @ViewBag.formid;
-            let fieldid = this.id
-            let log = {
-                FormID: formid,
-                FieldID: fieldid,
-                AnswerValue: fieldvalue
-            }
-            $.post("/addlog", {
-                value: fieldvalue,
-                type : type,
-                formid: formid,
-                fieldid: fieldid,
-            }).done(function (data) {
-                console.log(data);
-                });
-        });
-        //end logi
-        $(function(){
-            $("[numInput='true']").keypress(function (e) {
-                console.log(this.value)
-                if (e.which == 49 || e.which == 50 || e.which == 51 || e.which == 52 || e.which == 53 || e.which == 54 || e.which == 55 || e.which == 56 || e.which == 57 || e.which == 48 || e.which == 44 || e.which == 45) {
-                    if (this.value.includes(",") && e.which==44) {
-                        return false;
-                    }
-        } else {
-          return false;
-        }
-      });
-       });
-        $("[numInput='true']").change(function () {
-            $.ajax({
-                        url: "/api/Validations/" + this.id + "/" + this.value,
-                         dataType: "json"
-            }).done(res => CheckValidations(res, this));
-        });
-        function CheckValidations(response, input) {
-            let error = $("[ErrorId=" + input.id + "]")[0];
-            console.log(error);
-            console.log(response);
-            if (response.response != "true") {
-                error.innerHTML = response.response;
-                error.hidden = false;
-                SetSubmitButtonStatus();
-            }
-            else if (response.response == "true") {
-                error.hidden = true;
-                SetSubmitButtonStatus();
-            }
-        }
-        function SetSubmitButtonStatus() {
-            let paragraphs = $("[errorParagraf='true']");
-            let licznik = 0;
-            for (let i = 0; i < paragraphs.length; i++) {
-                if (paragraphs[i].hidden == false) {
-                    licznik++;
-                }
-            }
-            console.log(licznik);
-            if (licznik == 0) {
-                document.getElementById("MainSubmit").disabled = false;
-            }
-            if (licznik != 0) {
-                document.getElementById("MainSubmit").disabled = true;
-            }
-        }
-</script>

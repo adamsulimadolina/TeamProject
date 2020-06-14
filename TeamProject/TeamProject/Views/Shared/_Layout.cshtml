@@ -244,9 +244,15 @@
 
                     form.click(function () {
 
-                        //if (!data[i].isSendBefore) {
+                        if (data[i].isSendBefore) {
+
+                            window.location.href = '/Forms/EdycjaWypelnionegoFormularza/' + data[i].idForm;
+                        }
+                        else {
                             window.location.href = '/Forms/Formularz/' + data[i].idForm;
-                        //}
+                        }
+                           
+                    
                         
 
                         return false;
