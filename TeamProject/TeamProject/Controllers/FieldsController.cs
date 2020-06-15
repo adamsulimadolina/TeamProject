@@ -106,11 +106,11 @@ namespace FormGenerator.Controllers
         public IActionResult AddToList(NewFieldList newFieldList)
         {
             //jeśli pole które chcemy stworzyć znajduje się już w systemie->nie pozwalamy
-            if (_context.Field.AsNoTracking().FirstOrDefault(f => f.Name == newFieldList.currentNameToCreate) != null)
-            {
-                TempData["Error"] = "Pole o podanej nazwie już istnieje w systemie. Nie można dodać pola o tej samej nazwie!";
-                return View("AddNewField", newFieldList);
-            }
+            //if (_context.Field.AsNoTracking().FirstOrDefault(f => f.Name == newFieldList.currentNameToCreate) != null)
+            //{
+            //    TempData["Error"] = "Pole o podanej nazwie już istnieje w systemie. Nie można dodać pola o tej samej nazwie!";
+            //    return View("AddNewField", newFieldList);
+            //}
 
             FieldWithValidation field;
             if (newFieldList.currentName == "")

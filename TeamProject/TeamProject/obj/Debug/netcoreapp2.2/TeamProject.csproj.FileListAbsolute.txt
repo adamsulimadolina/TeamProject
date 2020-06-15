@@ -1222,3 +1222,4 @@ C:\Users\PC\Desktop\Excel\TeamProject\TeamProject\TeamProject\obj\Debug\netcorea
 C:\Users\PC\Desktop\Excel\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.csproj.CopyComplete
 E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\FieldDependency\ListOfDependenciesForField.cshtml.g.cs
 E:\Adas\STUDIA\SEMESTR 5\ProjektZespolowy\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Forms\EdycjaWypelnionegoFormularza.cshtml.g.cs
+C:\Users\kacpe\Documents\GitHub\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Forms\EdycjaWypelnionegoFormularza.cshtml.g.cs

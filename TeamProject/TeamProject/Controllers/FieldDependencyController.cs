@@ -10,6 +10,7 @@ using TeamProject.DTOs.FieldDependency;
 using TeamProject.ExtensionMethods;
 using TeamProject.Models.FieldDependencyModels;
 using TeamProject.Models.FieldFieldDependencyModels;
+using TeamProject.Models.NewTypeAndValidation;
 
 namespace TeamProject.Controllers
 {
@@ -154,6 +155,47 @@ namespace TeamProject.Controllers
             {
                 KamilMistrz[field.Name] = createDependency.CurrentFieldAnswers.Split(';');
                 TempData.Put<Dictionary<String, String[]>>("ListOfAnswers", KamilMistrz);
+            }
+            else if (createDependency.CurrentFieldType == "number")
+            {
+                _context.Field.Add(field);
+                _context.SaveChanges();
+
+                if(createDependency.CurrentFieldMin != null )
+                {
+                    Validation validation = new Validation()
+                    {
+                        idField = field.Id,
+                        type = "min",
+                        value = createDependency.CurrentFieldMin
+                    };
+                _context.Validations.Add(validation);
+                }
+
+                if (createDependency.CurrentFieldMax != null)
+                {
+                    Validation validation = new Validation()
+                    {
+                        idField = field.Id,
+                        type = "max",
+                        value = createDependency.CurrentFieldMax
+                    };
+                    _context.Validations.Add(validation);
+                }
+
+                if (createDependency.CurrentFieldIsInteger != null)
+                {
+                    Validation validation = new Validation()
+                    {
+                        idField = field.Id,
+                        type = "integerVal",
+                        value = createDependency.CurrentFieldIsInteger
+                    };
+                    _context.Validations.Add(validation);
+                }
+
+                _context.SaveChanges();
+                
             }
 
             TempData.Put<CreateDependencyDTO>("CreateDependencyFromPostToGet", createDependency);
