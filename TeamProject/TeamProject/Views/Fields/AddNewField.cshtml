@@ -155,6 +155,10 @@
                             <td>@Model.fields[i].Type</td>
                             <td>
                                 <a asp-route-fieldId="@Model.fields[i].Id" asp-action="DeleteFromList">Usuń</a>
+                                @if (Model.fields[i].Type == "select")
+                                {
+                                <a asp-controller="FieldDependency" asp-action="ListOfDependenciesForField"  asp-route-ide="@Model.fields[i].Id" class="zal btn btn-info">dodaj pola zależne</a>
+                                }
                             </td>
                         </tr>
                     }

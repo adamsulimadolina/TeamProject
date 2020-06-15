@@ -161,7 +161,7 @@ namespace TeamProject.Controllers
                 _context.Field.Add(field);
                 _context.SaveChanges();
 
-                if(createDependency.CurrentFieldMin != null )
+                if(createDependency.CurrentFieldMin != 0 )
                 {
                     Validation validation = new Validation()
                     {
@@ -172,7 +172,7 @@ namespace TeamProject.Controllers
                 _context.Validations.Add(validation);
                 }
 
-                if (createDependency.CurrentFieldMax != null)
+                if (  createDependency.CurrentFieldMax != 0)
                 {
                     Validation validation = new Validation()
                     {
@@ -183,7 +183,7 @@ namespace TeamProject.Controllers
                     _context.Validations.Add(validation);
                 }
 
-                if (createDependency.CurrentFieldIsInteger != null)
+                if (  createDependency.CurrentFieldIsInteger == 100)
                 {
                     Validation validation = new Validation()
                     {
@@ -193,6 +193,10 @@ namespace TeamProject.Controllers
                     };
                     _context.Validations.Add(validation);
                 }
+                createDependency.CurrentFieldIsInteger = 0;
+                createDependency.CurrentFieldMax = 0;
+                createDependency.CurrentFieldMin = 0;
+
 
                 _context.SaveChanges();
                 

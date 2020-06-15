@@ -69,6 +69,24 @@ body {font-family: Arial, Helvetica, sans-serif;}
   background-color: #5cb85c;
   color: white;
 }
+.mybtn{
+background-color: #212529;
+}
+.mybtn:hover{
+    background-color: #324331;
+}
+.myreversebtn{
+ background-color: #324331;
+}
+.myreversebtn:hover {
+    background-color: #212529;
+}
+.subbtn{
+ background-color: #A8A8A8;
+}
+        .subbtn:hover {
+            background-color: #212529;
+        }
     </style>
 
 
@@ -83,7 +101,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
     <input hidden asp-for="@Model.SuperiorFieldId" />
     <input hidden value="@TempData["isDependency"]" id="myHiddenVar" />
-   
+
     @for (var i = 0; i < Model.ActivationValues?.Count; i++)
     {
         if (Model.ActivationValues[i] != null)
@@ -105,27 +123,29 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
     <div hidden id="new">
         <p>
-            <label for="@Model.DependencyType">Typ zależności</label>
-            <select name="DependencyType" asp-for="@Model.DependencyType">
+
+            <select hidden name="DependencyType" asp-for="@Model.DependencyType">
                 <option selected="selected" value="FieldVisibly">Wartościowa</option>
-                <option value="FieldDuplication">Ilościowa</option>
+
             </select><br />
         </p>
 
         <p>
             <label for="@Model.ActivationValue">Wartość aktywująca zależność </label>
             <select asp-for="@Model.ActivationValue">
+                <option selected disabled>wybierz pole</option>
                 @foreach (var x in Model.ActivationValues)
                 {
                     <option value="@x">@x</option>
                 }
 
             </select>
-            <button id="createBtn" class="btn">Zatwierdz</button>
+            <button id="createBtn" class="btn mybtn">Zatwierdz</button>
         </p>
 
     </div>
     <br />
+    <button id="myBtn" class="mybtn btn">nowe pole </button>
     <table class="table table-striped" id="RelatedFieldsTable">
         <thead>
             <tr>
@@ -150,8 +170,6 @@ body {font-family: Arial, Helvetica, sans-serif;}
     </table>
     <br />
     <!-- Trigger/Open The Modal -->
-    <button id="myBtn">nowe pole (modal)</button>
-
     <!-- The Modal -->
     <div id="myModal" class="modal">
         <!-- Modal content -->
@@ -199,14 +217,13 @@ body {font-family: Arial, Helvetica, sans-serif;}
                 </div>
 
 
-                <button id="addNewField" style=" background-color:white;
-            color:#66BB6A;
+                <button id="addNewField" style=" 
             font-size:20px;
             padding: 15px 35px;
             border-radius: 8px;
-            position:center;" type="submit" asp-action="addTest" class="btn btn-success">
+            position:center;" type="submit" asp-action="addTest" class="btn myreversebtn">
                     Stwórz
-                </button> />
+                </button> 
             </div>
 
         </div>
@@ -217,9 +234,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 
     <br />
-    <button id="AddDependedField" type="submit">Dodaj Pole</button><br />
-    <button id="newField">Dodaj nowe pole</button><br />
-    <button style="margin-top:30px;" asp-action="CreateDependency">Stwórz zależność</button>
+    <br />
+    <button style="margin-top:30px;" asp-action="CreateDependency" class="subbtn btn">Stwórz zależność</button>
 
     @* Hidden fields *@
     <input asp-for="@Model.AllIndependentFieldsName" hidden />
