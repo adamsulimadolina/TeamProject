@@ -11,74 +11,41 @@
     <h3>Usuwanie</h3>
 </span>
 
+@if (ViewBag.message == true)
+{
+    <h3>
+        Pomyślnie usunięto
+    </h3>
+    <hr />
 
-<style>
-    .cities {
-        background-color: #66BB6A;
-        color: white;
-        margin: 20px;
-        padding: 20px;
-    }
-</style>
-<h1 style="color:#66BB6A;  font-weight:700">Usuwanie pola</h1>
-<div class="cities">
-    @if (ViewBag.message == true)
-    {
-        <h3>
-            Pomyślnie usunięto
-        </h3>
-    }
+}
+else
+{
 
-<div>
-    <br />
-    <a style="color:black" asp-area="" asp-controller="Forms" asp-action="EdycjaFormularza" asp-route-id="@ViewBag.IDFORM">
-        <img src="~/arrow2.png" class="rounded-circle" alt="Add" width="30" height="30">
-    </a>
-    <br />
-</div>
+    <div>
+        <br />
+        <a style="color:black" asp-area="" asp-controller="Forms" asp-action="EdycjaFormularza" asp-route-id="@ViewBag.IDFORM">
+            <img src="~/arrow2.png" class="rounded-circle" alt="Add" width="30" height="30">
+        </a>
+        <br />
+    </div>
 
     <form asp-action="Delete" class="shadow p-3 mb-5 bg-white rounded" style="height:50px;">
         <div class="form-group">
             <label>Czy na pewno usunąć wybrane pole?</label>
         </div>
         <div>
-            <h4>Field</h4>
-            <hr />
-            <dl class="row">
-                <dt class="col-sm-2">
-                    Nazwa
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Name)
-                </dd>
-                <dt class="col-sm-2">
-                   Typ
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Type)
-                </dd>
-            </dl>
-
-
-
-
-
-                <input style=" background-color:white"
-            color:#66BB6A;
-            font-size:20px;
-            padding: 15px 35px;
-            border-radius: 8px;
-            position:center;"  type="submit" value="Delete" class="btn btn-danger" />
-
-              
-            </form>
-
+            <input type="hidden" asp-for="Id" />
+            <input class="btn-outline-dark" type="submit" value="Usuń" />
         </div>
+    </form>
 
-    
 
-<div>
-    <a style="color:#66BB6A;  font-weight:700" asp-action="EdycjaFormularza" asp-controller="Forms" asp-route-id="@ViewBag.IDFORM">Powrót do formualarza</a>
+}
 
-</div>
+
+
+
+
+
 

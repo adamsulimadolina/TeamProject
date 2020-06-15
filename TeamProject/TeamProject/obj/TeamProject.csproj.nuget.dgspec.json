@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Adas\\STUDIA\\SEMESTR 5\\ProjektZespolowy\\TeamProject\\TeamProject\\TeamProject.csproj": {}
+    "C:\\Users\\izabe\\OneDrive\\Pulpit\\Team X\\final\\TeamProject\\TeamProject\\TeamProject\\TeamProject.csproj": {}
   },
   "projects": {
-    "E:\\Adas\\STUDIA\\SEMESTR 5\\ProjektZespolowy\\TeamProject\\TeamProject\\TeamProject.csproj": {
+    "C:\\Users\\izabe\\OneDrive\\Pulpit\\Team X\\final\\TeamProject\\TeamProject\\TeamProject\\TeamProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Adas\\STUDIA\\SEMESTR 5\\ProjektZespolowy\\TeamProject\\TeamProject\\TeamProject.csproj",
+        "projectUniqueName": "C:\\Users\\izabe\\OneDrive\\Pulpit\\Team X\\final\\TeamProject\\TeamProject\\TeamProject\\TeamProject.csproj",
         "projectName": "TeamProject",
-        "projectPath": "E:\\Adas\\STUDIA\\SEMESTR 5\\ProjektZespolowy\\TeamProject\\TeamProject\\TeamProject.csproj",
-        "packagesPath": "C:\\Users\\adams\\.nuget\\packages\\",
-        "outputPath": "E:\\Adas\\STUDIA\\SEMESTR 5\\ProjektZespolowy\\TeamProject\\TeamProject\\obj\\",
+        "projectPath": "C:\\Users\\izabe\\OneDrive\\Pulpit\\Team X\\final\\TeamProject\\TeamProject\\TeamProject\\TeamProject.csproj",
+        "packagesPath": "C:\\Users\\izabe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\izabe\\OneDrive\\Pulpit\\Team X\\final\\TeamProject\\TeamProject\\TeamProject\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\adams\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\izabe\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -103,7 +100,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
         }
       }
     }
