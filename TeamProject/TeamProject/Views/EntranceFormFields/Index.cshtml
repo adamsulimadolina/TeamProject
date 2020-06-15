@@ -8,41 +8,53 @@
     table {
         border-collapse: collapse;
         width: 100%;
-    }
-
-    th, td {
-        text-align: left;
-        padding: 8px;
-    }
-
-    tr {
-        background-color: #8bbabb
+        box-shadow: black;
     }
 
     th {
-        background-color: #464159;
-        color: white;
+        text-align: left;
+        color: lightgray;
+        padding: 8px;
+        border-bottom: 2px solid grey;
+        color: black;
     }
 
+    td {
+        text-align: left;
+        padding: 8px;
+        border-bottom: 2px solid grey;
+    }
+
+    tr {
+        background-color: whitesmoke;
+    }
+
+
+
     a {
-        color: #424242;
+        color: forestgreen;
         font-weight: 500;
     }
 
     .table tbody tr:hover {
-        background-color: #6C7B95;
+        background-color: darkgray;
     }
 
     td {
         color: black;
     }
 </style>
+
+<div><br /></div>
+<a style="color:black;" id="stworzNowyFormularz" asp-action="Create">
+    <img src="~/add.png" class="rounded-circle" alt="Add" width="30" height="30">
+</a>
+<th>Dodaj nową zależność do formularza początkowego</th>
 <div>
-    <button class="btn btn-danger" style="margin-bottom:10px;"><a id="stworzNowyFormularz" style="text-decoration:none;" asp-action="Create">Dodaj nową zależność do formularza początkowego</a></button>
+    <br />
 </div>
 
-
-<table class="table">
+<table class="table table-hover">
     <thead>
         <tr>
             <th>
@@ -67,38 +79,8 @@
                     @Html.DisplayFor(modelItem => item.Type)
                 </td>
                 <td>
-                    <button type="button" class="btn btn-info"><a style="text-decoration:none;color:white;" asp-action="AddConnection" asp-route-id="@item.Id">Edycja</a></button>
-                    <button type="button" class="btn btn-info"><a style="text-decoration:none;color:white;" asp-action="Delete" asp-route-id="@item.Id">Usuń</a></button>
-
-
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter"asp-action="Delete" asp-route-id="@item.Id">
-                        Usun
-                    </button>
-
-                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <p>Chcesz usunac jestes pewny???</p>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <div>
-                                        <form asp-action="Delete"asp-route-id="@item.Id">
-                                            <input type="hidden" />
-                                            <input type="submit" value="USUŃ" class="btn btn-danger" /> |
-                                            <a asp-action="Index">Powrót do listy</a>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                    <a asp-action="AddConnection" asp-route-id="@item.Id">Edytuj</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
                 </td>
             </tr>
         }
