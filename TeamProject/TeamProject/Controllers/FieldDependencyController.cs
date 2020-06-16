@@ -228,11 +228,11 @@ namespace TeamProject.Controllers
             //    {
             //        _context.Add(f);
             //        _context.SaveChangesAsync();
-            //    }
+            //    } 
             //}
             var ListOfAnswers = TempData.Get<Dictionary<String, String[]>>("ListOfAnswers");
             _fieldDependenciesRepo.SaveDependency(dependency,  ListOfAnswers);
-            return RedirectToAction("Index", "Forms");
+            return RedirectToAction("Index", new { id = createDependency.SuperiorFieldId });
         }
     }
 }
