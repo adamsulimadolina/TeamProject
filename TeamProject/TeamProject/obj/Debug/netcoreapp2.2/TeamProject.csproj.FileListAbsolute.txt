@@ -1319,3 +1319,4 @@ C:\Users\User\Documents\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp
 C:\Users\User\Documents\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.dll
 C:\Users\User\Documents\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.pdb
 C:\Users\User\Documents\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Logout.cshtml.g.cs
+C:\Users\kacpe\Documents\GitHub\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Logout.cshtml.g.cs

@@ -38,7 +38,7 @@ namespace FormGenerator.Models
         public DbSet<Logs> Logs { get; set; }
         public DbSet<Patient> Patients { get; set; }
         public DbSet<PatientForms> PatientForms { get; set; }
-        public DbSet<FieldToForms> FieldToForms { get; set; }
+ 
         public DbSet<Field> Field { get; set; }
         public DbSet<Forms> Forms { get; set; }
         public DbSet<FormField> FormField { get; set; }
@@ -54,7 +54,7 @@ namespace FormGenerator.Models
         public DbSet<FieldFieldDependency> Dependencies { get; set; }
         public DbSet<Test> Tests { get; set; }
         public DbSet<TableNameTranslation> TableNameTranslations { get; set; }
-        public DbSet<GUIDFileNameMap> GUIDFileNameMap { get; set; }
+ 
 
     }
 }
