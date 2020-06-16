@@ -7,13 +7,13 @@
             var fileExtension = ['xls', 'xlsx'];
             var filename = $('#fileupload').val();
             if (filename.length == 0) {
-                alert("Please select a file.");
+                alert("Wybierz plik");
                 return false;
             }
             else {
                 var extension = filename.replace(/^.*\./, '');
                 if ($.inArray(extension, fileExtension) == -1) {
-                    alert("Please select only excel files.");
+                    alert("Wybierz plik excel.");
                     return false;
                 }
             }
@@ -33,7 +33,7 @@
                 processData: false,
                 success: function (response) {
                     if (response.length == 0)
-                        alert('Some error occured while uploading');
+                        alert('Error');
                     else {
                         $('#divPrint').html(response);
                     }
@@ -47,7 +47,7 @@
             var fileExtension = ['xls', 'xlsx'];
             var filename = $('#fileupload').val();
             if (filename.length == 0) {
-                alert("Please select a file then Import");
+                alert("Wybierz plik");
                 return false;
             }
         });
@@ -56,16 +56,15 @@
 </script>
 <form asp-controller="Patient" asp-action="Import">
     <div class="container">
-        <div class="row">
-            <div class="col-md-4">
+        <div class="wrapper">
+            <div class="wrap">
                 <input type="file" id="fileupload" name="files" class="form-control" />
-            </div>
-            <div class="col-md-3">
-                <input type="button" name="Upload" value="Upload" id="btnupload" class="btn btn-primary" />
+                <button type ="button" name="Upload" value="Upload" id="btnupload" class="button_search"> Zapisz</button>
             </div>
             <div class="clearfix">&nbsp;</div>
             <div class="row">
                 <div id="divPrint"></div>
+            </div>
             </div>
         </div>
 </form>
@@ -95,3 +94,29 @@
     }
 
 </div>
+
+<style>
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 99px;
+        margin: 71px;
+    }
+    .wrap {
+        display: flex;
+        flex-direction: column;
+        width: 398px;
+        border: 1px black solid;
+        padding: 15px;
+    }
+
+
+    .input {
+        height: 65px;
+        border: 0;
+        border-bottom: 1px solid black;
+    }
+
+</style>

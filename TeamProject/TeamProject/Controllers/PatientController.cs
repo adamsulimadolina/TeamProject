@@ -218,12 +218,14 @@ namespace TeamProject.Controllers
                     }
                     IRow headerRow = sheet.GetRow(0); //Get Header Row
                     int cellCount = headerRow.LastCellNum;
+                    sb.Append("Dodano pomyślnie pacjentów do bazy");
                     sb.Append("<table class='table table-bordered'><tr>");
                     for (int j = 0; j < cellCount; j++)
                     {
                         NPOI.SS.UserModel.ICell cell = headerRow.GetCell(j);
                         if (cell == null || string.IsNullOrWhiteSpace(cell.ToString())) continue;
-                        sb.Append("<th>" + cell.ToString() + "</th>");
+                       // sb.Append("<th>" + cell.ToString() + "</th>");
+                      
                     }
                     sb.Append("</tr>");
                     sb.AppendLine("<tr>");
@@ -236,7 +238,7 @@ namespace TeamProject.Controllers
                         {
                             if (row.GetCell(j) != null)
                             {
-                                // sb.Append("<td>" + row.GetCell(j).ToString() + "</td>");
+                               // sb.Append("<td>" + row.GetCell(j).ToString() + "</td>");
 
                                 if (j == row.FirstCellNum)
                                 {
