@@ -44,7 +44,7 @@ namespace FormGenerator.Models
         public DbSet<FormField> FormField { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Answers> Answers { get; set; }
-        public DbSet<FieldAnswer> FieldAnswer { get; set; }
+      
         public DbSet<UserAnswers> UserAnswers { get; set; }
         public DbSet<FormGenerator.Models.Modele_pomocnicze.UserAnswerList> UserAnswerList { get; set; }
         public DbSet<SelectFieldOptions> SelectFieldOptions { get; set; }
