@@ -279,7 +279,7 @@ namespace FormGenerator.Controllers
                 }
             }
             _context.SaveChanges();
-            return RedirectToAction("Formularz", "Forms", new { id = newFieldList.FormId });
+            return RedirectToAction("Home");
         }
         // GET: Fields/Edit/5
         public async Task<IActionResult> Edit(int? id)
