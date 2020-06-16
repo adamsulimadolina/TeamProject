@@ -8,7 +8,46 @@
 
 
 
+<style>
 
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        box-shadow: black;
+    }
+
+    th {
+        text-align: left;
+        color: lightgray;
+        padding: 8px;
+        border-bottom: 2px solid grey;
+        color: black;
+    }
+
+    td {
+        text-align: left;
+        padding: 8px;
+        border-bottom: 2px solid grey;
+    }
+
+    tr {
+        background-color: whitesmoke;
+    }
+
+
+
+    a {
+        color: forestgreen;
+        font-weight: 500;
+    }
+
+    .table tbody tr:hover {
+        background-color: darkgray;
+    }
+
+    td {
+        color: black;
+    }
 </style>
 <h3>Edytuj formularz</h3>
 <div class="cities">
@@ -79,7 +118,7 @@
                                     <label asp-for="@Model[i].Field.Name" class="control-label">@Model[i].Field.Name</label>
 
 
-                                    <select class="form-control log log-select" asp-for="@Model[i].TextValue" style="width:250px;" id="@Model[i].Field.Id">
+                                    <select class="form-control log log-select main" asp-for="@Model[i].TextValue" style="width:250px;" id="@Model[i].Field.Id">
 
                                         @foreach (var option in Model[0].options)
                                         {
@@ -204,59 +243,90 @@
 
 
     $(document).ready(function () {
-        console.log("hallo");
+        //console.log("hallo");
         //inputs.forEach(input => handleShow(input));
-        inputs.forEach(input => console.log(input.value));
-        inputs.forEach(input => input.addEventListener('load ', handleShow));
+        //inputs.forEach(input => console.log(input.value));
+        //inputs.forEach(input => input.addEventListener('load ', handleShow));
 
+        let fb = document.querySelectorAll(".main");
+    
+        fb.forEach((dep) => {
+         
+            for (let i = 0; i < dep.parentNode.children.length; i++) {
+                let input;
+                if (dep.parentNode.children[i].className)
+                    if (dep.parentNode.children[i].className.includes("form-control")) {
+                        input = dep.parentNode.children[i];
+             
 
+                        handlerOnStart(dep.parentElement, dep.value);
 
+                    }
 
+            }
+        });
+        function handlerOnStart(par, val) {
+
+            par.childNodes.forEach((child) => {
+                if (child.className && child.className.includes("dependent")) {
+                    child.setAttribute("hidden", "")
+                }
+
+            });
+
+            par.childNodes.forEach((child) => {
+                if (child.className && child.className.includes("dependent") && child.dataset.value == val) {
+                    child.removeAttribute("hidden")
+                }
+            });
+
+        }
     });
 
-    function handleShow(e) {
-        console.log("halo");
 
-        console.log(e.value);
+    //function handleShow(e) {
+    //    console.log("halo");
+
+    //    console.log(e.value);
 
 
-        if (e.parentNode.getAttribute("type") == "FieldDuplication" && parseInt(e.parentNode.getAttribute("val")) >= parseInt(e.value) && parseInt(e.value) > 0) {
+    //    if (e.parentNode.getAttribute("type") == "FieldDuplication" && parseInt(e.parentNode.getAttribute("val")) >= parseInt(e.value) && parseInt(e.value) > 0) {
 
-            let divs = (document.querySelectorAll("div[idval]"));
-            console.log(divs)
-            for (let i = 0, j = 0; i < e.value, j < e.value; i++) {
-                if (divs[i].getAttribute("idval") === e.parentNode.getAttribute("parentId")) {
-                    divs[i].removeAttribute("hidden");
-                    j++;
-                }
-            }
-        }
-        else if (e.parentNode.getAttribute("type") == "FieldVisibly" && e.parentNode.getAttribute("val") === e.value) {
-            //  e.target.parentElement.lastElementChild.removeAttribute("hidden");
-            let x = (e.parentNode.getAttribute("parentid"));
-            console.log(x)
-            let inputs = (document.querySelectorAll(`div[idval="${x}"]`));
-            inputs.forEach((input) => {
-                input.value = null;
-                //jak nullowac selecty
-                console.log("removeHidden")
-                input.removeAttribute("hidden")
-            });
-        }
-        else {
-            let x = (e.parentNode.getAttribute("parentid"));
-            console.log(x)
-            let inputs = (document.querySelectorAll(`input[idval="${x}"]`));
-            console.log(inputs)
-            inputs.forEach((input) => {
-                input.value = null;
-                console.log("setHidden")
-                input.parentElement.parentElement.setAttribute("hidden", "")
-                input.addEventListener("load", handler)
-            });
-        }
+    //        let divs = (document.querySelectorAll("div[idval]"));
+    //        console.log(divs)
+    //        for (let i = 0, j = 0; i < e.value, j < e.value; i++) {
+    //            if (divs[i].getAttribute("idval") === e.parentNode.getAttribute("parentId")) {
+    //                divs[i].removeAttribute("hidden");
+    //                j++;
+    //            }
+    //        }
+    //    }
+    //    else if (e.parentNode.getAttribute("type") == "FieldVisibly" && e.parentNode.getAttribute("val") === e.value) {
+    //        //  e.target.parentElement.lastElementChild.removeAttribute("hidden");
+    //        let x = (e.parentNode.getAttribute("parentid"));
+    //        console.log(x)
+    //        let inputs = (document.querySelectorAll(`div[idval="${x}"]`));
+    //        inputs.forEach((input) => {
+    //            input.value = null;
+    //            //jak nullowac selecty
+    //            console.log("removeHidden")
+    //            input.removeAttribute("hidden")
+    //        });
+    //    }
+    //    else {
+    //        let x = (e.parentNode.getAttribute("parentid"));
+    //        console.log(x)
+    //        let inputs = (document.querySelectorAll(`input[idval="${x}"]`));
+    //        console.log(inputs)
+    //        inputs.forEach((input) => {
+    //            input.value = null;
+    //            console.log("setHidden")
+    //            input.parentElement.parentElement.setAttribute("hidden", "")
+    //            input.addEventListener("load", handler)
+    //        });
+    //    }
 
-    }
+    //}
 
 
 
@@ -282,7 +352,7 @@
             console.log(x)
             let inputs = (document.querySelectorAll(`div[idval="${x}"]`));
             inputs.forEach((input) => {
-              //  input.value = null;
+                input.value = null;
                 console.log(input)
                 input.removeAttribute("hidden")
             });
@@ -293,16 +363,15 @@
             let inputs = (document.querySelectorAll(`input[idval="${x}"]`));
             console.log(inputs)
             inputs.forEach((input) => {
-               // input.value = null;
+                input.value = null;
                 console.log(input)
                 input.parentElement.parentElement.setAttribute("hidden", "")
             });
         }
     }
-    let dependentDuplication = document.querySelectorAll("th[val]");
+    //let dependentDuplication = document.querySelectorAll("th[val]");
     let inputs = document.querySelectorAll("th[val] > input.form-control , select.form-control");
     inputs.forEach(input => input.addEventListener('change', handleCheck));
-
     let fieldVisibly = document.querySelectorAll("th[type=fieldVisibly]");
     console.log(fieldVisibly)
 
