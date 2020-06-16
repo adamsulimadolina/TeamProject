@@ -66,10 +66,9 @@
     </div>
 </div>
 
-
 <div class="row">
     <div class="col-md-4 offset-4">
-        <form asp-action="Create">
+        <form enctype="multipart/form-data" asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="IdPatient" class="control-label">Podaj Id pacienta</label>
@@ -82,6 +81,7 @@
                 <input id="createbutton" type="submit" value="Stwórz" class="btn btn-primary" />
             </div>
         </form>
+
 
         @if (ViewBag.Message == 1)
         {

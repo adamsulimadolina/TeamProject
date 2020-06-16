@@ -7,9 +7,18 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Hosting;
 using TeamProject.Models.FormGeneratorModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.IO;
+using NPOI.SS.UserModel;
+using NPOI.XSSF.UserModel;
+using NPOI.HSSF.UserModel;
+using System.Text;
+using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore.Migrations.Operations;
+using NPOI.SS.Format;
 
 namespace TeamProject.Controllers
 {
@@ -17,18 +26,24 @@ namespace TeamProject.Controllers
     public class PatientController : Controller
     {
 
+       
         private readonly FormGeneratorContext _context;
 
-        public PatientController(FormGeneratorContext context)
+        private IHostingEnvironment _hostingEnvironment;
+
+        
+
+        public PatientController(FormGeneratorContext context, IHostingEnvironment hostingEnvironment)
         {
             _context = context;
+            _hostingEnvironment = hostingEnvironment;
         }
 
         [HttpGet]
         public async Task<ObjectResult> PatientForms(int id)
         {
             int? current_test = HttpContext.Session.GetInt32("current_test");
-            var patientForms = await _context.PatientForms.Where(m => m.IdPatient == id && m.agreement==true && m.IdTest == current_test).ToListAsync();
+            var patientForms = await _context.PatientForms.Where(m => m.IdPatient == id && m.agreement == true && m.IdTest == current_test).ToListAsync();
             var forms = await _context.Forms.ToListAsync();
 
             List<PatientFormsHelper> list = new List<PatientFormsHelper>();
@@ -43,12 +58,12 @@ namespace TeamProject.Controllers
                     IdTest = (int)current_test,
                     nazwa_formularza = forms.FirstOrDefault(n => n.Id == x.IdForm).Name,
                     agreement = x.agreement,
-                    IsSendBefore=x.IsSendBefore
+                    IsSendBefore = x.IsSendBefore
 
                 };
                 list.Add(pom);
             }
-           
+
 
             return Ok(list);
         }
@@ -58,12 +73,12 @@ namespace TeamProject.Controllers
         {
             var list = await _context.Tests
                 .Where(t => t.IdPatient == id)
-                .Select( t => t.IdTest)
+                .Select(t => t.IdTest)
                 .ToListAsync();
             if (list == null) list.Add(1);
             else list.Add(list.Count + 1);
             List<SelectListItem> select_list = new List<SelectListItem>();
-            foreach(var el in list)
+            foreach (var el in list)
             {
                 select_list.Add(new SelectListItem { Value = el.ToString() });
             }
@@ -135,7 +150,7 @@ namespace TeamProject.Controllers
         [HttpGet]
         public async Task<ActionResult> AllPatientForms(int id)
         {
-            var patientForms = await _context.PatientForms.Where(m => m.IdPatient == id ).ToListAsync();
+            var patientForms = await _context.PatientForms.Where(m => m.IdPatient == id).ToListAsync();
             var forms = await _context.Forms.ToListAsync();
 
             List<PatientFormsHelper> list = new List<PatientFormsHelper>();
@@ -164,6 +179,107 @@ namespace TeamProject.Controllers
             return View();
         }
 
+        public IActionResult ImportFile()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<ActionResult> Import()
+        {
+            IFormFile file = Request.Form.Files[0];
+            string folderName = "UploadExcel";
+            string webRootPath = _hostingEnvironment.WebRootPath;
+            string newPath = Path.Combine(webRootPath, folderName);
+            StringBuilder sb = new StringBuilder();
+            if (!Directory.Exists(newPath))
+            {
+                Directory.CreateDirectory(newPath);
+            }
+            if (file.Length > 0)
+            {   
+                string sFileExtension = Path.GetExtension(file.FileName).ToLower();
+                ISheet sheet;
+                string fullPath = Path.Combine(webRootPath, file.FileName);
+                using (FileStream stream = new FileStream(fullPath, FileMode.Create))
+                {
+                    
+                    file.CopyTo(stream);
+                    stream.Position = 0;
+                   
+                    if (sFileExtension == ".xls")
+                    {
+                        HSSFWorkbook hssfwb = new HSSFWorkbook(stream); //This will read the Excel 97-2000 formats  
+                        sheet = hssfwb.GetSheetAt(0); //get first sheet from workbook  
+                    }
+                    else
+                    {
+                        XSSFWorkbook hssfwb = new XSSFWorkbook(stream); //This will read 2007 Excel format  
+                        sheet = hssfwb.GetSheetAt(0); //get first sheet from workbook   
+                    }
+                    IRow headerRow = sheet.GetRow(0); //Get Header Row
+                    int cellCount = headerRow.LastCellNum;
+                    sb.Append("<table class='table table-bordered'><tr>");
+                    for (int j = 0; j < cellCount; j++)
+                    {
+                        NPOI.SS.UserModel.ICell cell = headerRow.GetCell(j);
+                        if (cell == null || string.IsNullOrWhiteSpace(cell.ToString())) continue;
+                        sb.Append("<th>" + cell.ToString() + "</th>");
+                    }
+                    sb.Append("</tr>");
+                    sb.AppendLine("<tr>");
+                    for (int i = (sheet.FirstRowNum + 1); i <= sheet.LastRowNum; i++) //Read Excel File
+                    {
+                        IRow row = sheet.GetRow(i);
+                        if (row == null) continue;
+                        if (row.Cells.All(d => d.CellType == CellType.Blank)) continue;
+                        for (int j = row.FirstCellNum; j < cellCount; j++)
+                        {
+                            if (row.GetCell(j) != null)
+                            {
+                               // sb.Append("<td>" + row.GetCell(j).ToString() + "</td>");
+
+                                if (j == row.FirstCellNum)
+                                {
+                                    double tmp = row.Cells[0].NumericCellValue;
+                                    int id = Convert.ToInt32(tmp);
+                                    var patient = new Patient();
+
+                                    var entranceConnections = await _context.EntranceConnections.ToListAsync();
+                                   
+
+                                    if (_context.Patients.AsNoTracking().FirstOrDefault(p => p.IdPatient == id) == null)
+                                    {
+                                        
+                                        patient.IdPatient = id;
+
+                                        if (ModelState.IsValid)
+                                        {
+                                            _context.Patients.Add(patient);
+                                            _context.SaveChanges();
+                                           // ViewBag.Message = 0;
+                                        }
+                                    }
+                                    else
+                                    {
+
+                                    }
+                                }
+                            }
+                        }
+                        sb.AppendLine("</tr>");
+                    }
+                    sb.Append("</table>");
+
+                    
+                    stream.Close();
+                }
+                
+            }
+            
+            return this.Content(sb.ToString());
+        }
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IdPatient")] Patient patient)
@@ -177,7 +293,6 @@ namespace TeamProject.Controllers
             }
             else
             {
-
                 var entranceConnections = await _context.EntranceConnections.ToListAsync();
                 int y = patient.IdPatient;
                 if (ModelState.IsValid)
@@ -188,9 +303,6 @@ namespace TeamProject.Controllers
                 }
                 return View();
             }
-
-
-
         }
         public async Task<IActionResult> Details(int? id)
         {
@@ -211,22 +323,22 @@ namespace TeamProject.Controllers
         [HttpPost]
         public async Task<ActionResult> Index(string Id)
         {
-                var IdPatient = _context.Patients;
+            var IdPatient = _context.Patients;
 
-                var pom =  IdPatient.FirstOrDefault(m => m.IdPatient == Convert.ToInt32(Id));
+            var pom = IdPatient.FirstOrDefault(m => m.IdPatient == Convert.ToInt32(Id));
 
-                if(pom != null)
-                {
-                    TempData["Message"] = "znalazlo";
-                    return RedirectToAction("TestSelect", new {id = Id});
-                    //return RedirectToAction("EntranceForm","EntranceFormFields", new {id = Id});
+            if (pom != null)
+            {
+                TempData["Message"] = "znalazlo";
+                return RedirectToAction("TestSelect", new { id = Id });
+                //return RedirectToAction("EntranceForm","EntranceFormFields", new {id = Id});
             }
             else
-                {
-                    
-                    TempData["Message"]="Id pacjetna nie znajduje się w bazie";
-                }
-                //Po co przekazywanie listy pacjentów do widoku??
+            {
+
+                TempData["Message"] = "Id pacjetna nie znajduje się w bazie";
+            }
+            //Po co przekazywanie listy pacjentów do widoku??
             return RedirectToAction("Index");
         }
 
@@ -234,7 +346,6 @@ namespace TeamProject.Controllers
         [HttpGet]
         public async Task<ActionResult> Index()
         {
-
             var patient = from m in _context.Patients select m;
             return View(await _context.Patients.ToListAsync());
         }

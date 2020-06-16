@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using FormGenerator.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 
 namespace FormGenerator.Controllers
 {
@@ -14,10 +15,11 @@ namespace FormGenerator.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private IHostingEnvironment _hostingEnvironment;
+        public HomeController(ILogger<HomeController> logger, IHostingEnvironment hostingEnvironment)
         {
             _logger = logger;
+            _hostingEnvironment = hostingEnvironment;
         }
 
         public IActionResult Index()
