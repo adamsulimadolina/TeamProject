@@ -147,7 +147,7 @@
             startNames = [];
             let hLength = headers.length;
             for (var i = 2; i < hLength; i++) {
-                var inp = document.createElement("input");
+                let inp = document.createElement("input");
                 inp.setAttribute("value", headers[i].innerText);
                 startNames.push(headers[i].innerText);
                 inp.setAttribute("class", "headTranslation custom_input");
@@ -164,7 +164,14 @@
             let headers = Array.from(document.querySelectorAll('th')).splice(2);
             let hLength = headers.length;
             for (var i = 0; i < hLength; i++) {
-                headers[i].innerText = inputs[i].value;
+                let divsort = document.createElement("div");
+                divsort.setAttribute("class", "th-inner sortable both");
+                divsort.innerText = inputs[i].value;
+                let divafter = document.createElement("div");
+                divafter.setAttribute("class", "fht-cell");
+                headers[i].appendChild(divsort);
+                headers[i].appendChild(divafter);
+                headers[i].removeChild(inputs[i]);
                 if (inputs[i].value != startNames[i]) {
                     await saveTranslate(inputs[i].value, startNames[i]);
                 }

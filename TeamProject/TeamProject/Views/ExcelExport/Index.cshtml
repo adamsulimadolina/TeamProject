@@ -1,4 +1,6 @@
-﻿
+﻿<head>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
 
 @if (ViewBag.Message != null)
 {
@@ -10,7 +12,7 @@
     List<SelectListItem> tmp = ViewBag.List;
 }
 
-@Html.DropDownList("mylist", tmp, new { @class = "custom-select" })
+@Html.DropDownList("mylist", tmp, new { @class = "custom-select-option" })
 
 <input id="Button1" type="button" class="button_search" value="Potwierdź" />
 <br />
