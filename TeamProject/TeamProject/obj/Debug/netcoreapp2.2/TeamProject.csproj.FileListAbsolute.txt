@@ -1128,3 +1128,5 @@ C:\Users\User\Documents\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp
 C:\Users\User\Documents\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.csproj.CopyComplete
 C:\Users\User\Documents\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.dll
 C:\Users\User\Documents\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.pdb
+C:\Users\User\Documents\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Forms\EdycjaWypelnionegoFormularza.cshtml.g.cs
+C:\Users\User\Documents\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Logout.cshtml.g.cs

@@ -13,6 +13,7 @@ namespace TeamProject.Models.FormGeneratorModels
         public int UserID { get; set; }
         public int FormID { get; set; }
         public int FieldID { get; set; }
+        public int TestID { get; set; }
         public string AnswerValue { get; set; }
         public DateTime date { get; set; }
     }

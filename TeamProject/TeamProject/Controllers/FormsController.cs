@@ -621,6 +621,7 @@ namespace FormGenerator.Controllers
         public async Task<JsonResult> AddLog()
         {
 
+            int? test = HttpContext.Session.GetInt32("current_test");
             string type = Request.Form["type"];
             string fieldvalue = Request.Form["value"];
             int formid = Convert.ToInt32(Request.Form["formid"]);

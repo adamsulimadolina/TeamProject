@@ -8,20 +8,25 @@
 
         #dtHorizontalVerticalExample th, td {
             white-space: nowrap;
-        }
-
-        th {
-            color: white;
-        }
-
-        td {
-            background-color: white;
+            min-width: 90px;
         }
 
         .header-visualizer h2 {
             text-shadow: 3px 3px 6px grey;
         }
     </style>
+    <link rel="stylesheet" href="~/css/bootstrap-table.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="~/js/bootstrap-table.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/js/FileSaver.min.js"></script>
+    <script type="text/javascript" src="~/js/xlsx.core.min.js"></script>
+    <script type="text/javascript" src="~/js/tableExport.min.js"></script>
+    <script src="~/js/bootstrap-table-export.js"></script>
+    <script src="~/js/all.js"></script>
 </head>
 
 @model IEnumerable<FormGenerator.Models.Modele_pomocnicze.UserAnswerList>
@@ -38,7 +43,7 @@
 <body>
     <br />
     <input type="hidden" id="urlGetValueSelected" value="@Url.Action("AnswerListPost", "UserAnswerLists")" />
-    @Html.DropDownList("mylist", tmp, new { @class = "custom-select" })
+    @Html.DropDownList("mylist", tmp, new { @class = "custom-select-option" })
     <button id="Button1" class="button_search">Potwierdź</button>
     <button id="translate" class="button_search">Tłumacz</button>
     <br /><br />
@@ -47,35 +52,35 @@
         <h3>@ViewBag.Name</h3>
     </div>
 
-    <table id="dtHorizontalVerticalExample" class="custom-table" cellspacing="0" width="100%">
+    <table id="dtHorizontalVerticalExample" data-toggle="table" data-search="true"
+           data-pagination="true"
+           data-show-export="true" class="overflow-auto">
         <thead>
-
             <tr>
-
-                <th>
+                <th data-sortable="true">
                     Pacjent
                 </th>
-                <th>
+                <th data-sortable="true">
                     Nr Badania
                 </th>
                 @foreach (var elem in ViewBag.Fields)
                 {
-                    <th class="translate">
-
+                    <th data-sortable="true" class="translate">
                         @elem.Name
                     </th>
-
                 }
             </tr>
         </thead>
+        @{int nr = 0; }
         <tbody>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td style="column-width:100px">
+                nr++;
+                <tr class="tr-class-@nr" id="tr-id-@nr">
+                    <td>
                         @Html.DisplayFor(modelItem => item.Id_User)
                     </td>
-                    <td style="column-width:100px">
+                    <td>
                         @Html.DisplayFor(modelItem => item.Id_Test)
                     </td>
                     @foreach (var el in ViewBag.Fields)
@@ -102,24 +107,17 @@
         </tbody>
     </table>
 
-    <div class="p-5 float-right">
-        <a href="#" class="button_search" id="test" onClick="javascript:fnExcelReport();">Pobierz</a>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <link href="https://nightly.datatables.net/css/jquery.dataTables.css" rel="stylesheet" type="text/css" />
-    <script src="https://nightly.datatables.net/js/jquery.dataTables.js"></script>
 
 
     <script type="text/javascript">
-        $('#dtHorizontalVerticalExample').DataTable({
-            "scrollX": true,
-            "scrollY": true,
-            "pageLength": 25,
-            "bLengthChange": false,
-            "bFilter": false
-        });
-        $('.dataTables_length').addClass('bs-select');
+        //$('#dtHorizontalVerticalExample').DataTable({
+        //    "scrollX": true,
+        //    "scrollY": true,
+        //    "pageLength": 25,
+        //    "bLengthChange": false,
+        //    "bFilter": false--
+        //});
+        //$('.dataTables_length').addClass('bs-select');
         $(document).ready(function () {
             $('body').find('.dataTables_scrollBody').addClass("scrollbar")
             $("#Button1").click(function (event) {
@@ -130,67 +128,32 @@
                 var FormName = $("#mylist option:selected").text();
                 sessionStorage.setItem('name', FormName);
 
-                
+
 
                 window.location.href = '/UserAnswerLists/AnswerListPost/' + selCat;
             });
-
-
+            $('.fixed-table-loading').hide();
+             let input = document.getElementsByClassName('form-control')[0];
+        input.placeholder = 'Szukaj';
         });
+        
 
-
-        function fnExcelReport() {
-
-            let name = sessionStorage.getItem('name');
-            let filename = name.toString() + '.xls';
-            var tab_text = '<html xmlns:x="urn:schemas-microsoft-com:office:excel">';
-            tab_text = tab_text + '<head><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet>';
-
-            tab_text = tab_text + "<x:Name>" + name + "</x:Name>";
-
-            tab_text = tab_text + '<x:WorksheetOptions><x:Panes></x:Panes></x:WorksheetOptions></x:ExcelWorksheet>';
-            tab_text = tab_text + '</x:ExcelWorksheets></x:ExcelWorkbook></xml></head><body>';
-
-            tab_text = tab_text + "<table border='0px'>";
-            tab_text = tab_text + $('#dtHorizontalVerticalExample').html();
-            tab_text = tab_text + '</table></body></html>';
-
-            var data_type = 'data:application/vnd.ms-excel';
-
-            var ua = window.navigator.userAgent;
-            var msie = ua.indexOf("MSIE ");
-
-            if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) {
-                if (window.navigator.msSaveBlob) {
-                    var blob = new Blob([tab_text], {
-                        type: "application/csv;charset=utf-8;"
-                    });
-                    navigator.msSaveBlob(blob, filename);
-                }
-            } else {
-                $('#test').attr('href', data_type + ', ' + encodeURIComponent(tab_text));
-                $('#test').attr('download', filename);
-            }
-
-        }
         //DANIEL 02.04 - translacja tabel
         let btntranslate = document.getElementById("translate");
         btntranslate.addEventListener("click", addInput);
         let startNames = [];
         function addInput() {
-            let headers = $('.translate');
+            let headers = Array.from(document.querySelectorAll('th'));
             startNames = [];
-            let hLength = headers.length / 2;
-            for (var i = 0; i < hLength; i++) {
+            let hLength = headers.length;
+            for (var i = 2; i < hLength; i++) {
                 var inp = document.createElement("input");
                 inp.setAttribute("value", headers[i].innerText);
                 startNames.push(headers[i].innerText);
                 inp.setAttribute("class", "headTranslation custom_input");
                 headers[i].innerText = "";
                 headers[i].appendChild(inp);
-            }
-            this.innerText = "Zapisz";
-            this.id = "save";
+            }          
             btntranslate.removeEventListener("click", addInput);
             btntranslate.addEventListener("click", save);
         }
@@ -198,8 +161,8 @@
             btntranslate.removeEventListener("click", save);
             btntranslate.addEventListener("click", addInput);
             let inputs = document.querySelectorAll('.headTranslation');
-            let headers = $('.translate');
-            let hLength = headers.length / 2;
+            let headers = Array.from(document.querySelectorAll('th')).splice(2);
+            let hLength = headers.length;
             for (var i = 0; i < hLength; i++) {
                 headers[i].innerText = inputs[i].value;
                 if (inputs[i].value != startNames[i]) {
