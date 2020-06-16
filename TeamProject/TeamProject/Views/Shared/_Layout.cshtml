@@ -100,10 +100,8 @@
                                 Menu
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" asp-controller="FieldDependency" asp-action="Index">Kreator Zależności</a>
                                 <a class="dropdown-item" asp-area="" asp-controller="UserAnswerLists" asp-action="AnswerList">Wizualizator</a>
                                 <a class="dropdown-item" asp-area="" asp-controller="Forms" asp-action="ListaFormularzy">Formularze</a>
-                                <a class="dropdown-item" asp-area="" asp-controller="Forms" asp-action="Index">Generator Formularzy</a>
                                 <a class="dropdown-item" asp-area="" asp-controller="ExcelExport" asp-action="Index">Eksporter Excel </a>
                             </div>
                         </li>
@@ -171,7 +169,7 @@
     @RenderSection("Scripts", required: false)
 
 
-    <script>
+    <script type="text/javascript">
         $(document).ready(function () {
             let val = sessionStorage.getItem("key");
             if (val != null) {

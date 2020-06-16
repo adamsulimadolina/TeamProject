@@ -10,6 +10,7 @@ using TeamProject.DTOs.FieldDependency;
 using TeamProject.ExtensionMethods;
 using TeamProject.Models.FieldDependencyModels;
 using TeamProject.Models.FieldFieldDependencyModels;
+using TeamProject.Models.NewTypeAndValidation;
 
 namespace TeamProject.Controllers
 {
@@ -155,6 +156,51 @@ namespace TeamProject.Controllers
                 KamilMistrz[field.Name] = createDependency.CurrentFieldAnswers.Split(';');
                 TempData.Put<Dictionary<String, String[]>>("ListOfAnswers", KamilMistrz);
             }
+            else if (createDependency.CurrentFieldType == "number")
+            {
+                _context.Field.Add(field);
+                _context.SaveChanges();
+
+                if(createDependency.CurrentFieldMin != 0 )
+                {
+                    Validation validation = new Validation()
+                    {
+                        idField = field.Id,
+                        type = "min",
+                        value = createDependency.CurrentFieldMin
+                    };
+                _context.Validations.Add(validation);
+                }
+
+                if (  createDependency.CurrentFieldMax != 0)
+                {
+                    Validation validation = new Validation()
+                    {
+                        idField = field.Id,
+                        type = "max",
+                        value = createDependency.CurrentFieldMax
+                    };
+                    _context.Validations.Add(validation);
+                }
+
+                if (  createDependency.CurrentFieldIsInteger == 100)
+                {
+                    Validation validation = new Validation()
+                    {
+                        idField = field.Id,
+                        type = "integerVal",
+                        value = createDependency.CurrentFieldIsInteger
+                    };
+                    _context.Validations.Add(validation);
+                }
+                createDependency.CurrentFieldIsInteger = 0;
+                createDependency.CurrentFieldMax = 0;
+                createDependency.CurrentFieldMin = 0;
+
+
+                _context.SaveChanges();
+                
+            }
 
             TempData.Put<CreateDependencyDTO>("CreateDependencyFromPostToGet", createDependency);
             return RedirectToAction(nameof(AddFieldToRelatedListGet));
@@ -182,11 +228,11 @@ namespace TeamProject.Controllers
             //    {
             //        _context.Add(f);
             //        _context.SaveChangesAsync();
-            //    }
+            //    } 
             //}
             var ListOfAnswers = TempData.Get<Dictionary<String, String[]>>("ListOfAnswers");
             _fieldDependenciesRepo.SaveDependency(dependency,  ListOfAnswers);
-            return RedirectToAction("Index", "Forms");
+            return RedirectToAction("Index", new { id = createDependency.SuperiorFieldId });
         }
     }
 }

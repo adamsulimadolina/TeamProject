@@ -192,21 +192,6 @@ namespace FormGenerator.Controllers
                         _context.Add(userAnswers);
                     }
                 }
-
-
-                //for (int i = 0; i < field.Dependencies.RelatedFields.Count; i++)
-                //{
-                //    UserAnswers pomik = new UserAnswers
-                //    {
-                //        Answer = field.Dependencies.RelatedFields[i].Type == "checkbox" ? field.DepndenciesValue[i].boolVal.ToString() : field.DepndenciesValue[i].textVal,
-                //        IdField = field.Dependencies.RelatedFields[i].Id,
-                //        IdForm = formId,
-                //        IdTest = (int)current_test,
-                //        IdPatient = patientId,
-                //        IdUser = user.CustomID
-                //    };
-                //    _context.Add(pomik);
-                //}
             }
             _context.SaveChanges();
 

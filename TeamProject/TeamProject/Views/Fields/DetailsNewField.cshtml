@@ -3,10 +3,10 @@
 @{
     ViewData["Title"] = "DetailsNewField";
 }
-    <script>
-        sessionStorage.removeItem('key');
-    </script>
-    <style>
+<script>
+    sessionStorage.removeItem('key');
+</script>
+<style>
 
 
     .tabl {
@@ -27,21 +27,19 @@
 </div>
 <div class="tabl" style="box-shadow:black" ">
 
-<div class="cities">
-    <h1 style="color:#66BB6A;  font-weight:700">Szczegóły pola</h1>
-    <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
+        <dt class="col-sm-2">
+            Nazwa
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Name)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Type)
+        <dt class="col-sm-2">
+            Typ
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Type)
         </dd>
     </dl>
 </div>
+

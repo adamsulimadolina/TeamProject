@@ -1,16 +1,62 @@
-﻿@model List<FieldWithValue>
+﻿    @model List<FieldWithValue>
 
 @{
     ViewData["Title"] = "Formularz";
 }
+    <style>
 
-<h3>Wypełnij fromularz</h3>
-<div class="cities">
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            box-shadow: black;
+        }
+
+        th {
+            text-align: left;
+            color: lightgray;
+            padding: 8px;
+            border-bottom: 2px solid grey;
+            color: black;
+        }
+
+        td {
+            text-align: left;
+            padding: 8px;
+            border-bottom: 2px solid grey;
+        }
+
+        tr {
+            background-color: whitesmoke;
+        }
+
+
+
+        a {
+            color: forestgreen;
+            font-weight: 500;
+        }
+
+        .table tbody tr:hover {
+            background-color: darkgray;
+        }
+
+        td {
+            color: black;
+        }
+    </style>
+<br />
+<span>
+    <h3>Wypełnij fromularz</h3>
+</span>
     <div class="row">
         <div class="col-md-10">
             <form asp-action="Formularz">
+                <a style="color:black" asp-area="" asp-controller="Forms" asp-action="Index" asp-route-id="@ViewBag.FORMID">
+                    <img src="~/arrow2.png" class="rounded-circle" alt="Add" width="30" height="30">
+                </a>
+                <br />
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <table class="table table-striped">
+                <table class="table table-hover">
 
                     @for (var i = 0; i < Model.Count; i++)
                     {
@@ -74,7 +120,7 @@
 
 
                                     <select class="form-control log log-select" asp-for="@Model[i].TextValue" style="width:250px;" id="@Model[i].Field.Id">
-                                        <option  selected value="">-- select an option --  </option>
+                                        <option selected value="">-- select an option --  </option>
                                         @foreach (var option in Model[0].options)
                                         {
                                             @if (option.idField == Model[i].Field.Id)
@@ -148,7 +194,7 @@
 
                                                 //asp-for="@Model[i].DepndenciesValue[j].textVal"
                                                 <select class="form-control log log-select" style="width:250px;" id="@dependency.RelatedFields[j].Id" asp-for="@Model[i].podrzedneFieldAnswers[dependency.IdDependency][j].textVal">
-                                                    <option  selected value="">-- select an option --  </option>
+                                                    <option selected value="">-- select an option --  </option>
                                                     @foreach (var option in Model[0].options)
                                                     {
                                                         @if (option.idField == dependency.RelatedFields[j].Id)
@@ -180,20 +226,13 @@
                 </div>
                 <input hidden id="patient" type="number" name="patientId" />
                 <div>
-                    <input id="MainSubmit" style=" background-color:white;
-                color:#66BB6A;
-                font-size:20px;
-                padding: 15px 35px;
-                border-radius: 8px;
-                position:center;" type="submit" asp-route-formId="@ViewBag.formid" value="Wyślij formularz" class="btn btn-primary" />
+                    <input id="MainSubmit" class="btn-outline-dark" type="submit" asp-route-formId="@ViewBag.formid" value="Wyślij formularz" class="btn btn-primary" />
 
                 </div>
-
             </form>
 
         </div>
     </div>
-</div>
 
 <script type="text/javascript">
     function handleCheck(e) {

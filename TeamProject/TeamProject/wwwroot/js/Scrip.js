@@ -4,7 +4,7 @@ var ostatni;
 $(document).ready(function () {
 
     let parentButton = document.getElementById("buton");
-    var addCategory = $(" <button>").attr("class", "btn btn-light").text("Dodaj nową kategorię główną").css("margin-bottom", "10px").css("backgroundColor", "#c34f4f").click(function () {
+    var addCategory = $(" <button>").attr("class", "button_search").text("Dodaj nową kategorię główną").css("margin-bottom", "30px").css("backgroundColor", "#c34f4f").click(function () {
        
         window.location.href = '/Category/CreateParentCategory';
         return false;
@@ -73,14 +73,14 @@ $(document).on('click', '.rodzic', function (e) {
     ostatni = parent;
     id = e.currentTarget.id;
     chowajFormularze();
-    var buttonAdd = $(" <button>").attr("class", "btn1").text("Dodaj formularz").css("margin-bottom", "10px").css("margin-left","10px").css("backgroundColor", "#fafae7").click(function () {
+    var buttonAdd = $(" <button>").attr("class", "btn1 col-md-4").text("Dodaj formularz").css("margin-bottom", "10px").css("margin-left", "10px").css("backgroundColor", "#b5b5b5").click(function () {
         let listContents = $("#Drzewo").html();
         sessionStorage.setItem('todoList', JSON.stringify(listContents));
         window.location.href = '/Forms/Create/' + id;
         return false;
     });
     buttonAdd.appendTo(parent);
-    var buttonAddCat = $(" <button>").attr("class", "btn1").text("Dodaj kategorie").css("margin-bottom", "10px").css("padding-left","10px").css("backgroundColor", "#f1f1bb").click(function () {
+    var buttonAddCat = $(" <button>").attr("class", "btn1 col-md-4").text("Dodaj kategorie").css("margin-bottom", "10px").css("padding-left", "10px").css("backgroundColor", "#b5b5b5").click(function () {
         let listContents = $("#Drzewo").html();
         sessionStorage.setItem('todoList', JSON.stringify(listContents));
         window.location.href = '/Category/Create/' + id;
@@ -146,7 +146,7 @@ $(document).on('click', '.rodzicX', function (e) {
     
     chowajDzieci(parent);
     wyswietlFormularze(id);
-    var buttonAdd = $(" <button>").attr("class", "btn1").text("Dodaj formularz").css("margin-bottom", "10px").css("backgroundColor", "#fafae7").click(function () {
+    var buttonAdd = $(" <button>").attr("class", "btn1 col-md-4").text("Dodaj formularz").css("margin-bottom", "10px").css("backgroundColor", "#b5b5b5").click(function () {
         let listContents = $("#Drzewo").html();
         sessionStorage.setItem('todoList', JSON.stringify(listContents));
         window.location.href = '/Forms/Create/' + id;
@@ -154,7 +154,7 @@ $(document).on('click', '.rodzicX', function (e) {
     });
     buttonAdd.appendTo(parent);
   
-    var buttonAddCat = $(" <button>").attr("class", "btn1").text("Dodaj kategorie").css("margin-bottom", "10px").css("backgroundColor", "#f1f1bb").click(function () {
+    var buttonAddCat = $(" <button>").attr("class", "btn1 col-md-4").text("Dodaj kategorie").css("margin-bottom", "10px").css("backgroundColor", "#b5b5b5").click(function () {
         let listContents = $("#Drzewo").html();
         sessionStorage.setItem('todoList', JSON.stringify(listContents));
         window.location.href = '/Category/Create/' + id;
@@ -207,23 +207,17 @@ function wyswietlFormularze(id) {
                
                 for (let i = 0; i < data.length; i++) {
                  
-                    let element = document.createElement("div");
+                    
                    
-                    var button = $("<button>").attr("class", "btnX").attr("title", data[i].name).text(data[i].name.split(' ')[0]).css("margin-right","5px").click(function () {
-                        let listContents = $("#Drzewo").html();
-                       
-                        sessionStorage.setItem('todoList', JSON.stringify(listContents));
-                        window.location.href = '/Forms/Formularz/' + data[i].id;
-                        return false;
-                    });
-                    var buttonEdit = $("<button>").attr("class", "btn").text("Edytuj").css("margin-top","10px").css("margin-bottom", "10px").css("backgroundColor", "#c34f4f").click(function () {
+                    var button = $("<label>").attr("class", "col-sm-4 sidebar-heading").attr("title", data[i].name).text(data[i].name).css("margin-right", "5px");
+                    var buttonEdit = $("<button>").attr("class", "btn2 col-sm-2").text("Edytuj").css("margin-top", "10px").css("margin-bottom", "10px").css("backgroundColor", "#b5b5b5").click(function () {
                         let listContents = $("#Drzewo").html();
                         sessionStorage.setItem('todoList', JSON.stringify(listContents));
                         window.location.href = '/Fields/AddNewField/' + data[i].id;
                         return false;
                     });
                     button.appendTo(parent);
-                    var buttonShow = $("<button>").attr("class", "btn").text("Wyświetl wyniki formularza").css("margin-top", "10px").css("margin-bottom", "10px").css("margin-right", "5px").css("backgroundColor", "#008CBA").click(function () {
+                    var buttonShow = $("<button>").attr("class", "btn2 col-sm-5").text("Wyświetl wyniki formularza").css("margin-top", "10px").css("margin-bottom", "10px").css("margin-right", "5px").css("backgroundColor", "#b5b5b5").click(function () {
                         let listContents = $("#Drzewo").html();
                         sessionStorage.setItem('todoList', JSON.stringify(listContents));
                         window.location.href = '/UserAnswerLists/AnswerListPost/' + data[i].id;
@@ -232,7 +226,7 @@ function wyswietlFormularze(id) {
                     buttonShow.appendTo(parent);
                     buttonEdit.appendTo(parent);
 
-                    parent.appendChild(element);
+                   
 
                 }
             }

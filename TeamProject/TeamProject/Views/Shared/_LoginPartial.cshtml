@@ -10,19 +10,26 @@
     <ul class="navbar-nav mr-auto">
         @if (SignInManager.IsSignedIn(User) && (User.IsInRole("Admin")))
         {
-            <li class="nav-item">
-                <a class="btn btn-outline-success my-2 my-sm-0" asp-controller="Patient" asp-action="Create" title="AddPatient">Dodaj Pacjenta</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-light" asp-controller="Patient" asp-action="Index" title="CompleteSurvey">Pacjent</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" asp-controller="Patient" asp-action="Index" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Menu Pacjenta
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" asp-controller="Patient" asp-action="Index" title="CompleteSurvey">Pacjent</a>
+                    <a class="dropdown-item" asp-controller="Patient" asp-action="Create" title="AddPatient">Dodaj Pacjenta</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" asp-controller="EntranceFormFields" asp-action="Index" title="CompleteSurvey">Formularz powitalny </a>
+
+                </div>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Mój profil</a>
             </li>
             <li class="nav-item">
-                <form class="form-inline " asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                    <button type="submit" class="nav-link btn btn-link text-light">Wyloguj się</button>
-                </form>
+                @*<form class="form-inline " asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+            <a class="nav-link text-light">Wyloguj się</a>
+        </form>*@
+                <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">Wyloguj się</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-light" asp-controller="AdminPanel" asp-action="Index">Panel</a>
@@ -31,27 +38,25 @@
         else if (SignInManager.IsSignedIn(User) && (User.IsInRole("Technik")))
         {
             <li class="nav-item dropdown">
-
-                <a class="nav-link text-dark btnx dropdown-toggle" data-toggle="dropdown" role="button" asp-controller="Patient" asp-action="Index">Pacjent</a>
-                <div class="dropdown-menu">
-
-                    <a class="dropdown-item text-dark btnxDrop " asp-controller="Patient" asp-action="Index" title="CompleteSurvey">Pacjent</a>
-
-                    <a class="dropdown-item text-dark btnxDrop " asp-controller="Patient" asp-action="Create" title="AddPatient">Dodaj Pacjenta</a>
+                <a class="nav-link dropdown-toggle" asp-controller="Patient" asp-action="Index" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Menu Pacjenta
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" asp-controller="Patient" asp-action="Index" title="CompleteSurvey">Pacjent</a>
+                    <a class="dropdown-item" asp-controller="Patient" asp-action="Create" title="AddPatient">Dodaj Pacjenta</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item text-dark btnxDrop dropdown-item" asp-controller="EntranceFormFields" asp-action="Index" title="CompleteSurvey">Formularz powitalny </a>
+                    <a class="dropdown-item" asp-controller="EntranceFormFields" asp-action="Index" title="CompleteSurvey">Formularz powitalny </a>
 
                 </div>
-
             </li>
 
 
             <li class="nav-item">
-                <a style="margin:5px 5px 0px 50px" class="btn btn-info" asp-area="Identity" asp-page="/Account/Manage/Index" title="Profil użytkownika">Mój profil</a>
+                <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Mój profil</a>
             </li>
             <li class="nav-item">
-                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                    <button style="margin:5px;" type="submit" class="btn btn-info">Wyloguj się</button>
+                <form class="form-inline " asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                    <button type="submit" class="nav-link btn btn-link text-light">Wyloguj się</button>
                 </form>
             </li>
         }
