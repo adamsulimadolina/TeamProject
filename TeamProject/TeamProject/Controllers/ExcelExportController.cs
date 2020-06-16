@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FormGenerator.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -17,6 +18,7 @@ using TeamProject.Models.Modele_pomocnicze;
 
 namespace TeamProject.Controllers
 {
+    [Authorize]
     public class ExcelExportController : Controller
     {
         private IHostingEnvironment _hostingEnvironment;

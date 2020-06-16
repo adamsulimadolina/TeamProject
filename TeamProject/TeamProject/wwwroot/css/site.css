@@ -305,7 +305,7 @@ a:hover{
     border-radius: 6px;
 }
 
-.custom-select {
+.custom-select-option {
     cursor: pointer;
     font-size: 12px;
     width: 40%;
