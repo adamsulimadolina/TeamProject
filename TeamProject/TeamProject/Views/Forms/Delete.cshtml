@@ -13,7 +13,7 @@
 <div><br />
     <a style="color:black" asp-area="" asp-controller="Forms" asp-action="ListaFormularzy" asp-route-id="@Model.Id">
     <img src="~/arrow2.png" class="rounded-circle" alt="Add" width="30" height="30">
-</a><br /></div>
+</a><br /></div><br />
 <form asp-action="Delete" class="shadow p-3 mb-5 bg-white rounded" style="height:50px;">
     <div class="form-group">
         <label>Czy na pewno usunąć wybrany formularz?</label>
@@ -24,12 +24,3 @@
     </div>
 </form>
 
-
-<h3>Czy jesteś pewien że chcesz usunąć ten formularz?</h3>
-<div style=" margin:0 auto;">
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="Id" />
-        <input type="submit" value="USUŃ" class="btn btn-danger" /> |
-        <a asp-action="Index">Powrót do listy</a>
-    </form>
-</div>
