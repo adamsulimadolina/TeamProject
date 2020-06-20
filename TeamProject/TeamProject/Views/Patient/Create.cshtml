@@ -55,18 +55,27 @@
         padding: 2px 16px;
     }
 </style>
+    <div class="row" style="padding-top:40px">
+        <div>
+            <br />
+            <a style="color:black" asp-controller="Forms" asp-action="Index">
+                <img src="~/arrow2.png" class="rounded-circle" alt="Add" width="30" height="30">
+            </a>
+            <br />
+        </div>
+        @*<<<<<<< HEAD*@
+        <div class="col-md-4 offset-4">
+            <span>
+                <h3 class="text-center">Dodaj nowego pacjenta</h3>
+            </span>
+        </div>
 
-<div class="row" style="padding-top:40px">
-    <div class="col-md-4 offset-4">
-        <h4 class="text-center">Dodaj nowego pacjenta</h4>
+        @*=======
+                <hr />
+
+            >>>>>>> Adam-Final*@
     </div>
-    <div class="col">
-        <a asp-action="Index" asp-controller="Patient" class="btn btn-danger">Powrót do menu głównego</a>
-    </div>
-</div>
 
-
-<div class="row">
     <div class="col-md-4 offset-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -78,7 +87,7 @@
 
 
             <div class="form-group">
-                <input id="createbutton" type="submit" value="Stwórz" class="btn btn-primary" />
+                <input id="createbutton" type="submit" value="Stwórz" class="btn-outline-secondary" />
             </div>
         </form>
 
@@ -132,6 +141,6 @@
 </div>
 
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
