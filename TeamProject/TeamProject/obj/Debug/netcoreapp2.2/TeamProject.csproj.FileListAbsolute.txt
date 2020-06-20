@@ -1423,3 +1423,4 @@ C:\Users\AdriannaJK\Desktop\Nowy folder\TeamProject\TeamProject\TeamProject\obj\
 C:\Users\AdriannaJK\Desktop\Nowy folder\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.genruntimeconfig.cache
 C:\Users\AdriannaJK\Desktop\Nowy folder\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Patient\ImportFile.cshtml.g.cs
 C:\Users\AdriannaJK\Desktop\Nowy folder\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\TeamProject.csproj.CoreCompileInputs.cache
+C:\Users\kacpe\Documents\GitHub\TeamProject\TeamProject\TeamProject\obj\Debug\netcoreapp2.2\Razor\Views\Patient\ImportFile.cshtml.g.cs

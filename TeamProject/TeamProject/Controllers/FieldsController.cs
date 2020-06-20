@@ -279,7 +279,7 @@ namespace FormGenerator.Controllers
                 }
             }
             _context.SaveChanges();
-            return RedirectToAction("Home");
+            return RedirectToAction("AddNewField", new { id = newFieldList.FormId });
         }
         // GET: Fields/Edit/5
         public async Task<IActionResult> Edit(int? id)
